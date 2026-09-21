@@ -55,8 +55,11 @@ src/
 
 ### 이동 연결
 
--   `Scene01Start` → `/character` → `/power-up` → `/world-map` 순서로
-    `Link`가 연결되어 있습니다. (스타일 없는 임시 텍스트 링크)
+-   `Scene01Start`의 START GAME → `/character`, `Scene02` → `/power-up` →
+    `/world-map` 순서로 `Link`가 연결되어 있습니다. (`Scene02`~`04`는 스타일
+    없는 임시 텍스트 링크)
+-   `Scene01Start` 상단 메뉴: ABOUT `/about`, PROJECT `/projects`, Q&A `/qa`,
+    CONTACT `/contact`
 -   `Scene04WorldMap`에서 ABOUT `/about`, SKILLS `/skills`, PROJECTS
     `/projects`, Q&A `/qa`, CONTACT `/contact`로 `Link` 이동합니다.
 
@@ -68,8 +71,10 @@ src/
 
 ## 구현 중
 
--   실제 화면 디자인은 아직 시작하지 않았습니다. 현재 모든 Scene과 Page는
-    제목과 임시 링크만 있는 골격입니다.
+-   `Scene01Start` 화면 구현 완료(100vh 풀페이지, 스크롤 없음): 배경
+    `main.png`, 로고 `main title.png`, 헤더, 메뉴, START GAME 버튼.
+    `Scene01Start.css`, `index.css`의 Lilita One `@font-face` 추가.
+-   그 외 Scene과 Page는 제목과 임시 링크만 있는 골격입니다.
 
 ## 확정된 UX 정책
 
@@ -101,6 +106,10 @@ src/
 
 ## 알려진 문제
 
+-   Scene01 디자인 시안의 픽셀체 폰트 파일이 없어 Lilita One으로
+    대체했습니다. 시안의 배경 위 문구("A MORE CREATIVE TOMORROW", 표지판
+    "GOOD DESIGN BRIGHTER TOMORROW")는 `main.png`에 포함되어 있지 않아
+    구현하지 않았습니다.
 -   Scene 05~10은 Route에 연결되지 않았고, 콘텐츠 페이지 내부에서 쓰이는
     흐름이 정해지지 않았습니다.
 -   콘텐츠 페이지에서 WORLD MAP으로 돌아가는 이동이 없습니다.
@@ -114,7 +123,7 @@ src/
 
 ## 다음 작업
 
-1.  Scene 01~04 화면 디자인 구현
+1.  Scene 02~04 화면 디자인 구현
 2.  World별 콘텐츠 페이지 구현 (`/about`, `/skills`, `/projects`, `/qa`,
     `/contact`)
 3.  PROJECTS 4개 Stage 구현
