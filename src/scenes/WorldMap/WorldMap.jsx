@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 
-function Scene04WorldMap() {
+function WorldMap() {
   return (
-    <main id="scene_04_world_map" aria-label="SCENE 04 — WORLD MAP">
-      <h1>SCENE 04 — WORLD MAP</h1>
+    <main id="world_map" aria-label="WORLD MAP">
+      <h1>WORLD MAP</h1>
       <nav aria-label="WORLD">
         <ul>
           <li><Link to="/about">ABOUT</Link></li>
@@ -17,4 +17,4 @@ function Scene04WorldMap() {
   )
 }
 
-export default Scene04WorldMap
+export default WorldMap

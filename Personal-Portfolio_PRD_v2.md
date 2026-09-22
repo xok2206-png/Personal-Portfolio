@@ -1,567 +1,998 @@
 # Personal Portfolio PRD v2
 
-## 1. 제품 개요
+> Product Requirements Document  
+> Platform: Responsive Web  
+> Stack: React + Vite  
+> Concept: **Playable Interactive Portfolio**  
+> Status: Working PRD — 콘텐츠 구조는 고정 기준, 디자인·모션·인터랙션은 반복 개선 가능
 
-개인 채용을 준비하는 웹 퍼블리셔·프론트엔드 디자이너를 위해, 일반적인
-포트폴리오 페이지를 넘어 **게임을 플레이하듯 자신의 역량과 프로젝트를
-탐험하는 2.5D 인터랙티브 퍼스널 포트폴리오**를 제작합니다.
+---
 
--   프로젝트명: Personal Portfolio
--   플랫폼: Responsive Web
--   개발 환경: React + Vite
--   핵심 콘셉트: Portfolio as a Game
--   핵심 경험: START → CHARACTER → POWER UP → WORLD MAP → ENTER WORLD →
-    MISSION → STAGE CLEAR → NEXT WORLD → Q&A → STAFF ROLL + CONTACT
+## 01. Product Overview
 
-------------------------------------------------------------------------
+이 프로젝트는 일반적인 스크롤형 포트폴리오가 아니라,
+**사용자가 하나의 세계를 탐험하듯 지원자의 정체성, 기술, 프로젝트, 문제 해결 방식을 경험하는 인터랙티브 퍼스널 포트폴리오**다.
 
-## 2. 문제 정의
+게임 자체가 목적이 아니다.
 
--   일반적인 포트폴리오는 위아래 스크롤과 카드 나열 중심이라 개인의
-    개성과 기억에 남는 경험을 전달하기 어렵습니다.
--   프로젝트 결과물만 보여주면 지원자의 사고 과정, 역할, 기술 역량을
-    충분히 전달하기 어렵습니다.
--   디자인과 개발 역량을 동시에 보여줄 수 있는 인터랙티브한 포트폴리오
-    경험이 필요합니다.
--   따라서 포트폴리오 자체를 하나의 게임처럼 구성해 사용자가 자연스럽게
-    콘텐츠를 탐험하도록 합니다.
+포트폴리오를 통해 다음 역량을 증명하는 것이 목적이다.
 
-------------------------------------------------------------------------
+> **디자인 의도를 이해하고, 인터랙션과 반응형을 포함한 실제 웹 경험으로 구현할 수 있는 사람**
 
-## 3. 목표 사용자
+주요 사용자는 다음과 같다.
 
--   주요 사용자: 채용 담당자, 실무 디자이너·개발자, 포트폴리오를
-    확인하는 기업 관계자
--   사용 환경: 데스크톱 중심, 태블릿 및 모바일 대응
--   사용자 목표:
-    -   짧은 시간 안에 지원자의 정체성과 전문 분야를 파악
-    -   주요 프로젝트와 작업 과정을 빠르게 확인
-    -   디자인 및 프론트엔드 구현 역량을 경험
-    -   연락 수단까지 자연스럽게 도달
+- 채용 담당자
+- 프론트엔드/퍼블리싱 실무자
+- UX/UI 디자이너
+- 포트폴리오를 검토하는 기업 관계자
 
-------------------------------------------------------------------------
+---
 
-## 4. 제품 목표
+## 02. Product Goal
 
--   포트폴리오 전체를 하나의 게임 플레이 흐름으로 구성합니다.
--   첫 화면부터 마지막 연락 화면까지 명확한 Scene progression을
-    제공합니다.
--   WORLD MAP에서 주요 콘텐츠 영역을 게임 월드처럼 탐험할 수 있도록
-    합니다.
--   각 World에서 콘텐츠를 확인하고 Mission을 수행한 뒤 Stage Clear로
-    다음 World로 이어지는 구조를 제공합니다.
--   PROJECTS World에서는 **4개의 프로젝트 스테이지를 한 화면에서
-    확인**할 수 있도록 합니다.
--   인터랙션과 모션은 시각적 장식보다 탐색과 정보 전달을 돕는 방향으로
-    사용합니다.
--   React 컴포넌트 기반의 유지보수 가능한 구조로 구현합니다.
+사용자는 짧은 시간 안에 다음을 파악할 수 있어야 한다.
 
-------------------------------------------------------------------------
+1. 누구인지
+2. 어떤 직무를 목표로 하는지
+3. 어떤 기술을 사용하는지
+4. 어떤 프로젝트를 했는지
+5. 프로젝트에서 어떤 역할과 판단을 했는지
+6. 디자인과 개발을 어느 수준으로 연결할 수 있는지
+7. 어떻게 연락할 수 있는지
 
-# 5. 전체 Scene 구조
+게임 연출은 이 정보를 더 기억에 남게 전달하기 위한 수단이다.
 
-전체 포트폴리오는 다음 순서의 게임형 Scene Flow를 기본 구조로
-사용합니다.
+---
 
-``` text
-SCENE 01 — START
+## 03. Core Product Principles
+
+### PLAYER
+캐릭터는 장식이 아니라 Player Avatar다.
+
+### LIVING WORLD
+기본 Game Scene은 사용자가 아무것도 하지 않아도 살아 움직인다.
+
+### JOURNEY
+Navigation은 단순 Page Switch보다 이동·발견·상호작용으로 경험한다.
+
+### PORTFOLIO FIRST
+게임보다 실제 콘텐츠 전달이 우선이다.
+
+### GUIDED, NOT LOCKED
+추천 동선은 제공하지만 사용자를 특정 순서에 가두지 않는다.
+
+### PLAY, BUT NEVER BLOCK CONTENT
+게임을 하지 않아도 Project / Contact / Resume에 접근할 수 있어야 한다.
+
+### FIRST VISIT IS CINEMATIC, REVISIT IS FAST
+첫 방문은 연출을 충분히 보여주되, 재방문에는 빠른 이동을 허용한다.
+
+---
+
+## 04. LOCKED vs FLEXIBLE
+
+### LOCKED
+
+다음은 명시적인 변경 요청이 없는 한 유지한다.
+
+- 프로젝트 핵심 콘텐츠
+- 프로젝트 4개 구조
+- About / Skills / Projects / Q&A / Contact의 핵심 정보
+- 실제 Role / Process / Result / Limitation
+- Quick View
+- 게임 없이도 콘텐츠에 접근 가능한 구조
+- Product Validation Criteria
+- Responsive / Accessibility / Fallback 원칙
+- React + Vite
+- React Router 기반 Route 구조 사용
+- `src/scenes/`와 `src/pages/`의 역할 분리
+
+### FLEXIBLE / ITERATIVE
+
+작업하면서 실제 브라우저 결과를 보고 수정 가능하다.
+
+- 디자인
+- 레이아웃
+- 화면 Composition
+- 애니메이션
+- 모션 타이밍
+- Hover / Pressed
+- 카메라
+- Parallax
+- Transition
+- FX
+- Lighting
+- Ambient Motion
+- Scene별 Interaction 방식
+- Responsive Composition
+- Color 미세 조정
+
+디자인 시스템은 기준선이며 절대 고정값이 아니다.
+
+---
+
+## 05. Primary User Modes
+
+첫 진입에서 사용자는 두 방식 중 하나를 선택할 수 있다.
+
+### A. ENTER WORLD
+
+전체 Interactive Experience.
+
+- Real World
+- Portal
+- Player Transformation
+- Character
+- Power Up
+- World Map
+- Project Worlds
+- Mission
+- Stage Clear
+- Q&A
+- Contact
+- Ending
+
+### B. QUICK VIEW
+
+게임을 하지 않고 포트폴리오 정보에 바로 접근.
+
+Quick View는 별도 콘텐츠를 만드는 것이 아니라
+**동일한 Portfolio Data를 연출 없이 빠르게 탐색하는 경로**다.
+
+Quick View에서 최소한 다음에 바로 접근할 수 있어야 한다.
+
+- About
+- Skills
+- Projects 4개
+- Q&A
+- Resume
+- Contact
+
+---
+
+## 06. Overall Experience Flow
+
+```text
+SCENE 00 — REAL WORLD
         ↓
-SCENE 02 — CHARACTER
+PORTAL OPEN
         ↓
-SCENE 03 — POWER UP
+TOOL UNIVERSE / STYLE TRANSFORMATION
         ↓
-SCENE 04 — WORLD MAP
+ARRIVAL
         ↓
-SCENE 05 — ENTER WORLD
+CHARACTER
         ↓
-SCENE 06 — MISSION
+POWER UP
         ↓
-SCENE 07 — STAGE CLEAR
+WORLD MAP
         ↓
-SCENE 08 — NEXT WORLD
+PROJECT WORLD
         ↓
-SCENE 09 — Q&A
+PROJECT ENTRY
         ↓
-SCENE 10 — STAFF ROLL + CONTACT
+MISSION / CASE STUDY
+        ↓
+STAGE CLEAR
+        ↓
+WORLD MAP
+        ↓
+Q&A / CONTACT
+        ↓
+GAME CLEAR
+        ↓
+STAFF ROLL
+        ↓
+RETURN TO REAL WORLD
 ```
 
-### SCENE 01 --- START
+이 Flow는 권장 Journey다.
 
--   목적: 사용자를 게임 세계로 진입시킵니다.
--   핵심 내용: 포트폴리오 타이틀, 시작 버튼, 초기 비주얼
--   주요 행동: START / ENTER
--   상태: 첫 진입 화면
+사용자는 Quick View / Adventure Book / Direct Link를 통해
+중간 콘텐츠로 직접 이동할 수 있다.
 
-### SCENE 02 --- CHARACTER
+---
 
--   목적: 플레이어 캐릭터이자 포트폴리오의 주인공을 소개합니다.
--   핵심 내용: 이름, 직무, 캐릭터 비주얼, 간단한 자기소개
--   주요 행동: 캐릭터 확인, 다음 Scene 이동
+## 07. SCENE 00 — REAL WORLD
 
-### SCENE 03 --- POWER UP
+### 목적
+Portfolio World로 들어가기 전 현실 세계를 보여주고,
+현실 → 게임 세계의 대비를 만든다.
 
--   목적: 지원자의 능력과 기술을 게임의 능력치처럼 소개합니다.
--   핵심 내용: Skills, Tools, Strength, 주요 역량
--   주요 행동: 능력치 확인, 다음 Scene 이동
--   표현 방식: 게이지, 아이콘, 스탯, 장비 등 게임 UI를 활용할 수 있음
+### Visual Direction
+- 현실적인 작업실
+- 늦은 저녁
+- Photorealistic / Cinematic
+- Warm Desk Light
+- Cool Monitor Light
+- 낮은 Motion Intensity
 
-### SCENE 04 --- WORLD MAP
+### Ambient
+- Monitor glow
+- Curtain
+- Steam
+- Outside light
+- Character subtle movement
 
--   목적: 전체 포트폴리오의 탐험 지도를 제공합니다.
--   주요 World:
-    -   ABOUT
-    -   SKILLS
-    -   PROJECTS
-    -   Q&A
-    -   CONTACT
--   주요 행동: World 선택, 이동
--   원칙: 한 화면에서 전체 월드 구조를 이해할 수 있어야 합니다.
+### Primary Actions
+- `ENTER WORLD`
+- `QUICK VIEW`
 
-### SCENE 05 --- ENTER WORLD
+### ENTER WORLD Sequence
+1. Monitor 이상 현상
+2. 작은 빛
+3. Portal 생성
+4. 주변 물체가 Portal에 반응
+5. Character reaction
+6. Character가 Portal로 끌려감
+7. Camera가 따라 진입
 
--   목적: 사용자가 선택한 World에 진입하는 순간을 연출합니다.
--   핵심 내용: World title, intro, 대표 비주얼
--   주요 행동: ENTER / START MISSION
--   모션: 카메라 이동, 확대, 페이드, 오브젝트 등장 등을 필요에 따라 사용
+Intro는 Skip 가능해야 한다.
 
-### SCENE 06 --- MISSION
+---
 
--   목적: 해당 World의 핵심 콘텐츠를 실제로 탐험하도록 합니다.
--   World별 Mission은 콘텐츠 성격에 맞게 달라질 수 있습니다.
--   주요 행동: 클릭, 선택, 스크롤, 프로젝트 탐색, 정보 확인
--   완료 조건: 해당 World의 핵심 콘텐츠를 확인하면 Mission 완료 상태로
-    전환
+## 08. PORTAL / TOOL UNIVERSE
 
-### SCENE 07 --- STAGE CLEAR
+### 목적
+현실의 작업자에서 Portfolio World의 Player Avatar로 전환되는 과정을 보여준다.
 
--   목적: 하나의 World 탐색 완료를 게임의 Stage Clear처럼 피드백합니다.
--   핵심 내용: 완료 메시지, 확인한 콘텐츠, 다음 행동
--   주요 행동: NEXT WORLD / BACK TO MAP
--   주의: 과도한 게임 연출로 콘텐츠보다 화면이 앞서지 않도록 합니다.
+### Tools
 
-### SCENE 08 --- NEXT WORLD
+#### Design
+- Figma
+- Photoshop
+- Illustrator
 
--   목적: 다음 World로 자연스럽게 이동시킵니다.
--   핵심 내용: 다음 World Preview
--   주요 행동: NEXT WORLD / WORLD MAP
--   모션: 다음 World로 이동하는 전환 연출
+#### Development
+- VS Code
+- HTML
+- CSS
+- JavaScript
+- React
+- Vite
+- Git
+- GitHub
 
-### SCENE 09 --- Q&A
+#### AI / Creative
+- ChatGPT
+- Claude
+- Gemini
+- Midjourney
+- Higgsfield
 
--   목적: 포트폴리오와 지원자에 대해 예상되는 질문에 답합니다.
--   핵심 내용: FAQ / Interview Q&A
--   주요 행동: 질문 선택, 답변 열기
--   Q&A는 별도의 최종 정보 탐색 영역으로 사용합니다.
+실제 사용하는 Tool이 추가될 경우 Project 자료를 기준으로 갱신한다.
 
-### SCENE 10 --- STAFF ROLL + CONTACT
+### 연출 원칙
+단순 Logo Wall로 만들지 않는다.
 
--   목적: 전체 포트폴리오를 마무리하고 연락 행동으로 연결합니다.
--   핵심 내용:
-    -   Staff Roll
-    -   Credits
-    -   Contact
-    -   Email
-    -   GitHub 또는 필요한 외부 링크
--   주요 행동: 이메일 보내기, 외부 링크 이동
--   최종 메시지: 포트폴리오를 완료한 사용자가 자연스럽게 연락 단계로
-    이동하도록 합니다.
+Tool을 지나면서:
 
-### Scene과 Page / Route
+`REALISTIC → STYLIZED → GAME ART → PLAYER AVATAR`
 
--   Scene: 게임형 포트폴리오의 진행 및 연출 단위
--   Page: 실제 포트폴리오 콘텐츠를 보여주는 단위
--   Scene과 URL은 1:1로 대응하지 않습니다. URL에는 Scene 번호를 넣지
-    않습니다.
+로 변환된다.
 
-최종 Route:
+마지막에는 짧은 System Feedback만 허용한다.
 
-| URL | 화면 | 구분 |
-| --- | --- | --- |
-| `/` | START (SCENE 01) | Scene |
-| `/character` | CHARACTER (SCENE 02) | Scene |
-| `/power-up` | POWER UP (SCENE 03) | Scene |
-| `/world-map` | WORLD MAP (SCENE 04) | Scene |
-| `/about` | ABOUT | Page |
-| `/skills` | SKILLS | Page |
-| `/projects` | PROJECTS | Page |
-| `/qa` | Q&A | Page |
-| `/contact` | CONTACT | Page |
+예:
+`PLAYER READY`
 
--   SCENE 05 ENTER WORLD, SCENE 06 MISSION, SCENE 07 STAGE CLEAR,
-    SCENE 08 NEXT WORLD는 World 진입 및 진행 연출이므로 별도 URL을 만들지
-    않고 콘텐츠 페이지 내부에서 처리할 수 있습니다. 구체적인 방식은 확정된
-    디자인을 기준으로 결정합니다.
--   WORLD MAP은 콘텐츠 선택 허브이며 실제 콘텐츠 페이지가 아닙니다.
-    ABOUT / SKILLS / PROJECTS / Q&A / CONTACT를 선택하면 각각 `/about`,
-    `/skills`, `/projects`, `/qa`, `/contact`로 이동합니다.
--   `/world/about`, `/world/qa`처럼 World를 위한 중복 URL을 만들지
-    않습니다.
--   Q&A와 CONTACT 콘텐츠 페이지는 각각 하나만 사용합니다. SCENE 09가 Q&A
-    콘텐츠를, SCENE 10이 CONTACT 콘텐츠를 보여줄 때는 `/qa`, `/contact`와
-    같은 콘텐츠를 재사용하고 복제하지 않습니다.
--   PROJECTS는 `/projects` 하나의 페이지에서 4개 Stage를 보여줍니다.
-    Stage별 Route를 기본으로 만들지 않습니다.
+Skill Level 표현은 사용하지 않는다.
 
-------------------------------------------------------------------------
+---
 
-## 6. WORLD 구성
+## 09. ARRIVAL
 
-WORLD MAP은 전체 Scene Flow와 별개로 포트폴리오의 주요 콘텐츠를 탐색하는
-핵심 공간입니다.
+Portal을 통과한 Player가 Portfolio World로 떨어진다.
 
-### ABOUT WORLD
+### Sequence
+- Cloud 통과
+- World Reveal
+- Fall
+- Land
+- Dust
+- Grass / Flower reaction
+- Bird reaction
+- Player recovery
+- Look around
 
--   자기소개
--   경력 및 작업 배경
--   디자인/개발 방향
--   작업 철학
+이후 사용자가 Player Control을 얻게 된다.
 
-### SKILLS WORLD
+화면은 처음으로 밝은 Portfolio World 전체를 보여준다.
 
--   HTML
--   CSS
--   JavaScript
--   React
--   UI/UX
--   Figma
--   Photoshop
--   Illustrator
--   기타 실제 사용 기술
+---
 
-### PROJECTS WORLD
+## 10. CHARACTER
 
--   핵심 프로젝트 4개
--   프로젝트별 대표 이미지
--   프로젝트명
--   프로젝트 유형
--   핵심 역할
--   상세 프로젝트 진입
+### 목적
+지원자의 정체성과 소개 콘텐츠 전달.
 
-### Q&A WORLD
+### 콘텐츠
+- Profile
+- Values
+- Interests
+- History / Background
+- Role / Direction
 
--   예상 질문
--   지원자 관련 질문
--   작업 방식
--   문제 해결 방식
--   프로젝트 관련 질문
+### Interaction
+Player가 공간 안에서 각 Information Object로 접근할 수 있다.
 
-### CONTACT WORLD
+예:
 
--   Email
--   GitHub
--   필요한 외부 링크
--   최종 연락 행동
+- PROFILE
+- VALUES
+- INTERESTS
+- HISTORY
 
-------------------------------------------------------------------------
+Object에 접근하면 실제 Portfolio Information UI를 보여준다.
 
-## 7. PROJECTS World 구조
+게임 조작 없이 Adventure Book에서도 동일 콘텐츠 접근 가능.
 
-PROJECTS World는 **4개의 프로젝트 스테이지가 한 화면에서 보이는 B
-방식**을 기본 구조로 합니다.
+---
 
-``` text
+## 11. POWER UP
+
+### 목적
+Skills를 단순 목록이 아니라 직접 획득하는 경험으로 보여준다.
+
+### 기본 조작
+Desktop:
+- Left / Right 또는 A / D
+- Space / Up / W = Jump
+
+필요 시 Point & Click을 보조로 제공한다.
+
+### Core Loop
+
+```text
+Player 이동
+→ Skill Block 아래 접근
+→ Jump
+→ Hit
+→ Skill Item Pop
+→ Player가 획득
+→ Power Up Feedback
+→ Skill Information
+```
+
+### Skill 표현
+
+`FIGMA Lv.5` 같은 자가평가 Level은 사용하지 않는다.
+
+대신:
+
+```text
+FIGMA ACQUIRED
+
+Prototype
+Component
+Design System
+
+USED IN
+Project A / Project B
+```
+
+처럼 실제 사용 근거와 연결한다.
+
+### Power-up FX 예
+
+- Figma → Wireframe / Grid / Component
+- Photoshop → Color / Image / Layer
+- Illustrator → Vector / Path
+- Frontend → Code / UI Build
+- 3D → Wireframe → Render
+- AI → Generative / Prompt / Motion
+
+Skill 목록은 실제 Portfolio Content를 기준으로 최종 확정한다.
+
+---
+
+## 12. WORLD MAP
+
+### 목적
+Portfolio 전체의 Main Hub.
+
+### Main Destinations
+- ABOUT
+- SKILLS
+- PROJECTS
+- Q&A
+- CONTACT
+
+새 World를 임의로 추가하지 않는다.
+
+### Navigation
+
+#### 자유 이동
+- WASD
+- 방향키
+
+#### 목적지 선택
+- Point & Click
+- Destination 선택 시 Auto Path 가능
+
+### Destination Interaction
+
+```text
+Select
+→ Player Look
+→ Walk / Run
+→ Path Travel
+→ Arrival
+→ Door / Portal / Environment Reaction
+→ Transition
+→ Route
+```
+
+Quick View / Browser Back / Reduced Motion에서는 긴 이동을 강제하지 않는다.
+
+### World State
+
+Progress에 따라 World가 일부 변화할 수 있다.
+
+예:
+- Project Cleared
+- Light On
+- Environment Restored
+- Flag Active
+
+단, 숨겨진 섬 / Companion / Badge 장착 시스템은 사용하지 않는다.
+
+---
+
+## 13. PROJECTS WORLD
+
+### 핵심 구조
+
+**4개의 프로젝트 Stage가 한 화면에 보여야 한다.**
+
+```text
 PROJECT WORLD
 
-┌────────────┐  ┌────────────┐
-│ STAGE 01   │  │ STAGE 02   │
-│ PROJECT 01 │  │ PROJECT 02 │
-└────────────┘  └────────────┘
+STAGE 01        STAGE 02
 
-┌────────────┐  ┌────────────┐
-│ STAGE 03   │  │ STAGE 04   │
-│ PROJECT 03 │  │ PROJECT 04 │
-└────────────┘  └────────────┘
+STAGE 03        STAGE 04
 ```
 
-각 Stage에는 최소한 다음 정보를 제공합니다.
+각 Stage에서 최소 다음을 빠르게 확인할 수 있어야 한다.
 
--   Project Name
--   Category
--   Role
--   Thumbnail / Key Visual
--   Short Description
--   Enter / View Detail
+- Project Name
+- Category
+- Role
+- Key Visual
+- Short Description
+- Project Status
+- Enter / View
 
-### Project Detail
-
-프로젝트 상세 화면에는 프로젝트 성격에 따라 다음 정보를 사용합니다.
-
--   Overview
--   Problem
--   Goal
--   Role
--   Process
--   UX/UI
--   Development
--   Result
--   Key Screens
--   Retrospective
-
-디자인 시안에 없는 내용을 임의로 추가하지 않습니다.
-
-------------------------------------------------------------------------
-
-## 8. 사용자 흐름
-
-1.  사용자가 START 화면에 진입합니다.
-2.  START를 선택합니다.
-3.  CHARACTER에서 포트폴리오의 주인공을 확인합니다.
-4.  POWER UP에서 Skills와 Strength를 확인합니다.
-5.  WORLD MAP에서 원하는 World를 선택합니다.
-6.  ENTER WORLD 연출을 통해 선택한 World로 이동합니다.
-7.  MISSION을 수행하며 핵심 콘텐츠를 탐색합니다.
-8.  완료 후 STAGE CLEAR를 확인합니다.
-9.  NEXT WORLD에서 다음 World를 선택하거나 WORLD MAP으로 돌아갑니다.
-10. Q&A에서 지원자에 대한 주요 질문과 답변을 확인합니다.
-11. STAFF ROLL + CONTACT에서 포트폴리오를 마무리하고 연락 수단을
-    확인합니다.
-
-------------------------------------------------------------------------
-
-## 9. 화면 상태
-
--   Default: 기본 콘텐츠가 표시된 상태
--   Hover: 데스크톱에서 선택 가능한 요소의 시각적 피드백
--   Focus: 키보드 접근 시 focus-visible 표시
--   Active: 현재 선택된 World / Stage / Project
--   Locked: 아직 접근할 수 없는 콘텐츠가 존재하는 경우 사용
--   Entering: World 진입 중
--   Mission: 콘텐츠 탐색 중
--   Clear: Mission 완료 상태
--   Loading: 필요한 에셋 또는 콘텐츠 로딩 상태
--   Empty: 표시할 콘텐츠가 없는 상태
--   Error: 외부 링크나 리소스 오류 상태
--   Reduced Motion: 사용자의 reduced-motion 설정을 존중하고 장식적
-    애니메이션 최소화
-
-------------------------------------------------------------------------
-
-## 10. 제외 범위
-
--   회원가입 / 로그인
--   결제
--   실제 게임 엔진
--   실제 게임 데이터 서버
--   CMS
--   관리자 페이지
--   실제 API
--   사용자 계정 데이터 저장
--   요청되지 않은 외부 서비스 연동
--   디자인 시안에 없는 기능
--   과도한 3D/WebGL 구현
--   의미 없는 장식용 애니메이션
-
-------------------------------------------------------------------------
-
-## 11. 디자인 기준
-
--   제공된 Figma 또는 디자인 원본을 최우선 시각 기준으로 사용합니다.
--   2.5D Game World 콘셉트를 유지합니다.
--   게임 UI 요소는 실제 콘텐츠의 계층을 방해하지 않는 범위에서
-    사용합니다.
--   디자인에 없는 화면, 기능, 이미지, 아이콘을 임의로 추가하지 않습니다.
--   새 에셋 제작 전에 기존 assets와 디자인 원본을 확인합니다.
--   기존 색상, 폰트, spacing, radius, shadow를 우선 사용합니다.
--   프로젝트 이미지와 실제 작업 결과물이 가장 중요한 시각 정보가 되도록
-    합니다.
--   게임 장식보다 정보 전달과 가독성을 우선합니다.
-
-------------------------------------------------------------------------
-
-## 12. 개발 조건
-
--   React + Vite로 처음부터 구현합니다.
--   바닐라 HTML/CSS/JavaScript 방식으로 전체 페이지를 구현하지 않습니다.
--   React 컴포넌트 단위로 화면을 구성합니다.
--   JavaScript를 기본 언어로 사용합니다.
--   TypeScript는 별도 요구가 없는 한 도입하지 않습니다.
--   Tailwind CSS는 별도 요구가 없는 한 사용하지 않습니다.
--   CSS는 컴포넌트와 화면 역할에 맞게 관리합니다.
--   기존 assets를 우선 사용합니다.
--   요청 없이 패키지나 외부 라이브러리를 추가하지 않습니다.
--   Vue는 사용하지 않습니다.
-
-### 라이브러리 사용 기준
-
--   React Router DOM: URL 단위의 페이지 이동에 사용 (Route 구조는 5장의
-    "Scene과 Page / Route" 참고)
--   Framer Motion: 일반적인 UI 모션, 등장, hover, 전환
--   GSAP: 복잡한 타임라인 기반 Scene 연출
--   ScrollTrigger: 스크롤과 연결된 고급 모션
--   Lenis: 제품 경험상 부드러운 스크롤이 필요할 때
--   Swiper: 실제 슬라이더 또는 갤러리가 필요한 경우
-
-------------------------------------------------------------------------
-
-## 13. 인터랙션 원칙
-
--   모든 모션은 목적이 있어야 합니다.
--   Scene 전환은 사용자가 현재 위치와 다음 위치를 이해할 수 있도록
-    합니다.
--   모션이 콘텐츠 읽기를 방해하지 않아야 합니다.
--   버튼과 선택 요소는 즉각적인 피드백을 제공합니다.
--   Hover만으로 핵심 기능을 숨기지 않습니다.
--   모바일에서는 터치 환경을 고려합니다.
--   동일한 효과를 여러 라이브러리로 중복 구현하지 않습니다.
--   `prefers-reduced-motion`을 지원합니다.
-
-------------------------------------------------------------------------
-
-## 14. 명명 규칙
-
--   React Component: PascalCase
--   CSS class: snake_case
--   HTML id: snake_case
--   상태 class: `is_active`, `is_open`, `is_selected`
--   오류 class: `has_error`
--   JavaScript 변수/함수: camelCase
--   Boolean: `is`, `has`, `can`, `should`
--   이벤트 함수: `handleXxx`
-
-------------------------------------------------------------------------
-
-## 15. 반응형 기준
-
--   Mobile: 360px
--   Tablet: 768px
--   Desktop: 1280px
--   주요 디자인 기준: Desktop
--   모든 화면에서 전체 가로 스크롤 금지
--   콘텐츠 잘림 금지
--   모바일에서는 게임 월드의 핵심 정보와 탐색 경험을 유지하면서
-    레이아웃을 단순화
--   터치 환경에서 hover에 의존하지 않음
-
-------------------------------------------------------------------------
-
-## 16. 접근성
-
--   클릭: `button`
--   페이지/외부 이동: `a`
--   입력: label 또는 accessible name 제공
--   키보드 focus-visible 제공
--   색상만으로 상태 구분 금지
--   의미 있는 이미지에 alt 제공
--   장식용 이미지는 적절히 처리
--   키보드로 모든 핵심 기능 접근 가능
--   `prefers-reduced-motion` 지원
--   텍스트 대비와 가독성 유지
-
-------------------------------------------------------------------------
-
-## 17. 데이터와 저장
-
--   초기 버전: 정적 콘텐츠 및 프로젝트 데이터
--   데이터 출처: React 내부 데이터 또는 JSON
--   실제 API: 사용하지 않음
--   로그인 데이터: 없음
--   개인정보 저장: 없음
--   localStorage: 기능상 필요하지 않으면 사용하지 않음
-
-------------------------------------------------------------------------
-
-## 18. 검증 방법
+Project 4개의 실제 콘텐츠는 변경하지 않는다.
 
 ### 디자인
+각 Project의 성격을 Environment / Biome / Architecture로 차별화할 수 있다.
 
--   Figma와 실제 브라우저를 나란히 비교
--   spacing, typography, color, image ratio, radius 확인
+단 각 Project를 서로 다른 별도 게임으로 만들 필요는 없다.
 
-### 반응형
+공통 World System을 재사용한다.
 
--   360px
--   768px
--   1280px
+---
 
-각 환경에서 다음을 확인합니다.
+## 14. PROJECT ENTRY
 
--   잘림
--   겹침
--   가로 스크롤
--   텍스트 overflow
--   이미지 비율
--   터치 영역
+Project 선택 시 바로 상세 페이지로 순간 이동하는 대신
+가능한 경우 짧은 진입 연출을 사용한다.
 
-### 기능
+```text
+Player 이동
+→ Entrance 도착
+→ Door / Portal
+→ Camera Follow
+→ Project Intro
+```
 
--   START
--   CHARACTER
--   POWER UP
--   WORLD MAP
--   ENTER WORLD
--   MISSION
--   STAGE CLEAR
--   NEXT WORLD
--   Q&A
--   STAFF ROLL
--   CONTACT
+First Visit는 Full.
+Revisit은 Short.
 
-전체 흐름을 실제로 조작합니다.
+Skip 가능.
 
-### 접근성
+---
 
--   Tab 순서
--   focus-visible
--   keyboard interaction
--   alt
--   reduced-motion
+## 15. MISSION / CASE STUDY
 
-### 코드
+### 목적
+Project의 실제 문제 해결 과정을 보여준다.
 
--   브라우저 Console 오류 확인
--   불필요한 console.log 제거
--   사용하지 않는 import 제거
--   빌드 오류 확인
+### 기본 구조
 
-### 배포
+```text
+Overview
+Problem
+Role
+Hypothesis / Decision
+Solution
+Design
+Development
+Result
+Limitation / Retrospective
+```
 
--   GitHub Pages에서 정상 로드
--   이미지 / 폰트 / CSS / JS 경로 확인
--   직접 URL 접근 확인
--   새로고침 확인
+실제 Project에 없는 항목은 억지로 채우지 않는다.
 
-------------------------------------------------------------------------
+### Experience Rule
 
-## 19. 완료 조건
+`Checkpoint / Entry / Clear = Game`
 
--   전체 Scene Flow가 정상적으로 연결됩니다.
--   START부터 STAFF ROLL + CONTACT까지 자연스럽게 진행됩니다.
--   WORLD MAP에서 주요 World를 탐색할 수 있습니다.
--   PROJECTS World에서 4개 프로젝트가 한 화면에 표시됩니다.
--   프로젝트 상세 화면으로 이동할 수 있습니다.
--   Scene 전환 및 주요 인터랙션이 정상 작동합니다.
--   반응형 기준에서 가로 스크롤이 없습니다.
--   접근성 기준을 통과합니다.
--   reduced-motion을 지원합니다.
--   콘솔에 치명적인 오류가 없습니다.
--   실제 에셋이 누락되지 않습니다.
--   GitHub Pages 배포 환경에서 모든 리소스가 정상적으로 로드됩니다.
+`Case Study Content = Portfolio`
 
-### 최종 보고 항목
+즉 Project 본문을 읽기 위해 계속 게임 조작을 요구하지 않는다.
 
-구현 완료 후 다음을 보고합니다.
+### World Restoration
 
-1.  변경 파일
-2.  구현 내용
-3.  사용한 라이브러리
-4.  구현된 Scene 목록
-5.  검증 결과
-6.  확인하지 못한 부분
-7.  추가 작업이 필요한 부분
+Project의 문제 해결 과정을 Environment 변화로 표현할 수 있다.
 
-------------------------------------------------------------------------
+예:
 
-## 20. 기술 스택
+Problem
+→ Incomplete World
 
--   Framework: React
--   Build Tool: Vite
--   Language: JavaScript
--   Linter: ESLint
--   Routing: React Router DOM
--   UI Motion: Framer Motion
--   Advanced Motion: GSAP / ScrollTrigger (필요 시)
--   Smooth Scroll: Lenis (필요 시)
--   Slider: Swiper (필요 시)
--   Styling: CSS
--   Version Control: Git / GitHub
--   Deployment: GitHub Pages
+Process
+→ 변화 진행
+
+Result
+→ Restored World
+
+이는 Visual Metaphor이며 실제 사용자 성과를 의미하지 않는다.
+
+---
+
+## 16. STAGE CLEAR
+
+### 목적
+사용자가 Project 콘텐츠를 확인했다는 완료 Feedback.
+
+### Sequence
+- Final checkpoint
+- Player reaction
+- Star / Light / Particle
+- Environment reaction
+- `STAGE CLEAR`
+
+### 중요
+Stage Clear는 실제 Project 성과를 의미하지 않는다.
+
+허위 지표나 개선 수치를 연결하지 않는다.
+
+### Actions
+- Back to World Map
+- Next Project
+- Adventure Book
+- Quick View
+
+---
+
+## 17. Q&A
+
+### 목적
+사용자/채용 담당자가 궁금해할 내용을 쉽게 확인.
+
+### 콘텐츠 예
+- 작업 방식
+- 협업 방식
+- 문제 해결 방식
+- 디자인/개발 역할
+- 프로젝트 관련 질문
+
+### Interaction
+Character / World Interaction을 사용할 수 있지만
+Q&A 정보 자체는 즉시 읽을 수 있어야 한다.
+
+---
+
+## 18. CONTACT
+
+### 목적
+Portfolio 탐험 후 바로 연락 행동으로 연결.
+
+### 최소 정보
+- Email
+- GitHub
+- Resume
+- 필요한 외부 링크
+
+Contact는 게임 진행도를 요구하지 않는다.
+
+언제든 Adventure Book / Quick View에서 접근 가능해야 한다.
+
+---
+
+## 19. GAME CLEAR / STAFF ROLL
+
+모든 주요 Journey를 마치면 World가 시간적으로 변화한다.
+
+```text
+DAY
+→ SUNSET
+→ NIGHT
+```
+
+### 연출
+- World lights on
+- Player resting
+- Calm environment
+- Staff Roll / Credits
+- Final message
+
+마지막에는 Real World로 돌아갈 수 있다.
+
+Real World의 모니터 또는 작은 Object를 통해
+Journey의 흔적을 암시할 수 있다.
+
+Ending 역시 Skip 가능.
+
+---
+
+## 20. Adventure Book
+
+Adventure Book은 게임 메뉴가 아니라 **Portfolio OS**다.
+
+### 최소 항목
+- Profile
+- Skills
+- Projects
+- Q&A
+- Contact
+- Resume
+- Current Location
+- Progress
+
+### 목적
+- 현재 위치 확인
+- 직접 이동
+- Project 빠른 접근
+- 게임 없이 정보 열람
+- Progress 확인
+
+숨겨진 섬 / Secret Discovery System은 포함하지 않는다.
+
+---
+
+## 21. Progress System
+
+Progress는 실제 Portfolio Content와 연결된 상태만 사용한다.
+
+### 허용
+- Skill Acquired
+- Project Visited
+- Project Cleared
+- Intro Watched
+
+### 금지
+- Skill Level
+- HP
+- Life
+- Score
+- Player Badge 장착
+- 의미 없는 Achievement 수치
+
+Progress 저장 실패 시 콘텐츠가 잠기면 안 된다.
+
+---
+
+## 22. Player Control
+
+### Desktop
+
+- WASD / Arrow = 이동
+- Space = Jump가 필요한 Scene에서만
+- Mouse = Destination Select / UI
+- Point & Click = Auto Path
+
+### Input Priority
+
+- Auto Move 중 직접 이동 → Auto Move 취소
+- UI Panel 활성 → Player Input 잠금
+- Jump/Pickup/Land 중 → 비필수 reaction 억제
+- 목적지 연속 선택 → 마지막 유효 목적지
+- Skip/Error → Control Lock 해제
+
+### Mobile
+Desktop을 축소하지 않는다.
+
+- Tap
+- Contextual Action
+- 필요 시 Virtual Control
+- Camera simplification
+
+---
+
+## 23. Living World
+
+### 기본 원칙
+
+사용자가 아무것도 하지 않아도 세계가 살아 있어야 한다.
+
+### Continuous
+- Cloud
+- Water
+- Waterfall
+- Grass
+- Flag
+- Character Idle
+
+### Ambient
+- Bird
+- Leaf
+- Cloud Shadow
+- Light
+- Sparkle
+
+### 중요
+모든 Object를 동시에 강하게 움직이지 않는다.
+
+Motion Priority:
+
+1. Player
+2. Current Objective
+3. World
+4. Ambient
+
+---
+
+## 24. Motion / Camera
+
+Motion / Animation / Camera는 Working System이다.
+
+실제 화면을 보며 계속 수정할 수 있다.
+
+### Experience Density
+
+HIGH / WOW:
+- Portal
+- Power Up
+- World Enter
+- Stage Clear
+
+MEDIUM / PLAY:
+- Character
+- World Map
+- Q&A
+
+LOW / READ:
+- Project Case Study
+- Resume
+- Contact
+- Adventure Book
+
+### Camera
+- Real World → Cinematic
+- Portal → Push / Distortion
+- Arrival → Fall / Land / Reveal
+- Character → Player-oriented
+- Power Up → Side Platform
+- World Map → 2.5D Exploration
+- Project Entry → Follow / Zoom
+- Mission → Stable / Scroll / Follow
+- Stage Clear → Short Cinematic
+- Ending → Slow Cinematic
+
+---
+
+## 25. Responsive Requirements
+
+Primary World Reference:
+
+**1440 × 810 / 16:9**
+
+반응형은 단순 Scale보다 Camera Reframe을 우선한다.
+
+### 필수 테스트
+- 1920×1080
+- 1440×810
+- 1366×768
+- 1180×820
+- 1024×768
+- 768×1024
+- 430×932
+- 402×874
+- 390×844
+- 360×800
+
+### 원칙
+- Important Object는 Safe Area 유지
+- Ultrawide에서 Main World Stretch 금지
+- Short viewport에서 Camera Zoom-out
+- Mobile은 별도 Composition
+- Information UI는 Game Scene과 별도 Responsive 규칙 사용 가능
+
+---
+
+## 26. Accessibility Requirements
+
+필수:
+
+- Semantic HTML
+- Keyboard Navigation
+- focus-visible
+- Touch Target 약 44×44px 이상
+- 충분한 Contrast
+- 색상만으로 State 전달 금지
+- Alt Text
+- Sound Toggle
+- Reduced Motion
+- Motion Pause
+- Skip Intro
+- Skip Cinematic
+- Quick View
+- Adventure Book Direct Navigation
+
+게임을 하지 않아도 동일한 핵심 정보에 접근 가능해야 한다.
+
+---
+
+## 27. Failure / Recovery Requirements
+
+### Asset Failure
+- Video 실패 → Poster / Static Layer
+- Character Motion 실패 → Static Character
+- Ambient 실패 → Ambient만 생략
+- Audio 실패 → Silent Mode
+- Image 실패 → Fallback Surface + Alt
+
+### Navigation
+- Browser Back 정상 작동
+- Refresh 정상 작동
+- Direct URL 정상 작동
+- Quick View 정상 작동
+
+### Loading
+- 무한 Loading 금지
+- 실제 Progress를 모르면 가짜 `%` 금지
+- 핵심 Asset 지연 시 Skip / Quick View 가능
+
+---
+
+## 28. Performance Requirements
+
+- WebP / AVIF 우선
+- 필요 시 WebM
+- 불필요한 4K PNG 금지
+- Scene / Route Lazy Loading
+- 필요 Asset Preload
+- Offscreen Animation Pause
+- Offscreen Video Pause
+- Particle 제한
+- Cleanup
+- Mobile Quality Reduction
+
+Target:
+
+- LCP ≤ 2.5s
+- INP ≤ 200ms
+- CLS ≤ 0.1
+
+Player 입력 반응은 별도로 검증한다.
+
+---
+
+## 29. Prototype Gate
+
+전체 제작 전에 다음 작은 Gameplay Prototype을 먼저 검증한다.
+
+1. Idle
+2. Walk
+3. Run
+4. Jump
+5. Fall
+6. Land
+7. Collision
+8. Skill Block 1개
+9. Item Pop
+10. Pickup
+11. Cloud / Grass Living Motion
+12. Scene Transition 1회
+
+### 통과 기준
+- Character 비율 유지
+- Ground Contact 안정
+- Motion Transition 자연스러움
+- Input Response 정상
+- Collision 안정
+- Asset Loop 자연스러움
+- 1366×768에서도 조작 가능
+- Mobile 전략이 가능한 구조
+
+Prototype이 불안정하면 대규모 Asset 제작을 먼저 하지 않는다.
+
+---
+
+## 30. Removed Scope
+
+다음은 현재 범위에서 삭제 확정.
+
+- 숨겨진 섬 / Secret Area
+- Companion / 동료
+- Player Badge 장착
+- Skill Level
+- HP
+- Life
+- Score
+- 의미 없는 Gamification
+
+---
+
+## 31. Product Validation Criteria
+
+| 영역 | 질문 |
+|---|---|
+| 첫인상 | 이름·직무·핵심 강점을 설명할 수 있는가? |
+| 탐색 | 게임 없이 Project 4개와 Contact/Resume을 찾을 수 있는가? |
+| 콘텐츠 | Project 하나를 본 뒤 역할·문제·주요 결정·구현을 이해하는가? |
+| 조작 | 긴 설명 없이 이동·점프·아이템 획득·진입을 이해하는가? |
+| 복구 | Auto Move 취소·Skip·Back·Reload 뒤 정상인가? |
+| 반응형 | 노트북·Tablet·Mobile·확대 화면에서 핵심 UI가 유지되는가? |
+| 에셋 실패 | Video/FX 실패 후에도 콘텐츠와 다음 행동이 남는가? |
+| 접근성 | Keyboard·Reduced Motion·Motion Pause에서도 동일 정보에 접근 가능한가? |
+
+기능이나 연출을 추가할 때 이 기준 중 무엇을 개선하는지 설명할 수 없다면 우선순위를 낮춘다.
+
+---
+
+## 32. Completion Criteria
+
+MVP 완료 조건:
+
+- Real World에서 ENTER WORLD / Quick View 사용 가능
+- Portal 또는 대체 Transition으로 Portfolio World 진입 가능
+- Player 기본 이동 시스템 동작
+- Character 콘텐츠 접근 가능
+- Power Up 핵심 Loop 동작
+- World Map 탐색 가능
+- Project 4개를 한 화면에서 확인 가능
+- Project 상세 콘텐츠 접근 가능
+- Stage Clear Feedback 동작
+- Q&A / Contact / Resume 접근 가능
+- Adventure Book 동작
+- Direct URL / Back / Reload 동작
+- Responsive 핵심 환경 검증
+- Reduced Motion 동작
+- Asset Failure Fallback 존재
+- Lint / Build 치명적 오류 없음
+
+---
+
+## 33. Out of Scope
+
+- 실제 게임 엔진
+- 사용자 로그인
+- 결제
+- CMS
+- 관리자 페이지
+- 실제 게임 서버
+- 복잡한 Multiplayer
+- 의미 없는 게임 점수 시스템
+- 프로젝트와 관계없는 추가 World
+- 필요 이상의 WebGL / 3D Engine 구현
+
+---
+
+## 34. Technical Baseline
+
+- Framework: React
+- Build: Vite
+- Language: JavaScript
+- Routing: React Router
+- Styling: CSS
+- Lint: ESLint
+- Version Control: Git / GitHub
+
+Motion Library는 실제 `package.json`과 구현 요구를 확인한 뒤 사용한다.
+
+새 Dependency는 자동으로 추가하지 않는다.
+
+---
+
+## 35. PRD Update Rule
+
+이 PRD는 **제품의 콘텐츠·기능·사용자 목표**를 관리한다.
+
+디자인 세부 값, Animation Timing, Camera 수치 등은 최신 `DESIGN_SYSTEM`에서 관리한다.
+
+작업 중 디자인·모션·인터랙션이 개선되는 것은 허용되며,
+제품 목표나 콘텐츠 구조가 바뀌는 경우에만 PRD를 갱신한다.

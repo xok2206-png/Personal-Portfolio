@@ -1,190 +1,775 @@
 ---
 name: design-to-react
-description: 제공된 Figma 디자인과 실제 에셋을 기준으로 React + Vite 프로젝트의 화면을 구현하거나 수정할 때 사용합니다.
+description: Personal Portfolio의 디자인·에셋·인터랙션을 기존 React + Vite 구조에 안전하게 구현하거나 수정할 때 사용하는 반복 작업 절차.
 ---
 
-# design-to-react
+# Personal Portfolio — Design to React Skill
 
-React + Vite + JavaScript + JSX + CSS 프로젝트에서 디자인 구현 작업을 반복할 때 따르는 작업 절차입니다.
-프로젝트 루트의 `AGENTS.md`, `CLAUDE.md`가 항상 우선하며, 이 Skill은 두 문서와 충돌하는 규칙을 만들지 않습니다.
+> 목적: 반복 구현 작업의 **순서와 검증 방식**을 고정한다.  
+> 이 문서는 진행 일지가 아니다.  
+> 실제 상태 기록은 `PROJECT_CONTEXT.md`에서 관리한다.
 
-## 1. 목표
+---
 
--   제공된 Figma 디자인과 실제 에셋을 시각 기준으로 삼아 화면을 구현하거나 수정합니다.
--   현재 기술 스택(React, Vite, JavaScript, JSX, CSS)을 유지합니다.
--   전체 Scene 구조(SCENE 01~10), WORLD MAP의 5개 World, PROJECTS World의 4개 Stage 구조를 보호합니다.
--   기존 컴포넌트, CSS 변수, 에셋을 재사용하고 변경 범위를 요청된 화면으로 제한합니다.
--   실제로 실행하고 확인한 결과만 보고합니다.
+## 01. 언제 이 Skill을 사용하는가
 
-## 2. 작업 순서
+다음 작업에 사용한다.
+
+- Figma/Reference를 React 화면으로 구현
+- 기존 Scene 디자인 수정
+- Player Motion 연결
+- Living World Layer 구현
+- World Map Interaction 구현
+- Power Up Gameplay 구현
+- Project Scene/Case Study 구현
+- Responsive 수정
+- Motion / Camera / FX 조정
+- Higgsfield Asset 적용
+- 기존 화면을 새 Design System 기준으로 리뉴얼
+
+작은 텍스트 수정이나 단순 파일명 변경에는 이 Skill을 강제로 적용하지 않는다.
+
+---
+
+## 02. 작업 전 읽기 순서
+
+항상 다음 순서로 확인한다.
+
+1. `AGENTS.md`
+2. `CLAUDE.md`
+3. `Personal-Portfolio_PRD_v2.md`
+4. 최신 `DESIGN_SYSTEM*.md`
+5. `PROJECT_CONTEXT.md`
+6. 관련 Scene / Page / CSS
+7. 관련 Asset
+8. `package.json`
+9. 현재 Route
+10. `git status`
+
+문서와 실제 코드가 충돌하면 실제 구현 상태를 먼저 확인하고 보고한다.
+
+---
+
+## 03. LOCKED vs FLEXIBLE 확인
+
+### LOCKED
+임의 변경 금지.
+
+- 실제 Portfolio 콘텐츠
+- Project 4개 구조
+- 실제 Role / Process / Result / Limitation
+- About / Skills / Projects / Q&A / Contact 핵심 정보
+- Quick View
+- 게임 없이 핵심 콘텐츠 접근 가능
+- Product Validation Criteria
+- Accessibility / Responsive / Fallback 원칙
+
+### FLEXIBLE
+구현 중 조정 가능.
+
+- 디자인
+- Layout
+- Composition
+- Animation
+- Motion timing
+- Camera
+- FX
+- Hover
+- Transition
+- Lighting
+- Responsive composition
+
+표현 방식은 브라우저 결과가 더 좋아지면 수정한다.
+
+---
+
+## 04. 작업 계획
+
+여러 파일을 수정하는 작업이라면 먼저 짧은 계획을 만든다.
+
+계획에는 다음을 포함한다.
+
+- Target Scene
+- 수정 파일
+- 유지할 기존 코드
+- 재사용 Component
+- 필요한 Asset
+- Player State
+- World Layer
+- Interaction
+- Responsive 영향
+- Accessibility 영향
+- 검증 방법
+
+불필요한 장황한 계획은 만들지 않는다.
+
+---
+
+## 05. 기존 구현 Audit
+
+코드를 쓰기 전에 확인한다.
+
+### Route
+- 현재 URL
+- React Router 연결
+- Direct access 가능 여부
+- Back / Refresh 영향
+
+### Scene
+- 기존 JSX
+- 기존 CSS
+- 기존 State
+- 기존 Event
+- 기존 Animation
+
+### Page
+- 실제 Portfolio Content
+- 재사용 가능한 정보 UI
+
+### Asset
+- 실제 존재 여부
+- 파일 경로
+- 크기
+- 비율
+- 투명 배경
+- 사용 중 여부
+
+### Dependency
+- 이미 설치된 Motion / Utility Library
+- 동일 기능을 기존 Dependency로 해결 가능한지
+
+---
+
+## 06. Reference 분석
+
+Reference Image / Figma / 기존 13개 시안을 볼 때
+완성 이미지 자체를 복사 대상으로 보지 않는다.
+
+다음으로 분해한다.
+
+### Content
+- 어떤 정보가 있는가
+
+### Layout
+- 중요 요소 위치
+- Safe Area
+- Information hierarchy
+
+### Layer
+- Sky
+- Far
+- World
+- Gameplay
+- Player
+- Foreground
+- FX
+- UI
+
+### Motion Candidate
+- 지속 Motion
+- Ambient
+- Interaction
+- Cinematic
+
+### Geometry
+- Walkable
+- Collision
+- Interaction
+- Camera Boundary
+
+### Responsive Risk
+- 잘릴 요소
+- 축소하면 읽히지 않는 요소
+- Mobile에서 재배치할 요소
+
+---
+
+## 07. Scene 구현 순서
+
+각 Scene은 가능한 한 아래 순서를 따른다.
+
+### Step 1 — Static Structure
+먼저 Motion 없이 기본 구조를 만든다.
+
+- Route
+- Layout
+- Content
+- Player 위치
+- World Object
+- Information UI
+
+### Step 2 — Responsive Structure
+Motion 전에 다음을 확인한다.
+
+- 1440×810
+- 1366×768
+- Tablet
+- Mobile
+
+구조가 깨지는 상태에서 Animation부터 만들지 않는다.
+
+### Step 3 — Player / Interaction
+필요한 경우:
+
+- Player State
+- Walk
+- Run
+- Jump
+- Collision
+- Interaction Range
+- Auto Path
+
+### Step 4 — Living World
+- Cloud
+- Grass
+- Water
+- Flag
+- Light
+- Idle
+
+먼저 최소 Motion만 구현한다.
+
+### Step 5 — Interaction Feedback
+- Hover
+- Focus
+- Pressed
+- Object Reaction
+- Player Reaction
+
+### Step 6 — Cinematic
+마지막에:
+
+- Camera
+- Transition
+- Portal
+- Stage Clear
+- Large FX
+
+를 추가한다.
+
+---
+
+## 08. Player 구현
+
+### Gameplay State
+최소 핵심:
+
+- Idle
+- Walk
+- Run
+- Jump
+- Fall
+- Land
+- Interact
+- Pickup
+- Celebrate
+
+### State Transition
+Player State가 동시에 여러 개 실행되지 않게 한다.
+
+예:
 
 ```text
-PRD 및 프로젝트 규칙 확인
-→ package.json과 프로젝트 구조 확인
-→ 기존 컴포넌트/CSS/에셋 확인
-→ Figma 디자인 확인
-→ 화면 및 사용자 흐름 파악
-→ 기존 코드 재사용 범위 판단
-→ React 컴포넌트 구현
-→ CSS 및 반응형 구현
-→ 실제 디자인에 있는 인터랙션 구현
-→ 접근성 확인
-→ 360px / 768px / 1280px 확인
-→ 실제 lint/build 실행
-→ PROJECT_CONTEXT.md 현재 상태 갱신
-→ 변경 파일과 검증 결과 보고
+idle
+→ walk
+→ run
+→ jump
+→ fall
+→ land
+→ idle
 ```
 
-1.  **PRD 및 프로젝트 규칙 확인**
-    -   `AGENTS.md`, `CLAUDE.md`, PRD 문서를 읽습니다. PRD 파일명은 실제 파일을 확인합니다(현재 `Personal-Portfolio_PRD_v2.md`).
-    -   작업 대상 Scene / World / Stage가 무엇인지 PRD에서 확인합니다.
-2.  **package.json과 프로젝트 구조 확인**
-    -   `package.json`의 `scripts`와 `dependencies`, `package-lock.json`, Vite 설정, ESLint 설정을 확인합니다.
-    -   설치된 라이브러리와 실제 사용 여부를 구분합니다. 설치되어 있지 않은 라이브러리는 사용하지 않습니다.
-3.  **기존 컴포넌트/CSS/에셋 확인**
-    -   `src/` 하위의 컴포넌트, CSS 변수, 공통 스타일, `src/assets`, `public`, 폰트 폴더를 확인합니다.
-    -   관련 데이터 파일이 있으면 함께 확인합니다.
-4.  **Figma 디자인 확인**
-    -   "3. 디자인 확인 방법"의 순서를 따릅니다.
-5.  **화면 및 사용자 흐름 파악**
-    -   해당 화면이 Scene 흐름의 어디에 있는지, 이전/다음 화면, 사용자의 다음 행동을 정리합니다.
-6.  **기존 코드 재사용 범위 판단**
-    -   재사용할 컴포넌트, 수정할 파일, 새로 만들 파일을 구분합니다.
-    -   여러 파일을 수정하는 작업은 구현 전에 간단한 작업 계획(수정 파일, 구현 기능, 재사용 대상, 필요한 에셋, 검증 방법)을 작성합니다.
-7.  **React 컴포넌트 구현** — "5. React 구현 원칙"을 따릅니다.
-8.  **CSS 및 반응형 구현** — "6. CSS 및 반응형 구현 원칙"을 따릅니다.
-9.  **실제 디자인에 있는 인터랙션 구현** — "7. 인터랙션 및 모션 구현 원칙"을 따릅니다.
-10. **접근성 확인** — "8. 접근성"을 따릅니다.
-11. **360px / 768px / 1280px 확인** — 브라우저에서 실제로 확인합니다.
-12. **실제 lint/build 실행** — `package.json`의 실제 scripts를 확인한 뒤 실행합니다.
-13. **PROJECT_CONTEXT.md 현재 상태 갱신** — "9. 검증 방법"의 기록 규칙을 따릅니다.
-14. **변경 파일과 검증 결과 보고** — `CLAUDE.md`의 결과 보고 형식을 따릅니다.
+### Input Priority
 
-## 3. 디자인 확인 방법
+- 직접 입력 > Auto Move
+- UI Panel > Player Input
+- Cinematic Lock 중 Gameplay Input 제한
+- Skip 시 Lock 해제
+- Route 변경 시 Motion cleanup
 
--   디자인 시안을 최우선 시각 기준으로 사용합니다.
--   Figma 자료가 제공된 경우 다음 순서로 확인합니다.
-    1.  구조(레이어, 프레임 계층, 이름)
-    2.  스크린샷
-    3.  변수(색상, 타이포, 간격 등 디자인 토큰)
-    4.  디자인 컨텍스트
--   Figma가 생성한 코드는 참고 자료로만 사용하고, 현재 React + Vite 구조와 기존 컴포넌트에 맞게 해석해서 작성합니다.
--   실제 에셋은 Figma의 에셋 다운로드 기능이나 기존 assets 폴더에서 가져옵니다. 기존 에셋을 먼저 확인합니다.
--   확인된 사실과 추정을 구분합니다. 디자인 원본에 없는 내용은 추측하지 않고 사용자에게 확인합니다.
--   디자인과 다른 구현이 필요하면 임의로 결정하지 말고 이유와 영향을 먼저 설명합니다.
--   구현 후 브라우저 화면과 디자인 스크린샷을 비교하고, 차이를 수정합니다.
--   모바일/태블릿 시안이 없는 경우 데스크톱 시안의 구조를 기준으로 정보 밀도만 조정하고, 그 판단을 보고합니다.
+### Ground Contact
+Player의 발 위치와 Collision 바닥이 일치해야 한다.
 
-## 4. 기존 코드와 컴포넌트 재사용 원칙
+영상/PNG가 움직이는 것과 실제 Player 위치를 분리하지 않는다.
 
--   기존 컴포넌트, 훅, 유틸, 데이터 파일을 먼저 재사용합니다.
--   동일한 UI가 반복되면 기존 공통 컴포넌트를 먼저 검토하고, 없으면 명확한 역할이 있을 때만 공통 컴포넌트로 분리합니다.
--   기존 CSS 변수와 디자인 토큰을 먼저 사용합니다. 새 스타일 시스템을 임의로 추가하지 않습니다.
--   기존 상태 관리 구조를 유지합니다. 요청 없이 전역 상태 관리 라이브러리를 추가하지 않습니다.
--   요청된 기능과 직접 관련된 파일만 수정합니다. 관련 없는 리팩터링, 포맷팅, 파일명 변경, 폴더 이동을 하지 않습니다.
--   정상 동작하는 기존 코드를 취향 때문에 전면 재작성하지 않습니다.
--   파일명 변경이나 대규모 구조 변경이 필요하면 필요성과 영향을 먼저 설명하고 확인받습니다.
+---
 
-## 5. React 구현 원칙
+## 09. Prototype Gate
 
--   React + Vite 구조를 유지하고, 화면을 React 컴포넌트 단위로 구성합니다. 바닐라 HTML/CSS/JS로 화면을 재작성하지 않습니다.
--   컴포넌트는 하나의 명확한 역할을 갖고, 컴포넌트 파일명은 PascalCase로 작성합니다.
--   컴포넌트 간 데이터는 명확한 props 구조로 전달합니다.
--   반복되는 콘텐츠(예: 4개의 Project Stage)는 데이터 배열 + `map` 렌더링으로 구성합니다. 데이터는 실제 프로젝트 자료에 있는 내용만 사용합니다.
--   JSX는 시맨틱 요소(header, nav, main, section, article, footer)를 사용합니다. 동작은 `button`, 이동은 `a` 또는 프로젝트의 라우팅 방식을 사용합니다.
--   JavaScript 변수/함수는 camelCase, 불리언은 `is/has/can/should`, 이벤트 함수는 `handleXxx` 형식을 사용합니다.
--   Scene 순서와 이름, World 구조는 변경하지 않습니다. Scene과 World의 역할을 혼동하지 않습니다.
--   임시 `console.log`와 사용하지 않는 import는 완료 전에 제거합니다.
--   불필요한 전역 상태를 추가하지 않습니다.
+대규모 Scene 제작 전에 최소 Prototype을 먼저 검증한다.
 
-## 6. CSS 및 반응형 구현 원칙
+```text
+Idle
+Walk
+Run
+Jump
+Fall
+Land
+Collision
+Skill Block
+Item Pop
+Pickup
+Cloud
+Grass
+Scene Transition
+```
 
--   CSS class와 HTML id는 snake_case로 작성합니다. 상태 class는 `is_active`, `is_open`, `is_selected`, 오류 class는 `has_error` 형식을 사용합니다.
--   디자인 원본의 색상, 간격, 크기, radius, shadow, 폰트를 임의로 변경하지 않습니다.
--   레이아웃은 flex / grid / 문서 흐름을 기본으로 하고, `absolute`는 겹침 배치처럼 필요한 요소에만 제한적으로 사용합니다.
--   모바일부터 작성하고 360px, 768px, 1280px에서 확인합니다.
--   페이지 전체 가로 스크롤이 없어야 하고, 콘텐츠가 화면 밖으로 잘리지 않아야 합니다.
--   이미지 비율이 유지되어야 합니다. 이미지는 실제 에셋을 사용하고 크기 지정으로 레이아웃 이동을 막습니다.
--   중복되는 스타일은 공통화하고, 불필요한 `!important`를 사용하지 않습니다.
--   2.5D Game World 콘셉트는 유지하되, 모바일에서는 정보 밀도를 조정합니다. 터치 환경에서 hover에 의존하지 않습니다.
--   폰트와 에셋은 프로젝트 내 실제 경로에서 로드되는지 확인합니다.
+### 통과 조건
+- 입력 반응이 즉각적
+- Player 크기 일관성
+- 발이 바닥에서 뜨지 않음
+- Animation 전환 자연스러움
+- Collision 안정
+- Loop 자연스러움
+- 1366×768에서 조작 가능
+- Mobile 대응 가능성 존재
 
-## 7. 인터랙션 및 모션 구현 원칙
+Prototype이 실패하면 Asset 대량 제작을 진행하지 않는다.
 
--   디자인에 실제로 존재하는 인터랙션만 구현합니다.
--   간단한 hover와 transition은 CSS를 우선 사용합니다.
--   Framer Motion은 컴포넌트 수준의 등장, 퇴장, hover, 상태 전환에 사용합니다.
--   GSAP은 복잡한 Scene 전환이나 타임라인 연출이 필요한 경우에만 사용합니다. ScrollTrigger는 스크롤과 연결된 모션에만 사용합니다.
--   Lenis는 부드러운 스크롤이 실제 디자인 요구사항인 경우에만 사용합니다.
--   Swiper는 실제 슬라이더/갤러리가 필요하고 `package.json`에 설치되어 있는 경우에만 사용합니다. (현재 `package.json`에는 없으므로 설치가 필요하면 먼저 사용자에게 이유를 설명합니다.)
--   React Router DOM은 URL 단위의 페이지 이동에 사용합니다. Scene(연출)과 Page(콘텐츠)를 구분하며, Route는 `/`, `/character`, `/power-up`, `/world-map`, `/about`, `/skills`, `/projects`, `/qa`, `/contact` 9개입니다. Scene 번호 기반 URL(`/scene/01-start`)이나 `/world/qa` 같은 중복 URL을 만들지 않습니다. SCENE 05~08은 콘텐츠 페이지 내부 연출로 다루고, Q&A/CONTACT 콘텐츠는 `src/pages/QA`, `src/pages/Contact` 하나를 SCENE 09/10과 공유합니다. 이동은 `Link`/`useNavigate`를 사용하고 `window.location.href`는 사용하지 않습니다.
--   동일한 애니메이션을 여러 라이브러리로 중복 구현하지 않습니다.
--   모션보다 콘텐츠 전달과 사용성을 우선하고, Scene 전환은 현재 위치와 다음 위치를 명확히 전달해야 합니다.
--   `prefers-reduced-motion` 환경에서는 장식적인 모션을 줄이거나 제거합니다.
+---
 
-## 8. 접근성
+## 10. World Map 구현
 
--   키보드로 주요 인터랙션에 접근할 수 있어야 하며 Tab 순서가 화면 흐름과 일치해야 합니다.
--   모든 인터랙티브 요소에 `focus-visible` 스타일을 제공합니다.
--   의미 있는 이미지에는 적절한 `alt`를 제공하고, 장식용 이미지는 빈 `alt`(`alt=""`) 또는 `aria-hidden`으로 구분합니다.
--   모든 입력은 `label` 또는 접근 가능한 이름과 연결합니다.
--   아이콘 대신 이모지를 사용하지 않습니다. 아이콘만 있는 버튼에는 접근 가능한 이름을 제공합니다.
--   색상만으로 상태를 전달하지 않습니다.
--   로딩, 빈 상태, 오류, 비활성 상태가 필요한 화면에는 함께 구현합니다.
--   hover에만 의존하는 핵심 기능을 만들지 않고, 모바일 터치 환경에서도 주요 기능이 동작해야 합니다.
--   `prefers-reduced-motion`을 반영합니다.
+World Map은 단순 Link Grid가 아니다.
 
-## 9. 검증 방법
+### 기본 구조
+- Player
+- ABOUT
+- SKILLS
+- PROJECTS
+- Q&A
+- CONTACT
 
-실제 `package.json`의 scripts를 먼저 확인한 뒤 실행합니다. (현재: `lint` = `eslint .`, `build` = `vite build`, `dev` = `vite`, `preview` = `vite preview`)
+### 이동
+- Keyboard free movement
+- Point & Click
+- Destination Auto Path
+
+### Destination Flow
+
+```text
+Select
+→ Player Look
+→ Travel
+→ Arrival
+→ Environment Reaction
+→ Transition
+→ Route
+```
+
+### 중요
+Quick View / Back / Reduced Motion에서는 긴 이동을 강제하지 않는다.
+
+---
+
+## 11. Power Up 구현
+
+### Core Loop
+
+```text
+Move
+→ Jump
+→ Block Hit
+→ Item Pop
+→ Pickup
+→ Skill Feedback
+→ Skill Information
+```
+
+### Skill 정보
+
+Skill Level 사용 금지.
+
+예:
+
+```text
+FIGMA ACQUIRED
+
+Prototype
+Component
+Design System
+
+USED IN
+Project A
+Project B
+```
+
+Skill은 실제 Project Evidence와 연결한다.
+
+---
+
+## 12. Case Study 구현
+
+Project의 게임 연출과 실제 정보 UI를 분리한다.
+
+### Game
+- Entry
+- Checkpoint
+- Stage Clear
+- World Restoration
+
+### Portfolio
+- Overview
+- Problem
+- Role
+- Decision
+- Solution
+- Design
+- Development
+- Result
+- Limitation / Retrospective
+
+사용자가 본문을 읽기 위해 계속 Player를 움직여야 하는 구조는 피한다.
+
+---
+
+## 13. Living World 구현
+
+### Continuous
+- Cloud
+- Water
+- Waterfall
+- Grass
+- Flag
+- Character Idle
+
+### Ambient
+- Bird
+- Leaf
+- Light
+- Cloud Shadow
+- Sparkle
+
+### Motion Budget
+한 순간에:
+
+- 1 Primary
+- 최대 2 Secondary
+
+나머지는 약한 Ambient.
+
+### Priority
+Player → Current Objective → World → Ambient
+
+---
+
+## 14. Motion 구현 도구 선택
+
+### CSS 우선
+사용:
+- simple hover
+- transition
+- opacity
+- transform
+- basic loop
+
+### Framer Motion
+사용:
+- Component enter/exit
+- state-driven UI motion
+- panel / dialog / HUD
+
+### GSAP
+사용:
+- Portal sequence
+- Scene timeline
+- complex camera-like transition
+- scroll-driven advanced sequence
+
+### ScrollTrigger
+실제 Scroll이 진행에 연결될 때만 사용.
+
+동일 Motion을 2개 Library로 동시에 구현하지 않는다.
+
+---
+
+## 15. Higgsfield Asset Workflow
+
+Higgsfield Asset을 바로 코드에 넣기 전에 확인한다.
+
+### Generate
+- Character reference 고정
+- Style reference 고정
+- Lighting direction 고정
+- Camera angle 고정
+- Background requirement 명확화
+
+### Review
+- Character proportion
+- Face consistency
+- Outfit consistency
+- Perspective
+- Shadow
+- Loop
+- Transparent background
+- Edge quality
+
+### Optimize
+필요에 따라:
+- WebP
+- AVIF
+- WebM
+- 적절한 resolution
+
+### Integrate
+- Asset path 정리
+- Static fallback 준비
+- preload/lazy 전략 결정
+- 실제 Browser에서 재생 확인
+
+### Do Not
+AI 이미지 한 장을 전체 Interactive Scene으로 사용하지 않는다.
+
+---
+
+## 16. Asset Folder 원칙
+
+실제 필요가 생겼을 때만 Folder를 만든다.
+
+예상 구조:
+
+```text
+public/assets/
+├─ fonts/
+├─ character/
+├─ real-world/
+├─ portal/
+├─ world/
+├─ skills/
+├─ projects/
+├─ fx/
+├─ ui/
+├─ video/
+└─ audio/
+```
+
+빈 Folder를 대량 생성하지 않는다.
+
+기존 Asset을 이동할 때:
+
+1. 사용처 검색
+2. Move
+3. Import / URL 수정
+4. Browser 확인
+5. Build 확인
+
+순서를 지킨다.
+
+---
+
+## 17. Responsive Workflow
+
+### Desktop 기준
+1440×810.
+
+### 반드시 확인
+- 1920×1080
+- 1440×810
+- 1366×768
+- 1180×820
+- 1024×768
+- 768×1024
+- 430×932
+- 402×874
+- 390×844
+- 360×800
+
+### 문제 발생 시 순서
+
+1. Stretch하지 않는다.
+2. Camera Reframe 검토
+3. Player scale visual adjustment
+4. Decorative layer crop
+5. UI reposition
+6. Mobile composition 별도 적용
+
+World Object의 Collision scale을 단순 viewport scale로 바꾸지 않는다.
+
+---
+
+## 18. Accessibility Workflow
+
+구현 후 확인:
+
+- Tab
+- Enter
+- Space
+- focus-visible
+- Button semantics
+- Link semantics
+- Alt
+- Contrast
+- Touch target
+- Reduced Motion
+- Motion Pause
+- Skip Intro
+- Skip Cinematic
+- Quick View
+
+Hover에만 핵심 정보를 넣지 않는다.
+
+---
+
+## 19. Failure / Recovery Workflow
+
+### Video Failure
+Poster / Static Layer로 전환.
+
+### Motion Failure
+Static Player / Static Prop으로 계속 진행.
+
+### Audio Failure
+Silent Mode.
+
+### Progress Failure
+콘텐츠는 Unlock 상태 유지.
+
+### Auto Move Failure
+사용자가 직접 이동하거나 Direct Navigation 가능.
+
+### Route Failure
+안전한 Route / World Map으로 복구.
+
+### Loading Failure
+Skip / Quick View 제공.
+
+가짜 `%` 금지.
+
+---
+
+## 20. Performance Workflow
+
+Asset 추가 시 확인:
+
+- filesize
+- dimensions
+- codec
+- lazy/preload
+- offscreen behavior
+
+작업 후:
+
+- unnecessary animation loop 확인
+- requestAnimationFrame cleanup
+- event listener cleanup
+- video pause
+- particle count
+- mobile quality
+
+Target:
+- LCP ≤ 2.5s
+- INP ≤ 200ms
+- CLS ≤ 0.1
+
+---
+
+## 21. Browser Validation
+
+구현이 끝나면 이미지 비교만 하지 않는다.
+
+### 확인 순서
+
+1. 첫 진입
+2. Direct URL
+3. Reload
+4. Back / Forward
+5. Keyboard
+6. Mouse
+7. Touch 가능성
+8. Player control
+9. Motion
+10. Reduced Motion
+11. Asset Failure fallback
+12. Responsive
+
+---
+
+## 22. Product Validation
+
+작업 결과를 아래 8개 질문으로 평가한다.
+
+1. **첫인상** — 이름·직무·강점을 이해하는가?
+2. **탐색** — 게임 없이 Project 4개와 Contact/Resume 접근 가능한가?
+3. **콘텐츠** — 역할·문제·결정·구현이 전달되는가?
+4. **조작** — 설명 없이 핵심 조작을 이해하는가?
+5. **복구** — Skip/Back/Reload/Auto Move Cancel이 정상인가?
+6. **반응형** — 다양한 화면에서 핵심 UI가 유지되는가?
+7. **Asset Failure** — Asset 실패 후에도 다음 행동이 가능한가?
+8. **접근성** — Keyboard/Reduced Motion에서도 동일 정보에 접근 가능한가?
+
+---
+
+## 23. 작업 후 검증
+
+실제 `package.json` script를 확인한다.
+
+기본:
 
 ```bash
 npm run lint
 npm run build
 ```
 
-필요한 경우 `npm run dev` 또는 `npm run preview`로 브라우저에서 확인합니다.
+필요 시:
 
-확인 항목:
+```bash
+npm run dev
+npm run preview
+```
 
--   lint / build 결과(오류와 경고를 실제 출력으로 확인)
--   브라우저 Console 오류
--   360px, 768px, 1280px 레이아웃과 가로 스크롤 여부
--   Figma 스크린샷과 브라우저 화면 비교
--   Scene 흐름, WORLD MAP의 World 이동, PROJECTS World의 4개 Stage 진입 및 복귀 (작업 범위에 해당하는 것)
--   주요 버튼, 링크, 메뉴 동작
--   키보드 Tab 순서와 `focus-visible`
--   `prefers-reduced-motion`
--   이미지 / 폰트 / CSS / JavaScript 경로
--   임시 `console.log`, 디버깅 코드, 사용하지 않는 import 제거
+실행하지 않은 검증을 통과했다고 보고하지 않는다.
 
-검증 원칙:
+---
 
--   실행하지 않은 검증은 통과했다고 보고하지 않고, "확인하지 못한 부분"으로 명시합니다.
--   같은 문제가 반복되면 같은 방식으로 재수정하지 말고 원인을 확인한 뒤, 공통 규칙/컴포넌트 개선이 필요하면 `AGENTS.md`, `CLAUDE.md`, Skill 보완을 제안합니다(사용자 승인 없이 전체 구조를 변경하지 않습니다).
+## 24. PROJECT_CONTEXT 갱신
 
-작업 완료 후 `PROJECT_CONTEXT.md` 갱신 규칙:
+중요 변경 후에만 업데이트한다.
 
--   Skill 실행이 끝나면 실제 프로젝트 상태를 프로젝트 루트의 `PROJECT_CONTEXT.md`에 기록합니다.
--   기록 항목: 완료 내용(구현한 기능, 수정한 화면, 변경한 주요 컴포넌트), 남은 문제, 검증 결과(실행한 명령과 결과, 브라우저 및 반응형 확인 결과), 주요 판단(디자인 시안과 다른 부분과 그 이유).
--   실제로 실행하고 확인한 내용만 기록하며, 확인하지 못한 부분은 그대로 명시합니다.
+- Route
+- Scene 완료
+- Player System
+- Asset Strategy
+- Major Design Decision
+- Known Issue
+- Validation 결과
 
-## 10. 금지 사항
+계획을 구현 완료로 기록하지 않는다.
 
--   요청 없이 라이브러리를 설치하지 않는다.
--   디자인에 없는 기능을 추가하지 않는다.
--   디자인에 없는 이미지나 아이콘을 임의로 만들지 않는다.
--   실제 존재하지 않는 API나 에셋을 만들지 않는다.
--   Figma에서 생성된 코드를 그대로 붙이지 않는다.
--   모든 요소를 absolute로 배치하지 않는다.
--   디자인 전체를 하나의 이미지로 배경에 붙이지 않는다.
--   검증하지 않은 결과를 완료했다고 보고하지 않는다.
--   placeholder 이미지나 임의의 이미지 URL을 사용하지 않는다.
--   Scene 순서/이름, WORLD MAP의 World, PROJECTS의 4개 Stage 구조를 임의로 변경하지 않는다.
--   프로젝트 정보를 실제 자료에 없는 내용으로 만들어내지 않는다.
--   React + Vite 프로젝트를 바닐라 HTML/CSS/JavaScript 방식으로 재작성하지 않는다.
--   Scene 번호를 URL에 넣지 않고, `/world/qa` 같은 중복 Route를 만들지 않는다.
--   Q&A / CONTACT 페이지를 복제하지 않는다. `/qa`, `/contact`의 콘텐츠 컴포넌트를 SCENE 09 / 10에서 재사용한다.
--   `window.location.href`로 페이지를 이동하지 않는다. `Link` / `useNavigate`를 사용한다.
--   Vue, TypeScript, Tailwind를 추가하지 않는다.
--   기존 변경 내용을 임의로 되돌리거나, 사용자 확인 없이 파괴적인 git 명령을 실행하지 않는다.
+---
+
+## 25. 완료 보고
+
+다음만 간결하게 보고한다.
+
+### Changed
+수정한 파일.
+
+### Implemented
+실제 구현 내용.
+
+### Adjusted
+디자인/모션에서 작업 중 수정한 내용과 이유.
+
+### Validation
+실행한 검사.
+
+### Remaining
+미완료/미검증 항목.
+
+---
+
+## 26. 금지 사항
+
+- 콘텐츠 임의 생성/변경
+- Skill Level 추가
+- 숨겨진 섬 추가
+- Companion 추가
+- Badge 장착 추가
+- 의미 없는 HP/Life/Score
+- 모든 Hover에 Glow/Scale/Particle
+- 단일 영상으로 Interactive World 전체 대체
+- Responsive를 단순 축소로 해결
+- 접근성/Quick View 제거
+- Asset 실패 시 전체 진행 중단
+- 사용자 승인 없는 대량 Refactor
+- 실제 검증 없이 완료 보고

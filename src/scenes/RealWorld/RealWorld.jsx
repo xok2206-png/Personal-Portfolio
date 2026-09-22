@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import './Scene01Start.css'
+import './RealWorld.css'
 
-function Scene01Start() {
+function RealWorld() {
   return (
     <main id="scene_01_start" className="scene_01_start">
       <header className="scene_01_header">
@@ -43,4 +43,4 @@ function Scene01Start() {
   )
 }
 
-export default Scene01Start
+export default RealWorld
