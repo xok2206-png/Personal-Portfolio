@@ -1,664 +1,745 @@
-# Personal Portfolio — CLAUDE.md
+# Personal Portfolio --- CLAUDE.md
 
 @AGENTS.md
 
-> Claude Code 전용 실행 규칙  
+> Claude Code 전용 실행 규칙\
 > 이 문서는 `AGENTS.md`를 보완하며, 충돌 시 `AGENTS.md`를 우선한다.
 
----
+------------------------------------------------------------------------
 
 ## 01. 작업 시작 순서
 
-Claude Code는 작업을 시작하기 전에 다음 순서로 확인한다.
+Claude Code는 작업 전에 다음 순서로 확인한다.
 
-1. `AGENTS.md`
-2. `Personal-Portfolio_PRD_v2.md`
-3. 최신 `DESIGN_SYSTEM*.md`
-4. `PROJECT_CONTEXT.md`
-5. 관련 `.agents/skills/.../SKILL.md`
-6. `package.json`
-7. 관련 Route / Scene / Page / CSS / Asset
-8. `git status`
-9. 현재 Branch
+1.  `AGENTS.md`
+2.  `Personal-Portfolio_PRD_FINAL.md`
+3.  `DESIGN_SYSTEM.md`
+4.  `PROJECT_CONTEXT.md`
+5.  관련 `.agents/skills/.../SKILL.md`
+6.  `package.json`
+7.  관련 Route / Scene / Page / CSS / Asset
+8.  `git status`
+9.  현재 Branch
+10. 가능하면 현재 Browser 결과
 
-단일 파일의 아주 작은 수정은 불필요하게 장황한 계획을 만들지 않는다.
+단일 파일의 작은 수정은 불필요하게 긴 계획을 만들지 않는다.
 
-여러 파일, Route, Scene, Asset, Motion System을 함께 수정해야 하는 경우에는
-먼저 짧은 계획을 작성한다.
+여러 파일, Route, Scene, Asset, Motion System을 함께 수정할 때만 짧은
+계획을 작성한다.
 
 계획에는 다음을 포함한다.
 
-- 수정할 파일
-- 유지할 기존 구조
-- 구현 목표
-- 재사용할 Component / Pattern / Asset
-- 필요한 새 Asset
-- 검증 방법
-- 예상 위험 요소
+-   수정할 파일
+-   유지할 기존 구조
+-   구현 목표
+-   재사용할 Component / Pattern / Asset
+-   필요한 새 Asset
+-   검증 방법
+-   예상 위험 요소
 
----
+------------------------------------------------------------------------
 
 ## 02. 먼저 분석하고, 바로 갈아엎지 않는다
 
-기존 프로젝트는 이미 React + Vite와 `react-router-dom` 구조로 작업 중이다.
+현재 프로젝트는 React + Vite + React Router 기반으로 작업 중이다.
 
-따라서 새로운 작업을 시작할 때:
+새 작업을 시작할 때:
 
-- 기존 코드를 먼저 읽는다.
-- 현재 Route를 확인한다.
-- 현재 Scene / Page 역할을 확인한다.
-- 기존 CSS와 Asset을 확인한다.
-- 동일 기능이 이미 존재하는지 확인한다.
-- 실제 브라우저 동작을 확인할 수 있으면 먼저 확인한다.
+-   기존 코드를 먼저 읽는다.
+-   현재 Route를 확인한다.
+-   Scene / Page 역할을 확인한다.
+-   기존 CSS와 Asset을 확인한다.
+-   동일 기능이 이미 존재하는지 확인한다.
+-   가능하면 현재 브라우저 결과를 먼저 확인한다.
 
 사용자 요청 없이 다음을 하지 않는다.
 
-- `src/` 전체 재작성
-- Router 전체 교체
-- Scene/Page 구조 전면 변경
-- 기존 콘텐츠 삭제
-- Project Data 삭제
-- Asset 대량 삭제
-- 기존 구현을 전부 새 방식으로 교체
+-   `src/` 전체 재작성
+-   Router 전체 교체
+-   Scene / Page 구조 전면 변경
+-   기존 Portfolio Content 삭제
+-   Project Data 삭제
+-   Asset 대량 삭제
+-   정상 구현 전체 교체
 
-"더 깔끔해 보인다"는 이유만으로 정상 동작 코드를 전면 재작성하지 않는다.
+단순히 더 깔끔해 보인다는 이유로 정상 동작 코드를 전면 재작성하지
+않는다.
 
----
+------------------------------------------------------------------------
 
-## 03. 콘텐츠와 표현 방식을 구분한다
+## 03. LOCKED / WORKING 구분
 
-### 콘텐츠는 LOCKED
+### LOCKED
 
-다음은 사용자가 명시적으로 변경하지 않는 한 임의 변경하지 않는다.
+사용자가 명시적으로 변경하지 않는 한 유지한다.
 
-- 실제 Project 정보
-- Project 4개 구조
-- About / Skills / Projects / Q&A / Contact의 핵심 정보
-- 실제 Role / Process / Result / Limitation
-- Resume / Contact 정보
-- Case Study의 사실 관계
-- Product Validation Criteria
+-   Portfolio First
+-   Real World의 현재 방향
+-   Real World → Portal → Tool Universe → Arrival → Portfolio World의 큰
+    흐름
+-   About / Skills / Projects × 4 / Q&A / Contact / Resume
+-   실제 Project 정보
+-   실제 Role / Process / Result / Limitation
+-   게임이나 3D 없이도 핵심 콘텐츠에 접근 가능한 구조
+-   Responsive / Accessibility / Fallback 원칙
+-   React + Vite
+-   React Router
+-   Case Study는 정보 전달과 읽기가 우선
 
-콘텐츠가 부족하다고 판단해도 임의로 내용을 만들어 채우지 않는다.
+### WORKING / NOT LOCKED
 
-### 디자인·모션은 FLEXIBLE
+아직 최종 확정하지 않는다.
 
-다음은 실제 구현 결과를 보며 수정할 수 있다.
+-   Portfolio World에서 Character가 실제 이동할지 여부
+-   About 공간 디자인
+-   Skills 최종 디자인
+-   Skills Toolkit / Game Item 표현 방식
+-   Projects 최종 공간 디자인
+-   Project Archive / Gallery 채택 여부
+-   Project 선택 시 Character 이동 여부
+-   Point-based Movement
+-   Q&A / Contact 공간 연출
+-   각 콘텐츠의 Camera / Transition
+-   Ending 세부 연출
 
-- Layout
-- Composition
-- Camera
-- Animation
-- Motion timing
-- Interaction
-- Hover
-- FX
-- Lighting intensity
-- Parallax
-- Transition
-- Responsive composition
+Claude Code는 WORKING 항목을 임의로 확정 구현하지 않는다.
 
-`DESIGN_SYSTEM`은 현재 기준선이지 절대 불변의 정답지가 아니다.
+Prototype이나 후보안을 구현한 경우에도 완료 또는 확정이라고 기록하지
+않는다.
 
-실제 화면에서 더 나은 사용성, 가독성, 성능, 조작성을 만들 수 있다면
-디자인/모션 값은 조정할 수 있다.
+------------------------------------------------------------------------
 
-주요 기준을 바꾸는 경우:
+## 04. Real World
 
-1. 현재 문제를 설명
-2. 변경 이유를 설명
-3. 영향 범위를 설명
-4. 최소 변경으로 구현
-5. 브라우저에서 검증
-6. 필요 시 Design System 갱신 제안
+Real World는 현재 우선 구현 대상이며 방향은 확정되어 있다.
 
----
+### 유지할 방향
 
-## 04. 구현 판단의 우선순위
+-   Seoul Night Workspace
+-   Photorealistic / Cinematic
+-   Warm Desk Light
+-   Cool City / Monitor Light
+-   iMac
+-   Character
+-   Black-and-tan Maltipom
+-   White Chiffon Curtain
+-   Hero Copy Safe Area
+-   `ENTER WORLD`
 
-애매한 선택이 생기면 다음 순서를 따른다.
+Portal Cyan은 기본 화면의 일반 UI Color로 사용하지 않는다.
 
-**Content → Navigation → Control → Recovery → Responsive → Accessibility → Performance → Motion → Decoration**
+Portal 이상현상이 시작된 이후 등장한다.
+
+### 큰 흐름
+
+``` text
+REAL WORLD
+→ PORTAL AWAKENING
+→ PORTAL OPEN
+→ SUCTION
+→ TOOL UNIVERSE
+→ TRANSFORMATION
+→ FALL / ARRIVAL
+→ PORTFOLIO WORLD
+```
+
+다음은 아직 Working이다.
+
+-   세부 Motion Timing
+-   Camera 수치
+-   Higgsfield Clip 분할
+-   영상 연결 방식의 세부 조정
+
+구현 시 최신 `DESIGN_SYSTEM.md`를 직접 확인한다.
+
+------------------------------------------------------------------------
+
+## 05. Legacy 기능을 자동 복원하지 않는다
+
+기존 코드나 폴더에 남아 있어도 다음 기능을 자동으로 다시 구현하지
+않는다.
+
+-   POWER UP Gameplay
+-   Skill Block
+-   Item Pickup
+-   Skill Acquired Progress
+-   Skill Level
+-   XP / HP / Life / Score
+-   Secret Area
+-   Companion
+-   Player Badge
+-   Portfolio World WASD 자유 이동
+-   필수 Jump / Collision
+-   Mission Gameplay
+-   Stage Clear 중심 Journey
+-   Game Clear 중심 Ending
+-   Adventure Book 필수 구조
+
+특히 다음 Legacy 구조가 Repository에 남아 있을 수 있다.
+
+-   `PowerUp/`
+-   `Mission/`
+-   `StageClear/`
+-   `/power-up`
+
+삭제가 필요하면 실제 Import / Route / Link / Dependency를 먼저 확인한다.
+
+------------------------------------------------------------------------
+
+## 06. Portfolio 콘텐츠는 사실 기반으로 유지한다
+
+Case Study와 Portfolio 정보는 실제 자료만 사용한다.
+
+실제 근거 없이 다음을 생성하지 않는다.
+
+-   성과 수치
+-   사용자 테스트 결과
+-   퍼센트 개선
+-   매출 증가
+-   전환율 증가
+-   허위 사용자 후기
+-   허위 협업 정보
+-   허위 Project Role
+-   Skill 숙련도 수치
+
+자료가 부족하면 임의로 채우지 않는다.
+
+부족한 정보가 무엇인지 명확하게 남긴다.
+
+------------------------------------------------------------------------
+
+## 07. Scene / Page 구조
+
+현재 프로젝트는 `src/scenes/`와 `src/pages/`의 역할을 구분한다.
+
+### `src/scenes/`
+
+공간과 연출 중심.
 
 예:
 
-- Camera 연출 때문에 Project Title이 가려짐 → Camera를 수정
-- Ambient Motion 때문에 프레임 저하 → Ambient를 줄임
-- 게임 조작 때문에 Contact 접근이 늦어짐 → Direct Access 제공
-- 포털 영상이 실패함 → Static Fallback으로 진행
-
----
-
-## 05. 8대 검증 기준
-
-주요 작업 완료 전 아래를 확인한다.
-
-### 첫인상
-처음 본 사용자가 이름·직무·핵심 강점을 빠르게 이해할 수 있는가?
-
-### 탐색
-게임을 하지 않아도 Project 4개와 Contact/Resume을 찾을 수 있는가?
-
-### 콘텐츠
-Project 하나를 본 뒤 역할·문제·주요 결정·구현 내용을 이해할 수 있는가?
-
-### 조작
-설명을 길게 읽지 않아도 이동·점프·아이템 획득·진입이 가능한가?
-
-### 복구
-Auto Move 취소, Skip, Browser Back, Reload 뒤에도 정상 상태인가?
-
-### 반응형
-짧은 노트북, Tablet, Mobile, 확대 화면에서도 핵심 UI가 유지되는가?
-
-### Asset Failure
-Video / FX / Audio가 실패해도 콘텐츠와 다음 행동이 남아 있는가?
-
-### 접근성
-Keyboard / Reduced Motion / Motion Pause에서도 동일한 정보와 기능에 접근 가능한가?
-
-작업이 위 기준 중 무엇을 개선하는지 설명할 수 없다면 우선순위를 낮춘다.
-
----
-
-## 06. Scene / Page 구조
-
-현재 프로젝트는 `src/scenes/`와 `src/pages/`의 역할을 분리한다.
-
-### `src/scenes/`
-게임 연출, Player, World, Transition 중심.
+-   Real World
+-   Portal
+-   World
+-   Character
+-   Scene Transition
 
 ### `src/pages/`
-실제 Portfolio Information / Content 중심.
 
-Scene과 Page를 임의로 합치지 않는다.
+실제 Portfolio Information 중심.
 
-같은 콘텐츠가 필요하면 Page 또는 Data를 재사용하고,
-Scene에서는 연출과 상호작용을 담당한다.
+예:
 
----
+-   About
+-   Skills
+-   Projects
+-   Project Detail
+-   Q&A
+-   Contact
 
-## 07. Router 작업
+Scene과 Page를 무조건 1:1로 만들지 않는다.
+
+같은 콘텐츠가 필요하면 Page 또는 Data를 재사용한다.
+
+------------------------------------------------------------------------
+
+## 08. Router 작업
 
 React Router는 URL과 탐색 안정성을 담당한다.
 
-Claude Code는 다음을 항상 보호한다.
+항상 보호한다.
 
-- 직접 URL 접근
-- 새로고침
-- Browser Back
-- Browser Forward
-- Quick View
-- Reduced Motion
-- Error Recovery
+-   Direct URL
+-   Refresh
+-   Browser Back
+-   Browser Forward
+-   Reduced Motion
+-   Error Recovery
+-   핵심 콘텐츠 Direct Access
 
-Route 변경 전에 긴 Animation이 반드시 끝나야만 이동되는 구조를 만들지 않는다.
+긴 Animation이 끝나야만 Route 이동이 가능한 구조를 만들지 않는다.
 
-게임 연출은 Route를 보조해야지 Route 안정성을 깨면 안 된다.
+Legacy Route를 삭제하기 전 다음을 확인한다.
 
----
+1.  `src/app/router.jsx`
+2.  Navigation / Link
+3.  Import
+4.  Scene / Page Dependency
+5.  Redirect 필요 여부
 
-## 08. Player 작업
+------------------------------------------------------------------------
 
-Player는 장식이 아니다.
+## 09. Character / Interaction
 
-Player 관련 구현 시 다음을 구분한다.
+Real World 이후 Character 이동 방식은 아직 확정되지 않았다.
 
-### Gameplay Motion
-- Idle
-- Walk
-- Run
-- Jump
-- Fall
-- Land
-- Interact
-- Pickup
+따라서 다음을 기본 전제로 구현하지 않는다.
 
-즉각적인 입력 반응이 중요하다.
+-   WASD 자유 이동
+-   Arrow Key 자유 이동
+-   Jump
+-   Collision
+-   Auto Path
+-   Point-based Movement
+-   Character가 모든 Navigation을 수행하는 구조
 
-### Cinematic Motion
-- Portal Resist
-- Portal Pull
-- Transformation
-- Arrival
-- Stage Clear
-- Ending
+현재 확정된 Interaction 요구사항:
 
-Cinematic 중에는 필요 시 Player Control을 잠그되,
-끝난 뒤 반드시 Control을 반환한다.
+-   Mouse 접근 가능
+-   Keyboard 접근 가능
+-   Touch 접근 가능
+-   Direct Access 가능
+-   Hover에만 핵심 정보를 숨기지 않음
+-   Motion / 3D가 없어도 핵심 기능 유지
 
-### 입력 우선순위
+Character Movement는 해당 화면의 디자인이 확정된 후 구현한다.
 
-- Auto Move 중 직접 이동 입력 → Auto Move 취소
-- Dialog / Adventure Book / Info Panel → Player Input 잠금
-- Jump / Pickup / Land 중 → 장식성 Look/Hover 반응 억제
-- 목적지 연속 선택 → 마지막 유효 목적지 우선
-- Skip / Error → Player/Camera Lock 해제
+------------------------------------------------------------------------
 
----
-
-## 09. Motion 구현 규칙
+## 10. Motion 구현 규칙
 
 Motion은 목적이 있어야 한다.
 
-### 구현 도구 우선순위
+### Motion Ownership
 
-1. CSS
-   - 간단한 hover
-   - transition
-   - loop
-   - transform
-   - opacity
+하나의 움직임은 하나의 시스템이 담당한다.
 
-2. Framer Motion
-   - Component-level motion
-   - UI enter/exit
-   - 상태 기반 motion
+``` text
+Simple UI Motion       → CSS
+Complex UI Timeline    → GSAP
+3D World / Camera      → Three.js
+Complex Cinematic      → Higgsfield / Video
+3D Asset Production    → Blender / Astra
+```
 
-3. GSAP
-   - 복잡한 timeline
-   - Scene transition
-   - Camera-like sequence
-   - scroll-driven animation
+단, GSAP / Three.js 등의 실제 사용 여부는 `package.json`과 현재 코드를
+먼저 확인한다.
 
-4. ScrollTrigger
-   - 실제 Scroll과 Scene 진행이 연결될 때만
+설치되어 있다고 가정하지 않는다.
 
-동일한 Motion을 여러 라이브러리로 중복 구현하지 않는다.
+동일 Motion을 여러 Library로 중복 구현하지 않는다.
 
-### Motion 강도
+### Motion 조정
 
-강한 Motion은 기본적으로:
+다음 문제가 생기면 Motion을 줄이거나 수정한다.
 
-- 1 Primary
-- 최대 2 Secondary
+-   콘텐츠를 가림
+-   조작 반응이 늦음
+-   너무 산만함
+-   Motion sickness 가능성
+-   Mobile 성능 저하
 
-Portal / Power Up / Stage Clear 중에는 Ambient를 줄인다.
+Reduced Motion에서는 강한 Camera Travel, Suction, Parallax 등을 줄이거나
+대체한다.
 
-### 수정 가능성
+------------------------------------------------------------------------
 
-Motion timing / Easing / Camera / Hover / FX는 실제 화면을 보며 조정 가능하다.
+## 11. Design System 적용
 
----
+최신 `DESIGN_SYSTEM.md`를 기준으로 한다.
 
-## 10. Living World 구현 규칙
+임의로 새 Token을 만들지 않는다.
 
-Living World는 핵심이지만 화면을 산만하게 만들면 안 된다.
+-   Typography
+-   Color
+-   Spacing
+-   Radius
+-   Padding
+-   Border
+-   Shadow
+-   Grid
+-   Safe Area
+-   Component State
+-   Responsive
+-   Accessibility
+-   Motion Principle
 
-기본 예:
+현재 Font System:
 
-- Cloud
-- Grass
-- Water
-- Waterfall
-- Flag
-- Light
-- Character Idle
+-   Pretendard Variable → Primary
+-   Instrument Serif → Editorial Accent
 
-Ambient Event 예:
+Legacy Font:
 
-- Bird
-- Leaf
-- Cloud Shadow
-- Sparkle
+-   Fredoka
+-   Silkscreen
+-   RetroMario
+-   SuperMario256
 
-모든 요소를 같은 속도와 같은 진폭으로 반복하지 않는다.
+파일이 존재하더라도 새 디자인에 자동 적용하지 않는다.
 
-사용자가 Reduced Motion / Motion Pause를 선택하면:
+Design System의 주요 기준을 변경해야 한다면:
 
-- Parallax 감소
-- Floating 감소
-- Camera Shake 제거
-- 반복 Particle 감소
-- 장식성 Motion 정지 가능
+1.  문제 확인
+2.  변경 이유 설명
+3.  영향 범위 확인
+4.  최소 변경
+5.  브라우저 검증
 
-핵심 Navigation과 Player Feedback은 유지한다.
+순서로 처리한다.
 
----
-
-## 11. Design System 사용
-
-최신 `DESIGN_SYSTEM*.md`를 기본 기준으로 사용한다.
-
-다음 Token은 임의 생성하지 않는다.
-
-- Color
-- Typography
-- Spacing
-- Radius
-- Border
-- Shadow
-- Z-index
-
-새 값이 정말 필요하면 이유를 먼저 설명한다.
-
-단, Design System은 Working System이다.
-
-실제 구현 결과가 좋지 않으면 디자인 값이나 Motion을 수정할 수 있으며,
-콘텐츠를 바꾸는 대신 표현 방식을 개선한다.
-
----
+------------------------------------------------------------------------
 
 ## 12. Asset 작업
 
 새 Asset을 만들기 전에 기존 Asset을 확인한다.
 
-Higgsfield / AI Asset 사용 시 확인:
+### 목표 구조
 
-- Character identity
-- Proportion
-- Perspective
-- Lighting
-- Material
-- Shadow
-- Color
-- Background transparency
-- Loop quality
-- Browser playback
-- Layer separation
+``` text
+public/assets/
+├─ source/
+│  ├─ original/
+│  ├─ higgsfield/
+│  ├─ astra/
+│  └─ blender/
+└─ production/
+   ├─ images/
+   ├─ video/
+   ├─ models/
+   ├─ icons/
+   ├─ audio/
+   └─ fonts/
+```
 
-완성 이미지 한 장을 Interactive Scene 전체로 사용하지 않는다.
+실제 Repository에 아직 없는 폴더는 필요할 때 단계적으로 만든다.
 
-가능하면 다음을 분리한다.
+### Naming
 
-- Background
-- Environment
-- Player
-- Prop
-- FX
-- UI
+-   lowercase
+-   kebab-case
+-   English
+-   no spaces
 
----
+### Format
 
-## 13. Asset Failure 대응
+-   Image → WebP / AVIF
+-   Video → WebM, 필요 시 MP4 Fallback
+-   3D → GLB
+-   Icon → SVG
+-   Font → WOFF2 우선
 
-고급 Asset이 없어도 페이지가 동작해야 한다.
+### AI / Higgsfield Asset 검수
 
-- Video 실패 → Poster / Static Layer
-- Transparent Motion 실패 → Static Character / Prop
-- Audio 실패 → Silent Mode
-- Ambient 실패 → Ambient만 제거
-- Image 실패 → Fallback Surface / Alt
-- Progress 저장 실패 → 콘텐츠 잠금 금지
+-   Character Identity
+-   Proportion
+-   Perspective
+-   Lighting
+-   Material
+-   Shadow
+-   Color
+-   Transparency
+-   Loop
+-   Browser Playback
+-   Layer Separation
 
-Asset 실패를 이유로 Route나 Contact 접근을 막지 않는다.
+완성 이미지 한 장을 전체 Interactive Scene 완성으로 판단하지 않는다.
 
----
+------------------------------------------------------------------------
 
-## 14. Responsive 구현
+## 13. Responsive 구현
 
-Primary World Reference는 `1440×810 / 16:9`.
+### Breakpoints
 
-반응형은 단순 Scale이 아니라 Camera Reframe을 사용한다.
+``` text
+Wide              ≥ 1920
+Desktop           1280–1919
+Compact Desktop   1024–1279
+Tablet            768–1023
+Mobile            < 768
+```
 
-### 필수 테스트
+### Primary
 
-- 1920×1080
-- 1440×810
-- 1366×768
-- 1180×820
-- 1024×768
-- 768×1024
-- 430×932
-- 402×874
-- 390×844
-- 360×800
+``` text
+Desktop   1440×810
+Mobile    430×932
+```
 
-Game Scene과 Information Scene은 다른 Responsive 전략을 사용할 수 있다.
+### QA
 
-Mobile은 Desktop 화면을 단순 축소하지 않는다.
+``` text
+2560×1440
+1920×1080
+1440×810
+1366×768
+1180×820
+1024×768
+768×1024
+430×932
+402×874
+390×844
+360×800
+```
 
----
+### Boundary QA
 
-## 15. 접근성
+``` text
+767 / 768
+1023 / 1024
+1279 / 1280
+1919 / 1920
+```
 
-다음은 선택 사항이 아니다.
+### Rules
 
-- Semantic HTML
-- button / a 역할 구분
-- Keyboard Navigation
-- focus-visible
-- 충분한 Contrast
-- Touch Target 약 44×44px 이상
-- 의미 있는 이미지 Alt
-- 색상만으로 상태 전달 금지
-- Sound Toggle
-- Reduced Motion
-- Motion Pause / Stop
-- Skip Intro
-- Skip Cinematic
-- Quick View
+-   Desktop을 단순 축소해 Mobile로 만들지 않는다.
+-   Visual Parity보다 Content Parity를 우선한다.
+-   Important Object는 Safe Area를 유지한다.
+-   Ultrawide에서 중앙 Scene을 과도하게 확대하지 않는다.
+-   Short Viewport를 별도로 확인한다.
+-   Hover 기능은 Touch / Keyboard 대체 경로를 제공한다.
+-   200% Zoom을 확인한다.
+-   Mobile에서 복잡한 3D / Character 조작을 강제하지 않는다.
 
-Hover에만 핵심 정보를 숨기지 않는다.
+Real World 외 화면의 구체적인 Responsive Layout은 디자인 확정 전 임의로
+확정하지 않는다.
 
----
+------------------------------------------------------------------------
+
+## 14. Accessibility
+
+선택 사항이 아니다.
+
+-   Semantic HTML
+-   `button` / `a` 역할 구분
+-   Keyboard Navigation
+-   `focus-visible`
+-   충분한 Contrast
+-   Touch Target 약 44×44px 이상
+-   의미 있는 Image Alt
+-   Color만으로 State 전달 금지
+-   Reduced Motion
+-   Skip Cinematic
+-   Direct Content Access
+-   200% Zoom
+
+Motion을 줄이거나 3D가 없어도 동일한 핵심 정보에 접근할 수 있어야 한다.
+
+------------------------------------------------------------------------
+
+## 15. Asset Failure / Fallback
+
+고급 Asset이 실패해도 Portfolio가 멈추면 안 된다.
+
+``` text
+Video Failure
+→ Poster / Static Layer
+
+WebGL / Three.js Failure
+→ Static World + HTML Navigation
+
+Character Motion Failure
+→ Static Character
+
+Audio Failure
+→ Silent Mode
+
+Ambient Failure
+→ 해당 Ambient만 제거
+
+Image Failure
+→ Fallback Surface + Alt
+
+Transition Failure
+→ Immediate Route
+
+Loading Failure
+→ Skip / Direct Access
+```
+
+Asset 실패를 이유로 Project / Contact / Navigation 접근을 막지 않는다.
+
+가짜 Loading `%`를 생성하지 않는다.
+
+------------------------------------------------------------------------
 
 ## 16. Performance
 
-Asset-heavy 프로젝트이므로 작업 중 성능을 계속 확인한다.
+Asset-heavy 프로젝트이므로 성능을 기능으로 취급한다.
 
-- WebP / AVIF 우선
-- 필요한 Video는 WebM 검토
-- 불필요한 4K PNG 금지
-- Lazy Loading
-- Scene별 Asset Preload
-- Route Code Splitting 검토
-- Offscreen Motion Pause
-- Offscreen Video Pause
-- Particle 제한
-- Cleanup
-- Mobile Quality Reduction
+-   WebP / AVIF 우선
+-   Video는 WebM 우선
+-   3D는 GLB 우선
+-   필요한 Asset만 Preload
+-   Route / Scene Lazy Loading
+-   Offscreen Motion Pause
+-   Offscreen Video Pause
+-   Particle 제한
+-   Animation Cleanup
+-   Mobile Quality Reduction
+-   Layout Shift 최소화
 
 목표:
 
-- LCP ≤ 2.5s
-- INP ≤ 200ms
-- CLS ≤ 0.1
+-   LCP ≤ 2.5s
+-   INP ≤ 200ms
+-   CLS ≤ 0.1
 
-단, 실제 Gameplay 입력 반응은 별도로 확인한다.
+------------------------------------------------------------------------
 
----
-
-## 17. Prototype Gate
-
-대규모 Asset 제작 전에 최소 Gameplay Prototype을 먼저 검증한다.
-
-필수:
-
-1. Idle
-2. Walk
-3. Run
-4. Jump
-5. Fall
-6. Land
-7. Collision
-8. Skill Block 1개
-9. Item Pop
-10. Pickup
-11. Cloud / Grass Motion
-12. Scene Transition 1회
-
-검증 항목:
-
-- Character Scale
-- Ground Contact
-- Animation Transition
-- Input Response
-- Collision
-- Loop
-- Asset Consistency
-- Short Viewport
-- Mobile 가능성
-
-Prototype이 불안정한데 대규모 Asset부터 생성하지 않는다.
-
----
-
-## 18. 삭제된 Scope
-
-다음 기능은 다시 추가하지 않는다.
-
-- 숨겨진 섬 / Secret Area
-- Companion / 동료
-- Player Badge 장착
-- Skill Level
-- 의미 없는 HP
-- 의미 없는 Life
-- 의미 없는 Score
-
-필요해 보이더라도 사용자 승인 없이 복원하지 않는다.
-
----
-
-## 19. Dependency 규칙
+## 17. Dependency 규칙
 
 새 Package 설치 전에:
 
-1. `package.json` 확인
-2. 기존 Dependency로 가능한지 검토
-3. 설치 필요 이유 설명
-4. Bundle 영향 검토
+1.  `package.json` 확인
+2.  기존 Dependency로 가능한지 검토
+3.  설치 이유 확인
+4.  Bundle / Maintenance 영향 확인
 
-요청 없이:
+사용자 요청 없이:
 
-- Framework 변경 금지
-- State Library 추가 금지
-- Animation Library 중복 추가 금지
-- Dependency 삭제 금지
+-   Framework 변경 금지
+-   State Library 추가 금지
+-   Animation Library 중복 추가 금지
+-   기존 Dependency 삭제 금지
 
----
+------------------------------------------------------------------------
 
-## 20. Git 안전 규칙
+## 18. Git 안전 규칙
 
 작업 전:
 
-```bash
+``` bash
 git status
 git branch --show-current
 ```
 
-파괴적 작업 금지:
+사용자 승인 없이 다음을 실행하지 않는다.
 
-- `git reset --hard`
-- `git clean`
-- Force Push
-- Rebase
-- Branch 삭제
-- Commit History 변경
+-   `git reset --hard`
+-   `git clean`
+-   Force Push
+-   Rebase
+-   Branch 삭제
+-   Commit History 변경
+-   사용자 작업 되돌리기
 
-사용자의 명시적 승인 없이 실행하지 않는다.
+------------------------------------------------------------------------
 
----
+## 19. 검증
 
-## 21. 검증
-
-작업 후 실제 `package.json` script를 기준으로 검증한다.
+작업 후 실제 `package.json` Script를 기준으로 검증한다.
 
 기본:
 
-```bash
+``` bash
 npm run lint
 npm run build
 ```
 
 필요 시:
 
-```bash
+``` bash
 npm run dev
 npm run preview
 ```
 
 추가 확인:
 
-- Console Error
-- Broken Import
-- Asset Path
-- Font Loading
-- Route Direct Access
-- Browser Back
-- Refresh
-- Keyboard
-- Reduced Motion
-- Mobile
-- Short Viewport
+-   Console Error
+-   Broken Import
+-   Asset Path
+-   Font Loading
+-   Direct URL
+-   Browser Back
+-   Refresh
+-   Keyboard
+-   Reduced Motion
+-   Responsive
+-   Mobile
+-   Short Viewport
+-   200% Zoom
 
 실행하지 않은 검증을 통과했다고 보고하지 않는다.
 
----
+------------------------------------------------------------------------
 
-## 22. PROJECT_CONTEXT 업데이트
-
-작업 완료 후 무조건 모든 사소한 내용을 기록하지 않는다.
-
-다음과 같은 중요한 변경이 있을 때 갱신한다.
-
-- Route 변경
-- Scene 완료
-- Player System 변경
-- Asset Strategy 변경
-- 주요 Design Decision
-- 주요 Known Issue
-- 검증 결과
-
-`PROJECT_CONTEXT.md`에는 실제 구현된 상태만 기록한다.
-
-계획된 기능을 완료된 기능처럼 기록하지 않는다.
-
----
-
-## 23. 반복 문제 처리
+## 20. 반복 문제 처리
 
 같은 문제가 반복되면 같은 Patch만 반복하지 않는다.
 
 예:
 
-- Asset path 오류 반복
-- Player state 충돌 반복
-- 동일 Responsive 깨짐 반복
-- Motion cleanup 오류 반복
-- Scene Transition 오류 반복
+-   Asset Path 오류 반복
+-   동일 Responsive 깨짐 반복
+-   Motion Cleanup 오류 반복
+-   Scene Transition 오류 반복
+-   Route State 오류 반복
 
 이 경우:
 
-1. Root Cause 확인
-2. 공통 Component / Hook / Utility 필요성 검토
-3. Skill 또는 Rule 보완 제안
-4. 사용자 승인 후 구조 개선
+1.  Root Cause 확인
+2.  공통 Component / Hook / Utility 필요성 검토
+3.  구조 개선 범위 확인
+4.  사용자 요청 범위 안에서 수정
 
----
+------------------------------------------------------------------------
 
-## 24. 완료 보고 형식
+## 21. PROJECT_CONTEXT 업데이트
 
-작업 완료 후 아래 순서로 간결하게 보고한다.
+다음과 같은 중요한 변경이 있을 때만 갱신한다.
+
+-   Route 변경
+-   Scene / Page Architecture 변경
+-   주요 구현 완료
+-   Asset Strategy 변경
+-   LOCKED Decision 변경
+-   주요 Known Issue
+-   실제 검증 결과
+
+계획된 기능을 완료로 기록하지 않는다.
+
+WORKING 디자인을 확정된 것으로 기록하지 않는다.
+
+사소한 CSS 수정마다 갱신하지 않는다.
+
+------------------------------------------------------------------------
+
+## 22. 완료 보고 형식
+
+작업 완료 후 다음 순서로 간결하게 보고한다.
 
 ### 변경 파일
-실제로 수정한 파일
+
+실제로 수정한 파일.
 
 ### 구현 내용
-실제로 구현한 기능
+
+실제로 구현한 기능.
 
 ### 유지한 구조
-건드리지 않고 유지한 기존 구조
 
-### 디자인 / 모션 조정
-작업 중 변경한 표현 방식과 이유
+건드리지 않고 유지한 기존 구조.
+
+### Decision 영향
+
+LOCKED / WORKING에 영향을 준 부분.
 
 ### 검증
-실제로 실행한 명령과 결과
+
+실제로 실행한 명령과 결과.
 
 ### 확인한 Viewport
-실제로 테스트한 화면 크기
+
+실제로 테스트한 화면 크기.
 
 ### 남은 문제
-미완료 / 미검증 / 추가 확인 필요 항목
 
----
+미완료 / 미검증 / 추가 확인 항목.
 
-## 25. 최종 판단 기준
+완료하지 않은 작업을 완료했다고 보고하지 않는다.
 
-Claude Code는 “더 화려한 결과”보다 다음을 우선한다.
+------------------------------------------------------------------------
 
-**명확한 콘텐츠 → 쉬운 탐색 → 안정적인 조작 → 복구 가능성 → 반응형 → 접근성 → 성능 → 모션 → 장식**
+## 23. 최종 판단 기준
 
-사용성을 해치지 않는 범위에서
-**Player + Living World + Journey**를 적극적으로 구현한다.
+Claude Code는 더 화려한 결과보다 다음을 우선한다.
+
+**Content → Navigation → Usability → Recovery → Responsive →
+Accessibility → Performance → Motion → Decoration**
+
+가장 중요한 규칙:
+
+> **AGENTS.md를 따른다. LOCKED는 지킨다. WORKING은 확정하지 않는다. 기존
+> 코드를 먼저 확인하고 필요한 범위만 수정한다.**

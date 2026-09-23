@@ -11,7 +11,7 @@ body:has(.scene_01_start) {
   height: 100svh;
   overflow: hidden;
   padding: clamp(16px, 3.4vh, 40px) clamp(16px, 3.8vw, 76px);
-  background: url('/assets/images/main.png') center bottom / cover no-repeat;
+  background: url('/assets/production/images/real-world/main.png') center bottom / cover no-repeat;
   color: #fff;
   font-family: 'Fredoka', system-ui, sans-serif;
   letter-spacing: 0.06em;

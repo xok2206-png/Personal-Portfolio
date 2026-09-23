@@ -21,7 +21,7 @@ function RealWorld() {
         <p className="scene_01_welcome">WELCOME TO</p>
         <h1 className="scene_01_title">
           <img
-            src="/assets/images/main%20title.png"
+            src="/assets/production/images/real-world/main-title.png"
             width="560"
             height="280"
             alt="MY PORTFOLIO WORLD"

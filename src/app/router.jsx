@@ -1,8 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import RealWorld from '../scenes/RealWorld/RealWorld.jsx'
 import Character from '../scenes/Character/Character.jsx'
-import PowerUp from '../scenes/PowerUp/PowerUp.jsx'
-import WorldMap from '../scenes/WorldMap/WorldMap.jsx'
+import PortfolioWorld from '../scenes/PortfolioWorld/PortfolioWorld.jsx'
 import Ending from '../scenes/Ending/Ending.jsx'
 import About from '../pages/About/About.jsx'
 import Skills from '../pages/Skills/Skills.jsx'
@@ -17,8 +16,7 @@ function AppRouter() {
     <Routes>
       <Route path="/" element={<RealWorld />} />
       <Route path="/character" element={<Character />} />
-      <Route path="/power-up" element={<PowerUp />} />
-      <Route path="/world-map" element={<WorldMap />} />
+      <Route path="/world-map" element={<PortfolioWorld />} />
 
       <Route path="/projects" element={<Projects />} />
       <Route path="/projects/:projectId" element={<ProjectDetail />} />

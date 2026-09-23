@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-function WorldMap() {
+function PortfolioWorld() {
   return (
     <main id="world_map" aria-label="WORLD MAP">
       <h1>WORLD MAP</h1>
@@ -17,4 +17,4 @@ function WorldMap() {
   )
 }
 
-export default WorldMap
+export default PortfolioWorld
