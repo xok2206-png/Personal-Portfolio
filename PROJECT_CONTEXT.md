@@ -992,3 +992,9 @@ Route, Scene architecture, Asset strategy, 주요 구현 상태, 중요한
 Decision, 검증 상태가 바뀔 때 갱신한다. 사소한 CSS/Spacing 수정마다
 업데이트하지 않는다.
 
+
+## Projects Gallery implementation — 2026-09-28
+
+User-authorized `/projects` gallery enhancement: daylight sky atrium, independent project sculptures and light plaques, GalleryHUD/ProjectPedestal components, bounded WASD/arrow and floor tap movement, proximity/E/Enter selection, pointer preview, project HUD and case-study CTA. Existing content and routes retained. Shared motion pause/reduced-motion supported. This is scene-specific user-authorized movement; it does not lock general Portfolio World movement or other WORKING designs.
+
+Lint/build pass. Headless Edge validated movement, four selections, proximity/E under reduced motion, detail route/back and pause. 17 viewport overflow checks passed; visual review 1440×810 and 430×932. See `docs/projects-gallery-implementation.md` and `docs/projects-gallery-qa.json` for asset provenance, exact QA and limitations. Background remains raster architecture with independent ambient overlays; existing project sculptures remain conceptual assets.

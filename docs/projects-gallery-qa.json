@@ -1,0 +1,114 @@
+{
+  "errors": [],
+  "checks": [
+    "WASD movement",
+    "four exhibit click selections",
+    "reduced-motion proximity + E",
+    "case-study routing and browser back",
+    "motion pause"
+  ],
+  "viewports": [
+    {
+      "w": 2560,
+      "h": 1440,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 1920,
+      "h": 1080,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 1440,
+      "h": 810,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 1366,
+      "h": 768,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 1180,
+      "h": 820,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 1024,
+      "h": 768,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 768,
+      "h": 1024,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 430,
+      "h": 932,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 402,
+      "h": 874,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 360,
+      "h": 800,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 767,
+      "h": 900,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 1023,
+      "h": 800,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 1279,
+      "h": 800,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 1280,
+      "h": 800,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 1919,
+      "h": 1080,
+      "overflow": false,
+      "navLinks": 6
+    },
+    {
+      "w": 1920,
+      "h": 1080,
+      "overflow": false,
+      "navLinks": 6
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 export const exhibitStops = [{x:16,y:73},{x:34,y:65},{x:65,y:65},{x:84,y:73}]
+const aliases={a:'ArrowLeft',d:'ArrowRight',w:'ArrowUp',s:'ArrowDown'}
 const direction = (dx,dy) => Math.abs(dx)>Math.abs(dy)*1.3?'side':dy>0?'front':'back'
 const limit = (value,min,max) => Math.max(min,Math.min(max,value))
 export default function useGalleryWalk({reduced,paused,hidden}){
@@ -11,16 +12,17 @@ export default function useGalleryWalk({reduced,paused,hidden}){
  const go=point=>{
   const next={x:limit(point.x,9,91),y:limit(point.y,65,94)}
   keys.current.clear()
-  if(reduced){const view=direction(next.x-position.current.x,(next.y-position.current.y)*1.6);position.current=next;target.current=null;setActive(false);setPlayer({...next,moving:false,facing:next.x<player.x?1:-1,view});return}
+  if(reduced||paused){const view=direction(next.x-position.current.x,(next.y-position.current.y)*1.6);position.current=next;target.current=null;setActive(false);setPlayer({...next,moving:false,facing:next.x<player.x?1:-1,view});return}
   target.current=next;setActive(true)
  }
  const keyDown=e=>{
-  if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key))return
+  const key=aliases[e.key.toLowerCase()]||e.key
+  if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(key))return
   e.preventDefault();target.current=null
-  if(reduced){go({x:position.current.x+(e.key==='ArrowLeft'?-3:e.key==='ArrowRight'?3:0),y:position.current.y+(e.key==='ArrowUp'?-2:e.key==='ArrowDown'?2:0)});return}
-  keys.current.add(e.key);setActive(true)
+  if(reduced||paused){go({x:position.current.x+(key==='ArrowLeft'?-3:key==='ArrowRight'?3:0),y:position.current.y+(key==='ArrowUp'?-2:key==='ArrowDown'?2:0)});return}
+  keys.current.add(key);setActive(true)
  }
- const keyUp=e=>{keys.current.delete(e.key)}
+ const keyUp=e=>{keys.current.delete(aliases[e.key.toLowerCase()]||e.key)}
  useEffect(()=>{
   if(!active||paused||hidden||reduced)return
   let frame,last=performance.now(),facing=player.facing,view=player.view
@@ -44,5 +46,6 @@ export default function useGalleryWalk({reduced,paused,hidden}){
  useEffect(()=>{const clear=()=>{keys.current.clear();target.current=null;setActive(false);setPlayer(p=>({...p,moving:false}))};window.addEventListener('blur',clear);document.addEventListener('visibilitychange',clear);return()=>{window.removeEventListener('blur',clear);document.removeEventListener('visibilitychange',clear)}},[])
  return {player,go,stop,keyDown,keyUp}
 }
+
 
 
