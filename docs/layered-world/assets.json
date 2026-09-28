@@ -1,0 +1,129 @@
+{
+  "date": "2026-09-28",
+  "reference": "C:/Users/EZEN/Downloads/최종/인트로/01.png",
+  "referenceSha256": "EA7F2CE2822C52C327C83EB444C0DB12E57AE5BBB617EF22B22A020BF8622DFB",
+  "provider": "Higgsfield",
+  "model": "gpt_image_2_5",
+  "quality": "high",
+  "resolution": "2k",
+  "notes": [
+    "Reference-conditioned reconstructions, not pixel-identical extraction.",
+    "Transparent PNG sources, optimized WebP output.",
+    "First background retained only through a lower-basin mask; revised background is main backdrop.",
+    "Two built-in image generations rejected for opaque checkerboard backgrounds and not used."
+  ],
+  "jobs": [
+    {
+      "index": 0,
+      "job_id": "63207154-4a66-45e4-91b0-8395cbbd3133"
+    },
+    {
+      "index": 1,
+      "job_id": "de664740-0ce4-48f9-98be-2966b7ac7446"
+    },
+    {
+      "index": 2,
+      "job_id": "59e8566c-6e3b-4a9a-9e31-d52f4b7f916c"
+    },
+    {
+      "index": 3,
+      "job_id": "5ff39114-9b76-4b73-b58d-a4d6c1d6a419"
+    },
+    {
+      "index": 4,
+      "job_id": "c0852552-c97f-4640-8229-596946927f77"
+    },
+    {
+      "index": 5,
+      "job_id": "c43e9526-2616-4167-b362-c3c84b3f5fe8"
+    },
+    {
+      "index": 6,
+      "job_id": "64f51601-401b-4940-b862-be688acd9d19"
+    },
+    {
+      "index": 7,
+      "job_id": "d323792e-0291-4355-80aa-d5263927da33"
+    },
+    {
+      "index": 9,
+      "job_id": "39885aad-8f99-4a6e-a11a-ca2abbd97def"
+    },
+    {
+      "index": 8,
+      "job_id": "5e85a617-677a-477c-a033-480bbc2432e4"
+    },
+    {
+      "index": 10,
+      "job_id": "4fe2365a-bb17-42fd-a3ab-1664707d6392"
+    },
+    {
+      "index": 11,
+      "job_id": "71481629-a579-42f2-8200-2d875068740f"
+    }
+  ],
+  "prompts": {
+    "islands": [
+      {
+        "name": "about",
+        "prompt": "Precise reference asset extraction, not redesign. Use the supplied image as the edit target. Preserve the selected object's visible silhouette, exact original architecture, warm daylight from left, saturated cyan water, violet-gray rock facets, golden green foliage, detailed soft-stylized 3D material texture and original camera angle. Do not invent a different design. Remove all typography/UI. Return a clean isolated alpha-transparent PNG with no sky or checkerboard, no other islands, no surrounding bridges. Reconstruct only edges obscured by other objects. Center the complete object including its pointed rock bottom with a small 4% transparent margin. Extract ONLY the ABOUT island on the LEFT: the cozy warm-window wooden studio house, tall green tree on its left, garden, tapered rock and its existing waterfalls."
+      },
+      {
+        "name": "skills",
+        "prompt": "Precise reference asset extraction, not redesign. Use the supplied image as the edit target. Preserve the selected object's visible silhouette, exact original architecture, warm daylight from left, saturated cyan water, violet-gray rock facets, golden green foliage, detailed soft-stylized 3D material texture and original camera angle. Do not invent a different design. Remove all typography/UI. Return a clean isolated alpha-transparent PNG with no sky or checkerboard, no other islands, no surrounding bridges. Reconstruct only edges obscured by other objects. Center the complete object including its pointed rock bottom with a small 4% transparent margin. Extract ONLY the SKILLS island in LOWER MIDDLE LEFT: open modern personal digital studio with large landscape computer display and smaller colorful creative screens, pale stone pavilion, leafy trees, terraced green garden and hanging tapered rock and existing waterfalls. This must look like the original screens/studio, NOT a crystal tower or a sci-fi factory."
+      },
+      {
+        "name": "projects",
+        "prompt": "Precise reference asset extraction, not redesign. Use the supplied image as the edit target. Preserve the selected object's visible silhouette, exact original architecture, warm daylight from left, saturated cyan water, violet-gray rock facets, golden green foliage, detailed soft-stylized 3D material texture and original camera angle. Do not invent a different design. Remove all typography/UI. Return a clean isolated alpha-transparent PNG with no sky or checkerboard, no other islands, no surrounding bridges. Reconstruct only edges obscured by other objects. Center the complete object including its pointed rock bottom with a small 4% transparent margin. Extract ONLY the grand central PROJECTS island: same original tall cream spires, cyan central arch, digital art screens on facade, tiered gallery terraces, purple-gray massive multi-level cliff, dense vegetation and its original two waterfalls. Preserve exactly the recognizable reference castle-gallery silhouette, not a rounded glass atrium."
+      },
+      {
+        "name": "qa",
+        "prompt": "Precise reference asset extraction, not redesign. Use the supplied image as the edit target. Preserve the selected object's visible silhouette, exact original architecture, warm daylight from left, saturated cyan water, violet-gray rock facets, golden green foliage, detailed soft-stylized 3D material texture and original camera angle. Do not invent a different design. Remove all typography/UI. Return a clean isolated alpha-transparent PNG with no sky or checkerboard, no other islands, no surrounding bridges. Reconstruct only edges obscured by other objects. Center the complete object including its pointed rock bottom with a small 4% transparent margin. Extract ONLY the Q&A island on upper RIGHT: the original copper half-dome observatory and large brass telescope pointing up-right, elegant cream arcade, green garden and tapered violet-gray rock. Not a question mark. Keep the exact original domed silhouette."
+      },
+      {
+        "name": "contact",
+        "prompt": "Precise reference asset extraction, not redesign. Use the supplied image as the edit target. Preserve the selected object's visible silhouette, exact original architecture, warm daylight from left, saturated cyan water, violet-gray rock facets, golden green foliage, detailed soft-stylized 3D material texture and original camera angle. Do not invent a different design. Remove all typography/UI. Return a clean isolated alpha-transparent PNG with no sky or checkerboard, no other islands, no surrounding bridges. Reconstruct only edges obscured by other objects. Center the complete object including its pointed rock bottom with a small 4% transparent margin. Extract ONLY the CONTACT island on lower RIGHT: original slim white lighthouse with copper pointed roof, open circular stone terrace, red mail building, lush plants and deep tapered violet-gray floating cliff and original left waterfall."
+      },
+      {
+        "name": "background",
+        "prompt": "BACKGROUND PLATE reconstruction of the supplied scene, same 16:9 camera and unchanged bright rich blue sky, giant subtle planet top-right, warm light from left, the distant castle islands in upper left and upper right, middle distance hanging rocks, low distant river and water basin, small distant bridges, thick white cloud sea with shaded lilac undersides. Remove ONLY the five main named destination islands (About, Skills, Projects, Q&A, Contact) and ALL foreground lookout, foreground character, foreground vegetation/branches, ALL text/logos/UI and nearby airships. Fill those removed near objects with matching distant sky/clouds/water scenery. Keep distant islands prominent, detailed and clearly visible, not faint gray ghosts. Preserve original atmosphere, texture and colors. No new main islands. No blank solid regions. This is a clean panoramic backdrop for recompositing separated originals. Opaque 16:9 output."
+      }
+    ],
+    "extra": [
+      {
+        "name": "background",
+        "prompt": "BACKGROUND PLATE reconstruction of the supplied scene, same 16:9 camera and unchanged bright rich blue sky, giant subtle planet top-right, warm light from left, the distant castle islands in upper left and upper right, middle distance hanging rocks, low distant river and water basin, small distant bridges, thick white cloud sea with shaded lilac undersides. Remove ONLY the five main named destination islands (About, Skills, Projects, Q&A, Contact) and ALL foreground lookout, foreground character, foreground vegetation/branches, ALL text/logos/UI and nearby airships. Fill those removed near objects with matching distant sky/clouds/water scenery. Keep distant islands prominent, detailed and clearly visible, not faint gray ghosts. Preserve original atmosphere, texture and colors. No new main islands. No blank solid regions. This is a clean panoramic backdrop for recompositing separated originals. Opaque 16:9 output.",
+        "ratio": "16:9",
+        "background": "opaque"
+      },
+      {
+        "name": "lookout",
+        "ratio": "16:9",
+        "prompt": "Precise background-extraction from supplied reference, keep actual texture and lighting. Extract ONLY the foreground rocky entrance lookout ledge at bottom-left and bottom edge, with same weathered pale warm stone slabs, wooden rope fence, little lantern, small wooden direction sign, books, lush grass and white/yellow flowers. Remove the character, all sky, every island, all airships, every cloud, all typography. Keep ground extending horizontally across lower part and stepping down toward right, matching source camera. Upper 55% fully transparent; irregular leafy edge below; no solid backdrop, real RGBA transparency. This foreground layer will overlay the identical reconstructed panorama. Do not add buildings or objects."
+      },
+      {
+        "name": "character",
+        "ratio": "2:3",
+        "prompt": "Precise background-extraction: isolate ONLY the backpacked young adult male explorer seen from behind standing on lower-left lookout in reference. Preserve EXACT same dark tousled hairstyle, adult stylized proportions, black/dark-gray hooded jacket with rolled sleeves, dark trousers, black JY backpack, white black sneakers, original three-quarter rear pose and light from upper left. Full body from hair to soles, standing relaxed facing diagonally right toward islands. Remove all environment, grass, stones, sky. True alpha transparent cutout. Same original detailed cinematic stylized 3D texture, NOT a chibi child, not photoreal adult, no new design."
+      },
+      {
+        "name": "airship",
+        "ratio": "3:2",
+        "prompt": "Precise background-extraction: isolate ONLY the large vintage ivory-brass airship at far LEFT middle of original reference, with its ribbed cream envelope, fine bronze framework, blue/cyan tail fins, tiny dark gondola and original perspective. Preserve shape, texture, warm lighting exactly. No text. Entire airship centered at large size, genuine RGBA transparent background, remove sky clouds islands. Do NOT redraw as a gray capsule; detailed original fantasy dirigible."
+      },
+      {
+        "name": "cloud",
+        "ratio": "3:2",
+        "prompt": "Extract one broad soft volumetric white CLOUD BANK matching the foreground cloud sea of the reference: billowing sculpted white and warm cream sunlit tops, cool pale lilac-blue shaded underside, irregular wispy translucent edges. A single horizontal billowing cloud cluster across canvas, same detailed soft-stylized 3D texture and bright left daylight. Transparent RGBA outside cloud, including translucent alpha feathered wisps. No sky rectangle, no islands, no text, no floor. This is a compositing cloud layer not a cloudy sky background."
+      }
+    ],
+    "bridge": {
+      "name": "bridge",
+      "ratio": "3:2",
+      "prompt": "Extract the pale warm cream stone arched connecting bridge from the supplied fantasy landscape, as a single isolated horizontal bridge compositing asset, viewed from same elevated three-quarter angle. Preserve original detailed cream stone balustrade, 3 to 4 elegant large arches and thin posts. Full bridge from left to right, no island endpoints, no trees, no text. Narrow bridge concentrated across middle horizontal band, transparent RGBA alpha everywhere outside stone structure and through arches. Exactly matching reference material and warm upper-left sunlight, not cartoon vector. No opaque sky."
+    },
+    "correctedBackground": "BACKGROUND CLEAN PLATE EDIT. Input is the panorama to edit, not a style suggestion. REMOVE the large main castle island occupying center x=39%-70%, y=6%-62% COMPLETELY (all castle spires, art screens, terraces and rock). REMOVE the house/tree island at x=14%-34%, y=15%-50% COMPLETELY. REMOVE the medium island at x=27%-47%, y=47%-73% COMPLETELY. REMOVE the observatory-remnant island at x=72%-86%, y=29%-49% COMPLETELY. REMOVE the foreground contact island at x=76%-95%, y=51%-76%. Remove the long nearby bridges joining these main islands. Fill ALL these holes with smooth continuation of original blue sky and warm volumetric clouds. This plate must have LARGE OPEN EMPTY SKY/CLOUD AREAS in the entire central and middle-left scene for separate island compositing. Keep only very distant small islands along the top edge and far right edge, the far upper-right castle at x=80%-94% y=8%-24%, the far upper-left small blue castle at x=31%-38% y=13%-25%, and the far below cyan river. There must be NO large castle in the middle, NO house in the left middle, NO five large foreground islands. Original rich blue cyan and warm cloud colors, texture, lighting and 16:9 perspective unchanged. No text or people."
+  },
+  "sourceDirectory": "public/assets/source/world-layers",
+  "productionDirectory": "public/assets/production/images/world-layers"
+}

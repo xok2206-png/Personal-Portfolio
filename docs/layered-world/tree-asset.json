@@ -1,0 +1,19 @@
+{
+  "job": "d37d922a-7907-4557-a31b-6725f940eeff",
+  "provider": "Higgsfield",
+  "model": "gpt_image_2_5",
+  "prompt": "Create a production-ready TRANSPARENT RGBA foreground tree framing layer for the supplied cinematic floating-island portfolio world. Use reference solely for palette/material/lighting. ONLY one enormous mature oak tree cropped by the LEFT and TOP canvas edges: a deeply textured dark brown trunk hugging the extreme left 0-12% of canvas, rooted off-frame bottom left, thick gently arching branches spread across the upper left, a canopy of rich olive-green leaves with golden sunlight on edges drapes across the top 0-25% of canvas and extends to 70% of canvas width. The remaining center and right and lower right are ACTUAL transparent empty alpha. An open irregular window through the tree silhouette. Mature tree very close to camera, soft stylized 3D rendered bark/leaves with realistic premium material detail matching reference, warm daylight rimlight and dark cool underside. Trunk does NOT go into the middle of image. Leaves have fine naturally irregular edges and gaps. No sky, no ground, no scenery, no islands, no character, no dog, no letters or UI, no checkerboard painted into image. Not a full isolated round tree; an L-shaped overhanging framing tree closeup seen from a lookout. Entire canvas 3:4 portrait, trunk full height at extreme left and canopy upper border only. True transparent PNG alpha background.",
+  "reference": "1fdfc1de-aa48-4bea-9be0-1d365d884308",
+  "source": "public/assets/source/world-layers/foreground-tree.png",
+  "production": "public/assets/production/images/world-layers/foreground-tree.webp",
+  "sourceDimensions": [
+    1744,
+    2336
+  ],
+  "productionDimensions": [
+    1344,
+    1800
+  ],
+  "bytes": 792830,
+  "actualAlpha": true
+}

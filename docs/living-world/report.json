@@ -1,0 +1,50 @@
+{
+  "checks": [
+    {
+      "name": "Real decoded video frames advance",
+      "passed": true
+    },
+    {
+      "name": "Pause and resume",
+      "passed": true
+    },
+    {
+      "name": "Loop wraps without ending playback",
+      "passed": false,
+      "error": "no loop"
+    },
+    {
+      "name": "Offscreen playback pauses and resumes",
+      "passed": false,
+      "error": "playing offscreen"
+    },
+    {
+      "name": "Reduced motion shows original without fetching video",
+      "passed": true
+    },
+    {
+      "name": "Video failure preserves original and navigation",
+      "passed": false,
+      "error": "locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('움직임을 불러오지 못해 원본 풍경을 표시합니다.') to be visible\u001b[22m\n"
+    },
+    {
+      "name": "Animated scene still has five unobstructed island links",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "motionSamples": [
+    {
+      "name": "waterfall",
+      "meanPixelChange": 4.6946666666666665
+    },
+    {
+      "name": "left-airship",
+      "meanPixelChange": 12.362289562289563
+    },
+    {
+      "name": "cloud-sea",
+      "meanPixelChange": 1.8438095238095238
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "water": {
+    "period": 3.32,
+    "exactLoopPixelDifference": 0.00015279549319727892,
+    "midCycleDifference": 0.026900310905612245,
+    "seamDifference": 0.0029263658588435373,
+    "ordinaryFrameDifference": 0.0026672778486394556
+  },
+  "layers": {
+    "mist": 9,
+    "leaves": 12,
+    "grass": 3,
+    "ships": [
+      "lw-ship-passage",
+      "lw-ship-passage"
+    ],
+    "clouds": [
+      "lw-cloud-depth",
+      "lw-cloud-depth",
+      "lw-cloud-depth"
+    ]
+  },
+  "pause": true,
+  "cssPaused": true,
+  "resume": true,
+  "reduced": true,
+  "leavesHidden": true
+}

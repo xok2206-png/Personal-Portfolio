@@ -1,0 +1,183 @@
+{
+  "date": "2026-09-28",
+  "requests": [
+    {
+      "index": 0,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "005af49f-94ac-4e34-96da-6e24ec4090ca"
+          }
+        ],
+        "prompt": "Edit supplied isolated transparent asset. Preserve exact camera, framing, architectural identity, building placement, floating rock silhouette and ALL waterfall positions. Replace vegetation with grand premium cinematic fantasy vegetation. An ancient spreading tree shelters the studio with open branching, fine leaves and hanging vines. Natural intricate sharp foliage silhouettes, irregular small leaf clusters, exposed branches, fern fronds, fine grass blades, moss, graceful trailing roots. Rich deep green shadows, warm golden sunlight, bright daylight, detailed tactile bark and stone. Keep the reference's soft stylized 3D rendering, NOT a cartoon. No spherical broccoli bushes, rounded blobs, plastic leaves, neon, text, extra buildings, background sky or ground. True transparent RGBA background. Preserve full asset within frame. This is a production compositing asset, not a complete scene."
+      }
+    },
+    {
+      "index": 1,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "37227322-d356-43ab-8e1c-190288d34217"
+          }
+        ],
+        "prompt": "Edit supplied isolated transparent asset. Preserve exact camera, framing, architectural identity, building placement, floating rock silhouette and ALL waterfall positions. Replace vegetation with grand premium cinematic fantasy vegetation. Slender sculptural trees, delicate ferns, trailing vines and grasses frame the creative workshop. Natural intricate sharp foliage silhouettes, irregular small leaf clusters, exposed branches, fern fronds, fine grass blades, moss, graceful trailing roots. Rich deep green shadows, warm golden sunlight, bright daylight, detailed tactile bark and stone. Keep the reference's soft stylized 3D rendering, NOT a cartoon. No spherical broccoli bushes, rounded blobs, plastic leaves, neon, text, extra buildings, background sky or ground. True transparent RGBA background. Preserve full asset within frame. This is a production compositing asset, not a complete scene."
+      }
+    },
+    {
+      "index": 2,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "0497bc7e-67f8-447c-a96b-724aced0af43"
+          }
+        ],
+        "prompt": "Edit supplied isolated transparent asset. Preserve exact camera, framing, architectural identity, building placement, floating rock silhouette and ALL waterfall positions. Replace vegetation with grand premium cinematic fantasy vegetation. Majestic tall slender ancient trees and long cliff vines emphasize the huge gallery scale. Natural intricate sharp foliage silhouettes, irregular small leaf clusters, exposed branches, fern fronds, fine grass blades, moss, graceful trailing roots. Rich deep green shadows, warm golden sunlight, bright daylight, detailed tactile bark and stone. Keep the reference's soft stylized 3D rendering, NOT a cartoon. No spherical broccoli bushes, rounded blobs, plastic leaves, neon, text, extra buildings, background sky or ground. True transparent RGBA background. Preserve full asset within frame. This is a production compositing asset, not a complete scene."
+      }
+    },
+    {
+      "index": 3,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "746d1935-7d1f-4c1c-8fdd-d1dc4ee0390b"
+          }
+        ],
+        "prompt": "Edit supplied isolated transparent asset. Preserve exact camera, framing, architectural identity, building placement, floating rock silhouette and ALL waterfall positions. Replace vegetation with grand premium cinematic fantasy vegetation. Wind-sculpted slender trees and airy grasses frame the telescope observatory. Natural intricate sharp foliage silhouettes, irregular small leaf clusters, exposed branches, fern fronds, fine grass blades, moss, graceful trailing roots. Rich deep green shadows, warm golden sunlight, bright daylight, detailed tactile bark and stone. Keep the reference's soft stylized 3D rendering, NOT a cartoon. No spherical broccoli bushes, rounded blobs, plastic leaves, neon, text, extra buildings, background sky or ground. True transparent RGBA background. Preserve full asset within frame. This is a production compositing asset, not a complete scene."
+      }
+    },
+    {
+      "index": 4,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "55922094-ff39-4c0c-8f78-37215b622c4e"
+          }
+        ],
+        "prompt": "Edit supplied isolated transparent asset. Preserve exact camera, framing, architectural identity, building placement, floating rock silhouette and ALL waterfall positions. Replace vegetation with grand premium cinematic fantasy vegetation. Coastal windswept trees and long grasses with wildflowers frame the lighthouse. Natural intricate sharp foliage silhouettes, irregular small leaf clusters, exposed branches, fern fronds, fine grass blades, moss, graceful trailing roots. Rich deep green shadows, warm golden sunlight, bright daylight, detailed tactile bark and stone. Keep the reference's soft stylized 3D rendering, NOT a cartoon. No spherical broccoli bushes, rounded blobs, plastic leaves, neon, text, extra buildings, background sky or ground. True transparent RGBA background. Preserve full asset within frame. This is a production compositing asset, not a complete scene."
+      }
+    },
+    {
+      "index": 5,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "3:4",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "832aee0e-8e4d-4efa-99e2-2b28bff0d0c4"
+          }
+        ],
+        "prompt": "Edit supplied isolated transparent asset. Preserve exact camera, framing, architectural identity, building placement, floating rock silhouette and ALL waterfall positions. Replace vegetation with grand premium cinematic fantasy vegetation. Make this LEFT EDGE foreground tree a monumental ancient fantasy tree: massive twisted fissured trunk on far left, long sweeping branches arch across upper left, intricate fine pointed leaves with gaps, hanging slender vines, moss and ferns on bark. Open transparent negative space on the right and lower right for character and islands. Natural intricate sharp foliage silhouettes, irregular small leaf clusters, exposed branches, fern fronds, fine grass blades, moss, graceful trailing roots. Rich deep green shadows, warm golden sunlight, bright daylight, detailed tactile bark and stone. Keep the reference's soft stylized 3D rendering, NOT a cartoon. No spherical broccoli bushes, rounded blobs, plastic leaves, neon, text, extra buildings, background sky or ground. True transparent RGBA background. Preserve full asset within frame. This is a production compositing asset, not a complete scene."
+      }
+    },
+    {
+      "index": 6,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "3:2",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "prompt": "An isolated foreground groundcover cluster for a premium cinematic bright daylight fantasy floating-island world. Delicate large arching fern fronds with sharply detailed individual leaflets, many fine long pointed wind-swept grass blades of varied height, a few tiny ivory wildflowers, trailing ivy tendrils. Deep forest green and moss green, warm sunlight golden rim from upper right, realistic tactile soft stylized 3D rendering. Organic airy asymmetrical silhouette, no spherical bushes, no rounded chunky leaves, no pots, no ground plane, no rocks, no text. Foliage rooted along bottom edge, tallest fern on left tapering low to right. Full cluster visible with transparent RGBA background, production cutout."
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "index": 0,
+      "job_id": "40d79364-6a81-4f1c-b3b6-10db15745f52",
+      "status": "completed",
+      "type": "image",
+      "model": "gpt_image_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_071641_40d79364-6a81-4f1c-b3b6-10db15745f52.png"
+    },
+    {
+      "index": 1,
+      "job_id": "9b39fd4b-05f5-4a4f-b294-b0aecaf84019",
+      "status": "completed",
+      "type": "image",
+      "model": "gpt_image_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_071640_9b39fd4b-05f5-4a4f-b294-b0aecaf84019.png"
+    },
+    {
+      "index": 2,
+      "job_id": "152c2648-3f4a-4467-a046-63c88375bc48",
+      "status": "completed",
+      "type": "image",
+      "model": "gpt_image_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_071641_152c2648-3f4a-4467-a046-63c88375bc48.png"
+    },
+    {
+      "index": 3,
+      "job_id": "a76721de-590e-41ac-8ad3-bfbcfc3dd722",
+      "status": "completed",
+      "type": "image",
+      "model": "gpt_image_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_071641_a76721de-590e-41ac-8ad3-bfbcfc3dd722.png"
+    },
+    {
+      "index": 4,
+      "job_id": "30711218-9a55-4886-94cb-005d1fbd917e",
+      "status": "completed",
+      "type": "image",
+      "model": "gpt_image_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_071641_30711218-9a55-4886-94cb-005d1fbd917e.png"
+    },
+    {
+      "index": 5,
+      "job_id": "5f9c1106-2d0a-4cc5-b80d-f6e57f7e3ee1",
+      "status": "completed",
+      "type": "image",
+      "model": "gpt_image_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_071641_5f9c1106-2d0a-4cc5-b80d-f6e57f7e3ee1.png"
+    },
+    {
+      "index": 6,
+      "job_id": "70469c19-5cb2-425b-8b74-ae3105ed55a4",
+      "status": "completed",
+      "type": "image",
+      "model": "gpt_image_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_071748_70469c19-5cb2-425b-8b74-ae3105ed55a4.png"
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "requests": [
+    {
+      "index": 0,
+      "params": {
+        "model": "gpt_image_2_5",
+        "prompt": "Precise material and vegetation edit of FIRST reference image only, keeping same composition, camera, placement, landmark architecture, colors and warm daylight. The second reference is the desired cinematic natural material style. Eliminate the rounded toy/model appearance. Replace spherical broccoli shrub masses with airy asymmetric branches, individually readable small tapered leaves with sharp tips and irregular edges, small holes between leaves; fine wiry grasses with slender tapered blades, natural varied lengths, sparse mixed groundcover. No round balloon foliage, no smooth rubbery grass, no broad scalloped clover leaves. Rock should be naturally fractured layered angular stone with irregular ledges and cracks, not repeated rounded scales or identical inverted cones. Preserve the island footprint, all buildings and waterfall positions and lengths exactly; only refine their natural vegetation and rock surface. Critically remove ALL beige/white halo outlines around foliage, rocks and perimeter: crisp detailed subject silhouette on ACTUAL transparent alpha, no glow or baked fog fringe. High-end richly detailed natural fantasy matte-painted 3D render, not clay, not low poly, not photoreal dull gray. No text, no added objects, no new background. Transparent RGBA PNG.",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "medias": [
+          {
+            "role": "image",
+            "value": "63207154-4a66-45e4-91b0-8395cbbd3133"
+          },
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ]
+      }
+    },
+    {
+      "index": 1,
+      "params": {
+        "model": "gpt_image_2_5",
+        "prompt": "Precise material and vegetation edit of FIRST reference image only, keeping same composition, camera, placement, landmark architecture, colors and warm daylight. The second reference is the desired cinematic natural material style. Eliminate the rounded toy/model appearance. Replace spherical broccoli shrub masses with airy asymmetric branches, individually readable small tapered leaves with sharp tips and irregular edges, small holes between leaves; fine wiry grasses with slender tapered blades, natural varied lengths, sparse mixed groundcover. No round balloon foliage, no smooth rubbery grass, no broad scalloped clover leaves. Rock should be naturally fractured layered angular stone with irregular ledges and cracks, not repeated rounded scales or identical inverted cones. Preserve the island footprint, all buildings and waterfall positions and lengths exactly; only refine their natural vegetation and rock surface. Critically remove ALL beige/white halo outlines around foliage, rocks and perimeter: crisp detailed subject silhouette on ACTUAL transparent alpha, no glow or baked fog fringe. High-end richly detailed natural fantasy matte-painted 3D render, not clay, not low poly, not photoreal dull gray. No text, no added objects, no new background. Transparent RGBA PNG.",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "medias": [
+          {
+            "role": "image",
+            "value": "de664740-0ce4-48f9-98be-2966b7ac7446"
+          },
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ]
+      }
+    },
+    {
+      "index": 2,
+      "params": {
+        "model": "gpt_image_2_5",
+        "prompt": "Precise material and vegetation edit of FIRST reference image only, keeping same composition, camera, placement, landmark architecture, colors and warm daylight. The second reference is the desired cinematic natural material style. Eliminate the rounded toy/model appearance. Replace spherical broccoli shrub masses with airy asymmetric branches, individually readable small tapered leaves with sharp tips and irregular edges, small holes between leaves; fine wiry grasses with slender tapered blades, natural varied lengths, sparse mixed groundcover. No round balloon foliage, no smooth rubbery grass, no broad scalloped clover leaves. Rock should be naturally fractured layered angular stone with irregular ledges and cracks, not repeated rounded scales or identical inverted cones. Preserve the island footprint, all buildings and waterfall positions and lengths exactly; only refine their natural vegetation and rock surface. Critically remove ALL beige/white halo outlines around foliage, rocks and perimeter: crisp detailed subject silhouette on ACTUAL transparent alpha, no glow or baked fog fringe. High-end richly detailed natural fantasy matte-painted 3D render, not clay, not low poly, not photoreal dull gray. No text, no added objects, no new background. Transparent RGBA PNG.",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "medias": [
+          {
+            "role": "image",
+            "value": "59e8566c-6e3b-4a9a-9e31-d52f4b7f916c"
+          },
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ]
+      }
+    },
+    {
+      "index": 3,
+      "params": {
+        "model": "gpt_image_2_5",
+        "prompt": "Precise material and vegetation edit of FIRST reference image only, keeping same composition, camera, placement, landmark architecture, colors and warm daylight. The second reference is the desired cinematic natural material style. Eliminate the rounded toy/model appearance. Replace spherical broccoli shrub masses with airy asymmetric branches, individually readable small tapered leaves with sharp tips and irregular edges, small holes between leaves; fine wiry grasses with slender tapered blades, natural varied lengths, sparse mixed groundcover. No round balloon foliage, no smooth rubbery grass, no broad scalloped clover leaves. Rock should be naturally fractured layered angular stone with irregular ledges and cracks, not repeated rounded scales or identical inverted cones. Preserve the island footprint, all buildings and waterfall positions and lengths exactly; only refine their natural vegetation and rock surface. Critically remove ALL beige/white halo outlines around foliage, rocks and perimeter: crisp detailed subject silhouette on ACTUAL transparent alpha, no glow or baked fog fringe. High-end richly detailed natural fantasy matte-painted 3D render, not clay, not low poly, not photoreal dull gray. No text, no added objects, no new background. Transparent RGBA PNG.",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "medias": [
+          {
+            "role": "image",
+            "value": "5ff39114-9b76-4b73-b58d-a4d6c1d6a419"
+          },
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ]
+      }
+    },
+    {
+      "index": 4,
+      "params": {
+        "model": "gpt_image_2_5",
+        "prompt": "Precise material and vegetation edit of FIRST reference image only, keeping same composition, camera, placement, landmark architecture, colors and warm daylight. The second reference is the desired cinematic natural material style. Eliminate the rounded toy/model appearance. Replace spherical broccoli shrub masses with airy asymmetric branches, individually readable small tapered leaves with sharp tips and irregular edges, small holes between leaves; fine wiry grasses with slender tapered blades, natural varied lengths, sparse mixed groundcover. No round balloon foliage, no smooth rubbery grass, no broad scalloped clover leaves. Rock should be naturally fractured layered angular stone with irregular ledges and cracks, not repeated rounded scales or identical inverted cones. Preserve the island footprint, all buildings and waterfall positions and lengths exactly; only refine their natural vegetation and rock surface. Critically remove ALL beige/white halo outlines around foliage, rocks and perimeter: crisp detailed subject silhouette on ACTUAL transparent alpha, no glow or baked fog fringe. High-end richly detailed natural fantasy matte-painted 3D render, not clay, not low poly, not photoreal dull gray. No text, no added objects, no new background. Transparent RGBA PNG.",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "medias": [
+          {
+            "role": "image",
+            "value": "c0852552-c97f-4640-8229-596946927f77"
+          },
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ]
+      }
+    },
+    {
+      "index": 5,
+      "params": {
+        "model": "gpt_image_2_5",
+        "prompt": "Refine FIRST reference's foreground framing tree without changing its L-shaped trunk/branch composition, warm lighting, dark bark or transparent open center. Replace broad rounded/scalloped lobed leaves with SMALL SLENDER POINTED irregular natural leaves, varied angular silhouettes and delicate twigs, air gaps between leaf clusters, not cabbage blobs or repeated round clusters. Keep rich olive-green/gold color and premium natural cinematic detail matching second reference. Preserve trunk placement and transparent background exactly. No sky, no background, no ground, no text, no glow or white matte fringe. Actual transparent RGBA.",
+        "aspect_ratio": "3:4",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "medias": [
+          {
+            "role": "image",
+            "value": "d37d922a-7907-4557-a31b-6725f940eeff"
+          },
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ]
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "index": 0,
+      "job_id": "005af49f-94ac-4e34-96da-6e24ec4090ca",
+      "status": "pending",
+      "adjustments": {
+        "medias[0].role": {
+          "requested": "image",
+          "used": "image_references",
+          "reason": "GPT Image 2.5 backend expects schema-key media roles"
+        },
+        "medias[1].role": {
+          "requested": "image",
+          "used": "image_references",
+          "reason": "GPT Image 2.5 backend expects schema-key media roles"
+        }
+      }
+    },
+    {
+      "index": 1,
+      "job_id": "37227322-d356-43ab-8e1c-190288d34217",
+      "status": "pending",
+      "adjustments": {
+        "medias[0].role": {
+          "requested": "image",
+          "used": "image_references",
+          "reason": "GPT Image 2.5 backend expects schema-key media roles"
+        },
+        "medias[1].role": {
+          "requested": "image",
+          "used": "image_references",
+          "reason": "GPT Image 2.5 backend expects schema-key media roles"
+        }
+      }
+    },
+    {
+      "index": 2,
+      "job_id": "0497bc7e-67f8-447c-a96b-724aced0af43",
+      "status": "pending",
+      "adjustments": {
+        "medias[0].role": {
+          "requested": "image",
+          "used": "image_references",
+          "reason": "GPT Image 2.5 backend expects schema-key media roles"
+        },
+        "medias[1].role": {
+          "requested": "image",
+          "used": "image_references",
+          "reason": "GPT Image 2.5 backend expects schema-key media roles"
+        }
+      }
+    },
+    {
+      "index": 3,
+      "job_id": "746d1935-7d1f-4c1c-8fdd-d1dc4ee0390b",
+      "status": "pending",
+      "adjustments": {
+        "medias[0].role": {
+          "requested": "image",
+          "used": "image_references",
+          "reason": "GPT Image 2.5 backend expects schema-key media roles"
+        },
+        "medias[1].role": {
+          "requested": "image",
+          "used": "image_references",
+          "reason": "GPT Image 2.5 backend expects schema-key media roles"
+        }
+      }
+    },
+    {
+      "index": 4,
+      "job_id": "55922094-ff39-4c0c-8f78-37215b622c4e",
+      "status": "pending",
+      "adjustments": {
+        "medias[0].role": {
+          "requested": "image",
+          "used": "image_references",
+          "reason": "GPT Image 2.5 backend expects schema-key media roles"
+        },
+        "medias[1].role": {
+          "requested": "image",
+          "used": "image_references",
+          "reason": "GPT Image 2.5 backend expects schema-key media roles"
+        }
+      }
+    },
+    {
+      "index": 5,
+      "job_id": "832aee0e-8e4d-4efa-99e2-2b28bff0d0c4",
+      "status": "pending",
+      "adjustments": {
+        "medias[0].role": {
+          "requested": "image",
+          "used": "image_references",
+          "reason": "GPT Image 2.5 backend expects schema-key media roles"
+        },
+        "medias[1].role": {
+          "requested": "image",
+          "used": "image_references",
+          "reason": "GPT Image 2.5 backend expects schema-key media roles"
+        }
+      }
+    }
+  ],
+  "names": [
+    "about",
+    "skills",
+    "projects",
+    "qa",
+    "contact",
+    "foreground-tree"
+  ],
+  "productionSuffix": "-natural-v2.webp",
+  "notes": "Reference-conditioned material refinements, not identical pixel edits. Previous versions retained. Source alpha confirmed on all six images; production islands 1600 square, foreground tree 1344x1800."
+}

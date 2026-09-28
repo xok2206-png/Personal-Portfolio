@@ -1,142 +1,409 @@
-html:has(.scene_01_start),
-body:has(.scene_01_start) {
-  overflow: hidden;
-}
+/*
+ * Ported verbatim (values only) from the 2026-09-28 Sites build's src/styles.css
+ * (.start-scene and its dependencies), scoped under .start-scene so it doesn't
+ * leak generic classnames (.button, .eyebrow, ...) onto the other old pages.
+ * --header comes from the global :root var defined in index.css (site-header).
+ */
 
-.scene_01_start {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  height: 100svh;
-  overflow: hidden;
-  padding: clamp(16px, 3.4vh, 40px) clamp(16px, 3.8vw, 76px);
-  background: url('/assets/production/images/real-world/main.png') center bottom / cover no-repeat;
-  color: #fff;
-  font-family: 'Fredoka', system-ui, sans-serif;
-  letter-spacing: 0.06em;
-  text-shadow: 0 2px 0 rgba(20, 40, 90, 0.45);
-}
+.start-scene {
+  --display: 'Pretendard', sans-serif;
 
-.scene_01_start a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.scene_01_start a:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 4px;
-}
-
-/* header */
-.scene_01_header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px 24px;
-}
-
-.scene_01_header p {
-  margin: 0;
-}
-
-.scene_01_name {
-  font-size: clamp(14px, 1.15vw + 4px, 22px);
-}
-
-.scene_01_role {
-  font-size: clamp(10px, 0.6vw + 4px, 14px);
-  opacity: 0.85;
-}
-
-.scene_01_nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px clamp(16px, 3.2vw, 64px);
-  font-size: clamp(11px, 0.5vw + 6px, 16px);
-}
-
-.scene_01_nav a:hover {
-  text-decoration: underline;
-  text-underline-offset: 6px;
-}
-
-/* center content */
-.scene_01_content {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 0;
-  padding-top: clamp(24px, 9vh, 120px);
-  text-align: center;
-}
-
-.scene_01_welcome {
-  margin: 0;
-  font-size: clamp(14px, 1.4vw + 4px, 28px);
-}
-
-.scene_01_title {
-  margin: clamp(4px, 1.2vh, 16px) 0 0;
-  line-height: 0;
-}
-
-.scene_01_title img {
-  width: min(32vw, 52svh);
-  min-width: 200px;
-  max-width: 90vw;
-  height: auto;
-}
-
-.scene_01_tagline {
-  margin: clamp(4px, 1vh, 16px) 0 clamp(16px, 4vh, 48px);
-  font-size: clamp(11px, 1vw + 3px, 22px);
-}
-
-.scene_01_start_button {
   position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: calc(100svh - var(--header));
+  min-height: 610px;
+  background: #111722;
+  color: #f3f5f7;
+  font-family: 'Pretendard', Arial, sans-serif;
+  font-synthesis: none;
+}
+
+.start-scene .journey-replay{min-height:44px;padding:12px 0;background:none;text-decoration:underline;font-size:12px;color:#e2e8f0}
+
+.start-scene * {
+  box-sizing: border-box;
+}
+
+.start-scene button,
+.start-scene a {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.start-scene button {
+  border: 0;
+  cursor: pointer;
+}
+
+.start-scene h1,
+.start-scene p {
+  margin: 0;
+}
+
+.start-scene h1:focus {
+  outline: none;
+}
+
+.start-scene button:focus-visible,
+.start-scene a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 5px;
+  box-shadow: 0 0 0 8px #11172270;
+}
+
+.start-scene .room-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background: url('/assets/start-poster.webp') center center / cover no-repeat;
+  animation: scene01RoomIn 1s ease-out;
+}
+
+.start-scene .start-video {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+
+.start-scene .room-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, #111722f0 0%, #111722b5 27%, #11172220 65%),
+    linear-gradient(0deg, #111722a0, transparent 40%);
+}
+
+.start-scene .start-copy {
+  position: relative;
+  width: 620px;
+  margin-left: 7%;
+  padding-top: clamp(55px, 9vh, 110px);
+}
+
+.start-scene .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.1px;
+  line-height: 1.6;
+  color: #edf4f7;
+}
+
+.start-scene .live-dot {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: #f2b56b;
+  box-shadow: 0 0 16px #f2b56b;
+}
+
+.start-scene .start-copy h1 {
+  margin: 25px 0;
+  font-family: var(--display);
+  font-size: clamp(56px, 5.5vw, 84px);
+  line-height: 1.02;
+  font-weight: 500;
+  letter-spacing: -2px;
+}
+
+.start-scene .start-copy h1 em {
+  font-style: normal;
+  color: #f2b56b;
+}
+
+.start-scene .start-korean {
+  margin: 0 0 15px;
+  font-size: 19px;
+  letter-spacing: -0.3px;
+}
+
+.start-scene .start-description {
+  font-size: 14px;
+  line-height: 1.85;
+  color: #d9e8ef;
+}
+
+.start-scene .start-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.start-scene .button {
   display: inline-flex;
   align-items: center;
-  gap: clamp(8px, 1vw, 16px);
-  padding: clamp(10px, 1.8vh, 22px) clamp(36px, 5vw, 96px);
-  border: clamp(3px, 0.35vw, 6px) solid #16224a;
-  border-radius: clamp(14px, 1.6vw, 26px);
-  background: linear-gradient(#ffd23a, #ffb400);
-  box-shadow: 0 4px 0 rgba(22, 34, 74, 0.55);
-  color: #16224a;
-  font-size: clamp(16px, 1.6vw + 4px, 34px);
-  text-shadow: none;
+  justify-content: center;
+  gap: 22px;
+  min-height: 52px;
+  padding: 15px 24px;
+  border: 1px solid #f3f5f7;
+  border-radius: 12px;
+  background: #f3f5f7;
+  color: #111722;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  padding-inline: 24px;
+  min-height: 54px;
+  transition: transform 0.18s, background 0.18s;
 }
 
-.scene_01_start_button::before,
-.scene_01_start_button::after {
-  content: '';
+.start-scene .button:hover {
+  transform: translateY(-2px);
+  background: #dfe6ea;
+}
+
+.start-scene .button:active {
+  transform: translateY(1px);
+}
+
+.start-scene .button.secondary {
+  background: #11172240;
+  color: #f3f5f7;
+  border-color: #ffffff66;
+}
+
+.start-scene .button.secondary:hover {
+  background: #ffffff1a;
+}
+
+.start-scene .start-caption {
+  margin-top: 16px;
+  font-size: 11px;
+  color: #bacccd;
+}
+
+.start-scene .start-bottom {
   position: absolute;
-  top: 50%;
-  width: clamp(6px, 0.6vw, 12px);
-  aspect-ratio: 1;
+  bottom: 26px;
+  left: 40px;
+  right: 40px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #d9e8ef;
+}
+
+.start-scene .start-bottom i {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin: 0 12px;
+  vertical-align: middle;
+  background: currentColor;
   border-radius: 50%;
-  background: #dfe6f0;
-  transform: translateY(-50%);
 }
 
-.scene_01_start_button::before {
-  left: clamp(8px, 1vw, 18px);
+@keyframes scene01RoomIn {
+  from {
+    transform: scale(1.025);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
-.scene_01_start_button::after {
-  right: clamp(8px, 1vw, 18px);
+@media (min-width: 1700px) {
+  .start-scene .start-copy {
+    margin-left: 9%;
+    padding-top: 12vh;
+  }
+
+  .start-scene .start-copy h1 {
+    font-size: 95px;
+  }
 }
 
-.scene_01_start_button:hover {
-  filter: brightness(1.06);
+@media (max-width: 950px) {
+  .start-scene .start-copy {
+    margin-left: 6%;
+    padding-top: 10vh;
+    width: 550px;
+  }
+
+  .start-scene .room-photo {
+    background-position: 59% center;
+  }
+
+  .start-scene .start-copy h1 {
+    font-size: 72px;
+  }
+
+  .start-scene .room-shade {
+    background:
+      linear-gradient(90deg, #111722e6 0%, #11172290 55%, #11172215),
+      linear-gradient(0deg, #11172290, transparent);
+  }
 }
 
-.scene_01_start_icon {
-  width: clamp(12px, 1.2vw, 24px);
-  height: auto;
-  fill: currentColor;
+@media (max-width: 600px) {
+  .start-scene {
+    min-height: 660px;
+    height: calc(100svh - var(--header));
+  }
+
+  .start-scene .room-photo {
+    background-position: 59% 0;
+    background-size: auto 100%;
+  }
+
+  .start-scene .start-video {
+    object-position: 60% center;
+  }
+
+  .start-scene .room-shade {
+    background: linear-gradient(0deg, #111722f5 0%, #111722ce 42%, #11172245 80%, #11172215);
+  }
+
+  .start-scene .start-copy {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 95px;
+    width: auto;
+    margin: 0;
+    padding: 0 25px;
+  }
+
+  .start-scene .eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.4px;
+  }
+
+  .start-scene .start-copy h1 {
+    margin: 20px 0;
+    font-size: 60px;
+    line-height: 1.03;
+    letter-spacing: -1.5px;
+  }
+
+  .start-scene .start-korean {
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+
+  .start-scene .start-description {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .start-scene .start-actions {
+    gap: 10px;
+    margin-top: 25px;
+  }
+
+  .start-scene .button {
+    gap: 13px;
+    min-height: 50px;
+    padding: 14px 17px;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .start-scene .start-caption {
+    margin-top: 13px;
+    font-size: 10px;
+  }
+
+  .start-scene .start-bottom {
+    left: 25px;
+    right: 25px;
+    bottom: 22px;
+    align-items: flex-end;
+    gap: 15px;
+    font-size: 7px;
+    letter-spacing: 0.8px;
+  }
+
+  .start-scene .start-bottom span:last-child {
+    max-width: 100px;
+    line-height: 2;
+    text-align: right;
+  }
+
+  .start-scene .start-bottom i {
+    display: none;
+  }
+}
+
+@media (max-width: 370px) {
+  .start-scene .start-copy {
+    padding-inline: 22px;
+  }
+
+  .start-scene .start-copy h1 {
+    font-size: 54px;
+  }
+
+  .start-scene .button {
+    padding: 13px 14px;
+    font-size: 9px;
+  }
+
+  .start-scene .start-korean {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 601px) and (max-height: 800px) {
+  .start-scene {
+    min-height: 590px;
+  }
+
+  .start-scene .start-copy {
+    padding-top: 40px;
+  }
+
+  .start-scene .start-copy h1 {
+    margin: 20px 0;
+    font-size: 64px;
+  }
+
+  .start-scene .start-korean {
+    font-size: 17px;
+  }
+
+  .start-scene .start-description {
+    font-size: 13px;
+  }
+
+  .start-scene .start-actions {
+    margin-top: 23px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 950px) and (max-height: 800px) {
+  .start-scene {
+    min-height: 670px;
+  }
+}
+
+@media (max-height: 650px) and (min-width: 601px) {
+  .start-scene {
+    min-height: 530px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .start-scene .start-video {
+    display: none;
+  }
+
+  .start-scene .room-photo {
+    animation: none;
+  }
 }

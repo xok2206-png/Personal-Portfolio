@@ -1,0 +1,189 @@
+{
+  "requests": [
+    {
+      "index": 0,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ],
+        "prompt": "Use the attached full-world reference as the STRICT visual material, lighting, vegetation and shape reference, not as a composition to reproduce. Create ONE isolated separate production cutout asset, transparent RGBA, no sky, no clouds, no background scenery, no labels or text. Warm sun from upper left, soft cool blue shadows, premium cinematic soft stylized 3D, natural textures with large readable shapes, not hyper-detailed noisy texture. Match reference warm stone, olive-green leaves, soft grass and scattered flowers. Trees have visible branches and organically grouped broad leaf canopies, NOT tiny repetitive bonsai and NOT spherical broccoli blobs. No dense moss, hanging jungle vines, scales, pebble mosaics, neon glows or toy plastic. ABOUT: warm small timber studio cottage with garden, bench and ONE mature spreading deciduous tree, visible trunk and rounded irregular groups of natural leaves. Floating island with a WIDE flat top, asymmetric broad stepped ledges and several different length rock buttresses underneath. Big pale grey/beige vertical cliff faces and sparse green patches. NOT an inverted cone, NOT a uniformly pointed diamond. Island occupies x=6..94%, top architecture begins at y=6%, terrace height y=45..52%, rock ends y=90%. Terrace must be visibly walkable and layered. TWO shallow turquoise springs open at front left x=27..35%, y=52% and front right x=72..78%, y=55%. NO falling water, waterfall will be rendered separately; leave bare cliff beneath those outlets. Entire asset fits in frame with transparent margins."
+      }
+    },
+    {
+      "index": 1,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ],
+        "prompt": "Use the attached full-world reference as the STRICT visual material, lighting, vegetation and shape reference, not as a composition to reproduce. Create ONE isolated separate production cutout asset, transparent RGBA, no sky, no clouds, no background scenery, no labels or text. Warm sun from upper left, soft cool blue shadows, premium cinematic soft stylized 3D, natural textures with large readable shapes, not hyper-detailed noisy texture. Match reference warm stone, olive-green leaves, soft grass and scattered flowers. Trees have visible branches and organically grouped broad leaf canopies, NOT tiny repetitive bonsai and NOT spherical broccoli blobs. No dense moss, hanging jungle vines, scales, pebble mosaics, neon glows or toy plastic. SKILLS: open contemporary creative workshop with glass windows, understated work screens, flat exhibition terrace, two small trees. Floating island with a WIDE flat top, asymmetric broad stepped ledges and several different length rock buttresses underneath. Big pale grey/beige vertical cliff faces and sparse green patches. NOT an inverted cone, NOT a uniformly pointed diamond. Island occupies x=6..94%, top architecture begins at y=6%, terrace height y=45..52%, rock ends y=90%. Terrace must be visibly walkable and layered. TWO shallow turquoise springs open at front left x=27..35%, y=52% and front right x=72..78%, y=55%. NO falling water, waterfall will be rendered separately; leave bare cliff beneath those outlets. Entire asset fits in frame with transparent margins."
+      }
+    },
+    {
+      "index": 2,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ],
+        "prompt": "Use the attached full-world reference as the STRICT visual material, lighting, vegetation and shape reference, not as a composition to reproduce. Create ONE isolated separate production cutout asset, transparent RGBA, no sky, no clouds, no background scenery, no labels or text. Warm sun from upper left, soft cool blue shadows, premium cinematic soft stylized 3D, natural textures with large readable shapes, not hyper-detailed noisy texture. Match reference warm stone, olive-green leaves, soft grass and scattered flowers. Trees have visible branches and organically grouped broad leaf canopies, NOT tiny repetitive bonsai and NOT spherical broccoli blobs. No dense moss, hanging jungle vines, scales, pebble mosaics, neon glows or toy plastic. PROJECTS: largest grand creative kingdom with contemporary gallery atrium, elegant tall white towers, glass exhibition pavilion and cyan portal accents. Broad spacious terraced plazas, buildings occupy upper half, architecture has breathing room. No enormous single pointed cathedral. Floating island with a WIDE flat top, asymmetric broad stepped ledges and several different length rock buttresses underneath. Big pale grey/beige vertical cliff faces and sparse green patches. NOT an inverted cone, NOT a uniformly pointed diamond. Island occupies x=6..94%, top architecture begins at y=6%, terrace height y=45..52%, rock ends y=90%. Terrace must be visibly walkable and layered. TWO shallow turquoise springs open at front left x=27..35%, y=52% and front right x=72..78%, y=55%. NO falling water, waterfall will be rendered separately; leave bare cliff beneath those outlets. Entire asset fits in frame with transparent margins."
+      }
+    },
+    {
+      "index": 3,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ],
+        "prompt": "Use the attached full-world reference as the STRICT visual material, lighting, vegetation and shape reference, not as a composition to reproduce. Create ONE isolated separate production cutout asset, transparent RGBA, no sky, no clouds, no background scenery, no labels or text. Warm sun from upper left, soft cool blue shadows, premium cinematic soft stylized 3D, natural textures with large readable shapes, not hyper-detailed noisy texture. Match reference warm stone, olive-green leaves, soft grass and scattered flowers. Trees have visible branches and organically grouped broad leaf canopies, NOT tiny repetitive bonsai and NOT spherical broccoli blobs. No dense moss, hanging jungle vines, scales, pebble mosaics, neon glows or toy plastic. Q&A: round white stone astronomical observatory with bronze telescope and dome, small terrace, one tree. Floating island with a WIDE flat top, asymmetric broad stepped ledges and several different length rock buttresses underneath. Big pale grey/beige vertical cliff faces and sparse green patches. NOT an inverted cone, NOT a uniformly pointed diamond. Island occupies x=6..94%, top architecture begins at y=6%, terrace height y=45..52%, rock ends y=90%. Terrace must be visibly walkable and layered. TWO shallow turquoise springs open at front left x=27..35%, y=52% and front right x=72..78%, y=55%. NO falling water, waterfall will be rendered separately; leave bare cliff beneath those outlets. Entire asset fits in frame with transparent margins."
+      }
+    },
+    {
+      "index": 4,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ],
+        "prompt": "Use the attached full-world reference as the STRICT visual material, lighting, vegetation and shape reference, not as a composition to reproduce. Create ONE isolated separate production cutout asset, transparent RGBA, no sky, no clouds, no background scenery, no labels or text. Warm sun from upper left, soft cool blue shadows, premium cinematic soft stylized 3D, natural textures with large readable shapes, not hyper-detailed noisy texture. Match reference warm stone, olive-green leaves, soft grass and scattered flowers. Trees have visible branches and organically grouped broad leaf canopies, NOT tiny repetitive bonsai and NOT spherical broccoli blobs. No dense moss, hanging jungle vines, scales, pebble mosaics, neon glows or toy plastic. CONTACT: white lighthouse with warm amber lantern, open stone terrace, discreet small red mailbox, wind-swept garden. Floating island with a WIDE flat top, asymmetric broad stepped ledges and several different length rock buttresses underneath. Big pale grey/beige vertical cliff faces and sparse green patches. NOT an inverted cone, NOT a uniformly pointed diamond. Island occupies x=6..94%, top architecture begins at y=6%, terrace height y=45..52%, rock ends y=90%. Terrace must be visibly walkable and layered. TWO shallow turquoise springs open at front left x=27..35%, y=52% and front right x=72..78%, y=55%. NO falling water, waterfall will be rendered separately; leave bare cliff beneath those outlets. Entire asset fits in frame with transparent margins."
+      }
+    },
+    {
+      "index": 5,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "3:2",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ],
+        "prompt": "Use the attached full-world reference as the STRICT visual material, lighting, vegetation and shape reference, not as a composition to reproduce. Create ONE isolated separate production cutout asset, transparent RGBA, no sky, no clouds, no background scenery, no labels or text. Warm sun from upper left, soft cool blue shadows, premium cinematic soft stylized 3D, natural textures with large readable shapes, not hyper-detailed noisy texture. Match reference warm stone, olive-green leaves, soft grass and scattered flowers. Trees have visible branches and organically grouped broad leaf canopies, NOT tiny repetitive bonsai and NOT spherical broccoli blobs. No dense moss, hanging jungle vines, scales, pebble mosaics, neon glows or toy plastic. FOREGROUND LOOKOUT: broad irregular warm weathered stone terrace seen from slightly above, path across left foreground opening toward sky on right, rustic short wooden posts with rope railing, small lantern, tasteful wooden direction sign without text. Mixed grasses and small daisies grow in cracks and at terrace edges; exposed stone is dominant. No character, no dog, no tree canopy, no distant islands."
+      }
+    },
+    {
+      "index": 6,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "3:4",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ],
+        "prompt": "Create a separate LEFT FOREGROUND TREE framing asset matching the attached world reference foliage, bark, lighting and premium soft stylized 3D material. A majestic mature oak with large weathered dark brown trunk along far left and one sweeping sturdy branch across upper left. Natural broad leaf canopy with irregular grouped olive-green leaves, some sunlit golden edges, visible branch structure and open sky gaps. Leaf groups feel naturally rounded, not spherical blobs and not tiny pointy repetitive sprigs. Tree in foreground shade contrasting sunlit islands, warm light from upper left, muted natural green. No hanging vines or jungle overgrowth. Composition: trunk leftmost 12%, canopy covers topmost 22%, the central/right/lower 75% EMPTY TRUE TRANSPARENT RGBA. No scenery, no sky, no grass or ground, no character, no text. Do not reproduce whole reference. Entire isolated left framing tree cutout."
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "index": 0,
+      "job_id": "a7fdb7b6-bac5-479f-bd6b-31935e30256a",
+      "status": "completed",
+      "type": "image",
+      "model": "gpt_image_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_075514_a7fdb7b6-bac5-479f-bd6b-31935e30256a.png"
+    },
+    {
+      "index": 2,
+      "job_id": "b5a9ba2b-7e9c-4a33-b7b8-1b101fdc9559",
+      "status": "completed",
+      "type": "image",
+      "model": "gpt_image_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_075515_b5a9ba2b-7e9c-4a33-b7b8-1b101fdc9559.png"
+    },
+    {
+      "index": 3,
+      "job_id": "eb3e193e-b460-47fc-99d7-ba015a96f48d",
+      "status": "completed",
+      "type": "image",
+      "model": "gpt_image_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_075514_eb3e193e-b460-47fc-99d7-ba015a96f48d.png"
+    },
+    {
+      "index": 4,
+      "job_id": "929ae687-8299-47b1-b41f-cd3f12cd6373",
+      "status": "completed",
+      "type": "image",
+      "model": "gpt_image_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_075515_929ae687-8299-47b1-b41f-cd3f12cd6373.png"
+    },
+    {
+      "index": 5,
+      "job_id": "c8eb54dd-dba7-4ee6-bf8c-09c71a7fd29e",
+      "status": "completed",
+      "type": "image",
+      "model": "gpt_image_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_075514_c8eb54dd-dba7-4ee6-bf8c-09c71a7fd29e.png"
+    },
+    {
+      "index": 1,
+      "job_id": "1e08af2f-7d18-4de7-bb27-07c906acc196",
+      "status": "completed",
+      "type": "image",
+      "model": "gpt_image_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_075651_1e08af2f-7d18-4de7-bb27-07c906acc196.png"
+    },
+    {
+      "index": 6,
+      "job_id": "cbc7e772-8ab5-40d7-b326-361b981aec0e",
+      "status": "completed",
+      "type": "image",
+      "model": "gpt_image_2_5",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_075652_cbc7e772-8ab5-40d7-b326-361b981aec0e.png"
+    }
+  ],
+  "reference": "Previously uploaded user reference image 1fdfc1de-aa48-4bea-9be0-1d365d884308, also supplied as third reference this turn. Separate generated cutouts, not pixel-exact extraction."
+}

@@ -1,0 +1,27 @@
+{
+  "moved": [
+    {
+      "selector": ".lw-cloud-mid",
+      "moved": true
+    },
+    {
+      "selector": ".haze-a",
+      "moved": true
+    },
+    {
+      "selector": ".lw-flock",
+      "moved": true
+    },
+    {
+      "selector": ".lw-leaf-flight",
+      "moved": true
+    },
+    {
+      "selector": ".lw-tree-canopy",
+      "moved": true
+    }
+  ],
+  "visible": 18,
+  "paused": true,
+  "reduced": true
+}

@@ -1,0 +1,141 @@
+{
+  "viewports": [
+    {
+      "width": 2560,
+      "height": 1440,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 767,
+      "height": 900,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 1023,
+      "height": 900,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 1279,
+      "height": 900,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 1919,
+      "height": 1080,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    },
+    {
+      "width": 1920,
+      "height": 900,
+      "fills": true,
+      "noScroll": true,
+      "labels": true
+    }
+  ],
+  "errors": [],
+  "menuCloses": true,
+  "route": true,
+  "zoomNavigation": true
+}

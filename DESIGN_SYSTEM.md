@@ -1,5 +1,25 @@
 # PERSONAL PORTFOLIO --- DESIGN SYSTEM v2 FINAL
 
+## 2026-09-28 Reference material clarification
+
+User-approved visual correction: wide walkable island tops and asymmetric stepped cliffs; large readable rock planes with localized vegetation; naturally grouped tree canopies with visible branches; varied grass and flowers between exposed foreground stones. Avoid repeated narrow cones, pebble/scale-like stone patterns and uniform dense moss. Foreground should establish human scale; distant scenery should recede through lower contrast/saturation while preserving source resolution. Keep independently interactive layers and living motion; matching these references does not mean replacing the scene with a single image. This does not lock interior destination designs or character movement.
+
+## 최신 사용자 수정 — 레퍼런스 질감과 독립 레이어 유지
+
+추가 사용자 요청: World를 브라우저 전체 화면에 연속적으로 채운다. 상단 풍경과 하단 카드 영역을 분리하지 않는다. 콘텐츠 직접 접근은 풍경 위의 펼침 메뉴로 제공하고 세로 화면에서는 섬 배치를 조정한다.
+
+사용자의 최종 설명은 “이전처럼 섬 단위로 분리하되 레퍼런스의 섬 형태·질감·배경 형태·질감”을 구현하는 것이다. 정지 이미지 한 장이나 전체 화면 영상으로 대체하지 않는다. `인트로/01.png`, `02.png`의 밝은 청색 하늘, 따뜻한 식생, 깊은 절벽, 청록색 물, 풍부한 구름과 식별 가능한 배경 섬·비행선을 기준으로 독립 레이어를 구성한다. 섬별 부유, 물 흐름, 구름과 비행선 이동을 개별 제어한다. 이미지 재구성 결과를 원본 픽셀과 완전히 동일하다고 표현하지 않는다.
+
+전체 풍경과 콘텐츠 직접 접근을 함께 제공하며 모바일 확대 탐색은 선택 사항이다. 기존 정지 원본 방향은 사용자 의도에 대한 잘못된 해석으로 폐기한다. 콘텐츠 내부 공간과 자유 이동은 계속 미확정이며 이번 수정으로 LOCKED로 바꾸지 않는다.
+
+
+## 2026-09-28 사용자 Master Build 우선 적용
+
+아래의 과거 방향과 충돌할 때 이번 사용자 지시를 우선한다. Portfolio World 외관은 About의 개인 스튜디오/큰 나무, Skills의 Creative Tech Workshop, Projects의 웅장한 현대 갤러리, Q&A의 천문대, Contact의 등대로 구분한다. Projects가 가장 큰 시각적 중심이다. 낮의 밝은 2.5D 세계에 독립 부유, 물/구름/안개/선택적 식생 움직임을 적용한다.
+
+Hover/Focus는 환경과 캐릭터의 미세 반응, Click/Touch는 구름을 통과하는 카메라 진입으로 연결한다. Reduced Motion과 직접 콘텐츠 접근은 유지한다. Power Up, Companion, WASD, Jump, Collision은 적용하지 않는다. 아래 과거 문구에 있는 Game Item/Toolkit 및 Point-based Character Movement를 이번 구현의 확정 요구사항으로 취급하지 않는다. 각 콘텐츠 내부 공간의 최종 디자인과 자유 이동은 여전히 미확정이다. Typography는 Pretendard Variable + Instrument Serif를 유지한다.
+
+
 **Status:** FINAL\
 **Core:** Cinematic 2.5D Portfolio World × Editorial Web UI\
 **Primary Reference:** 1440×810\

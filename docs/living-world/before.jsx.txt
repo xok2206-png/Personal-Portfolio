@@ -1,0 +1,71 @@
+import { useEffect, useRef, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { gsap } from 'gsap'
+import { usePortfolioUI } from '../../app/PortfolioUIContext.jsx'
+import { worldDestinations } from './world.config.js'
+import './PortfolioWorld.css'
+
+// Bounds follow the user's unmodified 4351 × 2449 reference, including its printed labels.
+const regions = {
+  about: [15, 22, 18, 29], skills: [28, 44, 21, 27], projects: [40, 7, 28, 53],
+  qa: [69, 21, 17, 29], contact: [75, 43, 21, 36],
+}
+const menuX = [72.8, 77, 81, 86.1, 89.4]
+const art = '/assets/production/images/portfolio-world/reference-world.webp'
+
+export default function PortfolioWorld() {
+  const { reduced, tone } = usePortfolioUI()
+  const navigate = useNavigate()
+  const scene = useRef(null)
+  const animation = useRef(null)
+  const deadline = useRef(null)
+  const [entering, setEntering] = useState(null)
+  const [failed, setFailed] = useState(false)
+  const [loaded, setLoaded] = useState(false)
+  const [expanded, setExpanded] = useState(false)
+  useEffect(() => () => { animation.current?.kill(); clearTimeout(deadline.current) }, [])
+  useEffect(() => {
+    if (reduced && entering) { animation.current?.kill(); clearTimeout(deadline.current); navigate(entering.route) }
+  }, [reduced, entering, navigate])
+
+  function enter(event, item) {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || reduced || failed) return
+    event.preventDefault()
+    if (entering) return
+    setEntering(item); tone()
+    const [x, y, width, height] = regions[item.id]
+    const finish = () => navigate(item.route)
+    deadline.current = setTimeout(finish, 1300)
+    animation.current = gsap.to(scene.current, {
+      transformOrigin: `${x + width / 2}% ${y + height * .45}%`, scale: 1.45,
+      duration: .9, ease: 'power2.inOut',
+      onComplete: () => { clearTimeout(deadline.current); finish() },
+    })
+  }
+
+  return <main id="main" className={`reference-world ${failed ? 'has-error' : ''} ${entering ? 'is-entering' : ''}`}>
+    <h1 className="rw-sr" tabIndex="-1">김준영의 포트폴리오 세계</h1>
+    <div className={`rw-viewport ${expanded ? 'is-expanded' : ''}`} tabIndex={expanded ? 0 : undefined} aria-label={expanded ? '확대된 풍경. 가로로 스크롤해 둘러보세요.' : undefined}>
+      <div className="rw-scene" ref={scene}>
+        <img className="rw-art" src={art} width="4351" height="2449" fetchPriority="high" alt="구름 바다 위에 다리로 연결된 다섯 섬. 중앙의 Projects, 왼쪽 About과 Skills, 오른쪽 Q&A와 Contact. 전망대의 캐릭터 너머로 폭포, 먼 섬과 비행선이 이어집니다." onLoad={() => setLoaded(true)} onError={() => setFailed(true)} draggable="false" />
+        <Link className="rw-logo rw-hit" to="/" aria-label="JUNYOUNG KIM — 처음으로" />
+        <nav className="rw-map" aria-label="세계의 다섯 목적지">
+          {worldDestinations.map(item => {
+            const [x,y,width,height] = regions[item.id]
+            return <Link key={item.id} data-island={item.id} className="rw-island rw-hit" to={item.route} aria-label={`${item.title} — ${item.subtitle} 탐색`} onClick={event => enter(event,item)} style={{left:`${x}%`,top:`${y}%`,width:`${width}%`,height:`${height}%`}}><span className="rw-island-caption">{item.title} 탐색 ↗</span></Link>
+          })}
+        </nav>
+        <nav className="rw-top-nav" aria-label="상단 바로가기">
+          {worldDestinations.map((item,index) => <Link key={item.id} className="rw-hit" to={item.route} aria-label={item.title} style={{left:`${menuX[index]}%`,width: index === 2 || index === 4 ? '4.7%' : '3.7%'}} />)}
+        </nav>
+      </div>
+    </div>
+    {(!loaded || failed) && <div className="rw-load-status" role="status">{failed ? '풍경을 불러오지 못했습니다. 아래 메뉴에서 바로 탐색할 수 있어요.' : '풍경을 불러오는 중입니다. 아래 메뉴로 바로 이동할 수도 있어요.'}</div>}
+    <section className="rw-access" aria-label="포트폴리오 직접 탐색">
+      <div className="rw-access-heading"><p>JUNYOUNG KIM · PORTFOLIO</p><button type="button" className="rw-expand" aria-pressed={expanded} onClick={() => setExpanded(value => !value)}>{expanded ? '전체 풍경 보기' : '풍경 확대해서 보기'}</button></div>
+      <nav aria-label="콘텐츠 바로가기">{worldDestinations.map(item => <Link key={item.id} to={item.route}><strong>{item.title}</strong><span>{item.subtitle} ↗</span></Link>)}</nav>
+      <div className="rw-extra"><Link to="/quick-view">프로젝트 한눈에 보기 ↗</Link><Link to="/resume">경력·역량 요약 ↗</Link><Link to="/">처음으로 ↗</Link></div>
+    </section>
+    {entering && <div className="rw-entry-status"><span role="status">{entering.title}에 들어가는 중</span><Link to={entering.route}>바로 이동 ↗</Link></div>}
+  </main>
+}

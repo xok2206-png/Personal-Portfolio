@@ -1,0 +1,42 @@
+{
+  "requests": [
+    {
+      "index": 0,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "3:4",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "15187059-c36a-4c56-94e2-355ea239b77b"
+          }
+        ],
+        "prompt": "Edit this transparent left framing tree asset. Change ONLY the trunk and major branches into a majestic OLD OAK: thick aged deeply fissured brown bark, gently twisted powerful trunk and sculptural long branches, subtle patches of moss. Preserve the airy sparse green pointed leaf canopy and large transparent openings. No hanging vines, no jungle, no dense bushes. Trunk restricted to leftmost 15 percent, branches and leaves mostly top 25 percent. Bright warm sunlit Zelda/Ghibli fantasy sky island atmosphere, natural premium 3D texture. Full transparent RGBA backdrop; no sky, no scenery, no ground, no text. Center and right must remain transparent and open."
+      }
+    }
+  ],
+  "results": {
+    "jobs": [
+      {
+        "index": 0,
+        "job_id": "2d1a45b9-dcbd-43e6-bbcf-057226b7573d",
+        "status": "completed",
+        "type": "image",
+        "model": "gpt_image_2_5",
+        "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_074308_2d1a45b9-dcbd-43e6-bbcf-057226b7573d.png"
+      }
+    ],
+    "summary": {
+      "total": 1,
+      "completed": 1,
+      "failed": 0,
+      "active": 0,
+      "errors": 0
+    },
+    "all_terminal": true
+  }
+}

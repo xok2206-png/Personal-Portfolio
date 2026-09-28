@@ -1,0 +1,18 @@
+[
+  {
+    "source": "public/assets/source/world-layers/background-clean.png",
+    "output": "public/assets/production/images/world-layers/background-native.webp",
+    "width": 2688,
+    "height": 1520,
+    "bytes": 4241626,
+    "pixelsIdentical": true
+  },
+  {
+    "source": "public/assets/source/world-layers/background.png",
+    "output": "public/assets/production/images/world-layers/distant-basin-native.webp",
+    "width": 2688,
+    "height": 1520,
+    "bytes": 5189072,
+    "pixelsIdentical": true
+  }
+]

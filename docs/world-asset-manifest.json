@@ -1,0 +1,101 @@
+{
+  "date": "2026-09-28",
+  "provider": "Higgsfield",
+  "project_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+  "images": {
+    "model": "gpt_image_2_5",
+    "quality": "high",
+    "resolution": "2k",
+    "background": "transparent",
+    "reference": "User supplied image 75.png, art direction only. No baked UI copied.",
+    "jobs": [
+      {
+        "id": "projects",
+        "job_id": "dcdff183-e95f-4cbe-8e88-e8c6d65d072e"
+      },
+      {
+        "id": "about",
+        "job_id": "5e3672fd-f136-4d06-80a9-b25e9c22c0b7"
+      },
+      {
+        "id": "skills",
+        "job_id": "d87ce179-b52c-421c-a52a-9686d14b3823"
+      },
+      {
+        "id": "qa",
+        "job_id": "a1a95bb8-4d34-4cb5-af29-8fe86b294eb6"
+      },
+      {
+        "id": "contact",
+        "job_id": "7b923801-ef4b-4637-8c39-692d9d3617dc"
+      },
+      {
+        "id": "character",
+        "job_id": "37ba46b6-6932-4511-85a8-7cd217be8b64"
+      },
+      {
+        "id": "lookout",
+        "job_id": "c40c3fbb-8800-48b5-96ce-3e29b73fd3ee"
+      },
+      {
+        "id": "character-left",
+        "job_id": "d7843bd2-4fa0-41a3-afff-c1073cd07f20"
+      },
+      {
+        "id": "character-ready",
+        "job_id": "0bce744d-cc82-4af1-a229-2aaf38383383"
+      }
+    ],
+    "islandPrompts": [
+      [
+        "projects",
+        "Production asset for a premium cinematic 2.5D interactive portfolio, matching the supplied world's soft stylized 3D realism, intricate natural stone, lush miniature vegetation, warm sunlight from upper left, cool sky bounce. Single isolated floating island fully visible including long tapered rock underside, elegant three-quarter frontal view from slightly above, centered occupying 85% of square canvas, clean REAL TRANSPARENT alpha background. No sky, no surrounding clouds, no ground shadow, no labels, no text, no UI, no characters, no logos. Premium high detail architectural environment, not low-poly, not plastic, not toy. Water sources may reach the edge but do not bake long waterfalls: flowing falls will be added separately in the browser. Largest monumental multi-level floating creative kingdom, contemporary white limestone and warm bronze digital art gallery, soaring central glass atrium, sweeping exhibition terraces, dramatic asymmetrical architectural wings, arched bridges between its rock levels, planted roofs, mature trees, three water outlets on front cliffs. Grand contemporary exhibition architecture with fantasy grandeur, NOT medieval castle, no spires. Strong expansive layered silhouette."
+      ],
+      [
+        "about",
+        "Production asset for a premium cinematic 2.5D interactive portfolio, matching the supplied world's soft stylized 3D realism, intricate natural stone, lush miniature vegetation, warm sunlight from upper left, cool sky bounce. Single isolated floating island fully visible including long tapered rock underside, elegant three-quarter frontal view from slightly above, centered occupying 85% of square canvas, clean REAL TRANSPARENT alpha background. No sky, no surrounding clouds, no ground shadow, no labels, no text, no UI, no characters, no logos. Premium high detail architectural environment, not low-poly, not plastic, not toy. Water sources may reach the edge but do not bake long waterfalls: flowing falls will be added separately in the browser. Cozy origin village: one small personal studio house with warm amber windows, a very large spreading leafy tree dominating its silhouette, winding garden path, bench and little outdoor desk with books, flowers, small garden stream to front edge. Welcoming intimate personal world."
+      ],
+      [
+        "skills",
+        "Production asset for a premium cinematic 2.5D interactive portfolio, matching the supplied world's soft stylized 3D realism, intricate natural stone, lush miniature vegetation, warm sunlight from upper left, cool sky bounce. Single isolated floating island fully visible including long tapered rock underside, elegant three-quarter frontal view from slightly above, centered occupying 85% of square canvas, clean REAL TRANSPARENT alpha background. No sky, no surrounding clouds, no ground shadow, no labels, no text, no UI, no characters, no logos. Premium high detail architectural environment, not low-poly, not plastic, not toy. Water sources may reach the edge but do not bake long waterfalls: flowing falls will be added separately in the browser. Arcane creative technology workshop: asymmetrical stepped stone workshop, translucent pale blue glass and crystal structures, brass creative mechanisms, delicate design-grid window frames, subtle abstract screens without logos, geometric glass prism on the roof. Fantasy craftsmanship meets contemporary creative technology. Distinct angular silhouette."
+      ],
+      [
+        "qa",
+        "Production asset for a premium cinematic 2.5D interactive portfolio, matching the supplied world's soft stylized 3D realism, intricate natural stone, lush miniature vegetation, warm sunlight from upper left, cool sky bounce. Single isolated floating island fully visible including long tapered rock underside, elegant three-quarter frontal view from slightly above, centered occupying 85% of square canvas, clean REAL TRANSPARENT alpha background. No sky, no surrounding clouds, no ground shadow, no labels, no text, no UI, no characters, no logos. Premium high detail architectural environment, not low-poly, not plastic, not toy. Water sources may reach the edge but do not bake long waterfalls: flowing falls will be added separately in the browser. Sky observatory: circular white stone observatory with one copper domed telescope roof opened to sky, huge elegant telescope angled upward, delicate brass armillary rings, small secondary tower, flowers and layered garden terraces. No question mark, no icons."
+      ],
+      [
+        "contact",
+        "Production asset for a premium cinematic 2.5D interactive portfolio, matching the supplied world's soft stylized 3D realism, intricate natural stone, lush miniature vegetation, warm sunlight from upper left, cool sky bounce. Single isolated floating island fully visible including long tapered rock underside, elegant three-quarter frontal view from slightly above, centered occupying 85% of square canvas, clean REAL TRANSPARENT alpha background. No sky, no surrounding clouds, no ground shadow, no labels, no text, no UI, no characters, no logos. Premium high detail architectural environment, not low-poly, not plastic, not toy. Water sources may reach the edge but do not bake long waterfalls: flowing falls will be added separately in the browser. Horizon beacon: elegant tall off-white lighthouse with warm amber lantern on rocky open terrace, low white pavilion, tiny red mailbox detail, slim cloth flag, windswept tree and lush flowers. Open inviting terrace, strong vertical lighthouse silhouette."
+      ]
+    ]
+  },
+  "video": {
+    "model": "kling3_0",
+    "mode": "pro",
+    "duration": 10,
+    "job_id": "25472236-7e27-4a81-a493-afef27dba38b",
+    "source": "Existing user-supplied start-poster.webp",
+    "sourceDimensions": [
+      1920,
+      1080
+    ],
+    "durationSeconds": 10.042,
+    "webDimensions": [
+      1280,
+      720
+    ],
+    "mp4": {
+      "codec": "H.264",
+      "crf": 24,
+      "bytes": 2665973
+    },
+    "webm": {
+      "codec": "VP9",
+      "crf": 35,
+      "bytes": 2302504
+    },
+    "audio": "none"
+  },
+  "sky": "User supplied image 77.png; WebP conversion only",
+  "processing": "Source originals preserved; WebP resizes retain alpha. No generated performance/project claims."
+}

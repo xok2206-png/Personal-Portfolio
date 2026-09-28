@@ -1,0 +1,916 @@
+{
+  "date": "2026-09-28T05:17:14.997Z",
+  "viewports": [
+    {
+      "width": 2560,
+      "height": 1440,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 724,
+          "right": 864,
+          "width": 140,
+          "height": 62
+        },
+        {
+          "name": "SKILLS",
+          "left": 1074.1328125,
+          "right": 1233.8671875,
+          "width": 159.734375,
+          "height": 62
+        },
+        {
+          "name": "PROJECTS",
+          "left": 1289.125,
+          "right": 1450.875,
+          "width": 161.75,
+          "height": 66
+        },
+        {
+          "name": "Q&A",
+          "left": 1786,
+          "right": 1926,
+          "width": 140,
+          "height": 62
+        },
+        {
+          "name": "CONTACT",
+          "left": 1876,
+          "right": 2016,
+          "width": 140,
+          "height": 62
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 404,
+          "right": 544,
+          "width": 140,
+          "height": 62
+        },
+        {
+          "name": "SKILLS",
+          "left": 754.1328125,
+          "right": 913.8671875,
+          "width": 159.734375,
+          "height": 62
+        },
+        {
+          "name": "PROJECTS",
+          "left": 969.125,
+          "right": 1130.875,
+          "width": 161.75,
+          "height": 66
+        },
+        {
+          "name": "Q&A",
+          "left": 1466,
+          "right": 1606,
+          "width": 140,
+          "height": 62
+        },
+        {
+          "name": "CONTACT",
+          "left": 1556,
+          "right": 1696,
+          "width": 140,
+          "height": 62
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 261.1875,
+          "right": 401.1875,
+          "width": 140,
+          "height": 62
+        },
+        {
+          "name": "SKILLS",
+          "left": 539.3203125,
+          "right": 699.0546875,
+          "width": 159.734375,
+          "height": 62
+        },
+        {
+          "name": "PROJECTS",
+          "left": 711.1171875,
+          "right": 872.8671875,
+          "width": 161.75,
+          "height": 66
+        },
+        {
+          "name": "Q&A",
+          "left": 1110.7890625,
+          "right": 1250.7890625,
+          "width": 140,
+          "height": 62
+        },
+        {
+          "name": "CONTACT",
+          "left": 1182.7890625,
+          "right": 1322.7890625,
+          "width": 140,
+          "height": 62
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 244.1640625,
+          "right": 384.1640625,
+          "width": 140,
+          "height": 62
+        },
+        {
+          "name": "SKILLS",
+          "left": 507.5,
+          "right": 667.234375,
+          "width": 159.734375,
+          "height": 62
+        },
+        {
+          "name": "PROJECTS",
+          "left": 670.421875,
+          "right": 832.171875,
+          "width": 161.75,
+          "height": 66
+        },
+        {
+          "name": "Q&A",
+          "left": 1050.1015625,
+          "right": 1190.1015625,
+          "width": 140,
+          "height": 62
+        },
+        {
+          "name": "CONTACT",
+          "left": 1118.3984375,
+          "right": 1258.3984375,
+          "width": 140,
+          "height": 62
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 211.390625,
+          "right": 331.390625,
+          "width": 120,
+          "height": 58
+        },
+        {
+          "name": "SKILLS",
+          "left": 440.6640625,
+          "right": 574.1171875,
+          "width": 133.453125,
+          "height": 58
+        },
+        {
+          "name": "PROJECTS",
+          "left": 583.2890625,
+          "right": 714.6953125,
+          "width": 131.40625,
+          "height": 60
+        },
+        {
+          "name": "Q&A",
+          "left": 907.5859375,
+          "right": 1027.5859375,
+          "width": 120,
+          "height": 58
+        },
+        {
+          "name": "CONTACT",
+          "left": 966.59375,
+          "right": 1086.59375,
+          "width": 120,
+          "height": 58
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 175.515625,
+          "right": 295.515625,
+          "width": 120,
+          "height": 58
+        },
+        {
+          "name": "SKILLS",
+          "left": 373.5859375,
+          "right": 507.0390625,
+          "width": 133.453125,
+          "height": 58
+        },
+        {
+          "name": "PROJECTS",
+          "left": 497.484375,
+          "right": 628.890625,
+          "width": 131.40625,
+          "height": 60
+        },
+        {
+          "name": "Q&A",
+          "left": 779.671875,
+          "right": 899.671875,
+          "width": 120,
+          "height": 58
+        },
+        {
+          "name": "CONTACT",
+          "left": 830.8671875,
+          "right": 950.8671875,
+          "width": 120,
+          "height": 58
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 101.265625,
+          "right": 221.265625,
+          "width": 120,
+          "height": 58
+        },
+        {
+          "name": "SKILLS",
+          "left": 125.265625,
+          "right": 258.71875,
+          "width": 133.453125,
+          "height": 58
+        },
+        {
+          "name": "PROJECTS",
+          "left": 402.7578125,
+          "right": 534.1640625,
+          "width": 131.40625,
+          "height": 60
+        },
+        {
+          "name": "Q&A",
+          "left": 577.4375,
+          "right": 697.4375,
+          "width": 120,
+          "height": 58
+        },
+        {
+          "name": "CONTACT",
+          "left": 377.75,
+          "right": 497.75,
+          "width": 120,
+          "height": 58
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 50.1796875,
+          "right": 156.1796875,
+          "width": 106,
+          "height": 50
+        },
+        {
+          "name": "SKILLS",
+          "left": 35.15625,
+          "right": 162.609375,
+          "width": 127.453125,
+          "height": 50
+        },
+        {
+          "name": "PROJECTS",
+          "left": 218.078125,
+          "right": 332.296875,
+          "width": 114.21875,
+          "height": 52
+        },
+        {
+          "name": "Q&A",
+          "left": 265.1796875,
+          "right": 371.1796875,
+          "width": 106,
+          "height": 50
+        },
+        {
+          "name": "CONTACT",
+          "left": 265.1875,
+          "right": 371.1875,
+          "width": 106,
+          "height": 50
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 43.4609375,
+          "right": 149.4609375,
+          "width": 106,
+          "height": 50
+        },
+        {
+          "name": "SKILLS",
+          "left": 28.71875,
+          "right": 156.171875,
+          "width": 127.453125,
+          "height": 50
+        },
+        {
+          "name": "PROJECTS",
+          "left": 200.1484375,
+          "right": 314.3671875,
+          "width": 114.21875,
+          "height": 52
+        },
+        {
+          "name": "Q&A",
+          "left": 244.4609375,
+          "right": 350.4609375,
+          "width": 106,
+          "height": 50
+        },
+        {
+          "name": "CONTACT",
+          "left": 244.46875,
+          "right": 350.46875,
+          "width": 106,
+          "height": 50
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 40.59375,
+          "right": 146.59375,
+          "width": 106,
+          "height": 50
+        },
+        {
+          "name": "SKILLS",
+          "left": 25.9609375,
+          "right": 153.4140625,
+          "width": 127.453125,
+          "height": 50
+        },
+        {
+          "name": "PROJECTS",
+          "left": 192.484375,
+          "right": 306.703125,
+          "width": 114.21875,
+          "height": 52
+        },
+        {
+          "name": "Q&A",
+          "left": 235.59375,
+          "right": 341.59375,
+          "width": 106,
+          "height": 50
+        },
+        {
+          "name": "CONTACT",
+          "left": 235.59375,
+          "right": 341.59375,
+          "width": 106,
+          "height": 50
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 33.3828125,
+          "right": 139.3828125,
+          "width": 106,
+          "height": 50
+        },
+        {
+          "name": "SKILLS",
+          "left": 19.0625,
+          "right": 146.515625,
+          "width": 127.453125,
+          "height": 50
+        },
+        {
+          "name": "PROJECTS",
+          "left": 173.28125,
+          "right": 287.5,
+          "width": 114.21875,
+          "height": 52
+        },
+        {
+          "name": "Q&A",
+          "left": 213.3828125,
+          "right": 319.3828125,
+          "width": 106,
+          "height": 50
+        },
+        {
+          "name": "CONTACT",
+          "left": 213.3828125,
+          "right": 319.3828125,
+          "width": 106,
+          "height": 50
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 767,
+      "height": 900,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 131.078125,
+          "right": 237.078125,
+          "width": 106,
+          "height": 50
+        },
+        {
+          "name": "SKILLS",
+          "left": 112.6796875,
+          "right": 240.1328125,
+          "width": 127.453125,
+          "height": 50
+        },
+        {
+          "name": "PROJECTS",
+          "left": 433.7578125,
+          "right": 547.9765625,
+          "width": 114.21875,
+          "height": 52
+        },
+        {
+          "name": "Q&A",
+          "left": 514.5703125,
+          "right": 620.5703125,
+          "width": 106,
+          "height": 50
+        },
+        {
+          "name": "CONTACT",
+          "left": 514.5703125,
+          "right": 620.5703125,
+          "width": 106,
+          "height": 50
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 101.265625,
+          "right": 221.265625,
+          "width": 120,
+          "height": 58
+        },
+        {
+          "name": "SKILLS",
+          "left": 125.265625,
+          "right": 258.71875,
+          "width": 133.453125,
+          "height": 58
+        },
+        {
+          "name": "PROJECTS",
+          "left": 402.7578125,
+          "right": 534.1640625,
+          "width": 131.40625,
+          "height": 60
+        },
+        {
+          "name": "Q&A",
+          "left": 577.4375,
+          "right": 697.4375,
+          "width": 120,
+          "height": 58
+        },
+        {
+          "name": "CONTACT",
+          "left": 377.75,
+          "right": 497.75,
+          "width": 120,
+          "height": 58
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 1023,
+      "height": 900,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 154.8203125,
+          "right": 274.8203125,
+          "width": 120,
+          "height": 58
+        },
+        {
+          "name": "SKILLS",
+          "left": 189.0234375,
+          "right": 322.4765625,
+          "width": 133.453125,
+          "height": 58
+        },
+        {
+          "name": "PROJECTS",
+          "left": 558.3125,
+          "right": 689.71875,
+          "width": 131.40625,
+          "height": 60
+        },
+        {
+          "name": "Q&A",
+          "left": 789.078125,
+          "right": 909.078125,
+          "width": 120,
+          "height": 58
+        },
+        {
+          "name": "CONTACT",
+          "left": 523.1015625,
+          "right": 643.1015625,
+          "width": 120,
+          "height": 58
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 175.515625,
+          "right": 295.515625,
+          "width": 120,
+          "height": 58
+        },
+        {
+          "name": "SKILLS",
+          "left": 373.5859375,
+          "right": 507.0390625,
+          "width": 133.453125,
+          "height": 58
+        },
+        {
+          "name": "PROJECTS",
+          "left": 497.484375,
+          "right": 628.890625,
+          "width": 131.40625,
+          "height": 60
+        },
+        {
+          "name": "Q&A",
+          "left": 779.6640625,
+          "right": 899.6640625,
+          "width": 120,
+          "height": 58
+        },
+        {
+          "name": "CONTACT",
+          "left": 830.875,
+          "right": 950.875,
+          "width": 120,
+          "height": 58
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 1279,
+      "height": 900,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 234.1484375,
+          "right": 354.1484375,
+          "width": 120,
+          "height": 58
+        },
+        {
+          "name": "SKILLS",
+          "left": 483.234375,
+          "right": 616.6875,
+          "width": 133.453125,
+          "height": 58
+        },
+        {
+          "name": "PROJECTS",
+          "left": 637.734375,
+          "right": 769.140625,
+          "width": 131.40625,
+          "height": 60
+        },
+        {
+          "name": "Q&A",
+          "left": 988.765625,
+          "right": 1108.765625,
+          "width": 120,
+          "height": 58
+        },
+        {
+          "name": "CONTACT",
+          "left": 1052.7109375,
+          "right": 1172.7109375,
+          "width": 120,
+          "height": 58
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 224.390625,
+          "right": 364.390625,
+          "width": 140,
+          "height": 62
+        },
+        {
+          "name": "SKILLS",
+          "left": 470.5234375,
+          "right": 630.2578125,
+          "width": 159.734375,
+          "height": 62
+        },
+        {
+          "name": "PROJECTS",
+          "left": 623.1171875,
+          "right": 784.8671875,
+          "width": 161.75,
+          "height": 66
+        },
+        {
+          "name": "Q&A",
+          "left": 979.5859375,
+          "right": 1119.5859375,
+          "width": 140,
+          "height": 62
+        },
+        {
+          "name": "CONTACT",
+          "left": 1043.59375,
+          "right": 1183.59375,
+          "width": 140,
+          "height": 62
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 1919,
+      "height": 1080,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 403.5,
+          "right": 543.5,
+          "width": 140,
+          "height": 62
+        },
+        {
+          "name": "SKILLS",
+          "left": 753.6328125,
+          "right": 913.3671875,
+          "width": 159.734375,
+          "height": 62
+        },
+        {
+          "name": "PROJECTS",
+          "left": 968.625,
+          "right": 1130.375,
+          "width": 161.75,
+          "height": 66
+        },
+        {
+          "name": "Q&A",
+          "left": 1465.5,
+          "right": 1605.5,
+          "width": 140,
+          "height": 62
+        },
+        {
+          "name": "CONTACT",
+          "left": 1555.5,
+          "right": 1695.5,
+          "width": 140,
+          "height": 62
+        }
+      ],
+      "images": true
+    },
+    {
+      "width": 1920,
+      "height": 900,
+      "passed": true,
+      "obscured": [],
+      "overflow": false,
+      "links": [
+        {
+          "name": "ABOUT",
+          "left": 404,
+          "right": 544,
+          "width": 140,
+          "height": 62
+        },
+        {
+          "name": "SKILLS",
+          "left": 754.1328125,
+          "right": 913.8671875,
+          "width": 159.734375,
+          "height": 62
+        },
+        {
+          "name": "PROJECTS",
+          "left": 969.125,
+          "right": 1130.875,
+          "width": 161.75,
+          "height": 66
+        },
+        {
+          "name": "Q&A",
+          "left": 1466,
+          "right": 1606,
+          "width": 140,
+          "height": 62
+        },
+        {
+          "name": "CONTACT",
+          "left": 1556,
+          "right": 1696,
+          "width": 140,
+          "height": 62
+        }
+      ],
+      "images": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "All five island labels are unobstructed and enter their routes",
+      "passed": true
+    },
+    {
+      "name": "Keyboard focus selects islands, Enter navigates, Back restores selection",
+      "passed": true
+    },
+    {
+      "name": "Global navigation cancels an in-flight camera route",
+      "passed": true
+    },
+    {
+      "name": "Motion pause stops ambient animation",
+      "passed": true
+    },
+    {
+      "name": "Touch tap opens a destination at 430×932",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion skips the cinematic and camera",
+      "passed": true
+    },
+    {
+      "name": "Image failure keeps all destinations usable",
+      "passed": true
+    },
+    {
+      "name": "Video failure recovers without blocking navigation",
+      "passed": true
+    },
+    {
+      "name": "Cinematic plays, arrives within 12s, revisit goes directly to World",
+      "passed": true
+    },
+    {
+      "name": "Escape skips the cinematic",
+      "passed": true
+    },
+    {
+      "name": "Storage denial leaves navigation operational",
+      "passed": true
+    },
+    {
+      "name": "200% CSS zoom retains all destinations and no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "Direct access exposes all four real projects",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "cinematicElapsedMs": 10450
+}

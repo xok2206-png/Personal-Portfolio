@@ -1,0 +1,83 @@
+{
+  "requests": [
+    {
+      "index": 0,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "prompt": "Edit the supplied isolated ABOUT floating island. Keep studio house, viewpoint, island placement and proportions. Art direction: bright open sky islands reminiscent of Zelda Breath of the Wild, Final Fantasy floating landscapes and warm Ghibli backgrounds. Replace overgrown vegetation: ONE elegant light-barked deciduous tree with airy irregular small pointed leaves and open visible branching, sunlit meadow with low grass and a few tiny wildflowers. Remove ALL hanging vines, jungle ferns, shaggy moss and thick bushes. Expose 80 percent of pale sandstone rocky cliffs with angular fractured planes. Warm daylight, natural fine texture, softly stylized premium 3D. IMPORTANT remove waterfalls completely: dry bare stone where the old waterfalls were; only small turquoise spring lips at x=30% y=43% and x=74% y=46% of image. Water will be animated separately in browser. No static water curtains or falling water. Transparent RGBA, no background, no text, full object isolated.",
+        "medias": [
+          {
+            "role": "image",
+            "value": "005af49f-94ac-4e34-96da-6e24ec4090ca"
+          }
+        ]
+      }
+    },
+    {
+      "index": 1,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "3:4",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "prompt": "Create an isolated LEFT EDGE foreground tree for a bright open fantasy sky island scene, Zelda Breath of the Wild / warm Ghibli nature atmosphere. A graceful mature European beech, smooth silver beige trunk at FAR LEFT edge, clean long slender branches extending across TOP edge, sparse fresh small pointed green leaves in delicate irregular clusters, at least 75 percent of image is EMPTY TRANSPARENT space on center/right and bottom. Light golden daylight on leaves. Airy, uplifting, elegant, tactile natural soft stylized 3D, no twisted ancient trunk, no moss, no vines, no ferns, no jungle, no dense canopy, no rounded broccoli clumps, no background. True RGBA transparency. Trunk should occupy only leftmost 12% of width, foliage mostly uppermost 25%."
+      }
+    },
+    {
+      "index": 2,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "3:2",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "prompt": "Isolated sparse patch of fine wind-swept meadow grasses, tiny white and pale yellow wildflowers, airy pointed grass blades of varied heights, bright sunlight. Warm Ghibli / Zelda sky meadow natural stylized 3D art, delicate fine texture, soft green with gold sunlight. Low and horizontal composition, lots of transparent gaps between stems. No ferns, no bushes, no broad leaves, no rocks, no ground, no moss, no vines, no text. True transparent RGBA background. Production foreground cutout."
+      }
+    }
+  ],
+  "results": {
+    "jobs": [
+      {
+        "index": 0,
+        "job_id": "05b7e739-a10b-4cb6-92a2-5d98f80c17f9",
+        "status": "completed",
+        "type": "image",
+        "model": "gpt_image_2_5",
+        "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_072806_05b7e739-a10b-4cb6-92a2-5d98f80c17f9.png"
+      },
+      {
+        "index": 1,
+        "job_id": "15187059-c36a-4c56-94e2-355ea239b77b",
+        "status": "completed",
+        "type": "image",
+        "model": "gpt_image_2_5",
+        "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_072807_15187059-c36a-4c56-94e2-355ea239b77b.png"
+      },
+      {
+        "index": 2,
+        "job_id": "bd6d69ac-af1f-4211-8d0f-54a479c5d19f",
+        "status": "completed",
+        "type": "image",
+        "model": "gpt_image_2_5",
+        "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3HAIFyTLz3kJMqGjxIvnAZpSpLj/hf_20260928_072807_bd6d69ac-af1f-4211-8d0f-54a479c5d19f.png"
+      }
+    ],
+    "summary": {
+      "total": 3,
+      "completed": 3,
+      "failed": 0,
+      "active": 0,
+      "errors": 0
+    },
+    "all_terminal": true
+  },
+  "scope": "New left tree, meadow and About dry artwork. Other islands returned to less overgrown natural-v2; new procedural water on all five."
+}

@@ -1,0 +1,188 @@
+{
+  "viewports": [
+    {
+      "width": 2560,
+      "height": 1440,
+      "overflow": false,
+      "ratioError": 0.000014204860702138333,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "overflow": false,
+      "ratioError": 0.00001701399325915176,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "overflow": false,
+      "ratioError": 0.000030404782732196267,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "overflow": false,
+      "ratioError": 0.000024291605807080785,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "overflow": false,
+      "ratioError": 0.000005024032599054706,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "ratioError": 0.00002575931218218308,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "ratioError": 0.00004181451991125407,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "overflow": false,
+      "ratioError": 0.00010125865216426,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "overflow": false,
+      "ratioError": 0.00002935373646417716,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "ratioError": 0.0001218478836138015,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "overflow": false,
+      "ratioError": 0.00003753310281107147,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 767,
+      "height": 900,
+      "overflow": false,
+      "ratioError": 0.00004039109994158352,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "overflow": false,
+      "ratioError": 0.00004181451991125407,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 1023,
+      "height": 900,
+      "overflow": false,
+      "ratioError": 0.000024676420053992842,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "overflow": false,
+      "ratioError": 0.00002575931218218308,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 1279,
+      "height": 900,
+      "overflow": false,
+      "ratioError": 0.000015252660137798912,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "overflow": false,
+      "ratioError": 0.000016126326825238735,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 1919,
+      "height": 1080,
+      "overflow": false,
+      "ratioError": 0.00001701399325915176,
+      "links": true,
+      "passed": true
+    },
+    {
+      "width": 1920,
+      "height": 900,
+      "overflow": false,
+      "ratioError": 0.000019261313935814428,
+      "links": true,
+      "passed": true
+    }
+  ],
+  "checks": [
+    {
+      "name": "Five island entries, reload and Back",
+      "passed": true
+    },
+    {
+      "name": "Keyboard navigation",
+      "passed": true
+    },
+    {
+      "name": "Direct navigation cancels camera on unmount",
+      "passed": true
+    },
+    {
+      "name": "Mobile overview, expansion and direct content",
+      "passed": true
+    },
+    {
+      "name": "Image failure preserves five readable routes",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion goes directly to content",
+      "passed": true
+    },
+    {
+      "name": "200% CSS zoom retains direct access",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "losslessPixelsIdentical": true
+}
