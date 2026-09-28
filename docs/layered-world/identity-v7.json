@@ -1,0 +1,116 @@
+{
+  "requests": [
+    {
+      "index": 0,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ],
+        "prompt": "Use the attached world reference only for matching material, warm upper-left daylight, soft cool shadows, camera angle, natural olive vegetation and cinematic soft-stylized 3D quality. Generate ONE isolated floating island cutout, actual transparent RGBA, no sky/clouds/background/shadow plane/text/labels/logos/people. Entire island within frame, x=6..94%, architecture y=5..49%, broad terrace y=50..55%, rock underside y=55..92%. Large naturally fractured pale stone planes, asymmetrical stepped buttresses, NOT inverted cone, not pebble scales, no repetitive tiny bonsai or dense vines. Clear identifiable silhouette even at thumbnail scale. Open walkable terraces with sparse grass and small flowers, naturally grouped leaves with visible branches. Two small turquoise outlet pools at x=26..34%,y=53% and x=72..80%,y=55%. NO falling waterfalls: leave bare rock below pools so runtime animated water can be composited. ABOUT / PERSONAL DESIGN STUDIO: a single cozy timber and pale plaster studio cottage with steep asymmetrical slate roof and large amber window. ONE large mature spreading oak on LEFT with visible gnarled trunk, canopy above roof. Outdoor desk with sketchbooks, drafting papers, small bench and winding garden path. Quiet intimate origin garden. Tree and house form asymmetric silhouette; NO towers, palace, glass dome, monumental staircase."
+      }
+    },
+    {
+      "index": 1,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ],
+        "prompt": "Use the attached world reference only for matching material, warm upper-left daylight, soft cool shadows, camera angle, natural olive vegetation and cinematic soft-stylized 3D quality. Generate ONE isolated floating island cutout, actual transparent RGBA, no sky/clouds/background/shadow plane/text/labels/logos/people. Entire island within frame, x=6..94%, architecture y=5..49%, broad terrace y=50..55%, rock underside y=55..92%. Large naturally fractured pale stone planes, asymmetrical stepped buttresses, NOT inverted cone, not pebble scales, no repetitive tiny bonsai or dense vines. Clear identifiable silhouette even at thumbnail scale. Open walkable terraces with sparse grass and small flowers, naturally grouped leaves with visible branches. Two small turquoise outlet pools at x=26..34%,y=53% and x=72..80%,y=55%. NO falling waterfalls: leave bare rock below pools so runtime animated water can be composited. SKILLS / CREATIVE WORKSHOP: a bold angular GLASS GREENHOUSE workshop with brass structural ribs, asymmetric crystal-shaped skylights, turquoise glass facets. Visible drafting table, abstract wireframe panels, vector/path structure and small geometric devices INSIDE workshop. One restrained circular brass mechanism near roof. Open lab courtyard and two small trees only at edges. Shape is low angular glass wedge, NOT cottage, palace, observatory dome, lighthouse. Tools expressed through making and geometry, NO giant logos or neon sci-fi."
+      }
+    },
+    {
+      "index": 2,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ],
+        "prompt": "Use the attached world reference only for matching material, warm upper-left daylight, soft cool shadows, camera angle, natural olive vegetation and cinematic soft-stylized 3D quality. Generate ONE isolated floating island cutout, actual transparent RGBA, no sky/clouds/background/shadow plane/text/labels/logos/people. Entire island within frame, x=6..94%, architecture y=5..49%, broad terrace y=50..55%, rock underside y=55..92%. Large naturally fractured pale stone planes, asymmetrical stepped buttresses, NOT inverted cone, not pebble scales, no repetitive tiny bonsai or dense vines. Clear identifiable silhouette even at thumbnail scale. Open walkable terraces with sparse grass and small flowers, naturally grouped leaves with visible branches. Two small turquoise outlet pools at x=26..34%,y=53% and x=72..80%,y=55%. NO falling waterfalls: leave bare rock below pools so runtime animated water can be composited. PROJECTS / GRAND CONTEMPORARY DESIGN GALLERY: largest majestic creative kingdom, with broad stepped white limestone terraces, sweeping modern museum roof, a monumental open central glass atrium, 3 offset exhibition pavilions and tall elegant slender architectural fins. Fantasy stone craftsmanship combined with contemporary museum architecture. Four small EMPTY dark glass rectangular exhibition panels arranged across facade, no invented artwork, no text. Dramatic wide horizontal silhouette, atrium tallest at center, NO medieval castle roof, cathedral, church or crowded spires. Generous plaza and two mature trees at sides, multiple levels."
+      }
+    },
+    {
+      "index": 3,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ],
+        "prompt": "Use the attached world reference only for matching material, warm upper-left daylight, soft cool shadows, camera angle, natural olive vegetation and cinematic soft-stylized 3D quality. Generate ONE isolated floating island cutout, actual transparent RGBA, no sky/clouds/background/shadow plane/text/labels/logos/people. Entire island within frame, x=6..94%, architecture y=5..49%, broad terrace y=50..55%, rock underside y=55..92%. Large naturally fractured pale stone planes, asymmetrical stepped buttresses, NOT inverted cone, not pebble scales, no repetitive tiny bonsai or dense vines. Clear identifiable silhouette even at thumbnail scale. Open walkable terraces with sparse grass and small flowers, naturally grouped leaves with visible branches. Two small turquoise outlet pools at x=26..34%,y=53% and x=72..80%,y=55%. NO falling waterfalls: leave bare rock below pools so runtime animated water can be composited. Q&A / SKY OBSERVATORY: distinctive round observatory pavilion with large polished pale-blue copper hemispherical dome and one very legible brass telescope pointing diagonally up-right. Two nested open brass celestial rings beside dome, circular stone viewing terrace, sparse little trees and a spiral path. Dome/telescope dominate skyline. Curious contemplative astronomy atmosphere, no giant question mark, no castle, no cottage, no glass greenhouse."
+      }
+    },
+    {
+      "index": 4,
+      "params": {
+        "model": "gpt_image_2_5",
+        "folder_id": "727f3de9-aa39-4ab1-881a-bac8e7159436",
+        "aspect_ratio": "1:1",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "transparent",
+        "medias": [
+          {
+            "role": "image",
+            "value": "1fdfc1de-aa48-4bea-9be0-1d365d884308"
+          }
+        ],
+        "prompt": "Use the attached world reference only for matching material, warm upper-left daylight, soft cool shadows, camera angle, natural olive vegetation and cinematic soft-stylized 3D quality. Generate ONE isolated floating island cutout, actual transparent RGBA, no sky/clouds/background/shadow plane/text/labels/logos/people. Entire island within frame, x=6..94%, architecture y=5..49%, broad terrace y=50..55%, rock underside y=55..92%. Large naturally fractured pale stone planes, asymmetrical stepped buttresses, NOT inverted cone, not pebble scales, no repetitive tiny bonsai or dense vines. Clear identifiable silhouette even at thumbnail scale. Open walkable terraces with sparse grass and small flowers, naturally grouped leaves with visible branches. Two small turquoise outlet pools at x=26..34%,y=53% and x=72..80%,y=55%. NO falling waterfalls: leave bare rock below pools so runtime animated water can be composited. CONTACT / HORIZON BEACON: tall slender ivory LIGHTHOUSE dominates right third, small copper lantern roof and warm amber lantern glass. Long low open stone terrace stretches LEFT with elegant curved balustrade facing horizon, single slim cloth pennant, tiny discreet letterbox near entrance, two windswept olive trees. Asymmetrical narrow vertical beacon plus wide horizontal terrace silhouette. Inviting final destination, no palace, no cluster of houses, no observatory dome."
+      }
+    }
+  ],
+  "jobs": [
+    {
+      "index": 0,
+      "job_id": "ee6da2c6-4ba5-4ac6-bb1e-b557ef970fd3"
+    },
+    {
+      "index": 1,
+      "job_id": "93587acf-9339-4b65-afcf-0bff0800f750"
+    },
+    {
+      "index": 2,
+      "job_id": "558c80ac-dda2-4426-8b8a-d6fa72ba3ba5"
+    },
+    {
+      "index": 4,
+      "job_id": "1d100558-2deb-4eed-94c9-6bbbe6e3c61d"
+    },
+    {
+      "index": 3,
+      "job_id": "c6e65385-4442-4eaf-b24e-9a812f483b47"
+    }
+  ]
+}

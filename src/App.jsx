@@ -184,13 +184,13 @@ function App() {
   ]
 
   return (
-    <PortfolioUIContext.Provider value={{ reduced, tone }}>
-      <div className={`app ${dark ? 'dark' : 'light'} ${worldMode ? 'world-mode' : ''}`}>
+    <PortfolioUIContext.Provider value={{ reduced, systemReduced, paused, setPaused, sound, setSound, tone }}>
+      <div className={`app ${dark ? 'dark' : 'light'} ${worldMode ? 'world-mode' : ''} ${location.pathname === '/projects' ? 'gallery-mode' : ''}`}>
         <a href="#main" className="skip-link">
           본문으로 건너뛰기
         </a>
 
-        <header className="site-header">
+        {!dark && <header className="site-header">
           <Link to="/" className="brand">
             <span className="brand-icon">{worldMode ? 'JY' : <Icon name="star" size={22} />}</span>
             <span>
@@ -240,7 +240,7 @@ function App() {
               <Icon name="menu" />
             </button>
           </div>
-        </header>
+        </header>}
 
         <AppRouter />
 
@@ -251,3 +251,4 @@ function App() {
 }
 
 export default App
+

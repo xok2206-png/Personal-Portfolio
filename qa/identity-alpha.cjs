@@ -1,0 +1,2 @@
+const sharp=require('C:/Users/EZEN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp')
+;(async()=>{for(const id of ['about','skills','projects','qa','contact']){const {data,info}=await sharp(`public/assets/source/world-layers/${id}-identity-v7.png`).raw().toBuffer({resolveWithObject:true});let clear=0,partial=0;for(let i=3;i<data.length;i+=info.channels){if(data[i]===0)clear++;else if(data[i]<255)partial++}console.log(id,info.channels,clear/(info.width*info.height),partial/(info.width*info.height),data[3])}})()

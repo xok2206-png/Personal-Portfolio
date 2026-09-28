@@ -1,0 +1,2 @@
+const sharp=require('C:/Users/EZEN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp')
+;(async()=>{for(const name of ['hall','jaduya','masillo','animal24','sulwhasoo']){await sharp(`public/assets/production/images/project-gallery/${name}-source.png`).resize({width:name==='hall'?2400:1000,withoutEnlargement:true}).webp({quality:94,alphaQuality:100}).toFile(`public/assets/production/images/project-gallery/${name}.webp`)}})().catch(e=>{console.error(e);process.exitCode=1})

@@ -1,5 +1,39 @@
 # PERSONAL PORTFOLIO --- DESIGN SYSTEM v2 FINAL
 
+## Latest System and introduction treatment
+
+System is now a small icon-only gear at top right, aligned with the header and retaining a 44px target. Use existing blue glass/ivory-gold detailing with a restrained static glow; open settings downward. Intro copy sits over translucent backdrop-blurred glass rather than an opaque white wash. Compass stays at bottom right. This supersedes the bottom-left System and ivory intro backing below.
+
+## Latest explicit HUD simplification
+
+Remove World HUD Quick View and Menu controls. Keep the thin blue cardinal compass freestanding at bottom right, and place compact pale-glass System at bottom left within safe areas. Preserve direct navigation through the top capsule and compass map, including Resume. Portrait layouts retain visible top destination links. Improve the approved left introduction with a soft-edged ivory backing, navy text and stronger body weight; retain the scenery and copy. This supersedes older Quick View/Menu/System placement instructions below.
+
+## HUD reference-detail correction
+
+Latest screenshot revision: horizontal white JY monogram/name lockup; blue-glass top navigation and utility capsules with delicate double ivory/gold outlines, separators and star/diamond accents. Quick View/System share this shell with small vector icons. Island names remain navy on pale ivory/blue plaques, now with shaped gold frames and destination icons. Compass uses thin blue cardinal lines and a faint local legibility wash, without a filled circular button or heavy border; it sits above System. Existing navigation/movement behavior and approved Korean copy remain unchanged. No reference coordinates or decorative project claims are copied.
+
+## Latest World HUD refinement — explicit user brief
+
+World > Character > Destination > HUD > Typography. Retain the current scenery and use a low pale-glass capsule nav, subtle active diamond, ivory/pale-blue island labels with thin gold ornaments and navy text. Scene-local HUD palette uses existing navy/blue with warm ivory `#f7f5ee` and restrained gold `#b79a61` for the requested treatment. No dark label rectangles, large hover scale or duplicated top Sound/Motion. Supplied Korean copy replaces prior handwritten/English marketing copy. Projects remains dominant; surrounding landmarks use 60–70% of its desktop width.
+
+Bottom Quick View, functional compass with small map, contextual selected-destination action and System stay inside safe areas. Tablet/portrait reframe the scene; mobile touch selects then confirms. World lookout arrow/WASD movement is now explicitly requested and overrides previous exclusions below, within a bounded foreground region only. Reduced motion preserves user movement as discrete steps and immediate route access. Existing typography, scene assets and blue-white water direction remain.
+
+## Latest water palette correction
+
+The latest user reference supersedes the earlier turquoise water direction: sky-blue/clear blue pool surfaces and pale blue waterfall shadows with predominantly white foam/highlights. Avoid a green/teal cast. Preserve warm ivory architecture and foliage; apply water-specific grading rather than a global scene hue shift.
+
+## 2026-09-28 Vivid grand world reference revision
+
+Latest user direction applies the grand limestone architecture, warm ivory sunlight, blue sky and turquoise water palette across all five islands. Projects remains dominant; each other landmark stays distinct. Lower city buildings/bridges and left cloud forms must remain legible: use depth through spacing and selective atmospheric layers instead of globally washing out the background. Independent island/water/cloud motion remains required. This supersedes the earlier globally reduced backdrop saturation/contrast instruction.
+
+## 2026-09-28 Projects interior reference and movement
+
+User requested a grand circular glass exhibition hall with spatial depth and character movement. Stage larger near-side exhibits and smaller rear exhibits around an open central entrance; retain warm stone reflections, cool sky and a central hanging banner. Use independently interactive exhibit and character layers. Bounded movement is authorized for this gallery only; other interior designs and World-map movement remain undecided. Mobile follows character position within the panoramic scene and retains persistent HTML destination controls. Reduced motion uses immediate positioning; case studies never require arrival.
+
+## 2026-09-28 Latest terrace reference refinement
+
+Latest supplied reference uses bright ivory Mediterranean/classical architecture: stepped villas, circular glass workshop, monumental terraced gallery palace, open celestial colonnade and lighthouse terraces. Keep Projects largest, sparse cypresses/natural trees, readable limestone cliffs and turquoise flowing water. Foreground uses worn stone steps, curved parapets and ruined columns with restrained planting. Preserve independent island/character/environment layers. This supersedes earlier gothic castle silhouettes for the world exterior only; no companion or broader interaction changes are implied.
+
 ## 2026-09-28 Reference material clarification
 
 User-approved visual correction: wide walkable island tops and asymmetric stepped cliffs; large readable rock planes with localized vegetation; naturally grouped tree canopies with visible branches; varied grass and flowers between exposed foreground stones. Avoid repeated narrow cones, pebble/scale-like stone patterns and uniform dense moss. Foreground should establish human scale; distant scenery should recede through lower contrast/saturation while preserving source resolution. Keep independently interactive layers and living motion; matching these references does not mean replacing the scene with a single image. This does not lock interior destination designs or character movement.

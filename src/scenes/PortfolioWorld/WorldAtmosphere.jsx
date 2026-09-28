@@ -20,6 +20,7 @@ export function WaterMist({ island }) {
 
 export default function WorldAtmosphere() {
   return <>
+    <div className="lw-cloud-banks" aria-hidden="true">{[0,1,2,3,4].map(i=><div key={i} className={`lw-cloud-bank bank-${i}`}><img src={`${layerRoot}cloud.webp`} alt=""/></div>)}</div>
     <div className="lw-haze" aria-hidden="true">
       <img className="lw-haze-ribbon haze-a" src={`${layerRoot}cloud.webp`} alt=""/>
       <img className="lw-haze-ribbon haze-b" src={`${layerRoot}cloud.webp`} alt=""/>

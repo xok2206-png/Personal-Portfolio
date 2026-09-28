@@ -1,0 +1,140 @@
+{
+  "viewports": [
+    {
+      "w": 2560,
+      "h": 1440,
+      "panels": [
+        {
+          "name": "compass",
+          "safe": true
+        },
+        {
+          "name": "system",
+          "safe": true
+        }
+      ],
+      "player": true
+    },
+    {
+      "w": 1440,
+      "h": 810,
+      "panels": [
+        {
+          "name": "compass",
+          "safe": true
+        },
+        {
+          "name": "system",
+          "safe": true
+        }
+      ],
+      "player": true
+    },
+    {
+      "w": 1180,
+      "h": 820,
+      "panels": [
+        {
+          "name": "compass",
+          "safe": true
+        },
+        {
+          "name": "system",
+          "safe": true
+        }
+      ],
+      "player": true
+    },
+    {
+      "w": 1024,
+      "h": 768,
+      "panels": [
+        {
+          "name": "compass",
+          "safe": true
+        },
+        {
+          "name": "system",
+          "safe": true
+        }
+      ],
+      "player": true
+    },
+    {
+      "w": 768,
+      "h": 1024,
+      "panels": [
+        {
+          "name": "compass",
+          "safe": true
+        },
+        {
+          "name": "system",
+          "safe": true
+        }
+      ],
+      "player": true
+    },
+    {
+      "w": 430,
+      "h": 932,
+      "panels": [
+        {
+          "name": "compass",
+          "safe": true
+        },
+        {
+          "name": "system",
+          "safe": true
+        }
+      ],
+      "player": true
+    },
+    {
+      "w": 390,
+      "h": 844,
+      "panels": [
+        {
+          "name": "compass",
+          "safe": true
+        },
+        {
+          "name": "system",
+          "safe": true
+        }
+      ],
+      "player": true
+    },
+    {
+      "w": 360,
+      "h": 800,
+      "panels": [
+        {
+          "name": "compass",
+          "safe": true
+        },
+        {
+          "name": "system",
+          "safe": true
+        }
+      ],
+      "player": true
+    },
+    {
+      "w": 1280,
+      "h": 600,
+      "panels": [
+        {
+          "name": "compass",
+          "safe": true
+        },
+        {
+          "name": "system",
+          "safe": true
+        }
+      ],
+      "player": true
+    }
+  ],
+  "assetFailureDirectAccess": true
+}

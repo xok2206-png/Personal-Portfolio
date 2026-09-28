@@ -1,0 +1,31 @@
+{
+  "checks": [
+    "first visit guide visible",
+    "WASD moves character and compass",
+    "first input hides guide",
+    "compass rotates with heading",
+    "movement bounded to lookout",
+    "entrance context action available",
+    "E starts entrance travel",
+    "manual input cancels travel and deadline",
+    "latest destination replaces travel",
+    "guide stays dismissed on revisit",
+    "small compass map opens",
+    "compass map enters destination",
+    "system motion pauses world",
+    "sound setting enabled",
+    "system settings persist",
+    "system Escape returns focus",
+    "paused movement is discrete and available",
+    "OS reduced motion cannot be overridden",
+    "keyboard focus reveals destination",
+    "reduced motion immediate route",
+    "first touch selects without travel",
+    "second touch enters",
+    "Back clears in-flight scene state",
+    "compass toggles closed",
+    "mobile compass direct resume",
+    "no runtime errors"
+  ],
+  "errors": []
+}

@@ -1,0 +1,6 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Use the attached character turnaround as STRICT identity reference. Make a production animation sprite atlas on truly transparent RGBA background. Exactly 5 columns by 3 rows, 15 full-body figures evenly spaced in equal cells, no labels, no lines. Row1 character FRONT facing camera; row2 character SIDE profile facing LEFT; row3 character BACK facing away, JY backpack legible. Each row: column1 neutral standing idle, columns2-5 four distinct consecutive WALK cycle poses (left contact, passing, right contact, passing). Maintain the exact soft-stylized 3D face, tousled dark hair, charcoal hooded jacket open over white tee, dark cargo trousers, watch, JY black backpack, black white sneakers from reference. Same character scale in every cell, head at 8%, shoe baseline at94%, centered horizontally, feet visibly alternate and opposite arms swing, no overlapping cells. Same warm soft lighting all views. Transparent background no shadow floor. Landscape atlas aspect ratio 5:4 (each cell approximately 3:4). Every row fixed orientation not a turnaround; only walking changes across columns. High resolution.",
+  "reference": "codex-clipboard-56a78f9f-5161-498a-858d-69358cd2dd27.png",
+  "export": "Generated green-screen revision; sharp chroma-key and 265x374 cells; idle plus four walk poses for front/side/back."
+}

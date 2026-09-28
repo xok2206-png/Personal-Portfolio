@@ -1,6 +1,14 @@
 {
   "moved": [
     {
+      "selector": ".life-qa .lw-landmark-light",
+      "moved": true
+    },
+    {
+      "selector": ".lw-cloud-bank",
+      "moved": true
+    },
+    {
       "selector": ".lw-cloud-mid",
       "moved": true
     },

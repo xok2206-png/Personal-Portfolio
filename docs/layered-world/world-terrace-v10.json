@@ -1,0 +1,23 @@
+{
+  "version": "terrace-v10",
+  "reference": "C:/Users/EZEN/AppData/Local/Temp/codex-clipboard-ff2865c8-925a-4e44-b52e-381272c27bfa.png",
+  "tool": "image_gen.imagegen",
+  "mode": "reference-based independent asset generation; magenta extraction using Sharp",
+  "basePrompt": "Use the supplied image as precise architectural/style reference, generate ONE isolated floating island corresponding to landmark below. Match its BRIGHT WHITE LIMESTONE, Mediterranean terraces, modern classical FANTASY architecture, blue glass and turquoise pools, slender cypresses, sparse naturally branching trees. Broad top and deep asymmetric tapering layered rock with large readable stone planes, restrained vegetation. NOT gothic medieval blue-roof castle, NOT dense forest. Airy premium cinematic stylized3D, bright daylight warm left sunlight. Entire island square image centered, 5% padding. Side stone arched bridge connection stubs. Two front turquoise spillway lips near x25%/75% at y55%. NO falling waterfall or mist (web app animates them). No people/pets, no text/UI, no sky. Uniform PURE MAGENTA #ff00ff background for cutout, no magenta spill. Landmark: ",
+  "landmarks": {
+    "about": "ABOUT: stacked ivory villa volumes, small personal studio with open arches and roof gardens, low flat terraces and one slender tower, like upper-left island in reference. Architectural white Mediterranean origin village, not timber cottage.",
+    "skills": "SKILLS: low wide circular glass creative laboratory/pavilion, blue interface panels and one small floating cyan wireframe geometric cube. Sparse cypresses around terrace. Match lower-middle reference island, not cathedral.",
+    "projects": "PROJECTS: enormous multi-level circular ivory palace/gallery, colonnaded terraces, several modern slender ivory towers and a thin gold horizontal ring near summit, restrained narrow cyan energy spine. Like central reference island, not medieval castle. Largest visually, broad monumental base with lower front balcony, three turquoise pools x25/50/75 at y58. No giant crystal.",
+    "qa": "Q&A: low circular ivory colonnaded observatory with open roof and a golden armillary celestial globe above it, one cyan doorway. Match right-middle reference island, NOT large enclosed telescope dome.",
+    "contact": "CONTACT: white lighthouse with little amber lantern, stepped white villa cluster with grey-green roofs and small tower, open wide terrace, olive trees and cypresses, tiny mail hint. Match lower-right reference island."
+  },
+  "lookoutPrompt": "Create ONLY the foreground standing-place scenery from supplied reference as independent cutout for interactive web. Wide landscape 3:2 composition. Weathered bright ivory limestone terrace and broad stone steps, curved low white stone parapet descending from LEFT toward RIGHT, a few ruined classical columns at far LEFT edge, modest grass and tiny blue flowers in cracks, sparse olive branches from upper LEFT. Open level WALKABLE paving at x35-48%, y75% for a separately rendered character to stand. Camera behind visitor looking down terrace and out to world, elevated stone lookout. Ground occupies bottom35%, left ruined-column edge occupies left20%; upper and right majority empty background. Show rich stone slabs and warm sunlight with cool shadows. NO character, NO animal, NO lettering or UI, NO wooden sign/rope/fence, NO island skyline, no ocean, no sky. Ground extends through left and bottom edges, right edge broken natural stone taper. Uniform solid pure magenta #ff00ff everywhere outside foreground for extraction, no magenta spill. Match supplied reference foreground perspective and premium soft 3D cinematic materials.",
+  "outputs": [
+    "public/assets/production/images/world-layers/about-terrace-v10.webp",
+    "public/assets/production/images/world-layers/skills-terrace-v10.webp",
+    "public/assets/production/images/world-layers/projects-terrace-v10.webp",
+    "public/assets/production/images/world-layers/qa-terrace-v10.webp",
+    "public/assets/production/images/world-layers/contact-terrace-v10.webp",
+    "public/assets/production/images/world-layers/lookout-terrace-v10.webp"
+  ]
+}

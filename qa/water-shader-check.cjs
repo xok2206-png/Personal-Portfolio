@@ -9,7 +9,7 @@ const sharp=require('C:/Users/EZEN/.cache/codex-runtimes/codex-primary-runtime/d
  const frame=async()=>sharp(await water.screenshot()).removeAlpha().raw().toBuffer()
  const diff=(a,b)=>{let v=0;for(let i=0;i<a.length;i++)v+=Math.abs(a[i]-b[i]);return v/a.length}
  const a=await frame();await p.waitForTimeout(500);const c=await frame();const moving=diff(a,c)
- await p.getByRole('button',{name:'세계 움직임 일시정지'}).click();await p.waitForTimeout(80);const pausedA=await frame();await p.waitForTimeout(300);const paused=diff(pausedA,await frame())
+ await p.locator('.lw-system summary').click();await p.getByRole('button',{name:'세계 움직임 일시정지'}).click();await p.waitForTimeout(80);const pausedA=await frame();await p.waitForTimeout(300);const paused=diff(pausedA,await frame())
  await p.getByRole('button',{name:'세계 움직임 재생'}).click();await p.waitForTimeout(400);const resumed=diff(pausedA,await frame())
  await p.emulateMedia({reducedMotion:'reduce'});await p.waitForTimeout(80);const reducedA=await frame();await p.waitForTimeout(300);const reduced=diff(reducedA,await frame())
  const report={moving,paused,resumed,reduced,errors};await fs.writeFile('docs/layered-world/water-shader-report.json',JSON.stringify(report,null,2));console.log(report)

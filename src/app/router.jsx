@@ -21,7 +21,7 @@ function AppRouter() {
       <Route path="/character" element={<Character />} />
       <Route path="/world-map" element={<PortfolioWorld />} />
 
-      <Route path="/projects" element={<DestinationFrame destinationId="projects"><Projects /></DestinationFrame>} />
+      <Route path="/projects" element={<Projects />} />
       <Route path="/projects/:projectId" element={<DestinationFrame destinationId="projects"><ProjectDetail /></DestinationFrame>} />
 
       <Route path="/about" element={<DestinationFrame destinationId="about"><About /></DestinationFrame>} />

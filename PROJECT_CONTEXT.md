@@ -1,5 +1,150 @@
 # Personal Portfolio --- PROJECT_CONTEXT FINAL
 
+## 2026-09-28 Real World reference UI
+
+- Latest explicit reference replaces root-route global navigation with a local JUNYOUNG wordmark and Quick View/settings corner controls. Fullscreen workspace, left Korean headline with cyan phrase, illuminated capsule ENTER WORLD, and fine lower-corner captions match the supplied layout direction. Existing ambient video/poster and portal journey retained; background motion means this is not a pixel-identical still reproduction. Cyan CTA is explicitly requested by this latest reference.
+- Changed App.jsx, RealWorld.jsx/.css. Existing shared Motion/Sound state reused; settings support Escape/focus and OS reduced motion. No other route's header removed. Lint/build passed; desktop 1672×941/mobile 360×800 visually inspected; CTA bounds checked at 1440×810, 1024×768, 390×844 and 360×800. Settings and reduced-motion World entry passed. Physical devices/Safari remain unverified.
+
+## 2026-09-28 First-entry and persistent control guide
+
+- WorldControls.jsx/.css replaces the disappearing guide with a compact ivory/blue-glass intro at bottom center (300ms entry, fade at 2.7s, removed at 3s), followed by a persistent bottom-left focusable control HUD. Existing sessionStorage world-guide-seen state is reused; returning to World skips intro. Existing movement callback, island hover/focus/click and header clicks dismiss early. Movement and selected island subtly highlight controls.
+- Desktop instructions describe supported WASD/arrows and mouse selection. Portrait/coarse-touch instructions describe actual two-tap island entry, with no unsupported drag claim. Reduced motion uses immediate still states. No scene composition, character controller, routes or dependencies changed.
+- Lint/build passed. qa/world-controls-check.cjs passed timer/session revisit, WASD feedback, hover/navigation dismissal, keyboard focus, five viewport bounds, touch two-tap entry, reduced motion and browser Back. Desktop intro and mobile compact screenshots inspected. Physical-device/Safari rendering remains unverified.
+
+## 2026-09-28 Wider World island composition
+
+- Spread desktop islands into the space freed by the introduction: About left, Skills lower-left with label above foreground foliage, Projects shifted toward center, Q&A upper-right and Contact lower-right. Adjusted connecting bridge positions and ultrawide Projects alignment. Portrait island layout, artwork, independent effects and routes retained.
+- All 19 viewport label/fullscreen/navigation checks passed, including zoom. Desktop 1440×810 screenshot inspected and Skills raised after visual inspection found foliage obscuring its label.
+
+## 2026-09-28 Real World: reverted to full navigation + reference copy
+
+- User showed the same reference screenshot again and asked for closer fidelity, explicitly including the navigation. Two decisions confirmed directly: (1) replace the previous turn's confirmed hero copy with the reference's own text, (2) remove the Real-World-only minimal header and restore the same full header (ABOUT/SKILLS/PROJECTS/Q&A/CONTACT nav + WORLD MAP link + Pause/Sound/Menu icons) used on every other route.
+- `App.jsx`: removed the `realWorld` conditional branch added last turn; header markup is unconditional again (only `dark`/`worldMode` theming remain, as before that change). Direct/Quick Access is still reachable everywhere via the header's menu icon → its existing "DIRECT ACCESS ↗" link — nothing was lost.
+- `index.css`: removed the now-orphaned `.site-header-minimal` / `.header-quick-view` / `.system-panel` rules (that header variant no longer exists).
+- `RealWorld.jsx` / `.css`: hero copy replaced with the reference's own text — eyebrow "MY PORTFOLIO WORLD" (short line marker instead of a dot), headline "작은 아이디어가 / 더 나은 경험이 되는 곳" (bumped from clamp(34,3.6vw,56) to clamp(40,4.6vw,68) to match the reference's larger proportions), body "사용자와 브랜드를 연결하는 웹 경험을 만들고, / 보기 좋은 화면을 실제 동작하는 인터페이스로 구현합니다.", caption "버튼을 누르면 월드로 진입합니다.". Removed the hero's own inline `QUICK VIEW` link (redundant now that the restored header's menu already exposes Direct Access). Bottom-left metadata restructured to "— SEOUL, KOREA" + "A FRONTEND DEVELOPER'S REAL WORLD" subline, bottom-right simplified to "SCROLL ↓", matching the reference.
+- The `ENTER WORLD` gateway-button treatment, hover micro-interactions, status line (`● REAL WORLD` → ...), launch/disable-on-click state and the Portal cinematic hookup from the last two rounds were **not** changed — only nav + copy were in scope this round.
+- `npm run lint` / `npm run build` passed. Not verified in an actual browser (none available in this environment).
+
+## 2026-09-28 Remove World introduction overlay
+
+- Explicit user request removes the left introduction copy and its blur panel from WorldHUD.jsx. Brand, navigation, System, compass and island effects remain. Earlier introduction styling notes are historical.
+
+## 2026-09-28 Stronger landmark-specific selection effects
+
+- IslandLife.jsx/.css now align stronger effects with current terrace artwork: About amber arched windows, Skills crystal edges/screens/circuit ring, Projects gateway/spire flow and crown ring, Q&A intersecting celestial light tracks, Contact lantern flare and repeating beam sweep from the actual lighthouse top. Existing hover/focus/touch selection and routes retained; no new dependencies or product decisions.
+- Lint/build passed. Browser pointer checks activated all five effects at 1440×810; screenshots inspected alongside keyboard-focused 390×844. OS reduced motion reported zero running landmark animations. Paused scene selection uses still highlights. Physical devices/Safari unverified.
+
+## 2026-09-28 Real World redesigned: workspace-first, minimal gateway UI
+
+- User provided a reference screenshot + detailed spec: Real World must read as "a real workspace, about to enter Portfolio World" rather than a game start screen, with the workspace video as the subject and UI kept minimal. Implemented (not cloned) per that spec.
+- `App.jsx`: header is now route-conditional. On `/` only, it shows a compact brand mark (`JY` / "JUNYOUNG KIM" / "PORTFOLIO") + a `QUICK VIEW` link + a single system icon opening a native `popover` panel (Motion on/off, Sound on/off, "인트로 건너뛰기" → `/world-map`), reusing the existing `paused`/`sound`/`tone` state from `PortfolioUIContext`. All other routes keep the full header (ABOUT/SKILLS/PROJECTS/Q&A/CONTACT nav, WORLD MAP link, separate Pause/Sound/Menu icons) unchanged.
+- `RealWorld.jsx`: hero copy replaced with the confirmed Korean copy (eyebrow / 3-line headline / 2-line body), much smaller type scale (headline `clamp(34px,3.6vw,56px)`, was up to 84-95px). `ENTER WORLD` is now a bordered "gateway" button (diamond mark + hover sweep/arrow-shift/monitor-brightness cue via `:has()`, degrades safely without it) instead of a solid white pill; `DIRECT ACCESS` was renamed `QUICK VIEW` and restyled as a ghost link. Added a tiny system-style status line under the button (`● REAL WORLD` → `◌ SIGNAL DETECTED` on hover → `PORTAL LINK ESTABLISHING...` → `ENTERING PORTFOLIO WORLD`) and a `launching` state that disables the button and fades the hero copy out (420ms) before mounting `PortalCinematic` — prevents double-activation. The `visited`/reduced-motion skip-straight-to-World path is unchanged.
+- `RealWorld.css`: `.room-shade` narrowed to a left-side legibility gradient (was full-width dark wash) so the workspace stays visible past roughly 60% of the frame; typography and spacing re-scaled to match.
+- **Not touched, as required**: `PortalCinematic.jsx`/`.css` (the two-clip portal sequence, skip/Escape/error-recovery, and the `document.body` portal-sizing fix) — Real World only calls into it the same way it already did.
+- `npm run lint` / `npm run build` passed. Not verified in an actual browser (none available in this environment).
+
+## 2026-09-28 Icon System and translucent introduction
+
+- Latest user refinement moves System to a 44px icon-only gear at top right, with a restrained static blue glow and accessible name/title. Settings open downward; compass remains bottom right. Replaced the introduction's opaque ivory wash with a translucent blurred glass panel, retaining copy and navy text.
+- Updated WorldHUD.jsx/.css only for UI behavior/style. Lint/build and nine-size HUD panel/character safe-area checks passed, including image-failure navigation. Desktop 1440×810 and mobile 390×844 visually inspected. Physical devices/Safari remain unverified; routes, scene assets and product decision states unchanged.
+
+## 2026-09-28 Quiet HUD corners and readable introduction
+
+- Latest explicit user request removes World HUD Quick View and Menu controls. Their routes/content remain intact; top destination navigation and compass mini-map retain direct access, including Resume in the map.
+- Standalone thin-line compass sits at bottom right; compact pale-glass System sits at bottom left. Left introduction retains approved copy with a soft ivory backing and stronger text contrast/weight. Portrait layouts expose top navigation without a Menu disclosure.
+- Lint/build passed. All 19 fullscreen/navigation sizes and nine compass/System overlay sizes passed, including zoom and image-failure direct access. Desktop 1440×810 and mobile 390×844 screenshots inspected. Physical devices and Safari remain unverified. This supersedes earlier Quick View/Menu placement notes below.
+
+## 2026-09-28 HUD reference-detail correction
+
+- Refined WorldHUD/WorldHUD.css and added reusable HudDetails.jsx SVG icons/plaque frame: horizontal JY lockup, double gold/ivory blue-glass nav and Quick View/Menu/System capsules, ornamental island frames with destination icons, and an unboxed line compass above System. Existing functional handlers, character/world assets, approved copy and routes retained.
+- Follow-up regression caught Back before React committed the destination (location key could remain unchanged); a cleaned-up native popstate listener now also cancels pending travel immediately.
+- Lint/build passed. All 19 fullscreen label/navigation checks and nine HUD overlay/character safe-area sizes passed; desktop1440×810/mobile390×844 visually inspected. Physical-device/Safari rendering remains unverified.
+
+## 2026-09-28 Explicit World HUD and bounded movement request
+
+- Latest pasted user brief explicitly authorizes arrow/WASD movement inside the World Entrance Lookout. Implemented scoped movement with existing directional gallery sprites, key-release/blur cleanup and reduced-motion discrete steps. No physics/jumping/island walking. This supersedes older World-map movement exclusions for this bounded feature only.
+- Added WorldHUD (exact Korean copy, capsule top navigation/Menu, ivory-gold labels, Quick View, working compass/mini-map, contextual entrance action and bottom System). Shared App motion/sound preferences exposed through PortfolioUIContext; System persists choices, honors OS reduced motion and uses the existing selection sound.
+- Kept existing scene assets, live blue-white water, atmospheric motion, router, gallery and project data. Reframed five islands for copy/label readability. Camera entry 1.45 s / repeat 0.6 s; movement cancels auto travel, new destination replaces the previous one, touch uses selection then confirmation.
+- Audit, file ownership, exact behavior, validation and limits: `docs/layered-world/world-hud-audit.md`. Lint/build and 19-viewport checks passed; HUD movement/touch/keyboard/settings/compass checks and nine-size overlay safe-area checks passed, plus existing water/ambient checks. Desktop1440×810/mobile390×844 inspected. No physical-device/Safari/Core Web Vitals certification; character is four-frame 2.5D, not a rigged model.
+
+## 2026-09-28 Reference blue-white water correction
+
+- FlowingWater now uses pale sky-blue shadows and silver-white foam instead of teal. Its existing WebGL pass samples island artwork to selectively grade cyan terrace/pool pixels toward blue, retaining source detail and white reflections. Texture resources are disposed on unmount. BasinWater grading and CSS waterfall fallback now match the blue-white direction. Existing movement and scene architecture retained.
+- Desktop 1440×810 visually inspected; lint/build passed, waterfall/basin motion, pause/resume, reduced-motion and WebGL-failure navigation checks passed. WebGL-unavailable terrace pools retain their original image colour; animated and fallback waterfall colours are updated. No physical-device colour calibration performed.
+
+## 2026-09-28 Latest reference: five ivory terrace islands and stone lookout
+
+- Replaced five island plates with independent `*-terrace-v10.webp` assets: About stepped villas, Skills circular glass workshop, Projects monumental terraced palace/gallery, Q&A open colonnade and armillary globe, Contact lighthouse/villas. Projects retains the largest 37% desktop width. Waterfall regions realigned to the new terraces; existing live water, clouds, city and navigation retained.
+- Foreground is now an independent limestone stair/curved-parapet lookout with ruined columns and restrained planting. Existing character remains separately rendered and positioned on paving. Removed the old framing-tree markup; a clipped foliage layer provides subtle breeze. Mobile foreground fades into the scene without blocking island controls. No companion added.
+- Six image_gen reference-based assets, source originals and transparent WebP outputs retained. Prompts/provenance: `docs/layered-world/world-terrace-v10.json`; extraction: `qa/prepare-world-v10.cjs`. These are generated reference interpretations, not identical source pixels. Routes, project facts, gallery and dependencies unchanged; no other working product decisions locked.
+- Lint and final build passed. Fullscreen/label/navigation checks passed at all 19 desktop, portrait and boundary sizes in `qa/fullscreen-check.cjs`, plus keyboard/menu, direct route and 200% zoom checks. Final 1440×810 and 430×932 screenshots visually inspected. Live-water motion/pause/reduced-motion/WebGL-failure and ambient-motion checks passed. Physical devices, Safari and performance targets remain unmeasured.
+
+## 2026-09-28 Five grand reference islands and clearer turquoise city
+
+- User requested all five islands match the latest vivid monumental reference, with clearer left clouds and lower city. Replaced all five island images with independent `*-grand-v9.webp` assets: origin studio, creative glass atelier, largest ivory castle, bronze observatory and horizon lighthouse. Shared warm limestone/olive/cypress art direction; distinct landmarks retained. Desktop Projects is 37% scene width versus 21–23% others. Repositioned waterfall regions per new pools. Existing world navigation, gallery, character and facts unchanged.
+- Restored backdrop/city contrast and saturation, expanded lower-city visibility mask, moved dense cloud banks/haze to the sides and strengthened the left cloud silhouette. FlowingWater uses turquoise body/white foam; BasinWater applies a water-only turquoise grade matching the sharper city texture. Independent motion, pause and reduced-motion/failure fallbacks remain.
+- Built-in image_gen used supplied reference; original magenta source plates retained under `public/assets/source/world-layers/`, alpha extracted/optimized with Sharp. Prompt record: `docs/layered-world/world-grand-v9.json`; optimizer: `qa/prepare-world-v9.cjs`. Generated interpretations, not exact reference pixels. No dependency or route changes.
+- Lint/build passed; all 19 fullscreen/boundary viewport checks and direct navigation/zoom checks passed. Desktop1440×810/mobile430×932 screenshots inspected. Waterfall and basin motion/pause/resume/reduced-motion/WebGL failure checks passed; ambient clouds, birds, leaves and canopy motion passed. Physical-device/Safari and performance targets remain unmeasured.
+
+## 2026-09-28 Monumental Projects castle exterior
+
+- Latest user request applied to Projects island only: generated `projects-castle-v8.webp` with an ivory limestone castle, central arched gateway, varied towers, sparse olive/cypress planting and three white arched bridge stubs. Source PNG retained under `public/assets/source/world-layers/`. Built-in image_gen reference generation, magenta extraction and WebP optimization; prompt recorded in `docs/layered-world/projects-castle-v8.json`.
+- Desktop width increased from 31% to 36% (about 1.57× Skills/Contact), stable floating motion retained. Three independent live waterfall regions aligned with front spillways. No baked falling-water image. Other islands, gallery interior, project facts and navigation unchanged. Explicit exterior direction recorded in PRD; no broader product decisions changed.
+- Lint/build passed, 19 viewport/boundary checks passed including labels, direct access and zoom. Desktop scene visually inspected. Physical-device and Safari performance remain unverified.
+
+## 2026-09-28 Fullscreen gallery without bottom content
+
+- User requested removal of bottom content. Removed the guide/selection panel and its reserved mobile region in `Projects.jsx/.css`. Gallery now fills 100dvh at every breakpoint, including short viewports; panoramic character following remains. Compact top disclosure contains exhibit selection, Contact, Quick View and motion pause. Existing exhibit case-study links and movement remain; project content and routes unchanged.
+- Lint/build passed. Full-height scene, absence of bottom panel and menu-to-exhibit case-study navigation checked at 1440×810, 1180×820, 430×932 and 360×640. Mobile screenshot inspected. Older gallery QA scripts targeting the removed bottom panel need selector updates before reuse; their earlier results describe the prior layout.
+
+## 2026-09-28 User character reference applied to gallery
+
+- Replaced the gallery's single rear-view sprite with reference-conditioned front/side/back idle and four-frame walk strips. `useGalleryWalk.js` selects direction from travel vector, retains it when stopping, and mirrors only the side view for rightward movement. Existing click/touch/arrow controls and routes remain unchanged; World-map movement was not expanded.
+- Assets: `public/assets/production/images/project-gallery/character/`; prompt and tool provenance: `docs/layered-world/character-assets.json`. Built-in image_gen produced the poses. Two transparent exports contained baked checkerboards, so a generated green-screen revision was chroma-keyed and converted to WebP with Sharp. Alpha was checked against a solid contrasting background. Sources retained. This is a four-frame stylized cycle, not a rigged 3D character; poses are generated interpretations of the reference.
+- Existing gallery input and 19 viewport checks passed after replacement, including reduced motion, sprite animation, Escape, zoom and fallback navigation. Desktop and mobile screenshots reviewed; physical devices/Safari remain unverified.
+
+## 2026-09-28 Projects spatial gallery and bounded character movement
+
+- Supersedes the earlier gallery entry below: user explicitly requested gallery movement and closer spatial reference fidelity. `Projects.jsx/.css` now stage large near-left/right and smaller rear exhibits in a circular glass hall with a central banner and floor reflections. `useGalleryWalk.js` owns bounded 2.5D movement through floor click/touch or focused arrow keys; Escape/blur stops movement. A four-frame sprite, depth-dependent scale/occlusion and portrait camera following reinforce movement. This is not a collision-aware 3D interior or an exact reference reproduction.
+- Routes, project facts, case-study pages, World, Contact and Quick View access retained. No companion, physics or World-map movement added. All four case studies remain immediately accessible. Reduced motion uses instant positioning; pause/hidden state stops animation; failed gallery artwork does not block links. Existing sculptures are conceptual exhibits, not actual project UI or official product assets.
+- New `hall-depth.webp` and `walk.webp` generated with built-in image_gen from the supplied gallery reference and existing character. Sources retained alongside production files; prompt record in `docs/layered-world/gallery-depth-assets.json`. No new dependencies. Other concurrent Real World and water changes preserved.
+- Lint passed. Browser automation passed 19 viewport/boundary sizes, keyboard walking, exhibit approach, direct case-study/Back/reload, pause, reduced motion (including toggling during movement), floor click, sprite frame changes, Escape, 200% zoom and failed-image navigation. Desktop 1440×810 and mobile 430×932 screenshots visually inspected. Checks: `qa/gallery-depth-check.cjs`, `qa/gallery-input-check.cjs`. Physical touch devices, Safari and performance targets remain unverified.
+
+- Production build also passed after the movement fixes (`npm run build`).
+
+## 2026-09-28 Fixed: none of the three premium videos actually played
+
+- Root cause found by parsing the MP4 `stsd` box directly (`moov/trak/mdia/minf/stbl/stsd`): all three recently-added clips (`portal-journey-premium.mp4`, `hf_20260928_083251_631630ef-35fe-4781-9b95-1031ef031b16.mp4`, `start-ambient-premium.mp4`) were HEVC (`hvc1`, Main10 10-bit). The previously-working `portal-journey.mp4` is H.264 (`avc1`). Most desktop browsers (Chrome/Firefox on Windows without an OS HEVC add-on) can't decode HEVC in `<video>`, so all three silently failed and the app's existing error/failure handling (`onError`) skipped straight past them — this is why the cinematic appeared to do nothing.
+- Installed `@ffmpeg-installer/ffmpeg` into an isolated scratch directory (not this project's `package.json`/lockfile) and transcoded all three to H.264 (`libx264`, CRF 20, `yuv420p`, `+faststart`, no audio track — none of the sources had one). Verified via the same `stsd` parse that all three are now `avc1`. Replaced the files in place at their existing `production/video/` paths, so no source path changes were needed in `RealWorld.jsx` / `PortalCinematic.jsx`. Transcoding also shrank them substantially (32.7→8.7MB, 59.4→14.4MB, 6.5→1.2MB).
+- Original HEVC masters kept at `public/assets/source/original/*-hevc.mp4` (source/production split), not deleted.
+- `npm run lint` / `npm run build` passed. Not verified in an actual browser (none available in this environment) — please confirm playback now works.
+
+## 2026-09-28 Projects exhibition gallery
+
+- User requested the exhibition-hall reference after entering Projects. `/projects` now directly renders `Projects.jsx/.css`, with exact-route gallery chrome in App; project-detail routes retain DestinationFrame and existing content. Four independent illustrated exhibits, real project names/roles/descriptions and semantic case-study links share a glass/limestone hall. Existing decorative character, Back to World, Contact and Quick View remain. No companion or character controls added.
+- Desktop shows four exhibits together, tablet two columns, mobile one column with a fixed hall backdrop. Hover/focus, subtle light, pause, reduced-motion and hidden-tab pause implemented. Other destination interiors remain undecided; no project facts changed.
+- Actual project screen assets were not found; asked user for their folder. Current sculptures explicitly illustrate project themes, not actual interfaces or official products. Hall and three sculptures generated with built-in image_gen; beauty sculpture via Higgsfield. Four Higgsfield requests were rejected for insufficient credits, then replaced through built-in generation without buying credits. PNG sources/WebP assets: `public/assets/production/images/project-gallery/`; prompts: `docs/layered-world/gallery-assets.json`.
+- Lint/build passed. World-to-gallery entry, four keyboard-opened case studies, Back/refresh, pause/reduced motion, 200% zoom and 19 viewport layout checks passed (`qa/gallery-check.cjs`). Desktop 1440x810 and mobile 430x932 screenshots inspected. Physical devices/Safari and measured performance remain unverified. Concurrent PortalCinematic edits preserved.
+
+## 2026-09-28 Portal cinematic now plays two clips back to back, then arrives at World
+
+- User asked for a second clip (`hf_20260928_083251_631630ef-35fe-4781-9b95-1031ef031b16.mp4`, already in `public/assets/production/video/`, 10s/1920×1080/24fps HEVC) to follow the first cinematic clip, with automatic arrival at `/world-map` once it finishes — reversing the prior "loop forever until skipped" behavior back to a sequenced, auto-advancing pair.
+- `PortalCinematic.jsx` now holds a `stage` index over a `CLIPS` array (`portal-journey-premium.mp4` then the new clip). `loop` was removed from the `<video>`; `onEnded` now calls `advance()`, which moves to the next clip on stage 0 and calls `finish()` (→ `onArrive` → navigate to `/world-map`) on the last stage. `onError` also calls `advance()` so a broken clip skips forward instead of getting stuck. The `<video>` is keyed by `stage` so the element fully remounts on the source swap. The phase-based decorative overlay (`data-phase`, monitor-noise/design-space SVG) still tracks the first clip's timing; the second clip is treated as a flat "arrival" phase with the white-flash `portal-arriving` cue added in its last ~1.5s to cue the cut to World.
+- Manual "연출 건너뛰기" (skip), the "프로젝트 바로 보기" link, Escape, and `prefers-reduced-motion` still end the sequence immediately at any point, same as before.
+- `npm run lint` / `npm run build` passed; confirmed the second clip is included in `dist/assets/production/video/`. Not verified in an actual browser (none available in this environment) — the second clip's actual content/pacing was not viewed, so the "arrival" phase timing on it is a reasonable guess, not a shot-matched sync.
+
+## 2026-09-28 Distinct UX/UI destination silhouettes v7
+
+- User approved distinct studio, creative workshop, contemporary gallery, observatory and horizon beacon exteriors. Five `*-identity-v7.webp` assets replace v6 island art, retaining the existing material reference and independent layer architecture. About has one large oak/cottage; Skills an angular brass/glass workshop; Projects a broad modern atrium/gallery; Q&A a round telescope dome; Contact a tall asymmetric lighthouse/terrace. Original generations and prompts/jobs retained in `public/assets/source/world-layers/` and `docs/layered-world/identity-v7.json`. Generated through Higgsfield GPT Image 2.5, optimized to 1600px WebP; alpha inspected.
+- `LayeredWorld.jsx`, `layers.config.js`: swapped five art sources, aligned live waterfall outlets to new pools, clarified destination subtitles around design story, design/build, case studies and thinking. `IslandLife.jsx/.css`: small per-landmark window, glass, atrium, instrument and beacon light motions. Existing global pause/reduced motion owns their playback. Routes, portfolio facts, foreground, lower water and cloud layers retained. Interior page designs remain WORKING. Actual project screenshots are not currently available in this repository, so no generated UI has been represented as real work; gallery panels remain architectural decoration and Projects links to the existing four case studies.
+- Lint/build and 19 viewport checks passed, including keyboard/menu, direct route and 200% zoom navigation. Desktop 1440x810 and mobile 430x932 screenshots visually reviewed. Physical-device/Safari performance not measured.
+
+## 2026-09-28 Lower basin water and fuller cloud movement
+
+- Added `BasinWater.jsx`, mounted by `LayeredWorld.jsx`: transparent WebGL water-only displacement and moving highlights sampled from the existing native basin texture. The lower-water mask preserves architecture and cloud details; this is a subtle surface ripple effect, not fluid simulation. Existing still image remains the fallback. Motion follows the existing pause, reduced-motion, visibility and scene lifecycle owner.
+- `WorldAtmosphere.jsx` / `.css`: five additional cloud banks behind interactive islands, with different drift durations, phases and gentle density changes. Mobile renders three banks. Existing island/navigation structure and product decisions remain unchanged; no dependencies or source artwork replaced.
+- Lint and production build passed. Basin pixel comparison confirmed animation and resume, with zero change while paused or under reduced motion; WebGL failure retained direct Contact navigation. Cloud/ambient transform and pause checks passed. All 19 viewport checks plus keyboard, direct route and 200% zoom checks passed. Desktop 1440x810 and mobile 430x932 screenshots inspected; physical devices and Safari performance remain unmeasured. Reports and checks are in `docs/layered-world/` and `qa/`.
+
 ## 2026-09-28 Unified reference-material revision v6
 
 - User approved addressing the three supplied references as an overall composition/material problem. Replaced five islands, foreground lookout and framing tree with seven reference-conditioned transparent assets (`*-reference-v6.webp`). Wider walkable terraces, several stepped cliff buttresses, larger readable rock faces, naturally grouped tree canopies and grass/flowers around stone edges replace prior narrow pointed islands and dense repeating foliage. Sources/previous versions retained; prompts/jobs in `docs/layered-world/reference-v6.json`. Generations use the previously uploaded image matching the third supplied reference; these are interpretations, not exact extracted reference layers.

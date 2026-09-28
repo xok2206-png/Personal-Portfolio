@@ -43,9 +43,33 @@
 @media(max-aspect-ratio:1/1){.lw-framing-tree{left:-9%;top:-15%;width:60%;height:66%}.lw-tree-trunk{mask-image:linear-gradient(transparent 32%,#000 43%,transparent 100%)}.lw-tree-canopy{mask-image:linear-gradient(#000 32%,transparent 43%)}}
 
 .lw-water-canvas{position:absolute;inset:0;width:100%;height:100%}
+.lw-basin-water{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.lw-cloud-banks{position:absolute;inset:0;z-index:4;overflow:hidden;pointer-events:none}
+.lw-cloud-bank{position:absolute;width:46%;animation:lw-bank-drift 58s -17s ease-in-out infinite alternate}
+.lw-cloud-bank img{display:block;width:100%;opacity:.6;animation:lw-bank-breathe 17s -6s ease-in-out infinite alternate}
+.bank-0{left:-20%;top:34%;width:48%}.bank-1{left:18%;top:62%;animation-duration:47s;animation-delay:-31s}
+.bank-2{left:62%;top:41%;width:53%;animation-duration:67s;animation-delay:-8s}
+.bank-3{left:-16%;top:83%;width:64%;animation-duration:39s;animation-delay:-24s}
+.bank-4{left:68%;top:88%;width:55%;animation-duration:51s;animation-delay:-15s}
+@keyframes lw-bank-drift{from{transform:translate(-22%,-2%)}to{transform:translate(34%,3%)}}
+@keyframes lw-bank-breathe{from{transform:scale(1,.88);opacity:.48}to{transform:scale(1.06,1);opacity:.68}}
+@media(max-width:767px){.bank-2,.bank-4{display:none}.lw-cloud-bank{width:80%}.bank-1{left:35%;top:67%;width:82%}.bank-3{width:90%}}
 .lw-tree-canopy.canopy-left{mask-image:linear-gradient(#000 35%,transparent 43%),linear-gradient(90deg,#000 43%,transparent 53%);mask-composite:intersect;animation-duration:7.5s}
 .lw-tree-canopy.canopy-right{mask-image:linear-gradient(#000 35%,transparent 43%),linear-gradient(90deg,transparent 43%,#000 53%);mask-composite:intersect;animation-duration:5.7s;animation-delay:-1s;transform-origin:32% 20%}
 .lw-water-fallback{position:absolute;background:linear-gradient(90deg,transparent,#c3e0e333 28%,#e2eff044 52%,#c3e0e333 72%,transparent);mask-image:linear-gradient(transparent,#000 5%,#000 45%,transparent)}
+
+/* Open a clear view into the lower city; clouds frame it instead of whitening it. */
+.lw-cloud-mid{left:38%;top:49%;width:26%;opacity:.20}
+.lw-cloud-near{left:85%;top:78%;width:29%;opacity:.48}
+.bank-0{left:-12%;top:35%;width:42%;filter:contrast(1.12) saturate(1.1)}
+.bank-1{left:12%;top:63%;width:29%;opacity:.45}
+.bank-2{left:91%;top:40%;width:34%;opacity:.5}
+.bank-3{left:-24%;top:84%;width:49%}
+.bank-4{left:92%;top:85%;width:38%}
+.haze-b{left:86%;top:74%;width:38%;opacity:.12}
+.haze-c{left:15%;top:88%;width:31%;opacity:.12}
+.lw-water-fallback{background:linear-gradient(90deg,transparent,#99c9f266 28%,#f3faff99 52%,#99c9f266 72%,transparent)}
+@media(max-aspect-ratio:1/1){.lw-cloud-mid{left:-20%;top:48%;width:64%}.lw-cloud-near{left:80%;top:76%;width:60%}.bank-1{left:-28%;width:70%}.lw-distant-basin{mask-image:linear-gradient(transparent 50%,#000 76%)}}
 
 .lw-birdlife{position:absolute;inset:0;z-index:7;pointer-events:none;overflow:hidden}
 .lw-flock{position:absolute;left:0;width:140px;height:55px;animation:lw-flock-cross 53s -12s linear infinite}

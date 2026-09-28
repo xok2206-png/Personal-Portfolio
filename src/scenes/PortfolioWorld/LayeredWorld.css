@@ -53,11 +53,12 @@
 @media(max-width:767px){.lw-brand small{display:none}.lw-copy{display:none}.lw-controls button{font-size:10px;padding:10px}.lw-access summary{font-size:11px;padding:10px 12px;gap:12px}.lw-status{max-width:94vw;font-size:12px;gap:12px}}
 
 /* Reference hierarchy: distant atmosphere is softer; the lookout establishes human scale. */
-.lw-backdrop{filter:saturate(.78) contrast(.9) brightness(1.05);opacity:.88}
-.lw-distant-basin{filter:saturate(.82) contrast(.88) brightness(1.04);opacity:.88}
-.lw-lookout{width:68%;bottom:-15%}
+.lw-backdrop{filter:saturate(1.08) contrast(1.04);opacity:1}
+.lw-distant-basin{filter:saturate(1.22) contrast(1.08);opacity:1;mask-image:radial-gradient(ellipse 36% 35% at 70% 91%,#000 76%,transparent 100%)}
+.lw-lookout,.lw-terrace-leaves{position:absolute;width:60%;height:100%;left:0;bottom:0;object-fit:fill}
+.lw-terrace-leaves{clip-path:inset(0 66% 83% 0);transform-origin:0 0;mask-image:none;animation:lw-canopy-breeze 9s -2s ease-in-out infinite}
 .lw-explorer{left:18%;bottom:7%;width:15%}
-@media(max-aspect-ratio:1/1){.lw-lookout{width:140%;bottom:-6%}.lw-explorer{left:17%;bottom:9%;width:22%}}
+@media(max-aspect-ratio:1/1){.lw-lookout,.lw-terrace-leaves{width:135%;height:63%;left:-8%;bottom:0;mask-image:linear-gradient(transparent 0%,#000 30%)}.lw-terrace-leaves{display:none}.lw-explorer{left:17%;bottom:9%;width:22%}}
 
 
 
