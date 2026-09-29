@@ -1,17 +1,17 @@
 /* Central citadel with three smaller satellites on an implied elliptical orbit. */
 @media(min-aspect-ratio:1/1){
- .world-refined .lw-islands .lw-projects{left:35%!important;top:10%!important;width:42%!important;--wide-width:42;z-index:2}
- .world-refined .lw-islands .lw-about{left:12%!important;top:17%!important;width:25%!important;--wide-width:25;z-index:1}
- .world-refined .lw-islands .lw-skills{left:27%!important;top:53%!important;width:24%!important;--wide-width:24;z-index:3}
- .world-refined .lw-islands .lw-contact{left:76%!important;top:39%!important;width:23%!important;--wide-width:23;z-index:3}
+ .world-refined .lw-islands .lw-projects{left:38%!important;top:9%!important;width:35%!important;--wide-width:35;z-index:2}
+ .world-refined .lw-islands .lw-about{left:10%!important;top:22%!important;width:24%!important;--wide-width:24;z-index:1}
+ .world-refined .lw-islands .lw-skills{left:29%!important;top:57%!important;width:21%!important;--wide-width:21;z-index:3}
+ .world-refined .lw-islands .lw-contact{left:73%!important;top:46%!important;width:21%!important;--wide-width:21;z-index:3}
  .world-refined .lw-islands .lw-island:not(.lw-projects) .lw-ribbon-label{width:clamp(160px,15vw,230px)}
  .world-refined .lw-islands .lw-projects .lw-ribbon-label{width:clamp(220px,20vw,310px)}
 }
 @media(min-aspect-ratio:2/1){
- .world-refined .lw-islands .lw-projects{left:39%!important;width:32%!important;top:10%!important}
- .world-refined .lw-islands .lw-about{left:17%!important;width:19%!important;top:17%!important}
- .world-refined .lw-islands .lw-skills{left:31%!important;width:18%!important;top:52%!important}
- .world-refined .lw-islands .lw-contact{left:74%!important;width:18%!important;top:34%!important}
+ .world-refined .lw-islands .lw-projects{left:38%!important;width:29%!important;top:10%!important}
+ .world-refined .lw-islands .lw-about{left:15%!important;width:20%!important;top:22%!important}
+ .world-refined .lw-islands .lw-skills{left:34%!important;width:19%!important;top:53%!important}
+ .world-refined .lw-islands .lw-contact{left:71%!important;width:18%!important;top:45%!important}
 }
 /* Light pools are aligned to the new landmarks; old traced windows are omitted. */
 .world-refined .lw-landmark-detail{display:none}
@@ -46,9 +46,9 @@
 @media(prefers-reduced-motion:reduce){.island-feature-effect,.island-feature-secondary{animation:none!important;transition:none}}
 /* Small observer foreground: architecture echoes the central ivory citadel. */
 .world-refined .lw-foreground .lw-lookout{left:0;bottom:0;width:40%;height:100%;object-fit:fill;mask-image:none}
-.world-refined .lw-foreground .lw-explorer{width:8.5%;max-width:135px}
-@media(min-aspect-ratio:2/1){.world-refined .lw-foreground .lw-lookout{width:34%}.world-refined .lw-foreground .lw-explorer{width:7%;max-width:140px}}
-@media(max-aspect-ratio:1/1){.world-refined .lw-foreground .lw-lookout{width:78%;height:52%;left:0;bottom:0}.world-refined .lw-foreground .lw-explorer{width:17%;max-width:100px}}
+.world-refined .lw-foreground .lw-explorer{width:10%;max-width:159px}
+@media(min-aspect-ratio:2/1){.world-refined .lw-foreground .lw-lookout{width:34%}.world-refined .lw-foreground .lw-explorer{width:8.25%;max-width:165px}}
+@media(max-aspect-ratio:1/1){.world-refined .lw-foreground .lw-lookout{width:78%;height:52%;left:0;bottom:0}.world-refined .lw-foreground .lw-explorer{width:20%;max-width:118px}}
 @media(max-aspect-ratio:1/1){
  .world-refined .lw-foreground .lw-lookout{mask-image:linear-gradient(transparent,#000 20%)}
  .world-refined .world-intro-guide{left:auto;right:3%;width:58%;min-width:0;bottom:16px;padding:12px}

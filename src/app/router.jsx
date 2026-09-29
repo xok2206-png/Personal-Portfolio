@@ -25,14 +25,14 @@ function AppRouter() {
       <Route path="/projects" element={<Projects />} />
       <Route path="/projects/:projectId" element={<DestinationFrame destinationId="projects"><ProjectDetail /></DestinationFrame>} />
 
-      <Route path="/about" element={<DestinationFrame destinationId="about"><About /></DestinationFrame>} />
+      <Route path="/about" element={<About />} />
       <Route path="/skills" element={<Skills />} />
       <Route path="/qa" element={<Navigate to="/contact#qa" replace />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/quick-view" element={<QuickView />} />
       <Route path="/resume" element={<div className="destination-content"><Resume /></div>} />
       <Route path="/ending" element={<Ending />} />
-      <Route path="*" element={<main id="main" className="destination-content"><h1 tabIndex="-1">페이지를 찾을 수 없습니다.</h1><Link to="/world-map">World로 돌아가기 ↗</Link></main>} />
+      <Route path="*" element={<main id="main" className="destination-content"><h1 tabIndex="-1">페이지를 찾을 수 없습니다.</h1></main>} />
     </Routes></Suspense>
   )
 }

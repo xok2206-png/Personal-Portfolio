@@ -1,20 +1,45 @@
-const fs=require('node:fs/promises')
-const {chromium}=require('C:/Users/EZEN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright')
-const sharp=require('C:/Users/EZEN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp')
-;(async()=>{const b=await chromium.launch({channel:'msedge',headless:true});try{
- const p=await b.newPage({viewport:{width:1440,height:810}}),errors=[];p.on('pageerror',e=>errors.push(e.message))
- await p.goto('http://127.0.0.1:5174/world-map');await p.locator('.lw-water-canvas').first().waitFor();await p.locator('.lw-scene img').evaluateAll(es=>Promise.all(es.map(e=>e.decode())));await p.evaluate(()=>document.fonts.ready)
- await p.addStyleTag({content:'.lw-scene *{animation-play-state:paused!important;transition:none!important}'})
- const water=p.locator('[data-island="about"] .lw-water-canvas')
- const frame=async()=>sharp(await water.screenshot()).removeAlpha().raw().toBuffer()
- const diff=(a,b)=>{let v=0;for(let i=0;i<a.length;i++)v+=Math.abs(a[i]-b[i]);return v/a.length}
- const a=await frame();await p.waitForTimeout(500);const c=await frame();const moving=diff(a,c)
- await p.locator('.lw-system summary').click();await p.getByRole('button',{name:'세계 움직임 일시정지'}).click();await p.waitForTimeout(80);const pausedA=await frame();await p.waitForTimeout(300);const paused=diff(pausedA,await frame())
- await p.getByRole('button',{name:'세계 움직임 재생'}).click();await p.waitForTimeout(400);const resumed=diff(pausedA,await frame())
- await p.emulateMedia({reducedMotion:'reduce'});await p.waitForTimeout(80);const reducedA=await frame();await p.waitForTimeout(300);const reduced=diff(reducedA,await frame())
- const report={moving,paused,resumed,reduced,errors};await fs.writeFile('docs/layered-world/water-shader-report.json',JSON.stringify(report,null,2));console.log(report)
- if(moving<.02||paused>.002||resumed<.02||reduced>.002||errors.length)throw new Error('Water animation regression')
- await p.emulateMedia({reducedMotion:'no-preference'});await p.screenshot({path:'docs/layered-world/airy-water-desktop.png'})
- const fallback=await b.newPage();await fallback.addInitScript(()=>{const get=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...rest){return type==='webgl'?null:get.call(this,type,...rest)}})
- await fallback.goto('http://127.0.0.1:5174/world-map');await fallback.locator('.lw-water-fallback').first().waitFor();await fallback.locator('.lw-access summary').click();await fallback.locator('.lw-access a[href="/contact"]').click();await fallback.waitForURL('**/contact');console.log('WebGL failure direct navigation passed')
- }finally{await b.close()}})().catch(e=>{console.error(e);process.exitCode=1})
+const fs = require('node:fs/promises')
+const { chromium } = require('C:/Users/EZEN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright')
+;(async () => {
+ const browser = await chromium.launch({ channel: 'msedge', headless: true })
+ try {
+  const page = await browser.newPage(), errors = [], results = []
+  page.on('pageerror', e => errors.push(e.message))
+  // Water must remain usable even when WebGL is unavailable.
+  await page.addInitScript(() => {
+   const get = HTMLCanvasElement.prototype.getContext
+   HTMLCanvasElement.prototype.getContext = function(type, ...args) {
+    return type.startsWith('webgl') ? null : get.call(this, type, ...args)
+   }
+  })
+  for (const [width, height] of [[1440,810],[1024,768],[430,932],[390,844],[360,800]]) {
+   await page.setViewportSize({ width, height })
+   await page.goto('http://127.0.0.1:5174/world-map')
+   await page.locator('.lw-water-streams').first().waitFor()
+   await page.waitForTimeout(500)
+   const result = await page.evaluate(() => ({
+    streams: document.querySelectorAll('.lw-water-streams').length,
+    masks: [...document.querySelectorAll('.lw-water-streams g[mask]')].every(e => !!document.querySelector(e.getAttribute('mask').slice(4,-1))),
+    overflow: document.documentElement.scrollWidth > innerWidth,
+    legacyCanvas: document.querySelectorAll('.lw-water-canvas').length,
+   }))
+   results.push({width,height,...result})
+   if(result.streams !== 4 || !result.masks || result.overflow || result.legacyCanvas) throw Error('Water layout regression')
+   if(width===1440 || width===390) await page.screenshot({path:`docs/layered-world/water-fixed-${width}.png`})
+  }
+  const flow=page.locator('.lw-water-flow').first()
+  const offset=()=>flow.evaluate(e=>getComputedStyle(e).strokeDashoffset)
+  const a=await offset();await page.waitForTimeout(200);if(a===await offset())throw Error('Water does not flow')
+  await page.locator('.lw-system summary').click()
+  await page.getByRole('button',{name:'세계 움직임 일시정지'}).click()
+  await page.waitForTimeout(100)
+  const paused=await offset();await page.waitForTimeout(200);if(paused!==await offset())throw Error('Pause failed')
+  await page.emulateMedia({reducedMotion:'reduce'})
+  if(await flow.evaluate(e=>getComputedStyle(e).animationName)!=='none')throw Error('Reduced motion failed')
+  await page.goto('http://127.0.0.1:5174/contact');await page.goBack();await page.locator('.lw-water-streams').first().waitFor()
+  await page.reload();await page.locator('.lw-water-streams').first().waitFor()
+  if(errors.length)throw Error(errors.join('\n'))
+  await fs.writeFile('docs/layered-world/water-svg-report.json',JSON.stringify({results,errors,motion:'flow/pause/reduced passed',navigation:'direct/back/reload passed',webgl:'disabled throughout'},null,2))
+  console.log('Water regression passed: five sizes, WebGL unavailable, motion, pause, reduced motion, direct/back/reload')
+ } finally {await browser.close()}
+})().catch(e=>{console.error(e);process.exitCode=1})

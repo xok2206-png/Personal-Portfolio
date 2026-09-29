@@ -513,3 +513,6 @@ html[data-motion='reduced'] *::after {
 .app .destination-arrival{height:calc(260px + var(--header));padding-top:calc(32px + var(--header))}
 .app .destination-arrival img{top:calc(20px + var(--header))}
 @media(max-width:767px){.app .destination-arrival{height:calc(220px + var(--header));padding-top:calc(24px + var(--header))}.app .destination-arrival img{top:calc(24px + var(--header))}}
+
+/* Movement scenes receive focus for arrow/WASD input, not as selectable controls. */
+main:is(.layered-world,.project-gallery,.skill-chamber):focus{outline:none}

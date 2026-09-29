@@ -1,11 +1,17 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { usePortfolioUI } from '../../app/PortfolioUIContext.jsx'
 import { profile } from '../../data/content.js'
 import QA from '../QA/QA.jsx'
 import './Contact.css'
+import ContactAtmosphere from './ContactAtmosphere.jsx'
+import ContactEmail from './ContactEmail.jsx'
 
-function ContactLookout(){
+function ContactLookout({jump}){
+ const {reduced,paused}=usePortfolioUI()
  const avatar=useRef(null)
+ const jumpReady=useRef(false)
+ const running=useRef(false)
  useLayoutEffect(()=>{
   const node=avatar.current,scene=node.parentElement,background=scene.querySelector('.contact-reference-bg')
   const update=()=>{
@@ -17,7 +23,34 @@ function ContactLookout(){
   update();const observer=new ResizeObserver(update);observer.observe(background);background.addEventListener('load',update)
   return()=>{observer.disconnect();background.removeEventListener('load',update)}
  },[])
- return <img ref={avatar} className="contact-lookout-character" src="/assets/production/images/project-gallery/character/front-idle.webp" alt="사용자를 바라보며 서 있는 포트폴리오 캐릭터" onError={e=>{e.currentTarget.hidden=true}}/>
+ useEffect(()=>{
+  if(!jump||reduced||paused||!jumpReady.current||running.current)return
+  const root=avatar.current,node=root.querySelector('.contact-character-body'),idle=root.querySelector('.contact-pose-idle'),airborne=root.querySelector('.contact-pose-jump')
+  running.current=true
+  const timing={duration:880,fill:'none'}
+  // One timeline owns takeoff, airborne pose, and landing; cleanup also handles rapid card changes.
+  const animations=[
+   node.animate([
+    {translate:'0 0',scale:'1 1',offset:0},
+    {translate:'0 0',scale:'1.015 .96',offset:.14,easing:'ease-out'},
+    {translate:'0 -30px',scale:'1 1',offset:.44,easing:'ease-in'},
+    {translate:'0 0',scale:'1 1',offset:.78},
+    {translate:'0 0',scale:'1.02 .94',offset:.85,easing:'ease-out'},
+    {translate:'0 0',scale:'1 1',offset:1}
+   ],timing),
+   idle.animate([{opacity:1,offset:0},{opacity:1,offset:.17},{opacity:0,offset:.18},{opacity:0,offset:.62},{opacity:1,offset:.69},{opacity:1,offset:1}],timing),
+   airborne.animate([{opacity:0,offset:0},{opacity:0,offset:.17},{opacity:1,offset:.18},{opacity:1,offset:.62},{opacity:0,offset:.69},{opacity:0,offset:1}],timing)
+  ]
+  animations.push(root.querySelector('.contact-character-shadow').animate([{scale:'1',opacity:.45},{scale:'.65',opacity:.20,offset:.44},{scale:'1',opacity:.45}],timing))
+  animations[0].onfinish=()=>{running.current=false}
+  return()=>{animations.forEach(animation=>animation.cancel());running.current=false}
+ },[jump,reduced,paused])
+ return <span ref={avatar} className="contact-lookout-character" role="img" aria-label="한쪽 팔을 뻗어 점프하며 인사하는 포트폴리오 캐릭터">
+  <span className="contact-character-shadow" aria-hidden="true"/>
+  <span className="contact-character-body">
+  <img className="contact-pose-idle" src="/assets/production/images/project-gallery/character/front-idle.webp" alt="" onError={e=>{e.currentTarget.hidden=true}}/>
+  <img className="contact-pose-jump" src="/assets/production/images/contact/character-jump-v1.webp" alt="" onLoad={()=>{jumpReady.current=true}} onError={()=>{jumpReady.current=false}}/>
+ </span></span>
 }
 
 function ContactIcon({name}){
@@ -38,15 +71,21 @@ function QuestionDialog({onClose}){
 
 export default function Contact(){
  const {hash}=useLocation(),navigate=useNavigate(),[failed,setFailed]=useState(false)
+ const [jump,setJump]=useState(0)
+ const lastJump=useRef(-Infinity)
+ const cardEnter=e=>{const card=e.target.closest('a,button');if(card&&card.parentElement===e.currentTarget&&!card.contains(e.relatedTarget)&&performance.now()-lastJump.current>900){lastJump.current=performance.now();setJump(v=>v+1)}}
  const close=()=>navigate('/contact',{replace:true})
  return <main id="main" className="contact-chapter" data-failed={failed}>
  <img className="contact-reference-bg" src="/assets/production/images/contact/contact-background-v5.webp" alt="" onError={()=>setFailed(true)} fetchPriority="high"/>
- <ContactLookout/>
+ <ContactAtmosphere/>
+ <ContactLookout jump={jump}/>
  <div className="contact-shade"/>
  <section className="contact-copy" aria-labelledby="contact-title"><p className="contact-eyebrow"><span aria-hidden="true">✧</span> CONTACT <span aria-hidden="true">✧</span></p><h1 id="contact-title" tabIndex="-1">Let’s Connect</h1><p className="contact-lead">이번 여정은 여기까지지만,<br/>다음 이야기는 함께 만들 수 있습니다.</p><p className="contact-description">프로젝트, 협업 또는 제 작업에 대해<br/>궁금한 점이 있다면 편하게 연락해주세요.</p>
- <nav className="contact-choices" aria-label="연락 및 질문">{profile.email?<a href={'mailto:'+profile.email}><CardContent icon="email" label="Email"/></a>:<button disabled aria-label="Email 준비 중"><CardContent icon="email" label="Email" unavailable/></button>}<a href={profile.github} target="_blank" rel="noopener noreferrer"><CardContent icon="github" label="GitHub"/></a><Link to="/resume"><CardContent icon="resume" label="Resume"/></Link><Link to="/contact#qa" aria-haspopup="dialog"><CardContent icon="question" label="Ask a Question"/></Link></nav></section>
+ <nav onPointerOver={cardEnter} onFocus={cardEnter} className="contact-choices" aria-label="연락 및 질문"><Link to="/contact#email" aria-haspopup="dialog"><CardContent icon="email" label="Email"/></Link><a href={profile.github} target="_blank" rel="noopener noreferrer"><CardContent icon="github" label="GitHub"/></a><Link to="/resume"><CardContent icon="resume" label="Resume"/></Link><Link to="/contact#qa" aria-haspopup="dialog"><CardContent icon="question" label="Ask a Question"/></Link></nav></section>
  <aside className="contact-motto" aria-hidden="true">Different<br/><span>People</span><br/>Brighter<br/><span>Worlds.</span><i>✦ ─────</i></aside>
  <footer className="contact-footer"><span>A SMALL STEP<br/>FOR A BRIGHTER TOMORROW.</span><span>SEE YOU<br/>IN THE NEXT WORLD.<i aria-hidden="true">── ✧ ──</i></span></footer>
+ {hash==='#email'&&<ContactEmail onClose={close}/>}
  {hash==='#qa'&&<QuestionDialog onClose={close}/>}
  </main>
 }
+

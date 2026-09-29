@@ -1,0 +1,67 @@
+{
+  "sizes": [
+    {
+      "width": 2560,
+      "height": 1440,
+      "pass": true
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "pass": true
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "pass": true
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "pass": true
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "pass": true
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "pass": true
+    },
+    {
+      "width": 941,
+      "height": 963,
+      "pass": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "pass": true
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "pass": true
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "pass": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "pass": true
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "pass": true
+    }
+  ],
+  "maxFrameStep": 0.14014175950929936,
+  "errors": [],
+  "checks": "inventory selection, focus restore, hover continuity, motion pause, reduced motion, WASD, direct/back/reload"
+}

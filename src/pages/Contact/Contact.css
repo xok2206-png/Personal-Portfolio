@@ -79,3 +79,42 @@ html[data-motion='reduced'] .contact-choices>a:is(:hover,:focus-visible){transfo
 .contact-copy .contact-choices small{font-family:var(--font-heading);font-weight:400}
 .contact-copy .contact-lead,
 .contact-copy .contact-description{line-height:1.85}
+
+/* Separate full-body poses keep the arm and bent knees visible during flight. */
+.contact-lookout-character{aspect-ratio:265 / 374;transform-origin:50% 100%}
+.contact-lookout-character img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.contact-lookout-character .contact-pose-jump{inset:auto auto -3% 50%;width:120%;height:120%;max-width:none;transform:translateX(-50%);opacity:0}
+/* Contact letter: centered, readable live form, with the scene's dusk/gold palette. */
+.contact-email{position:fixed;inset:0;margin:auto;width:min(560px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;padding:32px;border:1px solid #d2a171;border-radius:4px;background:linear-gradient(145deg,#302b40fa,#192239fc);color:#fff0d5;box-shadow:0 24px 90px #101827aa,inset 0 0 0 6px #d2a17115;font-family:var(--font-primary)}
+.contact-email::backdrop{background:#17142599;backdrop-filter:blur(5px)}
+.email-close{position:absolute;right:12px;top:8px;width:44px;height:44px;background:none;border:0;color:#ffe8be;font-size:28px;cursor:pointer}
+.email-eyebrow{font-size:12px;letter-spacing:.18em;color:#e9c595;margin:0 0 12px}.contact-email h2{font:400 42px/1.1 var(--font-heading);margin:0 0 16px}
+.email-intro{font-size:14px;line-height:1.8;color:#e8dce1;margin:0 0 24px}
+.contact-email form{display:grid;gap:16px}.email-fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}.contact-email label{display:grid;gap:8px;font-size:13px;color:#f5dfbd}
+.contact-email input,.contact-email textarea{box-sizing:border-box;width:100%;min-height:44px;background:#121b2bbb;color:#fff4e5;border:1px solid #b79a6177;border-radius:4px;padding:12px;font:14px/1.6 var(--font-primary);transition:border-color .2s,box-shadow .2s}.contact-email textarea{resize:vertical;min-height:112px;max-height:240px}.contact-email input::placeholder,.contact-email textarea::placeholder{color:#bcb5bf}
+.contact-email :is(input,textarea,button):focus-visible{outline:2px solid #ffe7a8;outline-offset:3px}.contact-email :is(input,textarea):focus{border-color:#e9c595;box-shadow:0 0 16px #d2a17115}
+.email-privacy{font-size:11px;line-height:1.6;color:#d1c8d2;margin:0}.email-status{font-size:13px;line-height:1.7;color:#ffe7a8;margin:0}.email-status:empty{display:none}
+.email-send{display:flex;justify-content:space-between;align-items:center;min-height:48px;padding:12px 20px;background:#e9c595;color:#192239;border:1px solid #ffe8be;border-radius:4px;font:16px var(--font-primary);cursor:pointer;transition:background .2s,box-shadow .2s}.email-send:hover{background:#ffe8be;box-shadow:0 0 24px #ffc27a33}.email-send:disabled{opacity:.65;cursor:wait}
+@media(max-width:540px){.contact-email{padding:24px}.contact-email h2{font-size:36px}.email-fields{grid-template-columns:1fr}.email-intro{margin-bottom:20px}}
+/* The feet/shadow stay anchored while only the body takes flight. */
+.contact-lookout-character{filter:none}
+.contact-character-body{position:absolute;inset:0;transform-origin:50% 100%;filter:drop-shadow(0 2px 1px #251b2633)}
+.contact-character-shadow{position:absolute;left:26%;bottom:-1%;width:48%;height:7%;border-radius:50%;background:#201624;opacity:.45;filter:blur(3px);transform:rotate(-8deg)}
+.contact-lookout-character .contact-pose-jump{width:106%;height:106%;bottom:-6%}
+/* Subtle sunset weather, independently layered behind all interactive content. */
+.contact-atmosphere{position:absolute;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.sunset-bloom{position:absolute;left:76%;top:25%;width:25%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#ffd69c55,transparent 65%);mix-blend-mode:screen;animation:sunset-glow 9s ease-in-out infinite alternate}
+.sunset-rays{position:absolute;inset:0;background:conic-gradient(from 235deg at 88% 37%,transparent 0deg,#ffc27a16 13deg,transparent 25deg,#ffdea014 38deg,transparent 49deg);mix-blend-mode:screen;animation:sunset-glow 13s ease-in-out infinite alternate-reverse}
+.sunset-cloud{position:absolute;width:38%;opacity:.15;filter:sepia(.55) saturate(.7) hue-rotate(330deg);animation:sunset-cloud 48s ease-in-out infinite alternate}.cloud-one{left:-13%;top:48%}.cloud-two{right:-16%;top:12%;width:29%;opacity:.12;animation-duration:63s;animation-delay:-20s}
+.sunset-airship{position:absolute;right:7%;top:17%;width:clamp(48px,7vw,120px);opacity:.65;filter:sepia(.5) brightness(.8);animation:sunset-ship 64s ease-in-out infinite alternate}
+.sunset-birds{position:absolute;left:15%;top:29%;width:100px;height:40px;animation:sunset-flight 38s ease-in-out infinite alternate}.sunset-birds svg{position:absolute;width:18px;height:12px;left:calc(var(--bird)*26px);top:calc(var(--bird)*8px);fill:none;stroke:#332333;stroke-width:2;animation:sunset-wing 1.8s ease-in-out infinite alternate;animation-delay:calc(var(--bird)*-.4s)}
+.sunset-wind i{position:absolute;left:0;top:calc(69% + var(--leaf)*5%);width:6px;height:3px;border-radius:80% 10%;background:#dbb583;opacity:0;animation:sunset-leaf 18s linear infinite;animation-delay:calc(var(--leaf)*-4s)}
+@keyframes sunset-glow{from{opacity:.35}to{opacity:.85}}
+@keyframes sunset-cloud{to{transform:translateX(18%) translateY(-8px)}}
+@keyframes sunset-ship{to{transform:translate(-180px,12px)}}
+@keyframes sunset-flight{to{transform:translate(27vw,-30px)}}
+@keyframes sunset-wing{to{transform:scaleY(.35)}}
+@keyframes sunset-leaf{0%{transform:translate(0,0) rotate(0);opacity:0}10%,80%{opacity:.5}100%{transform:translate(80vw,-70px) rotate(420deg);opacity:0}}
+.contact-atmosphere[data-still='true'] *{animation-play-state:paused!important}
+@media(max-width:767px){.sunset-cloud{width:65%}.sunset-airship{top:9%;right:12%}.sunset-birds{top:13%}.sunset-wind i:nth-child(n+3){display:none}}
+@media(prefers-reduced-motion:reduce){.contact-atmosphere *{animation:none!important}}

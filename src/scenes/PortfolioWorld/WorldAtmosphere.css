@@ -81,3 +81,10 @@
 @keyframes lw-flock-cross{0%{transform:translate(-18vw,2vh)}65%,100%{transform:translate(112vw,-5vh)}}
 @media(max-width:767px){.flock-2{display:none}.lw-bird:nth-child(n+4){display:none}.haze-c{display:none}}
 @media(prefers-reduced-motion:reduce){.lw-birdlife{display:none}}
+
+/* Alpha is carried by SVG gradients, avoiding driver-dependent canvas blending. */
+.lw-water-streams{position:absolute;top:0;left:0;width:100%;height:150%;overflow:visible}
+.lw-water-flow{animation:lw-water-flow var(--water-duration,4s) linear infinite}
+.lw-water[data-running='false'] .lw-water-flow{animation-play-state:paused}
+@keyframes lw-water-flow{to{stroke-dashoffset:-22}}
+@media(prefers-reduced-motion:reduce){.lw-water-flow{animation:none}}

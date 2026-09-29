@@ -1,0 +1,10 @@
+.exploration-navigation{position:fixed;inset:0;z-index:60;pointer-events:none}
+.exploration-navigation.world-refined .world-compass-ornament{position:absolute;display:block;padding:0;border:0;background:transparent;pointer-events:auto;opacity:1;cursor:pointer;font-family:var(--font-primary);color:#fff0cc}
+.exploration-navigation .world-compass-ornament svg{display:block;overflow:visible}
+.exploration-navigation .compass-needle{transform-origin:50px 50px;transition:transform .3s ease-out}
+.exploration-navigation .compass-secondary{fill:#e1edfa55;stroke:#b79a6180;stroke-width:.6}
+.exploration-navigation .compass-star{stroke-width:.8;stroke-linejoin:round}
+.exploration-navigation .compass-center{fill:#19314d;stroke:#f7f5ee;stroke-width:.6}
+.exploration-navigation .world-compass-ornament:focus-visible{outline:2px solid #d8bd85;outline-offset:4px;border-radius:8px}
+.app>.page-utilities{right:auto;left:20px;max-width:calc(100% - 148px);flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){.exploration-navigation .compass-needle{transition:none}}

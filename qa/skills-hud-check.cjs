@@ -1,0 +1,21 @@
+const {chromium}=require('C:/Users/EZEN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const assert=require('node:assert/strict');const fs=require('node:fs');
+(async()=>{const b=await chromium.launch({channel:'msedge',headless:true});try{const p=await b.newPage(),errors=[],sizes=[];p.on('pageerror',e=>errors.push(e.message));
+for(const [width,height]of [[2560,1440],[1920,1080],[1440,810],[1366,768],[1180,820],[1024,768],[941,963],[768,1024],[430,932],[402,874],[390,844],[360,800]]){
+await p.setViewportSize({width,height});await p.goto('http://127.0.0.1:5174/skills');await p.locator('.skill-orb').first().waitFor();await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(300);
+assert.equal(await p.locator('.page-header nav').count(),0);assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+await p.locator('.skill-inventory summary').click();assert.equal(await p.locator('.skill-direct button:visible').count(),8);
+const rect=await p.locator('.skill-direct').boundingBox();assert.ok(rect.x>=0&&rect.y>=0&&rect.x+rect.width<=width+1);
+await p.getByRole('button',{name:'Higgsfield',exact:true}).click();await p.locator('#skill-detail-title').waitFor();assert.equal(await p.locator('#skill-detail-title').textContent(),'Higgsfield');await p.keyboard.press('Escape');await p.waitForTimeout(80);assert.equal(await p.locator('.skill-detail').count(),0);assert.equal(await p.locator('.skill-inventory summary').evaluate(e=>e===document.activeElement),true);sizes.push({width,height,pass:true});}
+await p.setViewportSize({width:1440,height:810});await p.reload();await p.locator('.skill-orb').first().waitFor();await p.waitForTimeout(1000);const orb=p.locator('.skill-orb').first();await orb.hover({force:true});const a=await orb.evaluate(e=>e.style.transform);await p.waitForTimeout(500);assert.notEqual(await orb.evaluate(e=>e.style.transform),a,'Hover must not halt orbit');
+const samples=await orb.evaluate(e=>new Promise(resolve=>{const a=[];let n=0;function sample(){const r=e.getBoundingClientRect();a.push({x:r.x,y:r.y,t:performance.now()});if(++n<90)requestAnimationFrame(sample);else resolve(a)}requestAnimationFrame(sample)}));const jumps=samples.slice(1).map((v,i)=>Math.hypot(v.x-samples[i].x,v.y-samples[i].y));assert.ok(Math.max(...jumps)<5,'Orbit jumped between frames');
+await p.getByRole('button',{name:'모션 일시정지',exact:true}).click();await p.waitForTimeout(100);const stop=await orb.evaluate(e=>e.style.transform);await p.waitForTimeout(200);assert.equal(await orb.evaluate(e=>e.style.transform),stop);await p.getByRole('button',{name:'모션 재생',exact:true}).click();
+await p.locator('.skill-floor').focus();const player=p.locator('.skill-walker'),y=await player.getAttribute('data-y');await p.keyboard.down('w');await p.waitForTimeout(300);await p.keyboard.up('w');assert.notEqual(await player.getAttribute('data-y'),y);
+await p.emulateMedia({reducedMotion:'reduce'});await p.waitForTimeout(100);const reduced=await orb.evaluate(e=>e.style.transform);await p.waitForTimeout(200);assert.equal(await orb.evaluate(e=>e.style.transform),reduced);
+await p.locator('.skill-inventory summary').click();await p.getByRole('button',{name:'React',exact:true}).click();assert.equal(await p.locator('#skill-detail-title').textContent(),'React');await p.keyboard.press('Escape');
+await p.emulateMedia({reducedMotion:'no-preference'});await p.locator('.skill-return').click();await p.waitForURL('**/world-map');await p.goBack();await p.locator('.skill-inventory').waitFor();await p.reload();await p.locator('.skill-orb').first().waitFor();
+await p.screenshot({path:'docs/layered-world/skills-hud-final.png'});await p.locator('.skill-inventory summary').click();await p.screenshot({path:'docs/layered-world/skills-inventory-final.png'});
+assert.deepEqual(errors,[]);fs.writeFileSync('docs/layered-world/skills-hud-qa.json',JSON.stringify({sizes,maxFrameStep:Math.max(...jumps),errors,checks:'inventory selection, focus restore, hover continuity, motion pause, reduced motion, WASD, direct/back/reload'},null,2));console.log('Skills HUD QA passed; max sampled orbital step:',Math.max(...jumps));}finally{await b.close()}})().catch(e=>{console.error(e);process.exitCode=1});
+
+
+

@@ -36,14 +36,14 @@
 /* No dynamic scaleX flips: each pose has a permanent facing and fades in place. */
 .world-character-breathe,.world-character-pose,.world-character-still,.world-character-lower,.world-character-upper,.world-character-walk{position:absolute;inset:0}
 .world-character-breathe{isolation:isolate;animation:lw-player-idle 6s ease-in-out infinite}
-.world-character-pose{isolation:isolate;mix-blend-mode:plus-lighter;opacity:0;transform:scaleX(var(--pose-facing));transition:opacity var(--pose-time) ease-in-out;pointer-events:none}
-.world-character-pose[data-active='true']{opacity:1}
+.world-character-pose{isolation:isolate;mix-blend-mode:normal;visibility:hidden;opacity:0;transform:scaleX(var(--pose-facing));transition:none;pointer-events:none}
+.world-character-pose[data-active='true']{visibility:visible;opacity:1}
 .world-refined .world-character-pose img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;animation:none}
 .world-character-lower{clip-path:inset(31% 0 0 0)}
 .world-character-upper{mask-image:linear-gradient(#000 0 31%,transparent 39%);transform-origin:50% 34%;rotate:var(--head-look);translate:var(--head-shift) 0;transition:rotate .4s ease,translate .4s ease}
 .world-character-still{opacity:1}
 .world-character-walk{overflow:hidden;opacity:0}
-.world-refined .world-character-walk img{width:400%;max-width:none;object-fit:fill;animation:world-character-step .64s steps(1,end) infinite;animation-play-state:paused}
+.world-refined .world-character-walk img{width:400%;max-width:none;object-fit:fill;animation:world-character-step .8s steps(1,end) infinite;animation-play-state:paused}
 .lw-explorer[data-moving='true'] .world-character-pose[data-walk-ready='true'] .world-character-walk{opacity:1}
 .lw-explorer[data-moving='true'] .world-character-pose[data-active='true'] .world-character-walk img{animation-play-state:running}
 .lw-explorer[data-moving='true'] .world-character-pose[data-walk-ready='true'] .world-character-still{opacity:0}
@@ -189,3 +189,28 @@
 .world-refined .world-compass-ornament text{fill:#19314d;font-weight:750}
 .world-refined .world-compass-ornament .compass-star{stroke:#19314d}
 .world-refined .world-compass-ornament .compass-caption{text-shadow:0 1px 2px #f7f5ee,0 0 4px #f7f5ee}
+
+/* Compact celestial settings seal; navigation is reserved for mobile. */
+.world-refined .lw-header .lw-top-nav{display:none}
+.world-refined .lw-system summary{width:52px;min-width:52px;height:52px;min-height:52px;padding:3px;border-radius:50%;justify-content:center;background:radial-gradient(circle,#264a60,#102638);border-color:#d8bd85;box-shadow:inset 0 0 0 3px #d8bd8522,0 3px 12px #19314d44}
+.world-settings-compass{display:block;width:44px;height:44px;fill:none;stroke:#d8bd85;stroke-width:.8}
+.settings-compass-ticks{stroke:#ecdbb6;stroke-width:1.1}
+.settings-compass-needle{fill:#d8bd85;stroke:#ecdbb6;transform-origin:24px 24px;transition:transform .35s ease}
+.settings-compass-light{fill:#f7f5ee;stroke:none}
+.world-settings-compass .settings-compass-gem{fill:#91d5e9;stroke:#f7f5ee}
+.lw-system summary:hover .settings-compass-needle,.lw-system[open] .settings-compass-needle{transform:rotate(45deg)}
+@media(max-width:767px){.world-refined .lw-header .lw-top-nav{display:flex;top:60px;max-width:none;width:100%;justify-content:space-evenly}.world-refined .lw-system summary{width:44px;min-width:44px;height:44px;min-height:44px;padding:2px}.world-settings-compass{width:38px;height:38px}}
+@media(prefers-reduced-motion:reduce){.settings-compass-needle{transition:none}}
+
+/* Use the same wordmark typography as Projects and Skills. */
+.world-refined .world-hud .lw-brand{font-family:var(--font-primary);font-size:38px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:normal;gap:12px;color:#f7f5ee;text-shadow:none;min-height:44px}
+.world-brand-caption{font-size:12px}
+@media(max-width:1100px){.world-brand-caption{display:none}}
+@media(max-aspect-ratio:1/1){.world-refined .world-hud .lw-brand{font-size:32px}}
+
+/* Jewel-set heraldic seal for world preferences. */
+.world-refined .lw-system summary,.world-refined .lw-system summary:hover,.world-refined .lw-system[open] summary{background:none;border:0;box-shadow:none;padding:0;width:56px;height:56px;min-width:44px;min-height:44px}
+.world-settings-crest{width:56px;height:56px;overflow:visible;fill:#e5c98d;stroke:#e5c98d;stroke-width:1;filter:drop-shadow(0 3px 5px #19314d88)}
+.crest-enamel{fill:#19314d;stroke-width:1.5}.crest-filigree{fill:none;stroke:#d8bd85}.crest-crystal{fill:#69b8cc;stroke:#fff0cc;transition:fill .25s}.crest-facet{fill:none;stroke:#d8f4f5;stroke-width:.8}
+.lw-system summary:hover .crest-crystal,.lw-system[open] .crest-crystal{fill:#b8eef2}
+@media(max-width:767px){.world-settings-crest{width:48px;height:48px}.world-refined .lw-system summary{width:48px;height:48px}}

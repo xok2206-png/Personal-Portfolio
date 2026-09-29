@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import NextDestination from './components/NextDestination.jsx'
+import VoyageTransition from './components/VoyageTransition.jsx'
 import AppRouter from './app/router.jsx'
 import PageHeader from './components/PageHeader.jsx'
+import ExplorationMap from './components/ExplorationMap.jsx'
 import { PortfolioUIContext } from './app/PortfolioUIContext.jsx'
 
 const ICON_PATHS = {
@@ -88,7 +91,6 @@ function NavMenu({ location, onClose }) {
           ))}
         </nav>
         <div className="book-bottom">
-          <Link to="/quick-view">DIRECT ACCESS ↗</Link>
           <Link to="/resume">경력·역량 요약 ↗</Link>
         </div>
         <small>모든 콘텐츠에 바로 접근할 수 있어요.</small>
@@ -120,6 +122,16 @@ function useStoredBoolean(key, fallback) {
 
 function App() {
   const location = useLocation()
+  const navigate = useNavigate()
+  const [voyage,setVoyage] = useState(null)
+  const voyageTimers = useRef([])
+  useEffect(()=>()=>voyageTimers.current.forEach(clearTimeout),[])
+  function travelTo(path,label){
+    if(voyage)return
+    if(reduced || path===location.pathname){navigate(path);return}
+    setVoyage({label,arrived:false})
+    voyageTimers.current=[setTimeout(()=>{navigate(path);setVoyage({label,arrived:true})},850),setTimeout(()=>setVoyage(null),1400)]
+  }
   const [menuOpen, setMenuOpen] = useState(false)
   const [paused, setPaused] = useStoredBoolean('world-motion-paused', false)
   const [sound, setSound] = useStoredBoolean('world-sound', false)
@@ -129,8 +141,9 @@ function App() {
   const audioRef = useRef(null)
 
   const dark = location.pathname === '/'
+  const realWorld = location.pathname === '/'
   const worldMode = location.pathname === '/world-map'
-  const hasSceneHeader = ['/', '/world-map', '/projects', '/skills', '/contact', '/ending'].includes(location.pathname)
+  const hasSceneHeader = ['/', '/world-map', '/about', '/projects', '/skills', '/contact', '/ending'].includes(location.pathname)
   const reduced = systemReduced || paused
 
   useEffect(() => {
@@ -193,13 +206,13 @@ function App() {
   }
 
   return (
-    <PortfolioUIContext.Provider value={{ reduced, systemReduced, paused, setPaused, sound, setSound, tone }}>
+    <PortfolioUIContext.Provider value={{ reduced, systemReduced, paused, setPaused, sound, setSound, tone, travelTo }}>
       <div className={`app ${dark ? 'dark' : 'light'} ${worldMode ? 'world-mode' : ''} ${location.pathname === '/projects' ? 'gallery-mode' : ''} ${location.pathname === '/contact' ? 'contact-mode' : ''} ${location.pathname === '/skills' ? 'skills-mode' : ''}`}>
         <a href="#main" className="skip-link">
           본문으로 건너뛰기
         </a>
 
-        {!worldMode && <PageHeader light={!hasSceneHeader}/>}
+        {!worldMode && !realWorld && <PageHeader light={!hasSceneHeader} showNavigation={!['/skills','/contact'].includes(location.pathname)}/>}
         {!hasSceneHeader && (          <div className="page-utilities">
             <Link to="/world-map" className="map-link">
               <Icon name="map" />
@@ -236,6 +249,9 @@ function App() {
 
 
         <AppRouter />
+        <NextDestination/>
+        {voyage && <VoyageTransition label={voyage.label} arrived={voyage.arrived}/>}
+        {!worldMode && !realWorld && <ExplorationMap key={location.pathname}/> }
 
         {menuOpen && <NavMenu location={location} onClose={() => setMenuOpen(false)} />}
       </div>

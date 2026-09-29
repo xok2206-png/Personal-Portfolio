@@ -81,10 +81,10 @@ function RealWorld() {
         <source src="/assets/production/video/start-ambient-premium.mp4" type="video/mp4" />
       </video>
       <div className="room-shade" />
+      <Link className="real-world-brand" to="/" aria-label="JY · 리얼월드">JY <span>PORTFOLIO</span></Link>
 
       <div className="real-header real-secondary-tools">
         <div className="real-utilities">
-          <Link to="/quick-view" className="real-quick">QUICK VIEW <span aria-hidden="true">↗</span></Link>
           <details className="real-settings" onKeyDown={e=>{if(e.key==='Escape'){e.currentTarget.open=false;e.currentTarget.querySelector('summary').focus()}}}>
             <summary aria-label="환경 설정" title="환경 설정"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m9 3 1-1h4l1 3 3 1 3 1v4l-2 2v3l-3 2-1 3h-4l-2-2-3-1-3-2v-4l2-2V7l3-2Z"/><circle cx="12" cy="12" r="3.5"/></svg></summary>
             <div className="real-settings-panel"><strong>환경 설정</strong><button type="button" disabled={systemReduced} aria-pressed={!reduced} onClick={()=>setPaused(!paused)}>Motion <span>{reduced?'OFF':'ON'}</span></button><button type="button" aria-pressed={sound} onClick={()=>{setSound(!sound);if(!sound)tone(true)}}>Sound <span>{sound?'ON':'OFF'}</span></button><small>{systemReduced?'기기의 동작 줄이기 설정 적용 중':'Sound는 선택 효과음에 적용됩니다.'}</small></div>

@@ -4,13 +4,14 @@ export const exhibitStops = [{x:16,y:73},{x:34,y:65},{x:65,y:65},{x:84,y:73}]
 const aliases={a:'ArrowLeft',d:'ArrowRight',w:'ArrowUp',s:'ArrowDown'}
 const direction = (dx,dy) => Math.abs(dx)>Math.abs(dy)*1.3?'side':dy>0?'front':'back'
 const limit = (value,min,max) => Math.max(min,Math.min(max,value))
-export default function useGalleryWalk({reduced,paused,hidden,initialPosition={x:50,y:80}}){
+export default function useGalleryWalk({reduced,paused,hidden,initialPosition={x:50,y:80},constrain=point=>point,speed=18}){
+ const boundary=useRef(constrain);boundary.current=constrain
  const position=useRef(initialPosition),target=useRef(null),keys=useRef(new Set())
  const [player,setPlayer]=useState({...position.current,moving:false,facing:1,view:'back'})
  const [active,setActive]=useState(false)
  const stop=()=>{keys.current.clear();target.current=null;setActive(false);setPlayer(p=>({...p,moving:false}))}
  const go=point=>{
-  const next={x:limit(point.x,9,91),y:limit(point.y,65,94)}
+  const next=boundary.current({x:limit(point.x,9,91),y:limit(point.y,65,94)})
   keys.current.clear()
   if(reduced||paused){const view=direction(next.x-position.current.x,(next.y-position.current.y)*1.6);position.current=next;target.current=null;setActive(false);setPlayer({...next,moving:false,facing:next.x<player.x?1:-1,view});return}
   target.current=next;setActive(true)
@@ -34,15 +35,18 @@ export default function useGalleryWalk({reduced,paused,hidden,initialPosition={x
    const length=Math.hypot(dx,dy)
    if(!length){setPlayer({...position.current,moving:false,facing,view});setActive(false);return}
    if(Math.abs(dx)>.01)facing=dx<0?1:-1;view=direction(dx,dy)
-   const distance=Math.min(18*dt,length)
-   position.current={x:limit(position.current.x+dx/length*distance,9,91),y:limit(position.current.y+dy/length*distance/1.6,65,94)}
-   setPlayer({...position.current,moving:true,facing,view});frame=requestAnimationFrame(tick)
+   const distance=Math.min(speed*dt,length)
+   const previous=position.current
+   position.current=boundary.current({x:limit(previous.x+dx/length*distance,9,91),y:limit(previous.y+dy/length*distance/1.6,65,94)})
+   const moving=Math.hypot(position.current.x-previous.x,position.current.y-previous.y)>.001
+   if(!moving&&target.current){target.current=null;setActive(false)}
+   setPlayer({...position.current,moving,facing,view});frame=requestAnimationFrame(tick)
   }
   frame=requestAnimationFrame(tick)
   return()=>cancelAnimationFrame(frame)
  // Facing is captured when movement starts, not an independent animation owner.
 
- },[active,paused,hidden,reduced])
+ },[active,paused,hidden,reduced,speed])
  useEffect(()=>{const clear=()=>{keys.current.clear();target.current=null;setActive(false);setPlayer(p=>({...p,moving:false}))};window.addEventListener('blur',clear);document.addEventListener('visibilitychange',clear);return()=>{window.removeEventListener('blur',clear);document.removeEventListener('visibilitychange',clear)}},[])
  return {player,go,stop,keyDown,keyUp}
 }

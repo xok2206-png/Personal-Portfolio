@@ -65,4 +65,4 @@
 .gallery-exhibit .exhibit-heading{transition:box-shadow .3s}
 /* The floor spans the panorama; show its keyboard focus on the control HUD instead. */
 .project-gallery .gallery-floor:focus-visible{outline:none}
-.project-gallery:has(.gallery-floor:focus-visible) .gallery-controls{outline:2px solid #eee0c4;outline-offset:4px;box-shadow:0 0 0 6px #192b3d80}
+.project-gallery:has(.gallery-floor:focus-visible) .gallery-controls kbd{color:#fff3ce;border-color:#dfc692}

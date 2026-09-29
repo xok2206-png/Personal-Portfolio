@@ -1,0 +1,310 @@
+[
+  {
+    "width": 2560,
+    "height": 1440,
+    "label": "PROFILE",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "label": "JOURNEY",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "label": "VALUES",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 2560,
+    "height": 1440,
+    "label": "INTERESTS",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "label": "PROFILE",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "label": "JOURNEY",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "label": "VALUES",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "label": "INTERESTS",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1440,
+    "height": 810,
+    "label": "PROFILE",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1440,
+    "height": 810,
+    "label": "JOURNEY",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1440,
+    "height": 810,
+    "label": "VALUES",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1440,
+    "height": 810,
+    "label": "INTERESTS",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "label": "PROFILE",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "label": "JOURNEY",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "label": "VALUES",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "label": "INTERESTS",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1180,
+    "height": 820,
+    "label": "PROFILE",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1180,
+    "height": 820,
+    "label": "JOURNEY",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1180,
+    "height": 820,
+    "label": "VALUES",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1180,
+    "height": 820,
+    "label": "INTERESTS",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "label": "PROFILE",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "label": "JOURNEY",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "label": "VALUES",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "label": "INTERESTS",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "label": "PROFILE",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "label": "JOURNEY",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "label": "VALUES",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "label": "INTERESTS",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "label": "PROFILE",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "label": "JOURNEY",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "label": "VALUES",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "label": "INTERESTS",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 402,
+    "height": 874,
+    "label": "PROFILE",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 402,
+    "height": 874,
+    "label": "JOURNEY",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 402,
+    "height": 874,
+    "label": "VALUES",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 402,
+    "height": 874,
+    "label": "INTERESTS",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "label": "PROFILE",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "label": "JOURNEY",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "label": "VALUES",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "label": "INTERESTS",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 360,
+    "height": 800,
+    "label": "PROFILE",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 360,
+    "height": 800,
+    "label": "JOURNEY",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 360,
+    "height": 800,
+    "label": "VALUES",
+    "scroll": false,
+    "overlap": []
+  },
+  {
+    "width": 360,
+    "height": 800,
+    "label": "INTERESTS",
+    "scroll": false,
+    "overlap": []
+  }
+]

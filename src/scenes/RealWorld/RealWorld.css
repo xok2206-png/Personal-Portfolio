@@ -463,3 +463,31 @@
 }
 @media(min-width:768px) and (max-height:700px){.start-scene{min-height:540px}.start-scene .start-copy{padding-top:20vh}.start-scene .start-copy h1{font-size:32px;margin-bottom:16px}.start-scene .eyebrow{margin-bottom:12px}.start-scene .gateway{margin-top:24px}.start-scene .enter-world-button{min-height:58px}.real-header{top:20px}}
 
+
+.start-scene .real-world-brand{position:absolute;z-index:40;top:max(24px,env(safe-area-inset-top));left:3%;display:flex;align-items:center;gap:12px;min-height:44px;color:#f7f5ee;text-decoration:none;font-family:var(--font-primary);font-size:38px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:normal}.start-scene .real-world-brand span{font-size:12px}.start-scene .real-world-brand:focus-visible{outline:2px solid #d8bd85;outline-offset:4px}@media(max-width:1100px){.start-scene .real-world-brand span{display:none}}@media(max-aspect-ratio:1/1){.start-scene .real-world-brand{left:5%;top:max(16px,env(safe-area-inset-top));font-size:32px}}@media(max-height:620px){.start-scene .real-world-brand{top:12px}}
+
+/* Align the settings control with the wordmark safe area. */
+.start-scene .real-header.real-secondary-tools{top:max(24px,env(safe-area-inset-top));left:auto;right:3%;height:50px;justify-content:flex-end;z-index:45}
+.start-scene .real-settings{border-left:0;padding-left:0}
+.start-scene .real-accent{position:relative;display:inline-block;isolation:isolate;color:#19314d;text-shadow:none}
+.start-scene .real-accent:before{content:'';position:absolute;inset:4% -3px 2%;z-index:-1;background:#ffdf43;border-bottom:1px solid #efc62d;clip-path:polygon(2% 7%,100% 0,98% 94%,0 100%);transform-origin:left;animation:real-marker-reveal .85s .3s ease both;pointer-events:none}
+.start-scene .real-accent:hover:before{background:#ffe66b}
+.start-scene .enter-world-button:before{background:linear-gradient(105deg,transparent 38%,#67e8f918 44%,#b7f9ff66 50%,#67e8f918 56%,transparent 62%);transition:none;animation:real-gateway-scan 4.8s 1.2s ease-in-out infinite}
+.start-scene .enter-world-button:after{content:'';position:absolute;inset:5px;border-radius:inherit;border:1px solid #67e8f933;pointer-events:none}
+.start-scene .enter-world-button:is(:hover,:focus-visible){background:#12384cdb;border-color:#c1faff;box-shadow:0 0 22px #67e8f944,inset 0 0 18px #67e8f91a}
+.start-scene .enter-world-button:is(:hover,:focus-visible) .gateway-arrow{transform:translateX(5px)}
+.start-scene .enter-world-button:disabled:before{animation:none}
+@keyframes real-marker-reveal{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes real-gateway-scan{0%,55%{transform:translateX(-120%)}85%,100%{transform:translateX(120%)}}
+@media(max-aspect-ratio:1/1){.start-scene .real-header.real-secondary-tools{top:max(16px,env(safe-area-inset-top));right:5%;height:44px}}
+@media(max-height:620px){.start-scene .real-header.real-secondary-tools{top:12px}}
+html[data-motion='reduced'] .start-scene .real-accent:before,html[data-motion='reduced'] .start-scene .enter-world-button:before{animation:none;transform:none}
+html[data-motion='reduced'] .start-scene .enter-world-button:before{opacity:0}
+@media(prefers-reduced-motion:reduce){.start-scene .real-accent:before{animation:none;transform:none}.start-scene .enter-world-button:before{animation:none;opacity:0}}
+
+/* Follow the approved sitewide Latin/Korean typography, including UI controls. */
+.start-scene :is(h1,p,a,button,summary,strong,small,span),.portal-cinematic :is(p,a,button,small,span){font-family:var(--font-primary)}
+.start-scene .start-copy h1{font-family:var(--font-heading);font-weight:700}
+.start-scene :is(.start-description,.start-caption,.real-settings-panel,.real-settings-panel button,.real-settings-panel small){font-weight:400;letter-spacing:normal;line-height:1.7}
+.start-scene .real-settings-panel strong{font-weight:700}
+.start-scene .enter-world-button{font-weight:400}

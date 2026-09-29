@@ -1,0 +1,48 @@
+{
+  "results": [
+    {
+      "width": 1440,
+      "height": 810,
+      "streams": 4,
+      "masks": true,
+      "overflow": false,
+      "legacyCanvas": 0
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "streams": 4,
+      "masks": true,
+      "overflow": false,
+      "legacyCanvas": 0
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "streams": 4,
+      "masks": true,
+      "overflow": false,
+      "legacyCanvas": 0
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "streams": 4,
+      "masks": true,
+      "overflow": false,
+      "legacyCanvas": 0
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "streams": 4,
+      "masks": true,
+      "overflow": false,
+      "legacyCanvas": 0
+    }
+  ],
+  "errors": [],
+  "motion": "flow/pause/reduced passed",
+  "navigation": "direct/back/reload passed",
+  "webgl": "disabled throughout"
+}
