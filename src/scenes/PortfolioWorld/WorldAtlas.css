@@ -50,3 +50,5 @@
 .world-compass-ornament .compass-map-label:before{content:'';position:absolute;inset:2px;background:linear-gradient(#294f60,#132e40);clip-path:polygon(9% 0,91% 0,100% 50%,91% 100%,9% 100%,0 50%);z-index:-1}
 .world-compass-ornament:hover .compass-map-label:before{background:linear-gradient(#376577,#193b4c)}
 @media(max-width:600px){.world-compass-ornament .compass-map-label{font-size:11px!important;padding:7px 10px}}
+
+.atlas-world-link{display:flex;align-items:center;justify-content:center;gap:12px;width:fit-content;min-height:44px;margin:12px auto 0;padding:8px 20px;color:#294356;background:#f4f2e5ed;border:1px solid #bcaa77;text-decoration:none;font-family:var(--font-primary);font-size:16px;position:relative;z-index:2}.atlas-world-link:hover{background:#244e60;color:#fff0c7}.atlas-world-link:focus-visible{outline:2px solid #17666d;outline-offset:3px}

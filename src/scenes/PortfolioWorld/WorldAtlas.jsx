@@ -40,6 +40,7 @@ export default function WorldAtlas({onClose,reduced}){
   <div ref={paper} className="atlas-paper" inert={folding}>
    <header className="atlas-heading"><div><p>ATLAS OF THE SKY REALM</p><h2 id="atlas-title">구름 너머, 다음 이야기</h2></div><button onClick={fold} aria-label="지도 닫기">×</button></header>
    <p className="atlas-intro">나침반을 따라, 당신이 궁금한 세계로.</p>
+   <Link className="atlas-world-link" to="/world-map" onClick={e=>sail(e,{route:"/world-map",title:"WORLD MAP"})}><span aria-hidden="true">◇</span> 월드맵으로 이동 <span aria-hidden="true">→</span></Link>
    <div className="atlas-chart" data-selected={selected}>
     <svg className="atlas-routes" viewBox="0 0 800 420" preserveAspectRatio="none" aria-hidden="true"><path d="M155 130Q360 20 415 140T650 260M415 140Q290 220 270 305"/><path className="atlas-active-route" d={{about:'M415 140Q360 20 155 130',skills:'M415 140Q290 220 270 305',projects:'M270 305Q290 220 415 140',contact:'M415 140Q490 200 650 260'}[selected]}/></svg>
     {islandLayers.map(i=><Link key={i.id} to={i.route} onClick={e=>sail(e,i)} className={`atlas-island atlas-${i.id}`} aria-label={i.title+" 페이지로 이동"} onPointerEnter={e=>{if(e.pointerType==='mouse')setSelected(i.id)}} onFocus={()=>setSelected(i.id)} data-active={selected===i.id}><b className="atlas-pin" aria-hidden="true">✦</b><span>{i.title}</span><small>{i.description}</small></Link>)}
