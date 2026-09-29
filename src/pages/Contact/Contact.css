@@ -1,0 +1,81 @@
+@font-face{font-family:'Contact Serif';src:url('/assets/production/fonts/instrument-serif-regular.ttf') format('truetype');font-display:swap}
+.contact-mode>.site-header{display:none}
+.contact-dialog{position:fixed;inset:100px 24px 24px auto;margin:0;width:min(430px,calc(100vw - 32px));max-height:calc(100dvh - 124px);overflow:auto;background:#192239f5;color:#f7f5ee;border:1px solid #b79a61;border-radius:12px;padding:24px;box-shadow:0 18px 60px #10182766;z-index:50}
+.contact-dialog::backdrop{background:#10182744}.contact-dialog-head{display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:10px;color:#e9d4a9}.contact-dialog button{min-height:44px;border:0;background:none;color:inherit;cursor:pointer}.contact-dialog h2{font-family:var(--font-heading);font-weight:400;font-size:36px;margin:20px 0}.contact-dialog details{border-bottom:1px solid #b79a6144}.contact-dialog summary{padding:16px 0;min-height:44px;cursor:pointer;font-size:14px;line-height:1.5}.contact-dialog details p{font-size:13px;line-height:1.8;color:#ded9df;margin:0 0 20px}.contact-dialog :is(button,summary):focus-visible{outline:2px solid #ffe7a8;outline-offset:3px}
+
+.contact-chapter{position:relative;isolation:isolate;min-height:100dvh;overflow:hidden;background:#302b40;color:#f7f5ee;font-family:var(--font-primary)}
+.contact-reference-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;z-index:-3}
+.contact-chapter[data-failed='true'] .contact-reference-bg{visibility:hidden}
+.contact-shade{position:absolute;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 50% 25%,#19223988,transparent 66%)}
+.contact-header{position:relative;display:flex;align-items:center;justify-content:space-between;margin:0 3.2%;padding:16px 0;gap:24px;font-family:var(--font-primary)}
+.contact-header a{color:#f7f5ee;text-decoration:none;display:flex;align-items:center;min-height:44px}
+.contact-brand{font-size:38px;gap:12px}.contact-brand span{font-size:12px}
+.contact-header nav{display:flex;gap:clamp(22px,3vw,48px)}.contact-header nav a{font-size:clamp(16px,1.3vw,23px);position:relative}
+.contact-header nav .active:after{content:'✦';position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);font-size:16px;color:#ffe7a8;text-shadow:0 0 12px #ffb368}
+.contact-header nav .active:before{content:'';position:absolute;bottom:0;left:-16px;right:-16px;height:1px;background:linear-gradient(90deg,transparent,#eac692,transparent)}
+.contact-back{border:1px solid #b79a61;border-radius:30px;gap:12px;padding:0 18px;font-size:18px;background:#302b4033}
+.contact-copy{position:relative;z-index:1;width:min(720px,68%);margin:clamp(20px,4vh,60px) auto 280px;text-align:center;padding:0 24px 26px}
+.contact-copy:after{content:'✧';display:block;margin:26px auto 0;color:#e9d4a9;font-size:22px;background:linear-gradient(90deg,transparent,#b79a6180,transparent) left center / 42% 1px no-repeat,linear-gradient(90deg,transparent,#b79a6180,transparent) right center / 42% 1px no-repeat}
+.contact-eyebrow{display:flex;justify-content:center;align-items:center;gap:20px;font-family:var(--font-primary);letter-spacing:.28em;font-size:14px;color:#e9d4a9;margin:0 0 14px}.contact-eyebrow span{font-size:20px}
+.contact-copy h1{font-family:var(--font-heading);font-weight:400;font-size:clamp(54px,5.3vw,88px);line-height:1.05;margin:0 0 24px;letter-spacing:-.015em;color:#fff0d5;text-shadow:0 2px 18px #ffc27a44}
+.contact-lead,.contact-description{font-size:clamp(14px,1.05vw,18px);line-height:1.8;letter-spacing:.015em;text-shadow:0 2px 8px #192239;margin:0 0 12px}.contact-description{color:#e9d4a9;font-size:clamp(13px,.95vw,16px)}
+.contact-choices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;width:100%;margin:30px auto 0}
+.contact-choices>a,.contact-choices>button{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:138px;padding:22px 8px 14px;color:#ffe8be;background:linear-gradient(160deg,#192239c9,#302b4099);border:1px solid #b79a6199;border-radius:4px;box-shadow:inset 0 0 0 4px #302b4066,0 8px 24px #19223922;text-decoration:none;font:inherit;cursor:pointer;transition:background .2s,border-color .2s,box-shadow .2s}
+.contact-choices>a:after,.contact-choices>button:after{content:'';position:absolute;inset:5px;border:1px solid #b79a6144;pointer-events:none}
+.contact-choices svg{width:30px;height:30px;filter:drop-shadow(0 0 8px #eac69222)}
+.contact-card-title{font-family:var(--font-primary);font-size:20px;white-space:nowrap}.contact-choices small{font-size:12px;color:#e9d4a9;line-height:1}
+.contact-card-gem{position:absolute;top:-10px;left:50%;transform:translateX(-50%);font-size:16px;color:#e9d4a9;background:#302b40;padding:0 5px;line-height:18px}.contact-card-gem.bottom{display:none}
+.contact-choices>a:hover{background:#302b40e6;border-color:#ffe7a8;box-shadow:inset 0 0 0 4px #302b4066,0 0 18px #b79a6133}.contact-choices>button:disabled{cursor:default;color:#e9d4a9}
+.contact-chapter :is(a,button,summary):focus-visible{outline:2px solid #ffe7a8;outline-offset:5px}
+.contact-lookout-character{position:absolute;transform:translate(-50%,-100%);height:auto;pointer-events:none;z-index:-1;filter:drop-shadow(0 6px 4px #30233899);animation:none}
+.contact-motto{display:none}
+.contact-footer{position:absolute;left:3.2%;right:3.2%;bottom:3%;display:flex;justify-content:space-between;align-items:flex-end;font-family:var(--font-primary);font-size:clamp(10px,.9vw,16px);letter-spacing:.08em;line-height:1.5;text-shadow:0 2px 5px #192239}.contact-footer>span:last-child{text-align:center}.contact-footer i{display:block;font-style:normal;margin-top:6px}
+@media(min-width:768px) and (max-height:850px){.contact-copy{margin-top:12px;margin-bottom:230px}.contact-copy h1{margin-bottom:16px}.contact-choices{margin-top:22px}.contact-copy:after{margin-top:20px}}
+@media(max-width:1100px){.contact-brand span{display:none}.contact-header nav{gap:20px}.contact-copy{width:min(720px,80%)}}
+@media(max-aspect-ratio:1/1){.contact-header{flex-wrap:wrap;margin:0 5%;gap:10px}.contact-header nav{order:3;width:100%;gap:8px;justify-content:space-between}.contact-header nav a{font-size:16px}.contact-brand{font-size:32px}.contact-back{font-size:15px;padding:0 12px}.contact-copy{width:90%;max-width:580px;padding:0 10px 12px;margin:30px auto 280px}.contact-copy h1{font-size:clamp(48px,9vw,70px)}.contact-choices{grid-template-columns:repeat(2,minmax(0,1fr));max-width:370px;gap:18px}.contact-choices>a,.contact-choices>button{min-height:120px;padding:18px 6px 12px}.contact-card-title{font-size:20px}.contact-copy:after{margin-top:24px}.contact-shade{background:linear-gradient(#19223988,#19223955 65%,transparent)}.contact-footer{font-size:9px}.contact-dialog{inset:auto 12px 12px;width:calc(100% - 24px);max-height:85dvh}}
+@media(prefers-reduced-motion:reduce){.contact-chapter *{transition:none!important}}
+
+/* Reference-inspired illuminated plaques; CSS owns the perimeter light. */
+.contact-chapter{display:grid;place-items:center;min-height:max(100dvh,810px)}
+.contact-header{position:absolute;top:0;left:0;right:0;z-index:3}
+.contact-copy{align-self:start;width:min(960px,86%);max-width:960px;margin:clamp(120px,17vh,220px) auto 0;padding:0 18px;text-align:center}
+.contact-copy:before{content:'';position:absolute;inset:-50px -90px;z-index:-1;pointer-events:none;background:radial-gradient(ellipse,#302b4077,transparent 70%)}
+.contact-copy:after{margin:22px auto 0;font-size:18px;max-width:360px}
+.contact-eyebrow{font-size:15px;letter-spacing:.25em;margin:0 0 12px;gap:18px}
+.contact-eyebrow:before,.contact-eyebrow:after{content:'';width:60px;height:1px;background:linear-gradient(90deg,transparent,#b79a61)}
+.contact-eyebrow:after{transform:rotate(180deg)}
+.contact-copy h1{text-transform:uppercase;letter-spacing:.025em;font-size:clamp(52px,5.4vw,84px);line-height:1.05;margin:0 0 18px;text-shadow:0 0 22px #ffc27a55,0 2px 8px #302b40}
+.contact-lead{font-size:clamp(15px,1.15vw,19px);line-height:1.7;margin-bottom:10px}
+.contact-description{font-size:clamp(13px,1vw,16px);line-height:1.7;margin-bottom:0}
+.contact-choices{gap:clamp(20px,2.2vw,32px);margin:32px auto 0;max-width:880px}
+.contact-choices>a,.contact-choices>button{isolation:isolate;min-height:164px;padding:24px 8px 20px;gap:10px;border:0;border-radius:0;background:transparent;box-shadow:none;transition:transform .25s ease,color .25s ease}
+.contact-choices>a:after,.contact-choices>button:after{display:none}
+.contact-choices .contact-card-frame{position:absolute;inset:0;width:100%;height:100%;z-index:-1;overflow:visible;filter:none;pointer-events:none}
+.contact-frame-base{fill:#49323bbd;stroke:#d2a171;stroke-width:1;transition:fill .25s,stroke .25s}
+.contact-frame-inner{fill:none;stroke:#d7af7966;stroke-width:.65}
+.contact-frame-light{fill:none;stroke:#ffe7a8;stroke-width:1.6;stroke-linecap:round;stroke-dasharray:9 91;animation:contact-border-light 7s linear infinite;filter:drop-shadow(0 0 3px #ffc27a)}
+.contact-choices>:nth-child(2){--light-delay:-1.75s}.contact-choices>:nth-child(3){--light-delay:-3.5s}.contact-choices>:nth-child(4){--light-delay:-5.25s}
+.contact-frame-light{animation-delay:var(--light-delay,0s)}
+.contact-card-icon{display:grid;place-items:center;width:44px;height:44px;transition:filter .25s}
+.contact-card-icon svg{width:36px;height:36px;filter:none}
+.contact-card-title{font-size:23px;line-height:1.1}.contact-choices small{font-size:16px;transition:transform .25s}.contact-choices>button small{font-family:var(--font-primary);font-size:12px}
+.contact-card-gem{top:-6px;background:none;padding:0;font-size:13px;line-height:16px;text-shadow:0 0 8px #ffc27a}.contact-card-gem.bottom{display:block;top:auto;bottom:-5px;font-size:12px}
+.contact-choices>a:is(:hover,:focus-visible){transform:translateY(-5px);background:none;box-shadow:none;color:#fff0d5}
+.contact-choices>a:is(:hover,:focus-visible) .contact-frame-base{fill:#674332e6;stroke:#ffe7a8}
+.contact-choices>a:is(:hover,:focus-visible) .contact-card-frame{filter:drop-shadow(0 0 9px #ffc27a66)}
+.contact-choices>a:is(:hover,:focus-visible) .contact-card-icon{filter:drop-shadow(0 0 7px #ffc27a88)}
+.contact-choices>a:is(:hover,:focus-visible) small{transform:translateX(4px)}
+.contact-choices>a:active{transform:translateY(-1px)}
+@keyframes contact-border-light{to{stroke-dashoffset:-100}}
+@media(max-aspect-ratio:1/1){.contact-chapter{min-height:max(100dvh,1120px)}.contact-copy{width:94%;max-width:580px;margin:170px auto 0;padding:0 10px}.contact-copy:before{inset:-35px -15px}.contact-copy h1{font-size:clamp(42px,9vw,68px);margin-bottom:22px}.contact-choices{max-width:420px;gap:22px;margin-top:28px}.contact-choices>a,.contact-choices>button{min-height:148px;padding:20px 6px}.contact-card-title{font-size:22px}.contact-copy:after{margin-top:22px}.contact-eyebrow{font-size:13px;gap:12px}.contact-eyebrow:before,.contact-eyebrow:after{width:30px}}
+@media(prefers-reduced-motion:reduce){.contact-frame-light{animation:none;stroke-dasharray:none;opacity:.6}.contact-choices>a:is(:hover,:focus-visible){transform:none}}
+html[data-motion='reduced'] .contact-frame-light{animation:none;stroke-dasharray:none;opacity:.6}
+html[data-motion='reduced'] .contact-choices>a:is(:hover,:focus-visible){transform:none}
+
+@media(min-aspect-ratio:1/1) and (max-height:850px){.contact-copy h1{font-size:60px;margin-bottom:12px}.contact-eyebrow{margin-bottom:6px}.contact-choices{margin-top:22px}.contact-choices>a,.contact-choices>button{min-height:148px}.contact-copy:after{margin-top:14px}}
+
+.contact-copy .contact-lead,
+.contact-copy .contact-description,
+.contact-copy .contact-choices small{font-family:var(--font-heading);font-weight:400}
+.contact-copy .contact-lead,
+.contact-copy .contact-description{line-height:1.85}

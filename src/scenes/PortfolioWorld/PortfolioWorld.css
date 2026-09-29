@@ -1,9 +1,7 @@
-@font-face{font-family:'Portfolio Pretendard';src:url('/assets/production/fonts/pretendard-variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
-@font-face{font-family:'Instrument Serif';src:url('/assets/production/fonts/instrument-serif-regular.ttf') format('truetype');font-weight:400;font-display:swap}
 /* Source artwork is the fallback; registered footage owns environmental motion. */
-.world-mode{--header:0px;--display:'Portfolio Pretendard',sans-serif;background:#e5f0f8}
+.world-mode{--header:0px;--display:var(--font-heading);background:#e5f0f8}
 .world-mode>.site-header{display:none}
-.reference-world{font-family:'Portfolio Pretendard',sans-serif;color:#0f172a;background:#e5f0f8;min-height:100dvh}
+.reference-world{font-family:var(--font-primary);color:#0f172a;background:#e5f0f8;min-height:100dvh}
 .rw-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .rw-viewport{height:100dvh;display:grid;grid-template-columns:minmax(0,1fr);place-items:center;overflow:hidden}
 .rw-scene{position:relative;flex-shrink:0;width:min(100%,calc(100dvh * 4351 / 2449));aspect-ratio:4351/2449;isolation:isolate}

@@ -1,0 +1,56 @@
+/* Central citadel with three smaller satellites on an implied elliptical orbit. */
+@media(min-aspect-ratio:1/1){
+ .world-refined .lw-islands .lw-projects{left:35%!important;top:10%!important;width:42%!important;--wide-width:42;z-index:2}
+ .world-refined .lw-islands .lw-about{left:12%!important;top:17%!important;width:25%!important;--wide-width:25;z-index:1}
+ .world-refined .lw-islands .lw-skills{left:27%!important;top:53%!important;width:24%!important;--wide-width:24;z-index:3}
+ .world-refined .lw-islands .lw-contact{left:76%!important;top:39%!important;width:23%!important;--wide-width:23;z-index:3}
+ .world-refined .lw-islands .lw-island:not(.lw-projects) .lw-ribbon-label{width:clamp(160px,15vw,230px)}
+ .world-refined .lw-islands .lw-projects .lw-ribbon-label{width:clamp(220px,20vw,310px)}
+}
+@media(min-aspect-ratio:2/1){
+ .world-refined .lw-islands .lw-projects{left:39%!important;width:32%!important;top:10%!important}
+ .world-refined .lw-islands .lw-about{left:17%!important;width:19%!important;top:17%!important}
+ .world-refined .lw-islands .lw-skills{left:31%!important;width:18%!important;top:52%!important}
+ .world-refined .lw-islands .lw-contact{left:74%!important;width:18%!important;top:34%!important}
+}
+/* Light pools are aligned to the new landmarks; old traced windows are omitted. */
+.world-refined .lw-landmark-detail{display:none}
+.world-refined .life-about .lw-landmark-light,.world-refined .life-about .lw-landmark-response{left:38%;top:25%;width:28%;height:20%}
+.world-refined .life-skills .lw-landmark-light,.world-refined .life-skills .lw-landmark-response{left:35%;top:15%;width:30%;height:25%}
+.world-refined .life-projects .lw-landmark-light,.world-refined .life-projects .lw-landmark-response{left:40%;top:34%;width:20%;height:20%}
+.world-refined .life-contact .lw-landmark-light,.world-refined .life-contact .lw-landmark-response{left:42%;top:8%;width:32%;height:14%}
+
+/* Satellites float independently; old bridge endpoints no longer match. */
+.world-refined .lw-bridges{display:none}
+/* Landmark-specific responses share the existing focus/touch/hover state. */
+.world-refined .lw-landmark-life{overflow:visible}
+.island-feature-effect,.island-feature-secondary{position:absolute;display:block;pointer-events:none;opacity:0;transition:opacity .35s;mix-blend-mode:screen}
+.is-reacting .island-feature-effect,.is-reacting .island-feature-secondary{opacity:1}
+.life-about .island-feature-effect{left:39%;top:24%;width:24%;height:18%;background:radial-gradient(ellipse at 50% 65%,#fff7c4dd,#ffb64788 40%,transparent 72%)}
+.life-about .island-feature-secondary{left:12%;top:27%;width:75%;height:15%;background:radial-gradient(ellipse at 20% 50%,#ffd487aa,transparent 22%),radial-gradient(ellipse at 80% 50%,#ffd487aa,transparent 22%)}
+.life-skills .island-feature-effect{left:35%;top:15%;width:31%;height:26%;background:radial-gradient(ellipse,#dfffffbf,#33d9ff66 35%,transparent 70%)}
+.life-skills .island-feature-secondary{left:35%;top:18%;width:30%;height:19%;border:1px solid #bbf8ff;border-radius:50%;box-shadow:0 0 8px #50dfff,inset 0 0 5px #8fefff;transform:rotate(-24deg)}
+.is-reacting .life-skills .island-feature-secondary{animation:feature-orbit 4s linear infinite}
+.life-projects .island-feature-effect{left:46%;top:32%;width:10%;height:15%;border-radius:50% 50% 20% 20%;background:radial-gradient(ellipse,#e4ffffdd,#62bcff88 45%,transparent 73%);box-shadow:0 0 15px #74d4ff88}
+.life-projects .island-feature-secondary{left:49%;top:4%;width:3%;height:48%;background:linear-gradient(90deg,transparent,#b9eaffbb,transparent);mask-image:linear-gradient(transparent,#000 30%,#000 80%,transparent)}
+.is-reacting .life-projects .island-feature-effect{animation:feature-portal 2s ease-in-out infinite alternate}
+.life-contact .island-feature-effect{left:35%;top:1%;width:15%;height:13%;background:radial-gradient(ellipse,#fffde8,#ffe5a3bb 25%,#ffb34744 50%,transparent 74%)}
+.life-contact .island-feature-secondary{left:41%;top:0%;width:75%;height:20%;background:linear-gradient(90deg,#fff8dce6,#ffe4a777 40%,transparent);clip-path:polygon(0 45%,100% 0,100% 100%,0 55%);transform-origin:0 50%}
+.is-reacting .life-contact .island-feature-secondary{animation:feature-beacon 4.5s ease-in-out infinite alternate}
+@keyframes feature-orbit{to{transform:rotate(336deg)}}
+@keyframes feature-portal{to{filter:brightness(1.4);opacity:.7}}
+@keyframes feature-beacon{from{rotate:-10deg}to{rotate:12deg}}
+.world-refined .lw-water-canvas{height:150%!important;max-height:none}
+.world-refined .lw-water,.world-refined .lw-water-mist{overflow:visible}
+.layered-world[data-paused='true'] .island-feature-effect,.layered-world[data-paused='true'] .island-feature-secondary{animation:none!important}
+@media(prefers-reduced-motion:reduce){.island-feature-effect,.island-feature-secondary{animation:none!important;transition:none}}
+/* Small observer foreground: architecture echoes the central ivory citadel. */
+.world-refined .lw-foreground .lw-lookout{left:0;bottom:0;width:40%;height:100%;object-fit:fill;mask-image:none}
+.world-refined .lw-foreground .lw-explorer{width:8.5%;max-width:135px}
+@media(min-aspect-ratio:2/1){.world-refined .lw-foreground .lw-lookout{width:34%}.world-refined .lw-foreground .lw-explorer{width:7%;max-width:140px}}
+@media(max-aspect-ratio:1/1){.world-refined .lw-foreground .lw-lookout{width:78%;height:52%;left:0;bottom:0}.world-refined .lw-foreground .lw-explorer{width:17%;max-width:100px}}
+@media(max-aspect-ratio:1/1){
+ .world-refined .lw-foreground .lw-lookout{mask-image:linear-gradient(transparent,#000 20%)}
+ .world-refined .world-intro-guide{left:auto;right:3%;width:58%;min-width:0;bottom:16px;padding:12px}
+ .world-refined .world-control-guide{left:auto;right:3%;bottom:16px;max-width:58%}
+}

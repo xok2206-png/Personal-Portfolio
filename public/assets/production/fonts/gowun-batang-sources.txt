@@ -1,0 +1,4 @@
+Gowun Batang by Yanghee Ryu, SIL Open Font License 1.1.
+Official sources: https://github.com/google/fonts/tree/main/ofl/gowunbatang
+WOFF2 subsets: https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap
+Downloaded 2026-09-29. See gowun-batang-OFL.txt.

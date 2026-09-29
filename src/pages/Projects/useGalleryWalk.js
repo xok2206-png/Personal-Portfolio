@@ -4,8 +4,8 @@ export const exhibitStops = [{x:16,y:73},{x:34,y:65},{x:65,y:65},{x:84,y:73}]
 const aliases={a:'ArrowLeft',d:'ArrowRight',w:'ArrowUp',s:'ArrowDown'}
 const direction = (dx,dy) => Math.abs(dx)>Math.abs(dy)*1.3?'side':dy>0?'front':'back'
 const limit = (value,min,max) => Math.max(min,Math.min(max,value))
-export default function useGalleryWalk({reduced,paused,hidden}){
- const position=useRef({x:50,y:80}),target=useRef(null),keys=useRef(new Set())
+export default function useGalleryWalk({reduced,paused,hidden,initialPosition={x:50,y:80}}){
+ const position=useRef(initialPosition),target=useRef(null),keys=useRef(new Set())
  const [player,setPlayer]=useState({...position.current,moving:false,facing:1,view:'back'})
  const [active,setActive]=useState(false)
  const stop=()=>{keys.current.clear();target.current=null;setActive(false);setPlayer(p=>({...p,moving:false}))}

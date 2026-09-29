@@ -1,13 +1,11 @@
 export const layerRoot = '/assets/production/images/world-layers/'
 export const islandLayers = [
- {id:'about',art:'about-terrace-v10.webp',title:'ABOUT',subtitle:'WHO I AM',route:'/about',x:10,y:17,w:23.5,duration:19,phase:-3,drift:7,label:57,water:[[27,50,9,45],[64,50,9,45]]},
- {id:'skills',art:'skills-terrace-v10.webp',title:'SKILLS',subtitle:'WHAT I CAN DO',route:'/skills',x:29,y:40,w:23,duration:23,phase:-11,drift:9,label:58,water:[[22,46,10,49],[67,46,10,49]]},
- {id:'projects',art:'projects-terrace-v10.webp',title:'PROJECTS',subtitle:'MY WORKS',route:'/projects',x:39,y:7,w:34,duration:31,phase:-7,drift:4,label:52,water:[[21,49,10,47],[45,51,10,47],[69,49,10,47]]},
- {id:'qa',art:'qa-terrace-v10.webp',title:'Q&A',subtitle:"LET'S TALK",route:'/qa',x:76,y:20,w:21,duration:21,phase:-9,drift:6,label:58,water:[[28,47,10,48],[63,47,10,48]]},
- {id:'contact',art:'contact-terrace-v10.webp',title:'CONTACT',subtitle:'GET IN TOUCH',route:'/contact',x:74,y:57,w:21.5,duration:27,phase:-15,drift:8,label:62,water:[[26,49,10,46],[65,49,10,46]]},
+ {id:'about',number:'01',art:'about-water-v13.webp',title:'ABOUT',subtitle:'PROFILE',description:'저를 소개합니다',route:'/about',x:16,y:20,w:25.2,duration:19,phase:-3,drift:7,label:57,water:[[26,48,6,78]]},
+ {id:'skills',number:'02',art:'skills-water-v13.webp',title:'SKILLS',subtitle:'CAPABILITIES',description:'작업에 사용하는 기술',route:'/skills',x:30,y:48,w:27,duration:23,phase:-11,drift:9,label:58,water:[[65,57,1.5,65],[68,57,2,79],[71,57,1.4,57]]},
+ {id:'projects',number:'03',art:'projects-water-v13.webp',title:'PROJECTS',subtitle:'SELECTED WORKS',description:'선택한 프로젝트와 구현 과정',route:'/projects',x:42,y:10,w:36,duration:31,phase:-7,drift:4,label:58,water:[[37,55,2.5,66],[63,54,14,89]]},
+ {id:'contact',number:'04',art:'contact-water-v13.webp',title:'CONTACT',subtitle:'CONTACT · Q&A',description:'연락과 자주 묻는 질문',route:'/contact',x:71,y:36,w:27.4,duration:27,phase:-15,drift:8,label:60,water:[[60,58,3.5,77]]},
 ]
 
-
-
-
-
+export function readWorldVisits(){try{return JSON.parse(sessionStorage.getItem('world-visited-destinations')||'[]')}catch{return []}}
+export function rememberDestination(id){try{const visits=readWorldVisits();sessionStorage.setItem('world-visited-destinations',JSON.stringify([...new Set([...(Array.isArray(visits)?visits:[]),id])]))}catch{/* Recommendation is optional; never gate routes. */}}
+export function recommendedDestination(){const visits=readWorldVisits();return islandLayers.find(i=>!Array.isArray(visits)||!visits.includes(i.id))?.id||null}

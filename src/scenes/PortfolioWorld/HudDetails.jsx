@@ -2,6 +2,7 @@ import { useId } from 'react'
 
 export function HudIcon({name,className=''}){
  const paths={
+  preferences:'M4 7h7m4 0h5M4 17h2m4 0h10M11 4v6m-5 4v6',
   book:'M12 6C8 3 4 3 2 4v15c3-1 6-1 10 2 4-3 7-3 10-2V4c-3-1-6-1-10 2Zm0 0v15',
   menu:'M4 7h16M4 12h16M4 17h16',
   arrow:'M3 12h17m-6-6 6 6-6 6',

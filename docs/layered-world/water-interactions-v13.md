@@ -1,0 +1,10 @@
+## 2026-09-29 — Landmark interactions and varied waterfalls
+
+Hover, keyboard focus and touch selection now reveal distinct landmark effects: About warm library windows, Skills rotating cyan energy ring, Projects portal pulse and spire shaft, Contact stronger beacon with sweeping beam. CSS owns these effects and pauses them with scene pause/reduced motion. Existing links/navigation remain unchanged.
+
+Edited the four v12 raster plates with built-in image_gen preserving architecture/trees: About one left fall; Skills three fine right trickles; Projects broad right curtain plus tiny left trickle; Contact one thin right fall. Originals: public/assets/source/world-layers/*-water-v13.png. Optimized alpha WebP: public/assets/production/images/world-layers/*-water-v13.webp. Water shader canvas extends to 150% island height; UV and render buffer adjusted to avoid stretching the source art. Each fall has its own source rectangle and length, with mist following its endpoint.
+
+Generation prompt: Edit this exact floating island cutout. Preserve architecture, tree colors, landmark, camera, lighting, object scale and position exactly. Preserve square canvas and transparent surroundings. Change ONLY the waterfalls and cliff immediately behind removed water. About: remove right waterfall, replace with matching rock/vines/shrubs; keep one slender left stream x28 y49. Skills: remove both old falls; add three narrow silver-blue trickles at x65/69/73 y57 on right, differing lengths. Projects: replace left fall with rock and gardens, broaden right x65 y55 into powerful curtain plus small secondary x38 y55. Contact: remove left fall; keep graceful thin right x62 y58. Streams finish near island bottom; no extra islands, labels or text; preserve roof/landmark silhouette.
+
+Validation: lint/build passed. Edge desktop 1440x810 hover checked on all four islands; opacity and per-landmark animations verified. Reduced motion disables animation. At 430x932 no horizontal overflow. Desktop screenshot visually reviewed. Actual devices and other browsers unverified. No Working/Locked scene decisions changed.
+

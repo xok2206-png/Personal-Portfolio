@@ -1,4 +1,52 @@
+## 2026-09-29 Skills Power Core implementation
+
+Latest explicit user brief authorizes bounded character exploration and slow orbit on /skills. Skills is now a standalone 2.5D chamber using separate environment, transparent core, orbiting interactive crystal buttons and the existing master character. Existing Projects walk hook accepts an optional initialPosition; its default behavior is preserved. WASD/arrows, floor click, near E/Enter, direct orb click, keyboard buttons and a direct skill selector remain available. Selection eases the chosen crystal to a front focus position, slows other orbits, opens a dismissible right panel (mobile bottom sheet), and triggers a brief skill-specific CSS effect. Escape returns focus to the selected orb. Reduced motion/paused/hidden state stops ambient motion. No score, animal, completion gate or independent Q&A nav added.
+
+Eight tools: Figma, React, Three.js (explicitly exploration; no verified implementation claim), GSAP, JavaScript, Git/GitHub, ChatGPT and Higgsfield. Actual existing project data reused; no speculative Claude/VS Code project associations. Prior global Instrument Serif typography retained with Korean fallback. Scene is layered raster + HTML/SVG/CSS/JS, not a full 3D model; background architecture/waterfalls/banners are raster art, while crystal motion, mist, character and UI are independent.
+
+Lint/build passed. qa/skills-chamber-check.cjs verifies 11 specified sizes, orbit, pointer focus/close, WASD, proximity E, reduced motion, mobile panel and image failure. Additional eight breakpoint widths 767/768, 1023/1024, 1279/1280, 1919/1920, short 720×405 viewport and unchanged Projects movement passed. Desktop/mobile screenshots inspected under docs/layered-world/skills-*.png. Physical devices, Safari and true browser 200% zoom remain unverified. Asset prompts and provenance: docs/layered-world/skills-power-core.md. This scopes movement to Skills; other WORKING decisions remain unchanged.
+
 # Personal Portfolio — current PRD entry point
+
+## 2026-09-29 Contact static reference revision
+
+Latest user instruction supersedes the auto-walk and no-card directions: match the supplied sunset composition, show four icon plaques, and do not walk. Contact.jsx/Contact.css now use a static reference-edited background with real HTML navigation, title, four SVG-icon actions and existing Q&A modal. Auto-walk, layered character, moving environment and delayed credits removed from this page; world/project movement unchanged. Email still awaits an actual address. Asset was edited using built-in imagegen, not pixel-identical to the source. Production: public/assets/production/images/contact/contact-reference-v2.webp; source: public/assets/source/contact/contact-reference-v2.png. Prompt: preserve the exact supplied scene/composition/characters/pet/lighthouse/path; remove UI logo/navigation/headings/Korean text/four cards/handwriting/footer overlays and reconstruct sky; preserve the physical wooden sign. No new UI baked into the image. Lint/build passed; static-character absence, four icons, nine viewport widths, six FAQs, Escape and Resume navigation verified. Desktop screenshot inspected. Physical devices/Safari unverified.
+
+
+## 2026-09-29 Contact Final Chapter
+
+Latest explicit Contact brief authorizes an optional automatic 2.5D journey toward a sunset beacon, with Contact actions primary and a small delayed epilogue. Standalone Contact route replaces its old DestinationFrame wrapper; existing FAQ content is now a hash-addressable native dialogue. New generated environment asset plus separate sprite/cloud/airship/light layers; existing WorldCharacter, shared Motion and real profile data reused. Email remains unavailable until the user provides an address; Resume links to the existing factual summary. No other movement/page direction is locked. Lint/build and 19-size Contact regression checks passed; desktop/mobile visuals inspected. Files, prompt, asset provenance, exact QA and limitations: docs/layered-world/contact-final-chapter.md.
+
+
+## 2026-09-29 Readable functional World HUD
+
+Latest explicit request restores the functional compass: direction needle plus camera/portrait-rail reset on click or keyboard, with visible Korean caption. Navigation keeps its existing sizing but adopts the Projects gallery navy/gold capsule and ivory text. Settings uses a new slider icon with text, matching dark panel and Korean control labels. Portrait panel sits below navigation. Changed WorldHUD.jsx, LayeredWorld.jsx, HudDetails.jsx and WorldRefinement.css; artwork, routes, stair controller and content unchanged. This supersedes the decorative-only compass direction, without locking broader movement decisions. Lint/build and 21-viewport suite passed; compass bearing/cancel/reset/Space, settings Motion/Escape and mobile reset verified. Inspected 1440×810 and 430×932. Physical devices/Safari unverified.
+
+
+## 2026-09-29 Latest ASTRA World refinement brief
+
+The newly supplied brief supersedes the functional compass request: compass is subtle decorative HUD again. Four islands and existing artwork/routes/content remain. About shifts inward/down; Contact grows about 12%; avatar grows 10% while retaining the image-space stair boundary. Initial head/shoulder attention faces About, then hover/manual input takes ownership. Labels now use ivory rectangular plaques, gold inset/corner detail and number medallions; subtitle, supporting line and Explore reveal on hover/focus/touch selection. Open top navigation replaces the glass capsule. Background contrast/saturation/clarity reduced. Numbered waypoints guide without restoring the deleted character dotted path. Revisited destinations enter immediately; first visits retain character alignment then camera travel. Movement remains a prototype, not a new locked architecture.
+
+Changed layers.config.js, LayeredWorld.jsx, WorldHUD.jsx, WorldCharacter inputs, WorldControls.jsx and WorldRefinement.css. Existing water/environment/fallback/content structure retained. Lint/build passed. Stair boundary checks passed 24 contacts over six sizes. Browser validation and limits recorded in docs/layered-world/astra-refinement.md.
+
+
+## 2026-09-29 Functional compass
+
+Latest user request makes the existing compass interactive. Its needle follows the character/look bearing; click, Enter or Space uses the existing World reset to cancel pending travel, restore the default camera and return the portrait rail to the first island. Gold/ivory design, bounded stairs, routes and content retained; no new movement decision locked. Changed WorldHUD.jsx, LayeredWorld.jsx and WorldRefinement.css. Lint/build passed; Edge checks at 1440×810 and 430×932 passed direction updates, travel cancellation without delayed navigation, keyboard activation, reduced-motion mobile reset and touch-target bounds. Physical devices/Safari unverified.
+
+
+## 2026-09-29 Latest World HUD correction
+
+User requests a design-matched decorative compass, removal of the World Quick View control and character dotted guide, and a movement flicker fix. Four destinations, top navigation and optional recommendation remain. Compass has no duplicate navigation; no routes/content are deleted by this HUD revision.
+
+## 2026-09-29 Latest approved four-destination World brief
+
+The user's final pasted brief explicitly replaces five islands with 01 About → 02 Skills → 03 Projects → 04 Contact. Q&A is integrated into Contact; /qa remains a compatibility redirect. Recommendation never gates entry. Top navigation is primary, Compass destination UI is removed, and Quick View provides immediate readable content. Preserve current art and bounded lookout movement. Recommended, hover/focus, touch preview and committed travel are distinct; stable hover gives a small look, only commit aligns the whole character before camera travel. Portrait uses large-island browsing. This supersedes conflicting five-island/compass directions below; no project facts, interiors, free island walking or gameplay progression are added.
+
+## 2026-09-29 Latest explicit World exterior revision
+
+User supplied four fantasy references and requested all five islands and background change to that appearance. Golden sunlight, blue sky and cloud ocean, ivory/gold/blue central castle, cottage island, crystal workshop, celestial observatory and lighthouse supersede the earlier terrace-only exterior direction. Independent scene layers, existing navigation, accessible direct content and real portfolio facts remain required. No companion, new movement or interior design is authorized by this exterior request.
+
 
 ## Latest explicit user brief: World HUD and lookout movement
 

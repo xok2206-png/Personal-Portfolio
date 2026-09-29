@@ -1,12 +1,7 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export function GalleryNav({paused,onPause,reduced,projects,onSelect}){
- return <header className="gallery-header">
-  <Link className="gallery-brand" to="/world-map"><b>JY</b><span>JUNYOUNG KIM<small>PORTFOLIO</small></span></Link>
-  <nav className="gallery-top-nav" aria-label="전시관 주요 메뉴">{[['World','/world-map'],['About','/about'],['Skills','/skills'],['Projects','/projects'],['Q&A','/qa'],['Contact','/contact']].map(([name,to])=><NavLink key={to} to={to} end>{name}</NavLink>)}</nav>
-  <Link className="gallery-connect" to="/contact"><span aria-hidden="true">✧</span> Let’s Connect <span aria-hidden="true">→</span></Link>
-  <details className="gallery-menu" onKeyDown={e=>{if(e.key==='Escape'){e.currentTarget.open=false;e.currentTarget.querySelector('summary').focus()}}}><summary>전시 목록 · 설정</summary><nav aria-label="전시관 메뉴">{projects.map((p,i)=><button key={p.id} onClick={e=>{e.currentTarget.closest('details').open=false;onSelect(i)}}>{p.num} {p.name}</button>)}<Link to="/quick-view">프로젝트 요약 ↗</Link><button onClick={onPause} disabled={reduced}>{reduced?'동작 줄이기 적용 중':paused?'움직임 재생':'움직임 멈추기'}</button></nav></details>
- </header>
+ return   <details className="gallery-menu gallery-secondary-tools" onKeyDown={e=>{if(e.key==='Escape'){e.currentTarget.open=false;e.currentTarget.querySelector('summary').focus()}}}><summary>전시 목록 · 설정</summary><nav aria-label="전시관 메뉴">{projects.map((p,i)=><button key={p.id} onClick={e=>{e.currentTarget.closest('details').open=false;onSelect(i)}}>{p.num} {p.name}</button>)}<Link to="/quick-view">프로젝트 요약 ↗</Link><button onClick={onPause} disabled={reduced}>{reduced?'동작 줄이기 적용 중':paused?'움직임 재생':'움직임 멈추기'}</button></nav></details>
 }
 export function GalleryIntro(){return <aside className="gallery-intro"><h2>좋은 경험이<br/>더 나은 가능성을 만듭니다.</h2><p>사용자의 일상에 스며드는<br/>의미 있는 웹 경험을 만들기 위한<br/>다양한 프로젝트를 소개합니다.</p><em>Same Ideas,<br/>A Brighter Tomorrow.</em></aside>}
 export function ProjectHUD({project,selected}){return <aside className="gallery-project-hud" aria-label="프로젝트 미리보기">

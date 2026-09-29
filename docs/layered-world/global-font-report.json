@@ -1,0 +1,425 @@
+{
+  "rows": [
+    {
+      "width": 1440,
+      "route": "/",
+      "overflow": false,
+      "koreanElements": 7,
+      "wrong": []
+    },
+    {
+      "width": 1440,
+      "route": "/world-map",
+      "overflow": false,
+      "koreanElements": 3,
+      "wrong": []
+    },
+    {
+      "width": 1440,
+      "route": "/about",
+      "overflow": false,
+      "koreanElements": 7,
+      "wrong": []
+    },
+    {
+      "width": 1440,
+      "route": "/skills",
+      "overflow": false,
+      "koreanElements": 8,
+      "wrong": []
+    },
+    {
+      "width": 1440,
+      "route": "/projects",
+      "overflow": false,
+      "koreanElements": 22,
+      "wrong": []
+    },
+    {
+      "width": 1440,
+      "route": "/projects/jaduya",
+      "overflow": false,
+      "koreanElements": 14,
+      "wrong": []
+    },
+    {
+      "width": 1440,
+      "route": "/projects/mashillo",
+      "overflow": false,
+      "koreanElements": 6,
+      "wrong": []
+    },
+    {
+      "width": 1440,
+      "route": "/projects/animal24",
+      "overflow": false,
+      "koreanElements": 15,
+      "wrong": []
+    },
+    {
+      "width": 1440,
+      "route": "/projects/sulwhasoo",
+      "overflow": false,
+      "koreanElements": 14,
+      "wrong": []
+    },
+    {
+      "width": 1440,
+      "route": "/contact",
+      "overflow": false,
+      "koreanElements": 4,
+      "wrong": []
+    },
+    {
+      "width": 1440,
+      "route": "/contact#qa",
+      "overflow": false,
+      "koreanElements": 17,
+      "wrong": []
+    },
+    {
+      "width": 1440,
+      "route": "/resume",
+      "overflow": false,
+      "koreanElements": 18,
+      "wrong": []
+    },
+    {
+      "width": 1440,
+      "route": "/quick-view",
+      "overflow": false,
+      "koreanElements": 18,
+      "wrong": []
+    },
+    {
+      "width": 1440,
+      "route": "/ending",
+      "overflow": false,
+      "koreanElements": 4,
+      "wrong": []
+    },
+    {
+      "width": 1440,
+      "route": "/character",
+      "overflow": false,
+      "koreanElements": 1,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/",
+      "overflow": false,
+      "koreanElements": 7,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/world-map",
+      "overflow": false,
+      "koreanElements": 3,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/about",
+      "overflow": false,
+      "koreanElements": 7,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/skills",
+      "overflow": false,
+      "koreanElements": 8,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/projects",
+      "overflow": false,
+      "koreanElements": 22,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/projects/jaduya",
+      "overflow": false,
+      "koreanElements": 14,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/projects/mashillo",
+      "overflow": false,
+      "koreanElements": 6,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/projects/animal24",
+      "overflow": false,
+      "koreanElements": 15,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/projects/sulwhasoo",
+      "overflow": false,
+      "koreanElements": 14,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/contact",
+      "overflow": false,
+      "koreanElements": 4,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/contact#qa",
+      "overflow": false,
+      "koreanElements": 17,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/resume",
+      "overflow": false,
+      "koreanElements": 18,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/quick-view",
+      "overflow": false,
+      "koreanElements": 18,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/ending",
+      "overflow": false,
+      "koreanElements": 4,
+      "wrong": []
+    },
+    {
+      "width": 1128,
+      "route": "/character",
+      "overflow": false,
+      "koreanElements": 1,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/",
+      "overflow": false,
+      "koreanElements": 7,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/world-map",
+      "overflow": false,
+      "koreanElements": 3,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/about",
+      "overflow": false,
+      "koreanElements": 7,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/skills",
+      "overflow": false,
+      "koreanElements": 4,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/projects",
+      "overflow": false,
+      "koreanElements": 20,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/projects/jaduya",
+      "overflow": false,
+      "koreanElements": 14,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/projects/mashillo",
+      "overflow": false,
+      "koreanElements": 6,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/projects/animal24",
+      "overflow": false,
+      "koreanElements": 15,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/projects/sulwhasoo",
+      "overflow": false,
+      "koreanElements": 14,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/contact",
+      "overflow": false,
+      "koreanElements": 4,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/contact#qa",
+      "overflow": false,
+      "koreanElements": 17,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/resume",
+      "overflow": false,
+      "koreanElements": 18,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/quick-view",
+      "overflow": false,
+      "koreanElements": 18,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/ending",
+      "overflow": false,
+      "koreanElements": 4,
+      "wrong": []
+    },
+    {
+      "width": 430,
+      "route": "/character",
+      "overflow": false,
+      "koreanElements": 1,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/",
+      "overflow": false,
+      "koreanElements": 7,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/world-map",
+      "overflow": false,
+      "koreanElements": 3,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/about",
+      "overflow": false,
+      "koreanElements": 7,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/skills",
+      "overflow": false,
+      "koreanElements": 4,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/projects",
+      "overflow": false,
+      "koreanElements": 20,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/projects/jaduya",
+      "overflow": false,
+      "koreanElements": 14,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/projects/mashillo",
+      "overflow": false,
+      "koreanElements": 6,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/projects/animal24",
+      "overflow": false,
+      "koreanElements": 15,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/projects/sulwhasoo",
+      "overflow": false,
+      "koreanElements": 14,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/contact",
+      "overflow": false,
+      "koreanElements": 4,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/contact#qa",
+      "overflow": false,
+      "koreanElements": 17,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/resume",
+      "overflow": false,
+      "koreanElements": 18,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/quick-view",
+      "overflow": false,
+      "koreanElements": 18,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/ending",
+      "overflow": false,
+      "koreanElements": 4,
+      "wrong": []
+    },
+    {
+      "width": 360,
+      "route": "/character",
+      "overflow": false,
+      "koreanElements": 1,
+      "wrong": []
+    }
+  ],
+  "errors": []
+}

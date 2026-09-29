@@ -82,8 +82,7 @@ function RealWorld() {
       </video>
       <div className="room-shade" />
 
-      <header className="real-header">
-        <Link to="/" className="real-brand" aria-label="Junyoung 홈">JUNYOUNG<small>FRONTEND DEVELOPER</small></Link>
+      <div className="real-header real-secondary-tools">
         <div className="real-utilities">
           <Link to="/quick-view" className="real-quick">QUICK VIEW <span aria-hidden="true">↗</span></Link>
           <details className="real-settings" onKeyDown={e=>{if(e.key==='Escape'){e.currentTarget.open=false;e.currentTarget.querySelector('summary').focus()}}}>
@@ -91,7 +90,7 @@ function RealWorld() {
             <div className="real-settings-panel"><strong>환경 설정</strong><button type="button" disabled={systemReduced} aria-pressed={!reduced} onClick={()=>setPaused(!paused)}>Motion <span>{reduced?'OFF':'ON'}</span></button><button type="button" aria-pressed={sound} onClick={()=>{setSound(!sound);if(!sound)tone(true)}}>Sound <span>{sound?'ON':'OFF'}</span></button><small>{systemReduced?'기기의 동작 줄이기 설정 적용 중':'Sound는 선택 효과음에 적용됩니다.'}</small></div>
           </details>
         </div>
-      </header>
+      </div>
 
       <div className={`start-copy${launching ? ' is-launching' : ''}`}>
         <p className="eyebrow">

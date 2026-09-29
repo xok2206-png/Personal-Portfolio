@@ -1,0 +1,184 @@
+{
+  "sizes": [
+    {
+      "width": 2560,
+      "height": 1440,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": false
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": false
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": false
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": false
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": false
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": false
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": true
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": true
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": true
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": true
+    },
+    {
+      "width": 767,
+      "height": 900,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": true
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": true
+    },
+    {
+      "width": 1023,
+      "height": 900,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": false
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": false
+    },
+    {
+      "width": 1279,
+      "height": 900,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": false
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": false
+    },
+    {
+      "width": 1919,
+      "height": 1080,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": false
+    },
+    {
+      "width": 1920,
+      "height": 900,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": false
+    },
+    {
+      "width": 1280,
+      "height": 600,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": false
+    },
+    {
+      "width": 2560,
+      "height": 1080,
+      "noScroll": true,
+      "nav": true,
+      "labels": true,
+      "portrait": false
+    }
+  ],
+  "checks": [
+    "four islands / top navigation / no compass / initial About recommendation",
+    "stable-hover delay / no body flip / latest hover only / neutral return / inactive motion at 60%",
+    "bounded keyboard movement / System input lock / Escape",
+    "450ms character alignment before travel / hover cannot override selection / cancel timer / latest destination wins / Contact includes 6 original FAQs",
+    "21 viewport / breakpoint / short / ultrawide bounds",
+    "200% zoom top navigation / legacy QA redirect + hash focus + reload",
+    "mobile large island rail / paging all 4 / touch reveal then enter / top navigation direct reduced route",
+    "keyboard focus + Enter / Back + Forward",
+    "image + WebGL failure retains navigation"
+  ],
+  "errors": []
+}

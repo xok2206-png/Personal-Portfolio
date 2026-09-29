@@ -1,23 +1,25 @@
+@import './gowun-batang.css';
+
 @font-face {
-  font-family: 'Fredoka';
-  src: url('/assets/production/fonts/fredoka-variable.ttf') format('truetype-variations');
-  font-weight: 300 700;
+  font-family: 'Instrument Serif';
+  src: url('/assets/production/fonts/instrument-serif-regular.ttf') format('truetype');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Pretendard';
-  src: url('/assets/production/fonts/pretendard-400.woff2') format('woff2');
-  font-weight: 400 500;
-  font-style: normal;
-  font-display: swap;
+:root {
+  --font-primary: 'Instrument Serif', 'Gowun Batang', 'Pretendard Variable', serif;
+  --font-heading: var(--font-primary);
 }
+h1, h2, h3 { font-family: var(--font-heading); }
+input, textarea, select { font-family: var(--font-primary); }
+
 
 @font-face {
-  font-family: 'Pretendard';
-  src: url('/assets/production/fonts/pretendard-700.woff2') format('woff2');
-  font-weight: 600 800;
+  font-family: 'Pretendard Variable';
+  src: url('/assets/production/fonts/pretendard-variable.woff2') format('woff2');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
@@ -29,7 +31,7 @@
 
 :root {
   --header: 88px;
-  --display: 'Fredoka', 'Pretendard', sans-serif;
+  --display:var(--font-heading);
 }
 
 * {
@@ -38,7 +40,7 @@
 
 body {
   margin: 0;
-  font-family: 'Pretendard', Arial, sans-serif;
+  font-family:var(--font-primary);
   font-synthesis: none;
 }
 
@@ -153,7 +155,7 @@ button:disabled {
 .brand small {
   display: block;
   margin-top: 6px;
-  font-family: 'Pretendard', sans-serif;
+  font-family:var(--font-primary);
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 1.4px;
@@ -309,7 +311,7 @@ dialog::backdrop {
 }
 
 .adventure-body nav a span {
-  font-family: 'Pretendard';
+  font-family:var(--font-primary);
   font-size: 10px;
   color: #5e7185;
 }
@@ -500,3 +502,14 @@ html[data-motion='reduced'] *::after {
     scroll-behavior: auto !important;
   }
 }
+
+/* Shared header floats over the page, like the Contact navigation. */
+.site-header{position:absolute;top:0;left:0;right:0;background:transparent;border-bottom:0;color:#19314d}
+.site-header .desktop-nav{font-family:var(--font-primary);font-size:17px;font-weight:400}
+.site-header .desktop-nav a::after{height:1px;background:#b79a61}
+.site-header .desktop-nav a.active::before{content:'◆';position:absolute;left:calc(50% - 5px);bottom:-1px;color:#b79a61;font-size:10px}
+.app>.destination-content,.app>#character{padding-top:calc(var(--header) + 32px)}
+.app>.destination-frame{min-height:100dvh}
+.app .destination-arrival{height:calc(260px + var(--header));padding-top:calc(32px + var(--header))}
+.app .destination-arrival img{top:calc(20px + var(--header))}
+@media(max-width:767px){.app .destination-arrival{height:calc(220px + var(--header));padding-top:calc(24px + var(--header))}.app .destination-arrival img{top:calc(24px + var(--header))}}

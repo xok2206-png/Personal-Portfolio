@@ -1,0 +1,88 @@
+{
+  "sizes": [
+    [
+      2560,
+      1440
+    ],
+    [
+      1920,
+      1080
+    ],
+    [
+      1440,
+      810
+    ],
+    [
+      1366,
+      768
+    ],
+    [
+      1180,
+      820
+    ],
+    [
+      1024,
+      768
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      430,
+      932
+    ],
+    [
+      402,
+      874
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      360,
+      800
+    ],
+    [
+      767,
+      900
+    ],
+    [
+      768,
+      900
+    ],
+    [
+      1023,
+      900
+    ],
+    [
+      1024,
+      900
+    ],
+    [
+      1279,
+      900
+    ],
+    [
+      1280,
+      900
+    ],
+    [
+      1919,
+      1080
+    ],
+    [
+      1920,
+      1080
+    ]
+  ],
+  "errors": [],
+  "checks": [
+    "Auto travel changes position, pause freezes and resume works",
+    "Six original FAQs, disclosure, Escape, Back and hash reload",
+    "Legacy QA redirect and arrow-key menu navigation",
+    "19 viewports, reduced motion, 200% zoom Resume access",
+    "Failed background retains links and Q&A"
+  ]
+}

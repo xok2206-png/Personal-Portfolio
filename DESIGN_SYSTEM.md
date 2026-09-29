@@ -1,4 +1,70 @@
+## 2026-09-29 — Sitewide font consistency follow-up
+
+Following the user's Contact correction and request to align all pages, Korean body/UI now also uses Gowun Batang, matching Korean headings. English remains Instrument Serif; Pretendard Variable is fallback only. Both shared tokens resolve to the same stack in src/index.css. This supersedes the previous body/UI Pretendard rule. Layout, content, interactions and Working/Locked scene decisions are unchanged.
+
+Validation: lint/build passed. qa/global-font-audit.cjs checked 15 route states (including four case studies and Contact Q&A) at 1440x810, 1128x963, 430x963 and 360x963: no horizontal overflow, wrong Korean computed font stack or page errors. Desktop platform-font samples show no system-font fallback. About and project-detail screenshots visually reviewed. Actual mobile hardware, Safari and 200% zoom remain unverified. Report: docs/layered-world/global-font-report.json.
+
+## 2026-09-29 — Approved Korean typography update
+
+User approved Instrument Serif for Latin, Gowun Batang for Korean headings/emotional copy, and Pretendard Variable for Korean body/UI. Shared --font-primary and --font-heading tokens now implement this across routes. Contact lead uses the heading family; controls and descriptions retain the body family. This supersedes prior typography instructions where conflicting. Existing content, routing, layout and movement decisions are unchanged.
+
+The previous static Pretendard Bold file caused the Skills heading character '넘' to fall back to Malgun Gothic. Browser platform-font inspection now confirms Gowun Batang Bold for all Korean glyphs in that heading, Gowun Batang Regular for Contact lead, and Pretendard Variable for Contact description. Gowun Batang 400/700 is self-hosted as official Google Fonts WOFF2 unicode-range subsets (190 files, 3.07 MB total; only needed subsets load); original TTFs and OFL license are retained.
+
+Validation: npm run lint and npm run build passed. Headless Edge checked 10 routes at 1440x810, 430x932 and 360x932: no horizontal overflow or page errors. Screenshots inspected for Skills and Contact desktop. Physical devices, Safari and 200% zoom not checked. Files: src/index.css, src/gowun-batang.css, heading overrides in Contact/Skills/Projects/RealWorld/PortfolioWorld styles, font assets, qa/typography-check.cjs. No Working scene decision promoted to Locked.
+
+## 2026-09-29 Skills Power Core implementation
+
+Latest explicit user brief authorizes bounded character exploration and slow orbit on /skills. Skills is now a standalone 2.5D chamber using separate environment, transparent core, orbiting interactive crystal buttons and the existing master character. Existing Projects walk hook accepts an optional initialPosition; its default behavior is preserved. WASD/arrows, floor click, near E/Enter, direct orb click, keyboard buttons and a direct skill selector remain available. Selection eases the chosen crystal to a front focus position, slows other orbits, opens a dismissible right panel (mobile bottom sheet), and triggers a brief skill-specific CSS effect. Escape returns focus to the selected orb. Reduced motion/paused/hidden state stops ambient motion. No score, animal, completion gate or independent Q&A nav added.
+
+Eight tools: Figma, React, Three.js (explicitly exploration; no verified implementation claim), GSAP, JavaScript, Git/GitHub, ChatGPT and Higgsfield. Actual existing project data reused; no speculative Claude/VS Code project associations. Prior global Instrument Serif typography retained with Korean fallback. Scene is layered raster + HTML/SVG/CSS/JS, not a full 3D model; background architecture/waterfalls/banners are raster art, while crystal motion, mist, character and UI are independent.
+
+Lint/build passed. qa/skills-chamber-check.cjs verifies 11 specified sizes, orbit, pointer focus/close, WASD, proximity E, reduced motion, mobile panel and image failure. Additional eight breakpoint widths 767/768, 1023/1024, 1279/1280, 1919/1920, short 720×405 viewport and unchanged Projects movement passed. Desktop/mobile screenshots inspected under docs/layered-world/skills-*.png. Physical devices, Safari and true browser 200% zoom remain unverified. Asset prompts and provenance: docs/layered-world/skills-power-core.md. This scopes movement to Skills; other WORKING decisions remain unchanged.
+
+## 2026-09-29 Shared Contact typography
+
+User explicitly requested the selected Contact navigation typeface across every page. Global --font-primary now uses the existing Instrument Serif asset, followed by Pretendard for Korean. Body, page/scene-specific families and --display reference this shared token; font sizes, content, routing and interaction remain unchanged. This supersedes earlier sans-first Latin typography. Updated index.css and existing font declarations in Contact, Projects, DestinationFrame, RealWorld/PortalCinematic and PortfolioWorld styles. Lint/build passed. Headless Edge verified font loading, computed main font family and no horizontal overflow on ten routes at 1440×810 and 430×932. Physical devices, Safari and 200% zoom not checked in this revision.
+
 # PERSONAL PORTFOLIO --- DESIGN SYSTEM v2 FINAL
+
+## 2026-09-29 Contact static reference revision
+
+Latest user instruction supersedes the auto-walk and no-card directions: match the supplied sunset composition, show four icon plaques, and do not walk. Contact.jsx/Contact.css now use a static reference-edited background with real HTML navigation, title, four SVG-icon actions and existing Q&A modal. Auto-walk, layered character, moving environment and delayed credits removed from this page; world/project movement unchanged. Email still awaits an actual address. Asset was edited using built-in imagegen, not pixel-identical to the source. Production: public/assets/production/images/contact/contact-reference-v2.webp; source: public/assets/source/contact/contact-reference-v2.png. Prompt: preserve the exact supplied scene/composition/characters/pet/lighthouse/path; remove UI logo/navigation/headings/Korean text/four cards/handwriting/footer overlays and reconstruct sky; preserve the physical wooden sign. No new UI baked into the image. Lint/build passed; static-character absence, four icons, nine viewport widths, six FAQs, Escape and Resume navigation verified. Desktop screenshot inspected. Physical devices/Safari unverified.
+
+
+## 2026-09-29 Contact Final Chapter
+
+Latest explicit Contact brief authorizes an optional automatic 2.5D journey toward a sunset beacon, with Contact actions primary and a small delayed epilogue. Standalone Contact route replaces its old DestinationFrame wrapper; existing FAQ content is now a hash-addressable native dialogue. New generated environment asset plus separate sprite/cloud/airship/light layers; existing WorldCharacter, shared Motion and real profile data reused. Email remains unavailable until the user provides an address; Resume links to the existing factual summary. No other movement/page direction is locked. Lint/build and 19-size Contact regression checks passed; desktop/mobile visuals inspected. Files, prompt, asset provenance, exact QA and limitations: docs/layered-world/contact-final-chapter.md.
+
+
+## 2026-09-29 Readable functional World HUD
+
+Latest explicit request restores the functional compass: direction needle plus camera/portrait-rail reset on click or keyboard, with visible Korean caption. Navigation keeps its existing sizing but adopts the Projects gallery navy/gold capsule and ivory text. Settings uses a new slider icon with text, matching dark panel and Korean control labels. Portrait panel sits below navigation. Changed WorldHUD.jsx, LayeredWorld.jsx, HudDetails.jsx and WorldRefinement.css; artwork, routes, stair controller and content unchanged. This supersedes the decorative-only compass direction, without locking broader movement decisions. Lint/build and 21-viewport suite passed; compass bearing/cancel/reset/Space, settings Motion/Escape and mobile reset verified. Inspected 1440×810 and 430×932. Physical devices/Safari unverified.
+
+
+## 2026-09-29 Latest ASTRA World refinement brief
+
+The newly supplied brief supersedes the functional compass request: compass is subtle decorative HUD again. Four islands and existing artwork/routes/content remain. About shifts inward/down; Contact grows about 12%; avatar grows 10% while retaining the image-space stair boundary. Initial head/shoulder attention faces About, then hover/manual input takes ownership. Labels now use ivory rectangular plaques, gold inset/corner detail and number medallions; subtitle, supporting line and Explore reveal on hover/focus/touch selection. Open top navigation replaces the glass capsule. Background contrast/saturation/clarity reduced. Numbered waypoints guide without restoring the deleted character dotted path. Revisited destinations enter immediately; first visits retain character alignment then camera travel. Movement remains a prototype, not a new locked architecture.
+
+Changed layers.config.js, LayeredWorld.jsx, WorldHUD.jsx, WorldCharacter inputs, WorldControls.jsx and WorldRefinement.css. Existing water/environment/fallback/content structure retained. Lint/build passed. Stair boundary checks passed 24 contacts over six sizes. Browser validation and limits recorded in docs/layered-world/astra-refinement.md.
+
+
+## 2026-09-29 Functional compass
+
+Latest user request makes the existing compass interactive. Its needle follows the character/look bearing; click, Enter or Space uses the existing World reset to cancel pending travel, restore the default camera and return the portrait rail to the first island. Gold/ivory design, bounded stairs, routes and content retained; no new movement decision locked. Changed WorldHUD.jsx, LayeredWorld.jsx and WorldRefinement.css. Lint/build passed; Edge checks at 1440×810 and 430×932 passed direction updates, travel cancellation without delayed navigation, keyboard activation, reduced-motion mobile reset and touch-target bounds. Physical devices/Safari unverified.
+
+
+## 2026-09-29 Latest compass and World HUD correction
+
+Restore a restrained decorative compass: fine gold ring/ticks, ivory/navy directional star, small cardinal letters at bottom-right. It is non-interactive and does not reopen a destination map. Remove World Quick View and the dotted character-to-recommendation path. Preserve island label recommendation diamonds and primary top navigation. This supersedes previous compass removal/Quick View restoration instructions below.
+
+## 2026-09-29 Latest four-island focus and hierarchy
+
+Explicit final brief: primary 2560×1440; four islands, relative widths Projects 100%, Skills 75%, About 70%, Contact 68%. About upper-left, Skills lower-center-left, Projects central-upper, Contact right-center. Keep current golden art; reduce backdrop/airship saturation and contrast with pale-blue distance haze, never a black overlay. Labels use tiny gold 01–04 and title only; short secondary/CTA reveal on hover, focus and touch preview. Recommendation gold diamond is weaker than hover and cyan/gold selection. Top nav WORLD/ABOUT/SKILLS/PROJECTS/CONTACT; no compass map; Quick View + System retained. Character hover dwell 240ms, subtle upper-body response, commit pose blend 450ms before 1.55s total travel. Portrait uses large native scroll-snap island browsing with top navigation. These user-approved layout/interaction revisions supersede older five-island and compass instructions below; interiors remain undecided.
+
+## 2026-09-29 Latest World exterior reference
+
+The supplied golden fantasy references now govern the World exterior: warm sunset left, rich blue sky/crescent planet right, luminous cloud ocean, deep faceted floating cliffs, ivory architecture with gold and royal blue detail. Five distinct independent islands remain: cottage, crystal workshop, central monumental castle, celestial observatory and lighthouse. This supersedes the terrace-only exterior direction below; existing HUD, typography, navigation and interior decision states remain.
+
 
 ## Latest System and introduction treatment
 

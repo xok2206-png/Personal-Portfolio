@@ -1,0 +1,168 @@
+{
+  "checks": [
+    "decorative compass only; Quick View control and character dotted path absent",
+    "all four movement directions: complementary pose alpha and no compounded idle/walk fades",
+    "sprite loop/endpoints stay inside four valid cells; no empty fifth frame",
+    "compass safe areas at six desktop/mobile viewports",
+    "reduced motion movement + direct navigation",
+    "cold-load movement keeps static character until walk atlas decodes",
+    "failed walk atlas retains visible static character"
+  ],
+  "samples": [
+    {
+      "key": "d",
+      "total": 1
+    },
+    {
+      "key": "d",
+      "total": 1
+    },
+    {
+      "key": "d",
+      "total": 1
+    },
+    {
+      "key": "d",
+      "total": 1
+    },
+    {
+      "key": "d",
+      "total": 1
+    },
+    {
+      "key": "d",
+      "total": 1
+    },
+    {
+      "key": "d",
+      "total": 1
+    },
+    {
+      "key": "w",
+      "total": 1
+    },
+    {
+      "key": "w",
+      "total": 1
+    },
+    {
+      "key": "w",
+      "total": 1
+    },
+    {
+      "key": "w",
+      "total": 1
+    },
+    {
+      "key": "w",
+      "total": 1
+    },
+    {
+      "key": "w",
+      "total": 1
+    },
+    {
+      "key": "w",
+      "total": 1
+    },
+    {
+      "key": "a",
+      "total": 1
+    },
+    {
+      "key": "a",
+      "total": 1
+    },
+    {
+      "key": "a",
+      "total": 1
+    },
+    {
+      "key": "a",
+      "total": 1
+    },
+    {
+      "key": "a",
+      "total": 1
+    },
+    {
+      "key": "a",
+      "total": 1.0000004
+    },
+    {
+      "key": "a",
+      "total": 1
+    },
+    {
+      "key": "s",
+      "total": 1
+    },
+    {
+      "key": "s",
+      "total": 1
+    },
+    {
+      "key": "s",
+      "total": 1
+    },
+    {
+      "key": "s",
+      "total": 1.0000005
+    },
+    {
+      "key": "s",
+      "total": 1
+    },
+    {
+      "key": "s",
+      "total": 1
+    },
+    {
+      "key": "s",
+      "total": 1
+    }
+  ],
+  "errors": [],
+  "frames": [
+    {
+      "t": 0,
+      "x": 0
+    },
+    {
+      "t": 159.99,
+      "x": 0
+    },
+    {
+      "t": 160,
+      "x": -0.25000048227634436
+    },
+    {
+      "t": 319.99,
+      "x": -0.25000048227634436
+    },
+    {
+      "t": 320,
+      "x": -0.4999996784824371
+    },
+    {
+      "t": 479.99,
+      "x": -0.4999996784824371
+    },
+    {
+      "t": 480,
+      "x": -0.7500001607587815
+    },
+    {
+      "t": 639.99,
+      "x": -0.7500001607587815
+    },
+    {
+      "t": 640,
+      "x": 0
+    },
+    {
+      "t": 1280,
+      "x": 0
+    }
+  ]
+}

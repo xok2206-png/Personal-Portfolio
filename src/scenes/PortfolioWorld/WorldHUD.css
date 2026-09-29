@@ -23,7 +23,7 @@
 .lw-hero{position:absolute;left:6%;top:22%;width:23%;max-width:440px;isolation:isolate}
 .lw-hero::before{content:'';position:absolute;z-index:-1;inset:-32px -24px;background:radial-gradient(ellipse,#f6f7f2e8 15%,#f5f7f0aa 50%,transparent 73%);filter:blur(12px)}
 .lw-eyebrow{font-size:clamp(11px,.95vw,17px);line-height:1.6;margin:0 0 24px;letter-spacing:.02em}
-.lw-hero h1{font-family:'Portfolio Pretendard',sans-serif;font-size:clamp(24px,2.15vw,42px);letter-spacing:-.045em;line-height:1.25;font-weight:650;margin:0;color:var(--hud-ink)}
+.lw-hero h1{font-family:var(--font-heading);font-size:clamp(24px,2.15vw,42px);letter-spacing:-.045em;line-height:1.25;font-weight:650;margin:0;color:var(--hud-ink)}
 .lw-hero h1 span{color:#2563a0}.lw-hero h1:focus{outline:none}
 .lw-hero-body{font-size:clamp(11px,.98vw,17px);line-height:1.7;margin:20px 0 0}
 .lw-label{border:1px solid #b79a61bb;border-radius:12px;color:var(--hud-ink);background:linear-gradient(135deg,#fffdf1eb,#dfedfae3);box-shadow:inset 0 0 0 3px #fffc;text-shadow:none;padding:10px 16px;gap:5px;backdrop-filter:blur(3px);transition:border-color .3s,box-shadow .3s}

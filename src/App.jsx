@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import AppRouter from './app/router.jsx'
+import PageHeader from './components/PageHeader.jsx'
 import { PortfolioUIContext } from './app/PortfolioUIContext.jsx'
 
 const ICON_PATHS = {
@@ -53,7 +54,6 @@ function NavMenu({ location, onClose }) {
     ['ABOUT', '/about'],
     ['SKILLS', '/skills'],
     ['PROJECTS', '/projects'],
-    ['Q&A', '/qa'],
     ['CONTACT', '/contact'],
   ]
 
@@ -130,6 +130,7 @@ function App() {
 
   const dark = location.pathname === '/'
   const worldMode = location.pathname === '/world-map'
+  const hasSceneHeader = ['/', '/world-map', '/projects', '/skills', '/contact', '/ending'].includes(location.pathname)
   const reduced = systemReduced || paused
 
   useEffect(() => {
@@ -147,8 +148,24 @@ function App() {
   useEffect(() => {
     setMenuOpen(false)
     window.scrollTo(0, 0)
-    const timer = setTimeout(() => document.querySelector('h1')?.focus({ preventScroll: true }), 150)
-    return () => clearTimeout(timer)
+    // Move focus off the previous navigation control, including lazy-loaded scenes.
+    const movementRoute = ['/world-map', '/projects', '/skills'].includes(location.pathname)
+    const observer = new MutationObserver(focusDestination)
+    let timer
+    function focusDestination() {
+      const main = document.getElementById('main')
+      if (!main || main.closest('[aria-busy="true"]')) return
+      if (movementRoute && !main.matches('.layered-world, .project-gallery, .skill-chamber')) return
+      const target = movementRoute ? main : main.querySelector('h1') || main
+      if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1')
+      target.focus({ preventScroll: true })
+      observer.disconnect()
+    }
+    timer = setTimeout(() => {
+      observer.observe(document.body, { childList: true, subtree: true })
+      focusDestination()
+    }, 150)
+    return () => { clearTimeout(timer); observer.disconnect() }
   }, [location.pathname])
 
   function tone(force = false) {
@@ -175,39 +192,15 @@ function App() {
     }
   }
 
-  const links = [
-    ['ABOUT', '/about'],
-    ['SKILLS', '/skills'],
-    ['PROJECTS', '/projects'],
-    ['Q&A', '/qa'],
-    ['CONTACT', '/contact'],
-  ]
-
   return (
     <PortfolioUIContext.Provider value={{ reduced, systemReduced, paused, setPaused, sound, setSound, tone }}>
-      <div className={`app ${dark ? 'dark' : 'light'} ${worldMode ? 'world-mode' : ''} ${location.pathname === '/projects' ? 'gallery-mode' : ''}`}>
+      <div className={`app ${dark ? 'dark' : 'light'} ${worldMode ? 'world-mode' : ''} ${location.pathname === '/projects' ? 'gallery-mode' : ''} ${location.pathname === '/contact' ? 'contact-mode' : ''} ${location.pathname === '/skills' ? 'skills-mode' : ''}`}>
         <a href="#main" className="skip-link">
           본문으로 건너뛰기
         </a>
 
-        {!dark && <header className="site-header">
-          <Link to="/" className="brand">
-            <span className="brand-icon">{worldMode ? 'JY' : <Icon name="star" size={22} />}</span>
-            <span>
-              {worldMode ? <>JUNYOUNG KIM</> : <>MY PORTFOLIO <b>WORLD</b></>}
-              <small>JUNYOUNG · DESIGNER &amp; DEVELOPER</small>
-            </span>
-          </Link>
-
-          <nav className="desktop-nav" aria-label="주요 메뉴">
-            {links.map(([title, to]) => (
-              <NavLink key={to} to={to}>
-                {title}
-              </NavLink>
-            ))}
-          </nav>
-
-          <div className="header-controls">
+        {!worldMode && <PageHeader light={!hasSceneHeader}/>}
+        {!hasSceneHeader && (          <div className="page-utilities">
             <Link to="/world-map" className="map-link">
               <Icon name="map" />
               <span>WORLD MAP</span>
@@ -239,8 +232,8 @@ function App() {
             >
               <Icon name="menu" />
             </button>
-          </div>
-        </header>}
+          </div>)}
+
 
         <AppRouter />
 
@@ -251,4 +244,3 @@ function App() {
 }
 
 export default App
-

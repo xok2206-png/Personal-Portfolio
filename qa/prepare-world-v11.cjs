@@ -1,0 +1,5 @@
+const sharp = require('C:/Users/EZEN/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp')
+const fs = require('node:fs/promises')
+const root = 'C:/Users/EZEN/.codex/generated_images/01a0ea91-9886-7f91-8b41-d25345a64521/'
+const assets = {background:'7b327986-9cb2-4ddf-8db0-04a9bdd657e0',projects:'b8a1367e-3228-46a4-95fa-e4ae728ee239',about:'8b5efc42-69ba-4464-8bbd-4f9037323560',skills:'67bd1744-1b48-408f-b5a3-70891693d929',qa:'0471e52c-799c-4635-b048-81a71bbabace',contact:'2e3b1820-95b9-4400-bd60-ae7aefaaf15a',lookout:'df6d3799-98ba-4e95-aa4a-995257805695'}
+;(async()=>{for(const [name,id] of Object.entries(assets)){const source=root+'exec-'+id+'.png';await fs.copyFile(source,'public/assets/source/world-layers/'+name+'-golden-v11.png');const meta=await sharp(source).metadata();if(name!=='background'&&!meta.hasAlpha)throw new Error(name+': missing alpha');await sharp(source).webp({quality:92,alphaQuality:100}).toFile('public/assets/production/images/world-layers/'+name+'-golden-v11.webp');console.log(name,meta.width,meta.height,meta.hasAlpha)}})().catch(e=>{console.error(e);process.exitCode=1})
