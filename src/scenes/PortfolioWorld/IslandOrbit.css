@@ -1,17 +1,12 @@
-/* Central citadel with three smaller satellites on an implied elliptical orbit. */
+/* Bound the desktop archipelago by both viewport height and a maximum stage width. */
 @media(min-aspect-ratio:1/1){
- .world-refined .lw-islands .lw-projects{left:38%!important;top:9%!important;width:35%!important;--wide-width:35;z-index:2}
- .world-refined .lw-islands .lw-about{left:10%!important;top:22%!important;width:24%!important;--wide-width:24;z-index:1}
- .world-refined .lw-islands .lw-skills{left:29%!important;top:57%!important;width:21%!important;--wide-width:21;z-index:3}
- .world-refined .lw-islands .lw-contact{left:73%!important;top:46%!important;width:21%!important;--wide-width:21;z-index:3}
- .world-refined .lw-islands .lw-island:not(.lw-projects) .lw-ribbon-label{width:clamp(160px,15vw,230px)}
- .world-refined .lw-islands .lw-projects .lw-ribbon-label{width:clamp(220px,20vw,310px)}
-}
-@media(min-aspect-ratio:2/1){
- .world-refined .lw-islands .lw-projects{left:38%!important;width:29%!important;top:10%!important}
- .world-refined .lw-islands .lw-about{left:15%!important;width:20%!important;top:22%!important}
- .world-refined .lw-islands .lw-skills{left:34%!important;width:19%!important;top:53%!important}
- .world-refined .lw-islands .lw-contact{left:71%!important;width:18%!important;top:45%!important}
+ .world-refined .lw-islands{width:min(100%,1800px);left:50%;right:auto;transform:translateX(-50%)}
+ .world-refined .lw-islands .lw-projects{left:52%!important;top:12%!important;width:min(32vw,55svh,660px)!important;--wide-width:29;z-index:2}
+ .world-refined .lw-islands .lw-about{left:24%!important;top:22%!important;width:min(20vw,34svh,420px)!important;--wide-width:20;z-index:1}
+ .world-refined .lw-islands .lw-skills{left:34%!important;top:55%!important;width:min(18vw,30svh,370px)!important;--wide-width:18;z-index:3}
+ .world-refined .lw-islands .lw-contact{left:59%!important;top:64%!important;width:min(18vw,30svh,370px)!important;--wide-width:18;z-index:3}
+ .world-refined .lw-islands .lw-island:not(.lw-projects) .lw-ribbon-label{width:clamp(140px,13vw,210px);max-width:88%}
+ .world-refined .lw-islands .lw-projects .lw-ribbon-label{width:clamp(190px,17vw,270px);max-width:85%}
 }
 /* Light pools are aligned to the new landmarks; old traced windows are omitted. */
 .world-refined .lw-landmark-detail{display:none}

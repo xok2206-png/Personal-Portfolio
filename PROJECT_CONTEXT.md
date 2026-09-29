@@ -1251,3 +1251,10 @@ WorldAtlas.jsx/css now use one Web Animations timeline for paper reveal and pair
 - Desktop world islands now follow a spaced curve: About left, Skills rising toward center, Projects upper right, Contact lower right with compass clearance. Portrait browsing remains unchanged.
 - Shared NextDestination links connect About → Skills → Projects → Contact → World Map; use the shared voyage transition while retaining direct link semantics and reduced-motion navigation.
 - Lint/build passed. Browser navigation verified across the full sequence at 1440px and 390px; desktop 1440×810 layout inspected. No locked decisions changed.
+
+
+### 2026-09-29 — Desktop island scale correction
+- Replaced viewport-width-only island sizing with width/viewport-height/pixel caps (Projects 620px; About 420px; Skills/Contact 370px). Desktop island layer is centered and capped at 1800px, retaining the central citadel composition. Portrait carousel unchanged.
+- Verified island bounds/screenshots at 1920×1080, 1440×810, 1007×963, 2560×1440 and 390×844; desktop screenshot visually inspected. Lint/build passed. Working visual refinement only.
+
+- Follow-up: user requested an upper-right Projects landmark wrapped by a semicircle of About (left), Skills (lower-left), Contact (below). Desktop positions updated; Projects cap is now 660px/55svh. Other island caps and portrait carousel preserved. Desktop captures at 1440×810, 1920×1080 and 1007×963.
