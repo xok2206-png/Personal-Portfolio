@@ -1,0 +1,3 @@
+
+## Reference reconstruction v3
+Background edited directly from user reference codex-clipboard-a31d3232-0933-4ed0-a241-19a83b19ace0.png: remove people, all text/UI, retain close atelier framing, sketch wall, draped arch, floating castle city and crowded foreground desk. Built-in output exec-d49a7440-8333-4f7a-ada0-6af622a4c7d6.png; source/about/atelier-reference-v3.png and production/images/about/atelier-reference-v3.webp. Character remains separate existing-identity v2 asset by prior requirement. Desktop name enlarged, seated composition enlarged, panel narrowed and moved right; qualitative traits/quote paired. No numerical traits.
