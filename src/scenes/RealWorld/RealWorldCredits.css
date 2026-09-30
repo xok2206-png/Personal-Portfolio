@@ -62,7 +62,7 @@
   margin: 0; pointer-events: auto;
 }
 .start-scene.cinematic-credits .enter-world-button,
-.start-scene.cinematic-credits .enter-world-button:is(:hover,:focus-visible) {
+.start-scene.cinematic-credits .enter-world-button:where(:hover,:focus-visible) {
   width: auto; min-height: 64px; padding: 0 4px 0 0; gap: 20px;
   color: var(--credit-white); background: transparent;
   border: 0; border-radius: 32px; box-shadow: none; backdrop-filter: none;
@@ -115,3 +115,118 @@ html[data-motion='reduced'] .cinematic-credits .gateway-arrow,html[data-motion='
 .cinematic-credits .room-shade { pointer-events: none; transition: opacity .75s ease; }
 .cinematic-credits.is-launching .room-shade { opacity: 0; }
 .cinematic-credits .real-world-media .start-video { z-index: 0; transform: none; filter: none; }
+
+/* User reference, 2026-10-01: handwritten introduction beside the window. */
+@font-face {
+  font-family: 'Griun DUJUNDUJUN';
+  src: url('/assets/production/fonts/griun-dujundujun-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+.start-scene.cinematic-credits {
+  --credit-gutter: 9vw;
+  --credit-top: max(5.5svh,env(safe-area-inset-top));
+  --credit-bottom: max(48px,6svh);
+}
+.start-scene.cinematic-credits .real-world-brand { font-size: 40px; }
+.cinematic-credits .real-credit-copy {
+  top: 23svh; bottom: auto; width: 48%;
+}
+.start-scene.cinematic-credits .start-copy h1 {
+  font-family: 'Griun DUJUNDUJUN','SUIT',sans-serif;
+  font-size: clamp(40px,3.2vw,72px);
+  font-weight: 400; line-height: 1.45; letter-spacing: 0;
+}
+.start-scene.cinematic-credits .start-copy h1 :is(strong,span) {
+  font-family: inherit; font-weight: inherit;
+}
+.cinematic-credits .real-credit-highlight {
+  position: relative; display: inline-block; isolation: isolate;
+}
+.cinematic-credits .credit-entry-circle { order: 1; }
+.start-scene.cinematic-credits .enter-world-button {
+  justify-content: space-between; width: 100%; padding: 0;
+  font-size: 20px; font-weight: 400; letter-spacing: .16em;
+}
+.cinematic-credits .real-credit-identity { margin-top: 16px; }
+.start-scene.cinematic-credits .journey-direct { top: 100%; }
+@media(max-width:1023px) and (min-aspect-ratio:1/1) {
+  .start-scene.cinematic-credits { --credit-gutter: 5vw; }
+}
+@media(max-width:767px),(max-aspect-ratio:1/1) {
+  .start-scene.cinematic-credits {
+    --credit-gutter: 24px;
+    --credit-top: max(24px,env(safe-area-inset-top));
+    --credit-bottom: max(48px,env(safe-area-inset-bottom));
+  }
+  .start-scene.cinematic-credits .real-world-brand { font-size: 32px; }
+  .cinematic-credits .real-credit-copy { top: 22svh; bottom: auto; width: calc(100% - var(--credit-gutter)*2); }
+  .start-scene.cinematic-credits .start-copy h1 { font-size: clamp(32px,6vw,48px); line-height: 1.5; }
+  .start-scene.cinematic-credits .gateway { bottom: var(--credit-bottom); }
+  .start-scene.cinematic-credits .enter-world-button { font-size: 16px; }
+  .cinematic-credits .real-credit-identity { font-size: 12px; }
+}
+@media(max-height:620px) and (min-aspect-ratio:1/1) {
+  .start-scene.cinematic-credits { --credit-top: 12px; --credit-bottom: 48px; --credit-gutter: 32px; }
+  .cinematic-credits .real-credit-copy { top: 28svh; width: 52%; }
+  .start-scene.cinematic-credits .start-copy h1 { font-size: 32px; }
+  .start-scene.cinematic-credits .gateway { left: auto; right: var(--credit-gutter); bottom: 48px; }
+  .cinematic-credits .credit-entry-circle { width: 44px; height: 44px; flex-basis: 44px; }
+  .start-scene.cinematic-credits .enter-world-button { min-height: 44px; font-size: 14px; }
+  .cinematic-credits .real-credit-identity { font-size: 12px; margin-top: 8px; }
+  .start-scene.cinematic-credits .journey-direct { position: absolute; left: auto; right: 0; }
+}
+
+/* Quiet, consistent controls over the cinematic scene. */
+.start-scene.cinematic-credits .enter-world-button { transform: none; }
+.cinematic-credits .credit-entry-circle { transition: background .22s ease, transform .22s ease; }
+.cinematic-credits .credit-entry-label { position: relative; }
+.cinematic-credits .credit-entry-label::after {
+  content: ''; position: absolute; left: 0; right: .16em; bottom: -8px;
+  height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left;
+  transition: transform .24s ease;
+}
+.cinematic-credits .enter-world-button:is(:hover,:focus-visible) .credit-entry-label::after { transform: scaleX(1); }
+.cinematic-credits .enter-world-button:is(:hover,:focus-visible) .credit-entry-circle { background: var(--credit-muted); }
+.cinematic-credits .enter-world-button:active .credit-entry-circle { transform: scale(.94); }
+.start-scene.cinematic-credits .real-secondary-action {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 44px; padding: 8px 0; color: var(--credit-muted);
+  border: 0; border-radius: 0; background: transparent;
+  font: 400 12px/1.5 'SUIT',sans-serif; letter-spacing: 0;
+  text-decoration: none; cursor: pointer; transition: color .2s ease;
+}
+.real-secondary-action>span { position: relative; }
+.real-secondary-action>span::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 1px;
+  background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .2s ease;
+}
+.start-scene.cinematic-credits .real-secondary-action:is(:hover,:focus-visible) { color: var(--credit-white); }
+.real-secondary-action:is(:hover,:focus-visible)>span::after { transform: scaleX(1); }
+.real-action-icon { flex: 0 0 16px; transition: transform .2s ease; }
+.real-secondary-action:is(:hover,:focus-visible) .real-action-icon { transform: translateX(3px); }
+.real-secondary-action:active .real-action-icon { transform: translateX(1px); }
+.cinematic-credits .portal-actions {
+  padding: 8px 20px; background: #080d18eb; gap: 24px;
+}
+.cinematic-credits .real-credit-highlight::before {
+  content: ''; position: absolute; z-index: -1; left: 0; right: 0; top: 48%; bottom: 9%;
+  background: #FFC928; transform-origin: left; animation: credit-marker-draw .65s .15s ease both;
+  transition: scale .25s ease;
+}
+.cinematic-credits h1:hover .real-credit-highlight::before { scale: 1.04 1.1; }
+@keyframes credit-marker-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+html[data-motion='reduced'] .cinematic-credits :is(.credit-entry-circle,.real-action-icon) { animation: none; transition: none; }
+@media(prefers-reduced-motion:reduce) {
+  .cinematic-credits :is(.credit-entry-circle,.real-action-icon) { animation: none; transition: none; }
+}
+html[data-motion='reduced'] .cinematic-credits .real-credit-highlight::before,
+html[data-motion='reduced'] .cinematic-credits .credit-entry-label::after,
+html[data-motion='reduced'] .cinematic-credits .real-secondary-action>span::after { animation: none; transition: none; }
+@media(prefers-reduced-motion:reduce) {
+  .cinematic-credits .real-credit-highlight::before,
+  .cinematic-credits .credit-entry-label::after,
+  .cinematic-credits .real-secondary-action>span::after { animation: none; transition: none; }
+}
+

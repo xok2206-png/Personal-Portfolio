@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './PortalCinematic.css'
+import RealWorldActionIcon from './RealWorldActionIcon.jsx'
 
 const AMBIENT_CLIP = '/assets/start-ambient.mp4'
 const PORTAL_CLIP = '/assets/production/video/premium-to-portal-preview.mp4'
@@ -161,8 +162,8 @@ export default function PortalCinematic({ active = false, onArrive, reduced }) {
     </div>
     {active && <section className="portal-cinematic" aria-label="현실에서 포트폴리오 세계로 이동">
       <div className="portal-actions">
-        <Link to="/projects">프로젝트 바로 보기 <span aria-hidden="true">↗</span></Link>
-        <button type="button" onClick={finish} autoFocus>연출 건너뛰기 <span aria-hidden="true">↗</span></button>
+        <Link className="real-secondary-action" to="/projects"><span>프로젝트 바로 보기</span><RealWorldActionIcon /></Link>
+        <button className="real-secondary-action" type="button" onClick={finish} autoFocus><span>연출 건너뛰기</span><RealWorldActionIcon skip /></button>
       </div>
     </section>}
   </>

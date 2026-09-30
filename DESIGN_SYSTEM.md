@@ -1,7 +1,7 @@
 # PERSONAL PORTFOLIO --- DESIGN SYSTEM v3 FINAL
 
 **Status:** FINAL\
-**Updated:** 2026-09-30\
+**Updated:** 2026-10-01\
 **Core:** Natural Fantasy Adventure × Minimal Portfolio UI\
 **Primary:** 1440×810 Desktop / 430×932 Mobile\
 **Principle:** Portfolio First
@@ -236,6 +236,71 @@ Skills 최종 Orbit/Toolkit/이동 방식 또는 모든 페이지 공간을 LOCK
 - 3안의 풀스크린 UI·SUIT·색상·소개·CTA를 유지한다. 재방문도 같은 순서로 재생한다.
   직접 입장·건너뛰기, Reduced Motion/Motion OFF, 비활성 탭 정지,
   영상 오류/8초 재생 대기 시 콘텐츠 접근 복구를 제공한다.
+
+## 01.5 About — 아침 작업실과 공통 Object HUD — 2026-10-01
+
+2026-09-30 사용자 About 제작 요청에 따라 이 페이지의 기존 Warm Afternoon을
+**Morning Natural Lighting**으로 조정한다. 최신 About 작업에 한정한 결정이며,
+다른 페이지의 공간·팔레트·이동 방식은 변경하지 않는다.
+
+- **환경:** 2026-10-01 최신 첨부 이미지와 “너무 크다”는 사용자 정정에 따라
+  가까운 실내 책상 구도를 **뒤로 물러난 시점의 열린 작업실 테라스**로 교체한다.
+  왼쪽의 작은 작업 책상, 뒤쪽 보드·책장·건물, 오른쪽 보관 상자와 하늘,
+  중앙의 열린 이동 바닥이 함께 보이는 구도다. 기존 Morning Blue, Ivory 햇빛,
+  Warm Brown 목재, Muted Green 및 무광·회화적 2.5D 재질을 유지한다.
+  캐릭터도 공간에 맞게 줄인다. 레퍼런스의 글자·UI·캐릭터는 배경에 넣지 않는다.
+  원본/운영 이미지와 제작 프롬프트는 `docs/about-studio/wide-atelier-prompt.md`에 기록한다.
+- **About UI 색상 (2026-10-01 최신 요청):** Navy 중심 정보창을 기존 Ink 97% 표면과
+  Ivory/Cloud/Stone 텍스트로 변경한다. 새 색상 토큰은 추가하지 않는다.
+  기존 Navy는 환경 그림자에만 남긴다. UI의 Yellow 강조는 Ivory로 통일한다.
+- **Typography:** About Display만 Marcellus 400. 나머지는 모두 SUIT.
+  한 줄 Prompt의 물건 이름 14px/600, 동작·Key Cap 12px. 본문 16px,
+  패널 구분 제목 14px, 내용 제목 24px. 기존 spacing/radius family를 사용한다.
+- **Object:** 노트북=Profile, 책장=Journey, 노트=Process, 보드=Values,
+  상자=Archive. 2026-10-01 최신 사용자 요청은 **상시 색상·번호 카드를 없애고
+  물건 자체의 빛으로 발견성을 표현**하는 것이다. 기존 Ivory/Cloud로 실제 물건의
+  윤곽과 모서리에만 국소 조명을 얹는다. 최신 명시 요청에 따라 **다섯 선택 대상은
+  기본 상태에도 기존 Hover 수준의 빛을 유지**한다. 장식 사물에는 적용하지 않는다.
+  각 아이템 아래 24px E 키를 상시 표시하고 Hover/Focus/근접 시 물건 이름과
+  살펴보기 문구를 작게 추가한다. 터치에서는 E 대신 열기를 표시한다.
+  최신 요청에 따라 기본 조명은 4.8초 주기로 은은하게 밝아졌다 돌아오며 꺼지지 않는다.
+  2026-10-01 추가 요청: 모서리 Glint는 3.8초 주기로 크기·밝기가 반짝이며 대상별 시작 시점을 엇갈리게 한다.
+  선택 시 표식과 빛을 숨기고 Reduced Motion에서는 고정 조명으로 유지한다.
+  최소 44px 클릭 영역과 키보드 Focus 표시를 유지하며 본문은 선택해야 열린다.
+- **공통 HUD:** 다섯 항목의 Header/Grid/Padding/닫기/Footer를 공유한다.
+  2026-10-01 사용자 승인: 젤다 아이템 설명창의 형태를 참고해 정보 패널만 Ink 94% 표면,
+  Ivory 본문, Stone400 왼쪽 4px 세로선과 12px 모서리 절삭을 적용한다.
+  둘레 테두리·둥근 모서리·헤더 장식 구분선은 없애고 하단 조작 영역은 유지한다.
+  기존 토큰을 사용하며 청록 발광·게임 고유 문양은 도입하지 않는다.
+  2026-10-01 사용자 정정에 따라 **모든 화면에서 한 화면의 작업실 + 오른쪽 소형
+  패널**을 유지한다. About은 `100dvh`, 하단 콘텐츠 섹션과 페이지 스크롤은 없다.
+  Desktop 패널 폭은 최대 360px, 높이는 최대 560px이며 작은 화면은
+  오른쪽 16px/위 80px 여백 안에 맞춘다. 본문만 스크롤하고 닫기는 고정한다.
+  하단 시트 전환, 배경 Blur/Glass/전체 Glow/중앙 흰색 Modal은 사용하지 않는다.
+  선택 시 6% 카메라 확대와 300ms 패널 진입, Reduced Motion/Motion OFF에서는 생략한다.
+- **환경 움직임:** 열린 하늘의 구름, 바람에 반응하는 식물, 바닥의 햇빛·구름 그림자,
+  컵의 김을 독립적으로 움직인다. 배경 전체의 확대·이동 반복은 사용하지 않는다.
+  식물은 기존 이미지의 녹색 식생 영역에 한정한 WebGL 변위, 나머지는 CSS가
+  소유한다. 본문 열기/설정 Pause/Reduced Motion/비활성 탭/작업실 화면 밖에서
+  정지한다. WebGL 실패 시 원본 이미지를 유지하며 콘텐츠 접근에는 영향이 없다.
+- **접근:** 기존 공통 Header와 Route를 유지한다. 사용자 표시 요청에 따라 화면 내 World Map,
+  About 제목, 하단 Skills 링크는 제거한다. 접근성용 h1은 유지한다.
+  좌측 하단 `이야기 목록`은 Ivory 종이 표면, Ink 책 아이콘, Stone 테두리로 구성하며
+  기본적으로 접혀 있고 열면 다섯 항목에 직접 접근한다. 숫자는 실제 열어본 개수이다.
+  잠금·보상·순서 강제 없음.
+  Desktop은 기존 gallery 이동 Hook과 방향별 캐릭터를 재사용하여 테라스 중앙 바닥에만
+  WASD/방향키·바닥 클릭 이동 및 E 열기를 제공한다. 바닥은 가구 앞에서 넓어지고
+  앞쪽 화단 사이에서 좁아진다. Mobile/Touch는 탭 중심이다.
+  세로 Mobile은 배경을 크롭하며 실제 물건과 클릭 영역의 정렬을 유지한다.
+  화면 밖으로 잘린 물건의 클릭 영역은 inert로 처리하고 접힌 목록으로 접근한다.
+  물건과 떨어진 가짜 위치에 표식을 배치하지 않는다. 작업실 아래로 목록을 쌓는
+  3:2 반응형 전환은 폐기한다. 모든 Text/UI는 HTML이다.
+- **레퍼런스 적용:** [Palworld 공식](https://www.pocketpair.jp/en/games-en/palworld-en/)과
+  [Zelda 공식](https://www.nintendo.com/us/store/products/the-legend-of-zelda-breath-of-the-wild-switch/)
+  자료의 환경 중심 화면을 참고했다. 현재의 물건 조명·간결한 조작 안내는 이 포트폴리오에
+  맞춘 해석이며 게임의 에셋, 폰트, 색상 체계나 개별 HUD를 복제하지 않는다.
+- **결정 범위:** 요청한 About 방향의 검토 가능한 구현이다. 다른 페이지의
+  WORKING 항목을 LOCKED로 승격하거나 전역 자유 이동을 도입하지 않는다.
 
 ## 02. Typography --- LOCKED
 
@@ -1246,3 +1311,13 @@ spacing/radius values.
 -   Typography owns type; Parent owns spacing.
 -   Visual Size ≠ Hit Area.
 -   Hover 핵심 정보는 Focus/Touch에서도 접근 가능.
+
+## 2026-10-01 Real World — 사용자 제공 타이포그래피 레퍼런스 적용
+
+이 항목은 01.3의 소개 위치·폰트·마커 제한에 대한 최신 사용자 요청을 반영한다.
+- Real World 소개 제목만 **Griun DUJUNDUJUN 400**을 사용한다. Portfolio World의 Marcellus + SUIT 원칙과 나머지 UI의 SUIT는 유지한다.
+- Desktop 제목은 왼쪽 9vw / 위 23svh 창가 영역, 40–72px. `아이디어`에 기존 Yellow `#FFC928` 마커를 사용한다. Text Shadow/Glow는 추가하지 않는다.
+- 이름·직무는 오른쪽 아래 ENTER WORLD 아래로 이동한다. 원형 화살표는 버튼 문구 오른쪽에 둔다.
+- Mobile은 제목 32–48px, 좌우 24px, 입장 UI는 하단 왼쪽으로 재배치한다. 짧은 가로 화면은 별도 배치한다.
+- 배경·영상·포털 진입은 기존 구현을 유지한다. 레퍼런스의 임시 서브 문구는 콘텐츠로 추가하지 않는다.
+- 공식 배포 원본 WOFF2를 수정 없이 로컬 제공한다: https://www.griun.co.kr/fonts/dujundujun
