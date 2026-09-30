@@ -1,448 +1,319 @@
-# Personal Portfolio --- PRD v3
+# Personal Portfolio --- FINAL PRD ENTRY POINT
 
-> Product Requirements Document\
-> Platform: Responsive Web\
-> Stack: React + Vite\
-> Concept: **Cinematic Interactive Personal Portfolio**\
-> Status: Working PRD\
-> Visual/UI 기준: `DESIGN_SYSTEM.md`
+**Current Product Baseline:** `Personal-Portfolio_PRD_V4_FINAL.md`\
+**Visual/UI Source of Truth:** `DESIGN_SYSTEM.md`\
+**Agent Rules:** `AGENTS.md` / `CLAUDE.md`
 
-## 01. Product Overview
+## 2026-09-30 공통 아트 제작 기준
 
-현실 세계에서 시작해 Portal을 통과하고 Portfolio World에 도착한 뒤
-지원자의 정보와 프로젝트를 탐색하는 인터랙티브 개인 포트폴리오다. 게임
-자체가 목적이 아니며, 디자인 의도를 이해하고
-인터랙션·반응형·접근성·프론트엔드 구현을 하나의 실제 웹 경험으로 연결할
-수 있는 역량을 증명한다.
+[DESIGN_SYSTEM.md](DESIGN_SYSTEM.md)의 01.1에 회화적 색면·무광 재질·
+디테일 배분·캐릭터와 배경의 명암 일치, 이동 바닥과 콘텐츠 영역,
+대표 외부/실내 장면부터 검증하는 제작 순서를 반영했다.
+World / About / Skills / Projects / Contact가 대상이며 Real World는
+기존 실사 작업실 방향을 유지한다. 새 에셋과 화면 적용은 아직 완료하지 않았다.
 
-주요 사용자는 채용 담당자, 웹 퍼블리싱/프론트엔드 실무자, UX/UI
-디자이너, 기업 관계자다.
+아래 요약과 문서 간 우선순위는 해당 페이지 작업 시 사용자 의도와 실제
+구현을 기준으로 판단한다. 특히 Skills의 Ancient Ruin / Skill Orbit은
+작업 시 검토할 방향이며 LOCKED 표기만으로 최우선 확정안으로 적용하지 않는다.
+이번 반영으로 페이지별 공간·이동·카메라를 새로 확정하지 않는다.
 
-## 02. Product Goals
+## Current Locked Summary
 
-사용자는 짧은 시간 안에 지원자의 정체성, 목표 직무, 기술, 프로젝트 4개,
-프로젝트별 역할과 판단, 디자인·개발 연결 역량, 상세 Case Study, 연락
-방법을 파악할 수 있어야 한다.
+-   React + Vite responsive interactive portfolio
+-   Real World → Portal → Tool Universe / Transformation → Portfolio
+    World
+-   Portfolio World top-level destinations: **About / Skills / Projects
+    / Contact 4개**
+-   Q&A / Resume content preserved through direct/latest IA access
+-   4 real Projects
+-   Natural Fantasy Adventure × Minimal UI
+-   Marcellus + SUIT
+-   World = exploration hub
+-   About = 3/4 interior/object interaction
+-   Skills = Skill Orbit
+-   Projects = Architectural Gallery / 4 Project Stages
+-   Contact = quiet ending/contact action
+-   Dual navigation / Direct access / Responsive / Accessibility /
+    Fallback
+-   AI-generated look cleanup rules are governed by DESIGN_SYSTEM v3
 
-Cinematic / 3D / Game-inspired interaction은 정보를 더 기억에 남게
-전달하기 위한 수단이다.
-
-## 03. Core Principles
-
--   **PORTFOLIO FIRST** --- 콘텐츠가 연출보다 우선.
--   **CINEMATIC → EXPLORE → READ** --- 연출 강도를 단계적으로 낮춤.
--   **WORLD IS NAVIGATION** --- Portfolio World는 주요 콘텐츠 선택 Hub.
--   **DUAL NAVIGATION** --- World Interaction + 일반 HTML Navigation.
--   **GUIDED, NOT LOCKED** --- 추천 Journey는 제공하지만 순서를 강제하지
-    않음.
--   **PLAY, BUT NEVER BLOCK CONTENT** --- 게임/3D 없이도 핵심 정보 접근
-    가능.
--   **FIRST VISIT IS CINEMATIC, REVISIT IS FAST** --- 재방문은 빠른 접근
-    허용.
--   **PROGRESSIVE ENHANCEMENT** --- 영상/3D/FX 실패 시에도 Portfolio
-    사용 가능.
-
-## 04. LOCKED vs WORKING
-
-### LOCKED
-
-프로젝트 4개, About/Skills/Projects/Q&A/Contact, 실제
-Role/Process/Result/Limitation, Dual Navigation, 핵심 콘텐츠 직접 접근,
-Responsive/Accessibility/Fallback, React+Vite, React Router, Case
-Study=Read Mode.
-
-### WORKING
-
-Scene Composition, Skills 최종 Visual, Character 반응, Camera, Motion,
-Transition, FX, Lighting, Higgsfield Clip, Three.js 범위, Project
-Archive 세부 Architecture, Ending.
-
-Color/Typography/Radius/Padding/Grid/Component State는
-`DESIGN_SYSTEM.md`를 따른다.
+> 아래 History는 실제 구현/QA 추적을 위해 보존한다. 현재 baseline과
+> 충돌하는 과거 5-island, old-font, old-HUD, old-visual direction은
+> current requirement가 아니다.
 
 ------------------------------------------------------------------------
 
-## 05. Experience Architecture
-
-### ENTER WORLD
-
-``` text
-REAL WORLD
-→ PORTAL AWAKENING
-→ PORTAL OPEN
-→ SUCTION
-→ TOOL UNIVERSE / TRANSFORMATION
-→ FALL / ARRIVAL
-→ PORTFOLIO WORLD
-```
-
-### QUICK / DIRECT ACCESS
-
-About, Skills, Projects 4개, Q&A, Resume, Contact에 연출 없이 직접
-접근할 수 있어야 한다. 별도 복제 콘텐츠가 아니라 동일 Portfolio Data를
-사용한다.
-
-``` text
-REAL WORLD
-├─ ENTER WORLD
-│  └─ PORTAL → TOOL UNIVERSE → ARRIVAL → PORTFOLIO WORLD
-│      ├─ ABOUT
-│      ├─ SKILLS
-│      ├─ PROJECTS → PROJECT ARCHIVE → CASE STUDY
-│      ├─ Q&A
-│      └─ CONTACT
-└─ QUICK ACCESS → 동일 Portfolio Content
-```
-
-`POWER UP`, Skill Level, XP, HP, Score, 필수 Jump/Collision Gameplay는
-현재 제품 구조에서 사용하지 않는다.
-
-------------------------------------------------------------------------
-
-## 06. Real World
-
-Portfolio World 진입 전 현실의 작업자를 보여주는 첫 화면이며 Portal
-Sequence의 기준 프레임이다.
-
-### Visual
-
-서울 야경의 현실적인 작업실, Photorealistic/Cinematic, Warm Desk Light ×
-Cool City/Monitor Light, iMac, 캐릭터, 강아지, 커튼과 생활 소품.
-왼쪽에는 HTML Hero Copy용 안전 영역을 확보한다.
-
-Hero에서 이름, 역할/직무, 짧은 소개, ENTER WORLD, 빠른 Navigation을
-이해할 수 있어야 한다.
-
-Ambient는 Curtain, City Light, Monitor Glow, Character subtle motion,
-Dog idle, Plant motion 정도로 제한한다.
-
-### ENTER WORLD
-
-``` text
-UI Fade
-→ Ambient 감소
-→ Subtle Push-in
-→ Focus Shift to Monitor
-→ Background DOF 증가
-→ Character/Dog Reaction
-→ Cyan Anomaly
-→ Distortion
-→ Portal Awakening
-→ Portal Open
-→ Physical Suction
-→ Character Resistance
-→ Character Suction
-→ Camera Follow
-→ Portal Full Screen
-→ Tool Universe
-```
-
-핵심은 단순 Zoom보다 **Focus Shift**다. Character는 손 정지→어깨
-긴장→모니터 쪽으로 고개 이동. Dog는 귀 세움→고개 듦→모니터 확인→뒤로
-물러남. 강아지는 Portal에 들어가지 않는다.
-
-Physical Reaction은 종이→커튼→강아지 털/귀→머리카락/옷→작은 물체 순으로
-단계적으로 증가한다. Character는 즉시 날아가지 않고 저항 후 빨려
-들어간다.
-
-React/CSS/Three.js는 UI Fade, Dim, Focus/Blur, Monitor Glow, Skip,
-Route/Reduced Motion을 담당하고 Higgsfield/Video는 복잡한 물리 반응과
-Suction을 담당한다. 동일 Motion을 중복 제어하지 않는다.
-
-Reduced Motion: `Dim → Monitor Cyan Glow → Short Fade → Tool Universe`.
-
-------------------------------------------------------------------------
-
-## 07. Portal / Tool Universe / Arrival
-
-Portal은 Real World와 Stylized Portfolio World를 끊김 없이 연결한다.
-Suction→Portal Tunnel→Tool Universe→Transformation→Fall의 Motion
-Direction, Camera, Lighting, Character Orientation을 이어준다.
-
-Tool Universe는 Cyan/Electric Blue, Digital Distortion, Abstract
-Geometry, Tool Fragment, Motion Trail을 사용할 수 있다. 실제 사용하는
-Figma, Photoshop, Illustrator, VS Code, HTML, CSS, JavaScript, React,
-Vite, Git, GitHub 등을 기준으로 하며 단순 Logo Wall은 금지한다.
-
-``` text
-REALISTIC → DIGITAL DISTORTION → TOOL UNIVERSE → STYLIZED → PORTFOLIO CHARACTER
-```
-
-Arrival:
-
-``` text
-Portal Exit → Fall → Cloud/Atmosphere → World Reveal
-→ Descent → Landing → Impact → Recovery → Look Around
-```
-
-착지 후 Character는 시각적 주인공이지만 자유 이동 Player가 기본은
-아니다.
-
-------------------------------------------------------------------------
-
-## 08. Portfolio World
-
-전체 Portfolio의 Main Visual Hub. 목적지는 **ABOUT / SKILLS / PROJECTS /
-Q&A / CONTACT**이며 임의의 추가 World를 만들지 않는다.
-
-공간은 Floating Nature World / 2.5D Stylized 3D를 기본으로 Sky, Floating
-Islands, Bridge, Water, Waterfall, Cloud, Architecture, Vegetation을
-사용할 수 있다.
-
-### Navigation
-
-Mouse Hover/Click, Keyboard Focus/Enter, Touch Tap, Global HTML
-Navigation을 지원한다. **WASD/Arrow 자유 이동은 기본 조작으로 사용하지
-않는다.**
-
-Character는 Idle/Look/Turn/React/Scene Transition 중심.
-
-``` text
-Hover/Focus
-→ Island/Landmark Lighting
-→ Label/Preview
-→ Character Look/React
-
-Click/Enter
-→ Selection
-→ Short Camera Focus
-→ Atmospheric Transition
-→ Target Content
-```
-
-Living World는 Cloud/Water/Waterfall/Grass/Character Idle 등의
-Continuous Motion과 Bird/Leaf/Mist/Light Shift 등의 Ambient Event를
-사용할 수 있다. 모든 Object를 동시에 강하게 움직이지 않는다.
-
-------------------------------------------------------------------------
-
-## 09. About / Skills
-
-### ABOUT
-
-Profile, Role, Background, Work Direction, Values를 전달한다.
-Character/Environment Interaction은 가능하지만 정보를 읽기 위해 조작을
-강제하지 않는다.
-
-### SKILLS --- WORKING
-
-목적은 Tool 개수보다 **무엇을 할 수 있고 실제 어디에 사용했는지**를
-보여주는 것이다.
-
-현재 우선 방향은 `Game Item / Toolkit UI`이며 최종 Visual 확정 전까지
-WORKING이다.
-
-각 Skill:
-
-``` text
-SKILL / ITEM NAME
-CATEGORY
-WHAT I CAN DO
-USED IN PROJECTS
-```
-
-필요 시 Design / Frontend / Motion·3D / Workflow로 분류한다.
-
-Hover/Focus는 Item Reaction과 이름/카테고리를, Click/Enter는 Selected
-Detail과 Related Projects를 보여준다. 복잡한 자유 이동은 기본 요구사항이
-아니다.
-
-금지: POWER UP, Skill Level, XP, HP, Life, Score, `Figma 95%` 같은 근거
-없는 숙련도. 게임 아이템은 시각적 메타포이고 실제 역량은 Portfolio
-Evidence로 설명한다.
-
-------------------------------------------------------------------------
-
-## 10. Projects --- Structure Locked / Presentation Working
-
-**프로젝트 4개가 한 화면에서 모두 인지 가능해야 한다.** Portfolio
-World의 Floating Island 문법을 반복하지 않는다.
-
-``` text
-Portfolio World → PROJECTS Focus → Short Transition → PROJECT ARCHIVE
-```
-
-Project Archive는 **Architectural Gallery / Exhibition Space**를 기본
-방향으로 한다. Portfolio World가 Organic/Nature/Floating/Open이라면
-Archive는 Architectural/Gallery/Structured/Editorial/Controlled로
-대비한다.
-
-각 Project는 Project Number, Name, Category, Role, Key Visual, One-line
-Summary, View Case Study를 제공한다. 필요 시 Year/Team/Tech 추가.
-
-Default에서는 4개가 모두 보인다. Hover/Focus는 Exhibit Lighting +
-Signature Motion + Label + Preview + Character Look. Click/Enter는
-Project Selected → 해당 Exhibit Point로 Character의 짧은 자동 이동 →
-Preview 확장 → `VIEW CASE STUDY`.
-
-### Point-based Character Movement
-
-`HOME / PROJECT 01 / PROJECT 02 / PROJECT 03 / PROJECT 04`의 고정
-Point만 사용한다. 자유 WASD, Collision, Pathfinding, Jump, Platform
-Gameplay는 기본 구현에서 제외한다.
-
-------------------------------------------------------------------------
-
-## 11. Project Detail / Q&A / Contact / Ending
-
-### CASE STUDY
-
-**READ MODE**. 3D/Character/Camera Motion을 크게 줄이고 실제 프로젝트
-정보를 주인공으로 만든다.
-
-실제 자료가 지원하는 항목만 사용:
-`Overview / Problem·Context / Role / Process·Decision / Solution / Design / Development / Result / Limitation·Retrospective`.
-
-Metadata는 Project Name, Category, Role, Duration, Team/Individual,
-Tools/Tech, 실제 존재할 경우 Live/GitHub. 본문을 읽기 위해 Character
-조작을 요구하지 않는다.
-
-근거 없는 성과 수치, 사용자 테스트, 전환율, 매출, 개선 %, 협업, 후기는
-생성하지 않는다.
-
-### Q&A
-
-작업 방식, 협업 방식, 문제 해결 방식, 디자인/개발 역할, 프로젝트 질문,
-성장 방향을 즉시 읽을 수 있게 한다.
-
-### CONTACT
-
-Email, GitHub, Resume, 필요한 외부 링크를 제공하며 어떤 Progress도
-요구하지 않는다.
-
-### ENDING --- WORKING
-
-`Journey Complete → Calm Transition → Contact/Final Message → Optional Real World Callback`
-정도를 후보로 둔다. GAME CLEAR/STAGE CLEAR/Score 기반 Ending은 필수
-요구사항에서 제외한다.
-
-------------------------------------------------------------------------
-
-## 12. Navigation / Responsive / Accessibility
-
-Router는 Cinematic에 종속되지 않는다. Direct URL, Refresh, Browser
-Back/Forward, Quick Access, Reduced Motion, Error Recovery를 지원하고
-Cinematic 완료가 Route 변경의 필수 조건이 되어서는 안 된다.
-
-권장 Route: `/`, `/about`, `/skills`, `/world-map`, `/projects`,
-`/projects/:projectId`, `/qa`, `/contact`. 실제 코드와 충돌하면 현재
-Router를 먼저 Audit한다.
-
-First Visit:
-`Real World → Portal → Tool Universe → Arrival → Portfolio World`.
-Same-session Revisit은 빠른 접근. Direct URL은 해당 콘텐츠 직접 진입.
-
-### Responsive QA
-
-2560×1440 / 1920×1080 / 1440×810 / 1366×768 / 1180×820 / 1024×768 /
-768×1024 / 430×932 / 402×874 / 390×844 / 360×800.
-
-단순 Scale보다 Composition/Reframe을 우선한다. Important Object Safe
-Area, Short Viewport, Ultrawide, Mobile 별도 Composition을 검증한다.
-Visual parity는 필수가 아니지만 **Content parity는 필수**.
-
-### Accessibility
-
-Semantic HTML, Keyboard Navigation, focus-visible, 약 44×44 이상 Touch
-Target, 충분한 Contrast, Color-only State 금지, Alt Text, Sound Control,
-Reduced Motion, 필요한 Motion Pause/Stop, Skip Cinematic, Quick/Direct
-Access, 200% Zoom QA를 지원한다.
-
-------------------------------------------------------------------------
-
-## 13. Failure / Performance / Assets
-
-### Failure
-
-Video→Poster/Static, Three.js/WebGL→Static World+HTML Navigation,
-Character Motion→Static Character, Ambient→해당 Motion 생략,
-Audio→Silent, Image→Fallback+Alt, Transition→Immediate Route,
-Loading→Skip/Direct Access. 가짜 Loading `%` 금지.
-
-### Performance
-
-WebP/AVIF, WebM(+필요 시 MP4), GLB, Lazy Loading, 필요한 Asset만
-Preload, Offscreen Animation/Video Pause, Particle 제한, Cleanup, Mobile
-Quality Reduction, Layout Shift 최소화.
-
-Target: LCP≤2.5s / INP≤200ms / CLS≤0.1.
-
-Loading Priority:
-`Semantic HTML/Core Content → Critical CSS/Fonts → Hero Poster → Navigation → World Base → Three.js → Living Motion → FX`.
-
-### Assets
-
-``` text
-public/assets/
-├─ source/
-│  ├─ original/
-│  ├─ higgsfield/
-│  ├─ astra/
-│  └─ blender/
-└─ production/
-   ├─ images/
-   ├─ video/
-   ├─ models/
-   ├─ icons/
-   ├─ audio/
-   └─ fonts/
-```
-
-Filename은 lowercase kebab-case 영문. Image WebP/AVIF, Video WebM(+MP4),
-3D GLB, Icon SVG, Font WOFF2 우선. Fullscreen Asset은 Focal Point/Safe
-Area를 정의한다.
-
-------------------------------------------------------------------------
-
-## 14. Technical / Scope / Validation
-
-### Technical Baseline
-
-React / Vite / JavaScript·JSX / React Router / CSS / ESLint /
-Git·GitHub. Three.js, GSAP 등은 실제 `package.json`과 요구사항을 확인한
-뒤 사용하고 새 Dependency를 자동 추가하지 않는다.
-
-HTML/React는 이름, 직무, Navigation, Button, Project 정보, Forms,
-Contact, Resume, Accessibility를 소유한다. World/Three.js는 Environment,
-Island/Architecture, Waterfall, Lighting, Character, Camera, Atmospheric
-FX를 담당한다. 중요 텍스트를 이미지/3D Texture에만 굽지 않는다.
-
-### Removed Scope
-
-POWER UP Gameplay, Skill Block/Item Pickup Loop, Skill Level,
-XP/HP/Life/Score, 의미 없는 Achievement, 숨겨진 섬/Secret Area, Badge
-장착, Portfolio World 자유 이동, 필수 Jump/Collision, Project Archive
-자유 이동, 게임 때문에 콘텐츠를 잠그는 Progress System.
-
-### Product Validation
-
--   첫인상: 이름/직무/강점이 명확한가?
--   탐색: 게임 없이 Project 4개와 Contact/Resume에 접근 가능한가?
--   콘텐츠: Project의 역할/문제/결정/구현을 이해할 수 있는가?
--   인터랙션: Hover/Click/Focus/Tap이 설명 없이 이해되는가?
--   복구: Skip/Back/Reload/Direct URL이 정상인가?
--   반응형: Laptop/Tablet/Mobile/200% Zoom에서 핵심 UI가 유지되는가?
--   에셋 실패: Video/3D/FX 실패 후에도 다음 행동이 가능한가?
--   접근성: Keyboard/Reduced Motion에서도 동일 정보에 접근 가능한가?
-
-### MVP Completion
-
-Real World와 ENTER WORLD, Portal 또는 대체 Transition, Portfolio World,
-About/Skills/Projects/Q&A/Contact 접근, Project Archive의 4개 프로젝트,
-Case Study, Direct URL/Back/Reload, Responsive QA, Reduced Motion, Asset
-Fallback, lint/build 치명적 오류 없음.
-
-### Out of Scope
-
-실제 게임 엔진, 로그인, 결제, CMS, 관리자 페이지, 게임 서버,
-Multiplayer, 의미 없는 점수 시스템, 프로젝트와 무관한 추가 World, 필요
-이상의 WebGL 구현.
-
-## 15. PRD Update Rule
-
-이 PRD는 **제품의 콘텐츠·기능·사용자 경험·완료 조건**을 관리한다. Color,
-Typography, Radius, Padding, Component State, 세부 Animation
-Timing/Camera 수치는 `DESIGN_SYSTEM.md`에서 관리한다.
-
-제품 구조가 바뀌면 PRD를 갱신한다. WORKING인 세부 디자인/모션이 조정될
-때마다 PRD 전체를 수정하지 않는다.
+# ARCHIVED IMPLEMENTATION HISTORY
+
+## 2026-09-29 Skills Power Core implementation
+
+Latest explicit user brief authorizes bounded character exploration and
+slow orbit on /skills. Skills is now a standalone 2.5D chamber using
+separate environment, transparent core, orbiting interactive crystal
+buttons and the existing master character. Existing Projects walk hook
+accepts an optional initialPosition; its default behavior is preserved.
+WASD/arrows, floor click, near E/Enter, direct orb click, keyboard
+buttons and a direct skill selector remain available. Selection eases
+the chosen crystal to a front focus position, slows other orbits, opens
+a dismissible right panel (mobile bottom sheet), and triggers a brief
+skill-specific CSS effect. Escape returns focus to the selected orb.
+Reduced motion/paused/hidden state stops ambient motion. No score,
+animal, completion gate or independent Q&A nav added.
+
+Eight tools: Figma, React, Three.js (explicitly exploration; no verified
+implementation claim), GSAP, JavaScript, Git/GitHub, ChatGPT and
+Higgsfield. Actual existing project data reused; no speculative
+Claude/VS Code project associations. Prior global Instrument Serif
+typography retained with Korean fallback. Scene is layered raster +
+HTML/SVG/CSS/JS, not a full 3D model; background
+architecture/waterfalls/banners are raster art, while crystal motion,
+mist, character and UI are independent.
+
+Lint/build passed. qa/skills-chamber-check.cjs verifies 11 specified
+sizes, orbit, pointer focus/close, WASD, proximity E, reduced motion,
+mobile panel and image failure. Additional eight breakpoint widths
+767/768, 1023/1024, 1279/1280, 1919/1920, short 720×405 viewport and
+unchanged Projects movement passed. Desktop/mobile screenshots inspected
+under docs/layered-world/skills-\*.png. Physical devices, Safari and
+true browser 200% zoom remain unverified. Asset prompts and provenance:
+docs/layered-world/skills-power-core.md. This scopes movement to Skills;
+other WORKING decisions remain unchanged.
+
+# Personal Portfolio --- current PRD entry point
+
+## 2026-09-29 Contact static reference revision
+
+Latest user instruction supersedes the auto-walk and no-card directions:
+match the supplied sunset composition, show four icon plaques, and do
+not walk. Contact.jsx/Contact.css now use a static reference-edited
+background with real HTML navigation, title, four SVG-icon actions and
+existing Q&A modal. Auto-walk, layered character, moving environment and
+delayed credits removed from this page; world/project movement
+unchanged. Email still awaits an actual address. Asset was edited using
+built-in imagegen, not pixel-identical to the source. Production:
+public/assets/production/images/contact/contact-reference-v2.webp;
+source: public/assets/source/contact/contact-reference-v2.png. Prompt:
+preserve the exact supplied
+scene/composition/characters/pet/lighthouse/path; remove UI
+logo/navigation/headings/Korean text/four cards/handwriting/footer
+overlays and reconstruct sky; preserve the physical wooden sign. No new
+UI baked into the image. Lint/build passed; static-character absence,
+four icons, nine viewport widths, six FAQs, Escape and Resume navigation
+verified. Desktop screenshot inspected. Physical devices/Safari
+unverified.
+
+## 2026-09-29 Contact Final Chapter
+
+Latest explicit Contact brief authorizes an optional automatic 2.5D
+journey toward a sunset beacon, with Contact actions primary and a small
+delayed epilogue. Standalone Contact route replaces its old
+DestinationFrame wrapper; existing FAQ content is now a hash-addressable
+native dialogue. New generated environment asset plus separate
+sprite/cloud/airship/light layers; existing WorldCharacter, shared
+Motion and real profile data reused. Email remains unavailable until the
+user provides an address; Resume links to the existing factual summary.
+No other movement/page direction is locked. Lint/build and 19-size
+Contact regression checks passed; desktop/mobile visuals inspected.
+Files, prompt, asset provenance, exact QA and limitations:
+docs/layered-world/contact-final-chapter.md.
+
+## 2026-09-29 Readable functional World HUD
+
+Latest explicit request restores the functional compass: direction
+needle plus camera/portrait-rail reset on click or keyboard, with
+visible Korean caption. Navigation keeps its existing sizing but adopts
+the Projects gallery navy/gold capsule and ivory text. Settings uses a
+new slider icon with text, matching dark panel and Korean control
+labels. Portrait panel sits below navigation. Changed WorldHUD.jsx,
+LayeredWorld.jsx, HudDetails.jsx and WorldRefinement.css; artwork,
+routes, stair controller and content unchanged. This supersedes the
+decorative-only compass direction, without locking broader movement
+decisions. Lint/build and 21-viewport suite passed; compass
+bearing/cancel/reset/Space, settings Motion/Escape and mobile reset
+verified. Inspected 1440×810 and 430×932. Physical devices/Safari
+unverified.
+
+## 2026-09-29 Latest ASTRA World refinement brief
+
+The newly supplied brief supersedes the functional compass request:
+compass is subtle decorative HUD again. Four islands and existing
+artwork/routes/content remain. About shifts inward/down; Contact grows
+about 12%; avatar grows 10% while retaining the image-space stair
+boundary. Initial head/shoulder attention faces About, then hover/manual
+input takes ownership. Labels now use ivory rectangular plaques, gold
+inset/corner detail and number medallions; subtitle, supporting line and
+Explore reveal on hover/focus/touch selection. Open top navigation
+replaces the glass capsule. Background contrast/saturation/clarity
+reduced. Numbered waypoints guide without restoring the deleted
+character dotted path. Revisited destinations enter immediately; first
+visits retain character alignment then camera travel. Movement remains a
+prototype, not a new locked architecture.
+
+Changed layers.config.js, LayeredWorld.jsx, WorldHUD.jsx, WorldCharacter
+inputs, WorldControls.jsx and WorldRefinement.css. Existing
+water/environment/fallback/content structure retained. Lint/build
+passed. Stair boundary checks passed 24 contacts over six sizes. Browser
+validation and limits recorded in
+docs/layered-world/astra-refinement.md.
+
+## 2026-09-29 Functional compass
+
+Latest user request makes the existing compass interactive. Its needle
+follows the character/look bearing; click, Enter or Space uses the
+existing World reset to cancel pending travel, restore the default
+camera and return the portrait rail to the first island. Gold/ivory
+design, bounded stairs, routes and content retained; no new movement
+decision locked. Changed WorldHUD.jsx, LayeredWorld.jsx and
+WorldRefinement.css. Lint/build passed; Edge checks at 1440×810 and
+430×932 passed direction updates, travel cancellation without delayed
+navigation, keyboard activation, reduced-motion mobile reset and
+touch-target bounds. Physical devices/Safari unverified.
+
+## 2026-09-29 Latest World HUD correction
+
+User requests a design-matched decorative compass, removal of the World
+Quick View control and character dotted guide, and a movement flicker
+fix. Four destinations, top navigation and optional recommendation
+remain. Compass has no duplicate navigation; no routes/content are
+deleted by this HUD revision.
+
+## 2026-09-29 Latest approved four-destination World brief
+
+The user's final pasted brief explicitly replaces five islands with 01
+About → 02 Skills → 03 Projects → 04 Contact. Q&A is integrated into
+Contact; /qa remains a compatibility redirect. Recommendation never
+gates entry. Top navigation is primary, Compass destination UI is
+removed, and Quick View provides immediate readable content. Preserve
+current art and bounded lookout movement. Recommended, hover/focus,
+touch preview and committed travel are distinct; stable hover gives a
+small look, only commit aligns the whole character before camera travel.
+Portrait uses large-island browsing. This supersedes conflicting
+five-island/compass directions below; no project facts, interiors, free
+island walking or gameplay progression are added.
+
+## 2026-09-29 Latest explicit World exterior revision
+
+User supplied four fantasy references and requested all five islands and
+background change to that appearance. Golden sunlight, blue sky and
+cloud ocean, ivory/gold/blue central castle, cottage island, crystal
+workshop, celestial observatory and lighthouse supersede the earlier
+terrace-only exterior direction. Independent scene layers, existing
+navigation, accessible direct content and real portfolio facts remain
+required. No companion, new movement or interior design is authorized by
+this exterior request.
+
+## Latest explicit user brief: World HUD and lookout movement
+
+The pasted user request dated 2026-09-28 now explicitly authorizes
+bounded arrow/WASD character movement within the Portfolio World
+entrance lookout. This supersedes the older blanket World-map movement
+exclusion below. No jumping, combat, collision engine, companion or
+progression gating. Movement is optional: mouse/keyboard/touch
+destinations and direct Quick View content remain accessible without
+moving.
+
+Use the exact supplied Korean identity copy, low glass navigation,
+ivory/gold island labels, functioning compass with small destination map
+and bottom System for shared Motion/Sound. Touch selects before
+confirming entry. Camera travel lasts 1.2--1.8 s with faster revisits,
+manual-input cancellation, latest-destination priority and immediate
+reduced-motion/direct routes. Retain existing independent world assets,
+five destinations, character, actual portfolio content and the latest
+blue-white water palette. No other interior design or product scope is
+changed.
+
+## 2026-09-28 Latest user revision: five terrace islands and stone lookout
+
+The latest reference and explicit request revise all five island
+exteriors and the character's standing place. Use bright ivory stepped
+terraces, open classical arches and sparse Mediterranean planting;
+Projects remains the monumental central palace/gallery. About uses
+villas, Skills a circular glass workshop, Q&A an open celestial
+observatory, Contact lighthouse/villa terraces. Replace the foreground
+wooden lookout with limestone paving, stairs, curved stone parapets and
+ruined columns. Keep independent islands, live water/environment,
+existing character and direct navigation. This refines the older castle
+exterior below; it does not add the reference's animal or lock other
+working interior/movement decisions.
+
+## 2026-09-28 User revision: Projects castle exterior
+
+Projects exterior is now explicitly a monumental bright ivory fantasy
+castle with a huge arched gateway, varied towers, warm gray-white
+limestone cliffs, short grass, sparse Mediterranean trees and slender
+cypresses. Three or four white arched bridge connection points and
+multiple turquoise waterfalls; futuristic accents limited to thin cyan
+displays/subtle energy lines. No rounded cartoon trees, heavy vines,
+flower fields or excessive crystals. This latest user request supersedes
+the earlier contemporary-gallery-only exterior interpretation; the
+existing Projects gallery interior and factual case studies remain
+unchanged.
+
+## 2026-09-28 Projects gallery movement exception
+
+The user explicitly requested reference-based spatial depth and a
+movable character inside `/projects`. This authorizes bounded
+gallery-floor click/touch and arrow-key navigation, with direct
+case-study access remaining independent of movement. It does not
+authorize World-map free movement, companions, jumping or physics.
+Earlier blanket movement exclusions below remain applicable outside this
+scoped gallery exception. The current implementation is 2.5D, not a
+fully modeled 3D interior.
+
+Latest user clarification (2026-09-28): retain the independently
+separated island architecture and make its island silhouettes,
+rock/vegetation/water textures, background forms and colour resemble
+supplied `인트로/01.png` and `02.png`. The user explicitly rejected the
+static whole-image approach and clarified that a whole-scene video is
+also not the intended architecture. Independent islands and living
+environment are required together with reference fidelity. Existing
+routes, accessibility and portfolio facts remain required. The earlier
+interpretation that static fidelity takes precedence over independent
+motion was incorrect and is superseded.
+
+Updated 2026-09-28 for the user's PORTFOLIO WORLD MASTER BUILD request.
+
+The baseline product requirements remain in
+[Personal-Portfolio_PRD.md](Personal-Portfolio_PRD.md). This entry point
+resolves the previously missing `_FINAL` reference without deleting or
+replacing that baseline.
+
+## Latest user-approved World direction
+
+-   Real World → Portal → Tool Universe / Transformation → Landing →
+    Living Portfolio World → interactive exploration.
+-   Approximately 10--12 seconds from ENTER WORLD to arrival; skip,
+    reduced motion, direct content access and fast revisit remain
+    required.
+-   Five distinct destinations: About = cozy origin studio, Skills =
+    arcane creative workshop, Projects = grand contemporary creative
+    gallery, Q&A = sky observatory, Contact = horizon beacon.
+-   Projects is the visual anchor, approximately 1.4--1.7 times the
+    other islands' visual width and the most stable floating motion.
+-   Bright daylight, soft stylized 3D appearance, 2.5D depth and a
+    living environment. Independent floating, flowing water, cloud
+    depth, mist, vegetation, character idle and occasional background
+    life.
+-   Hover/focus makes the environment and character react.
+    Click/Enter/tap starts a short camera approach with foreground/cloud
+    occlusion before opening the content route.
+-   Character has navigation reactions; free movement, WASD, jump,
+    collision, progression and companion systems are excluded. Taco
+    remains in the Real World.
+-   Actual projects, roles, evidence and limitations must remain
+    unchanged. Core content remains accessible without cinematic
+    playback or WebGL.
+
+## Boundaries
+
+The master brief specifies island exteriors and the direction of entry.
+It does not approve new project facts, final interior designs for every
+content page, or unrestricted character navigation. Reference images
+containing Power Up, companion animals, scores or invented projects do
+not override the written direction.
+
+Implementation state, tested behavior and remaining limitations are in
+[PROJECT_CONTEXT.md](PROJECT_CONTEXT.md) and [the build
+audit](docs/portfolio-world-master-build.md). Visual measurements and
+motion timing remain refinable implementation values under
+DESIGN_SYSTEM.md.

@@ -1,0 +1,543 @@
+/*
+ * Real World: the workspace is the subject, not the UI. Base layout/reset
+ * values are still ported from the 2026-09-28 build's styles.css, scoped
+ * under .start-scene; hero copy, CTA and overlay were redesigned per the
+ * "current workspace, not a game screen" reference direction.
+ */
+
+.start-scene {
+  /* Real World stays photorealistic, not fantasy — it has no world/chapter
+     display title, so it has no real use for Marcellus. Both tokens resolve
+     to SUIT here per DESIGN_SYSTEM.md v3 (Marcellus is reserved for short
+     fantasy display titles; SUIT covers Korean, hero copy, nav and labels). */
+  --display: 'SUIT', -apple-system, sans-serif;
+  --font-primary: 'SUIT', -apple-system, sans-serif;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  box-sizing: border-box;
+  height: calc(100svh - var(--header));
+  min-height: 610px;
+  background: #111722;
+  color: #f3f5f7;
+  font-family:var(--font-primary);
+  font-synthesis: none;
+}
+
+.start-scene * {
+  box-sizing: border-box;
+}
+
+.start-scene button,
+.start-scene a {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.start-scene button {
+  border: 0;
+  cursor: pointer;
+}
+
+.start-scene h1,
+.start-scene p {
+  margin: 0;
+}
+
+.start-scene h1:focus {
+  outline: none;
+}
+
+.start-scene button:focus-visible,
+.start-scene a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 5px;
+  box-shadow: 0 0 0 8px #11172270;
+}
+
+.start-scene .room-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background: url('/assets/start-poster.webp') center center / cover no-repeat;
+  animation: scene01RoomIn 1s ease-out;
+}
+
+.start-scene .start-video {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+}
+
+/*
+ * Camera-continuity bridge into the Portal clip (2026-09-30). The ambient
+ * loop's native framing sits noticeably closer than portal-journey-premium's
+ * opening shot (measured ~1.15-1.2x tighter on the monitor/character, not a
+ * CSS bug -- the two source clips were just framed differently). Rather than
+ * hard-cutting between them, the ambient layer eases into the wider framing
+ * on click so the cut lands on two already-matched frames. transform-origin
+ * stays center so this composes with each breakpoint's own object-position.
+ */
+.start-scene {
+  --ambient-scale: 1;
+  --ambient-x: 0px;
+  --ambient-y: 0px;
+}
+
+.start-scene .room-photo,
+.start-scene .start-video {
+  transform: translate3d(var(--ambient-x), var(--ambient-y), 0) scale(var(--ambient-scale));
+  transform-origin: center center;
+  transition: transform 0.65s 0.1s cubic-bezier(0.22, 0.61, 0.32, 1), filter 0.45s 0.3s ease;
+}
+
+.start-scene.is-launching .room-photo,
+.start-scene.is-launching .start-video {
+  --ambient-scale: 0.88;
+  --ambient-x: 1.6%;
+  --ambient-y: -0.6%;
+  filter: brightness(0.95) saturate(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .start-scene .room-photo,
+  .start-scene .start-video {
+    transition: none;
+  }
+
+  .start-scene.is-launching .room-photo,
+  .start-scene.is-launching .start-video {
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Left-side legibility gradient only -- the workspace must stay the subject. */
+.start-scene .room-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, #0b1220e0 0%, #0b122099 24%, #0b122040 44%, transparent 62%);
+}
+
+.start-scene .start-copy {
+  position: relative;
+  width: 600px;
+  max-width: 90vw;
+  margin-left: 7vw;
+  padding-top: clamp(48px, 8vh, 96px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.start-scene .start-copy.is-launching {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+.start-scene .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #cbd5e1;
+}
+
+.start-scene .eyebrow-line {
+  flex-shrink: 0;
+  width: 24px;
+  height: 1px;
+  background: #67e8f9;
+}
+
+.start-scene .start-copy h1 {
+  margin: 0 0 20px;
+  font-family: var(--display);
+  font-size: clamp(40px, 4.6vw, 68px);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.start-scene .start-description {
+  max-width: 46ch;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #d9e8ef;
+}
+
+.start-scene .gateway {
+  margin-top: 32px;
+}
+
+.start-scene .start-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ENTER WORLD -- a digital gateway trigger, not a generic web button. */
+.start-scene .enter-world-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 14px 26px;
+  overflow: hidden;
+  background: rgba(17, 23, 34, 0.4);
+  border: 1px solid rgba(103, 232, 249, 0.55);
+  border-radius: 999px;
+  color: #f3f5f7;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  backdrop-filter: blur(6px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.start-scene .enter-world-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(103, 232, 249, 0.35) 45%, transparent 60%);
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.start-scene .enter-world-button:hover,
+.start-scene .enter-world-button:focus-visible {
+  border-color: rgba(103, 232, 249, 0.9);
+  box-shadow: 0 0 24px rgba(103, 232, 249, 0.18);
+}
+
+.start-scene .enter-world-button:hover::before,
+.start-scene .enter-world-button:focus-visible::before {
+  transform: translateX(120%);
+}
+
+.start-scene .enter-world-button:active {
+  transform: translateY(1px);
+}
+
+.start-scene .enter-world-button:disabled {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.start-scene .gateway-diamond {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  background: #67e8f9;
+  transform: rotate(45deg);
+}
+
+.start-scene .enter-world-button:hover .gateway-diamond,
+.start-scene .enter-world-button:focus-visible .gateway-diamond {
+  animation: gatewayPulse 1s ease;
+}
+
+.start-scene .gateway-arrow {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.start-scene .enter-world-button:hover .gateway-arrow,
+.start-scene .enter-world-button:focus-visible .gateway-arrow {
+  transform: translateX(4px);
+}
+
+/* Very small, monitor-brightness style cue while the gateway button is engaged. */
+@supports selector(:has(a, b)) {
+  .start-scene:has(.enter-world-button:hover) .start-video,
+  .start-scene:has(.enter-world-button:focus-visible) .start-video {
+    filter: brightness(1.04) saturate(1.05);
+  }
+}
+
+.start-scene .gateway-status {
+  margin: 12px 0 0;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8fa3b0;
+}
+
+.start-scene .start-caption {
+  margin-top: 18px;
+  font-size: 11px;
+  color: #8fa3b0;
+}
+
+.start-scene .journey-replay {
+  min-height: 44px;
+  margin-top: 4px;
+  padding: 12px 0;
+  background: none;
+  text-decoration: underline;
+  font-size: 12px;
+  color: #e2e8f0;
+}
+
+.start-scene .start-bottom {
+  position: absolute;
+  bottom: 26px;
+  left: 40px;
+  right: 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #d9e8ef;
+}
+
+.start-scene .start-bottom-primary {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.start-scene .start-bottom-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.start-scene .start-bottom .eyebrow-line {
+  width: 16px;
+}
+
+.start-scene .start-bottom small {
+  display: block;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #8fa3b0;
+}
+
+@keyframes scene01RoomIn {
+  from {
+    transform: scale(1.025);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes gatewayPulse {
+  0%, 100% {
+    transform: rotate(45deg) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.6);
+  }
+}
+
+@media (min-width: 1700px) {
+  .start-scene .start-copy {
+    margin-left: 8vw;
+    padding-top: 10vh;
+  }
+}
+
+@media (max-width: 950px) {
+  .start-scene .start-copy {
+    margin-left: 6vw;
+    padding-top: 9vh;
+    width: 480px;
+  }
+
+  .start-scene .room-photo,
+  .start-scene .start-video {
+    object-position: 62% center;
+  }
+
+  .start-scene .room-shade {
+    background: linear-gradient(100deg, #0b1220ea 0%, #0b1220a8 34%, #0b122055 58%, transparent 78%);
+  }
+}
+
+@media (max-width: 600px) {
+  .start-scene {
+    min-height: 660px;
+    height: calc(100svh - var(--header));
+  }
+
+  .start-scene .room-photo,
+  .start-scene .start-video {
+    object-position: 62% 0;
+  }
+
+  .start-scene .room-shade {
+    background: linear-gradient(0deg, #0b1220f5 0%, #0b1220d0 40%, #0b122060 74%, #0b122025 100%);
+  }
+
+  .start-scene .start-copy {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 90px;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0 24px;
+  }
+
+  .start-scene .eyebrow {
+    font-size: 12px;
+  }
+
+  .start-scene .start-copy h1 {
+    margin-bottom: 14px;
+    font-size: clamp(28px, 8vw, 36px);
+  }
+
+  .start-scene .start-description {
+    font-size: 14px;
+  }
+
+  .start-scene .start-actions {
+    gap: 14px;
+  }
+
+  .start-scene .enter-world-button {
+    min-height: 48px;
+    padding: 12px 20px;
+    font-size: 12px;
+  }
+
+  .start-scene .start-bottom {
+    left: 24px;
+    right: 24px;
+    bottom: 20px;
+    align-items: flex-end;
+    gap: 15px;
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+
+  .start-scene .start-bottom small {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 370px) {
+  .start-scene .start-copy {
+    padding-inline: 20px;
+  }
+
+  .start-scene .start-copy h1 {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 601px) and (max-height: 800px) {
+  .start-scene {
+    min-height: 590px;
+  }
+
+  .start-scene .start-copy {
+    padding-top: 32px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 950px) and (max-height: 800px) {
+  .start-scene {
+    min-height: 670px;
+  }
+}
+
+@media (max-height: 650px) and (min-width: 601px) {
+  .start-scene {
+    min-height: 530px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .start-scene .start-video {
+    display: none;
+  }
+
+  .start-scene .room-photo {
+    animation: none;
+  }
+
+  .start-scene .start-copy {
+    transition: none;
+  }
+}
+
+/* Latest reference: fullscreen workspace with quiet corner utilities. */
+.start-scene{height:100svh;min-height:600px;font-family:var(--font-primary)}
+.real-header{position:absolute;z-index:10;top:36px;left:5.4%;right:5%;display:flex;justify-content:space-between;align-items:center}
+.start-scene .real-brand{font-size:16px;font-weight:600;letter-spacing:.48em;line-height:1.6;color:#fff}
+.real-brand small{display:block;font-size:9px;font-weight:400;letter-spacing:.28em;margin-top:4px;color:#d6deea}
+.real-utilities{display:flex;align-items:center;gap:24px}.start-scene .real-quick{font-size:11px;letter-spacing:.18em;display:flex;gap:14px;align-items:center;min-height:44px}
+.real-settings{position:relative;border-left:1px solid #ffffff40;padding-left:20px}.real-settings summary{display:flex;align-items:center;justify-content:center;width:44px;height:44px;cursor:pointer;list-style:none}.real-settings summary::-webkit-details-marker{display:none}.real-settings summary:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.real-settings-panel{position:absolute;right:0;top:56px;width:230px;padding:18px;border:1px solid #ffffff33;border-radius:16px;background:#0b182deb;backdrop-filter:blur(12px);font-size:13px}
+.real-settings-panel strong{display:block;margin-bottom:10px}.start-scene .real-settings-panel button{display:flex;justify-content:space-between;align-items:center;width:100%;min-height:44px;background:transparent;border-bottom:1px solid #ffffff22;font-size:13px}.real-settings-panel button span{color:#d8bd85}.real-settings-panel small{display:block;font-size:10px;color:#bcc9d8;margin-top:10px}
+/* DESIGN_SYSTEM.md v3: text-shadow is always prohibited. Legibility against
+   the bright parts of the photo (window city-lights, desk lamp) now comes
+   only from a stronger, wider scrim under the text column. */
+.start-scene .room-shade{background:linear-gradient(90deg,#050d18cc 0%,#07111ea6 34%,#07111e59 54%,#07111e14 68%,transparent 80%),linear-gradient(0deg,#03091166,transparent 30%)}
+.start-scene .start-copy{margin-left:7.3%;padding-top:23vh;width:620px;max-width:49vw}
+.start-scene .eyebrow{font-size:11px;font-weight:500;letter-spacing:.25em;gap:20px;margin-bottom:20px;color:#edf1f7}.start-scene .eyebrow-line{height:2px;background:#d8bd85}
+.start-scene .start-copy h1{font-size:clamp(32px,3.15vw,60px);line-height:1.35;letter-spacing:-.025em;font-weight:650;margin-bottom:22px;white-space:nowrap}.real-accent{color:#17dce6}
+.start-scene .start-description{font-size:clamp(13px,1.05vw,20px);line-height:1.8;color:#edf0f5;max-width:none}
+/* Idle state stays quiet/warm (desk light); Portal Cyan is reserved for the
+   portal anomaly (PortalCinematic), not the default screen -- see CLAUDE.md. */
+.start-scene .gateway{margin-top:40px}.start-scene .enter-world-button{width:320px;min-height:72px;padding:18px 36px;gap:28px;border:2px solid rgba(216,189,133,.5);background:linear-gradient(180deg,rgba(58,42,20,.55),rgba(8,6,3,.7));box-shadow:inset 0 0 16px rgba(216,189,133,.12);font-size:16px;letter-spacing:.12em}
+.start-scene .gateway-diamond{width:13px;height:13px;border:2px solid #d8bd85;background:transparent}.start-scene .gateway-arrow{width:25px;height:25px;margin-left:auto}
+.start-scene .gateway-status{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.start-scene .start-caption{font-size:12px;color:#c4cfda;margin-top:20px}.start-scene .start-bottom{left:2.2%;right:2.7%;bottom:4.8%;font-weight:400;font-size:9px;letter-spacing:.25em}.start-scene .start-bottom small{padding-left:38px;font-size:8px;letter-spacing:.22em;color:#c4cfda}.start-scene .start-bottom-row{gap:22px}.start-scene .start-bottom .eyebrow-line{background:#cad6dd;width:16px;height:1px}
+@media(max-width:767px){
+ .start-scene{height:100svh;min-height:680px}.real-header{top:22px;left:6%;right:5%}.start-scene .real-brand{font-size:12px;letter-spacing:.3em}.real-brand small{font-size:7px;letter-spacing:.16em}.real-utilities{gap:8px}.start-scene .real-quick{font-size:9px;letter-spacing:.08em;gap:5px}.real-settings{padding-left:6px}
+ .start-scene .start-copy{position:absolute;left:0;right:0;bottom:100px;margin:0;padding:0 6%;width:auto;max-width:none}.start-scene .start-copy h1{font-size:clamp(25px,6.5vw,42px);white-space:normal}.start-scene .start-description{font-size:13px}.start-scene .start-description br{display:none}.start-scene .gateway{margin-top:26px}.start-scene .enter-world-button{width:280px;min-height:60px;padding:14px 28px;font-size:14px}.start-scene .room-shade{background:linear-gradient(0deg,#050d18eb 0%,#07111eb8 36%,#07111e22 78%)}.start-scene .eyebrow{font-size:9px}.start-scene .start-bottom{left:6%;right:6%;bottom:25px}.start-scene .start-bottom small{font-size:6px;letter-spacing:.1em;padding-left:25px}.start-scene .start-bottom-row{gap:9px}
+}
+@media(min-width:768px) and (max-height:700px){.start-scene{min-height:540px}.start-scene .start-copy{padding-top:20vh}.start-scene .start-copy h1{font-size:32px;margin-bottom:16px}.start-scene .eyebrow{margin-bottom:12px}.start-scene .gateway{margin-top:24px}.start-scene .enter-world-button{min-height:58px}.real-header{top:20px}}
+
+
+.start-scene .real-world-brand{position:absolute;z-index:40;top:max(24px,env(safe-area-inset-top));left:3%;display:flex;align-items:center;gap:12px;min-height:44px;color:#f7f5ee;text-decoration:none;font-family:var(--font-primary);font-size:38px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:normal}.start-scene .real-world-brand span{font-size:12px}.start-scene .real-world-brand:focus-visible{outline:2px solid #d8bd85;outline-offset:4px}@media(max-width:1100px){.start-scene .real-world-brand span{display:none}}@media(max-aspect-ratio:1/1){.start-scene .real-world-brand{left:5%;top:max(16px,env(safe-area-inset-top));font-size:32px}}@media(max-height:620px){.start-scene .real-world-brand{top:12px}}
+
+/* Align the settings control with the wordmark safe area. */
+.start-scene .real-header.real-secondary-tools{top:max(24px,env(safe-area-inset-top));left:auto;right:3%;height:50px;justify-content:flex-end;z-index:45}
+.start-scene .real-settings{border-left:0;padding-left:0}
+.start-scene .real-accent{position:relative;display:inline-block;isolation:isolate;color:#19314d;text-shadow:none}
+.start-scene .real-accent:before{content:'';position:absolute;inset:4% -3px 2%;z-index:-1;background:#ffdf43;border-bottom:1px solid #efc62d;clip-path:polygon(2% 7%,100% 0,98% 94%,0 100%);transform-origin:left;animation:real-marker-reveal .85s .3s ease both;pointer-events:none}
+.start-scene .real-accent:hover:before{background:#ffe66b}
+.start-scene .enter-world-button:before{background:linear-gradient(105deg,transparent 38%,#d8bd8518 44%,#f3e0b866 50%,#d8bd8518 56%,transparent 62%);transition:none;animation:real-gateway-scan 4.8s 1.2s ease-in-out infinite}
+.start-scene .enter-world-button:after{content:'';position:absolute;inset:5px;border-radius:inherit;border:1px solid rgba(216,189,133,.2);pointer-events:none}
+.start-scene .enter-world-button:is(:hover,:focus-visible){background:linear-gradient(180deg,rgba(74,54,26,.65),rgba(12,9,5,.78));border-color:#eac692;box-shadow:0 0 20px rgba(216,189,133,.25),inset 0 0 18px rgba(216,189,133,.12)}
+.start-scene .enter-world-button:is(:hover,:focus-visible) .gateway-arrow{transform:translateX(5px)}
+.start-scene .enter-world-button:disabled:before{animation:none}
+@keyframes real-marker-reveal{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes real-gateway-scan{0%,55%{transform:translateX(-120%)}85%,100%{transform:translateX(120%)}}
+@media(max-aspect-ratio:1/1){.start-scene .real-header.real-secondary-tools{top:max(16px,env(safe-area-inset-top));right:5%;height:44px}}
+@media(max-height:620px){.start-scene .real-header.real-secondary-tools{top:12px}}
+html[data-motion='reduced'] .start-scene .real-accent:before,html[data-motion='reduced'] .start-scene .enter-world-button:before{animation:none;transform:none}
+html[data-motion='reduced'] .start-scene .enter-world-button:before{opacity:0}
+@media(prefers-reduced-motion:reduce){.start-scene .real-accent:before{animation:none;transform:none}.start-scene .enter-world-button:before{animation:none;opacity:0}}
+
+/* SUIT throughout Real World, including the portal handoff (DESIGN_SYSTEM.md v3). */
+.start-scene :is(h1,p,a,button,summary,strong,small,span),.portal-cinematic{--font-primary:'SUIT', -apple-system, sans-serif}
+.start-scene :is(h1,p,a,button,summary,strong,small,span),.portal-cinematic :is(p,a,button,small,span){font-family:var(--font-primary)}
+.start-scene .start-copy h1{font-family:var(--font-primary);font-weight:700}
+.start-scene :is(.start-description,.start-caption,.real-settings-panel,.real-settings-panel button,.real-settings-panel small){font-weight:400;letter-spacing:normal;line-height:1.7}
+.start-scene .real-settings-panel strong{font-weight:700}
+.start-scene .enter-world-button{font-weight:400}

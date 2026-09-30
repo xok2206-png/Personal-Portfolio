@@ -4,6 +4,7 @@ import { usePortfolioUI } from '../../app/PortfolioUIContext.jsx'
 import { profile } from '../../data/content.js'
 import QA from '../QA/QA.jsx'
 import './Contact.css'
+import './ContactNatural.css'
 import ContactAtmosphere from './ContactAtmosphere.jsx'
 import ContactEmail from './ContactEmail.jsx'
 
@@ -76,11 +77,11 @@ export default function Contact(){
  const cardEnter=e=>{const card=e.target.closest('a,button');if(card&&card.parentElement===e.currentTarget&&!card.contains(e.relatedTarget)&&performance.now()-lastJump.current>900){lastJump.current=performance.now();setJump(v=>v+1)}}
  const close=()=>navigate('/contact',{replace:true})
  return <main id="main" className="contact-chapter" data-failed={failed}>
- <img className="contact-reference-bg" src="/assets/production/images/contact/contact-background-v5.webp" alt="" onError={()=>setFailed(true)} fetchPriority="high"/>
+ <img className="contact-reference-bg" src="/assets/production/images/natural-world/contact-room-v1.webp" alt="" onError={()=>setFailed(true)} fetchPriority="high"/>
  <ContactAtmosphere/>
  <ContactLookout jump={jump}/>
  <div className="contact-shade"/>
- <section className="contact-copy" aria-labelledby="contact-title"><p className="contact-eyebrow"><span aria-hidden="true">✧</span> CONTACT <span aria-hidden="true">✧</span></p><h1 id="contact-title" tabIndex="-1">Let’s Connect</h1><p className="contact-lead">이번 여정은 여기까지지만,<br/>다음 이야기는 함께 만들 수 있습니다.</p><p className="contact-description">프로젝트, 협업 또는 제 작업에 대해<br/>궁금한 점이 있다면 편하게 연락해주세요.</p>
+ <section className="contact-copy" aria-labelledby="contact-title"><p className="contact-eyebrow">CONTACT</p><h1 id="contact-title" tabIndex="-1">Let’s Connect</h1><p className="contact-lead">이번 여정은 여기까지지만,<br/>다음 이야기는 함께 만들 수 있습니다.</p><p className="contact-description">프로젝트, 협업 또는 제 작업에 대해<br/>궁금한 점이 있다면 편하게 연락해주세요.</p>
  <nav onPointerOver={cardEnter} onFocus={cardEnter} className="contact-choices" aria-label="연락 및 질문"><Link to="/contact#email" aria-haspopup="dialog"><CardContent icon="email" label="Email"/></Link><a href={profile.github} target="_blank" rel="noopener noreferrer"><CardContent icon="github" label="GitHub"/></a><Link to="/resume"><CardContent icon="resume" label="Resume"/></Link><Link to="/contact#qa" aria-haspopup="dialog"><CardContent icon="question" label="Ask a Question"/></Link></nav></section>
  <aside className="contact-motto" aria-hidden="true">Different<br/><span>People</span><br/>Brighter<br/><span>Worlds.</span><i>✦ ─────</i></aside>
  <footer className="contact-footer"><span>A SMALL STEP<br/>FOR A BRIGHTER TOMORROW.</span><span>SEE YOU<br/>IN THE NEXT WORLD.<i aria-hidden="true">── ✧ ──</i></span></footer>
@@ -88,4 +89,3 @@ export default function Contact(){
  {hash==='#qa'&&<QuestionDialog onClose={close}/>}
  </main>
 }
-

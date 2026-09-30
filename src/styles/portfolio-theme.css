@@ -1,0 +1,42 @@
+/* DESIGN_SYSTEM v3: tokens scoped to the portfolio; Real World retains its baseline. */
+.portfolio-experience{--font-ui:'SUIT',sans-serif;--font-display:'Marcellus',serif;--font-primary:var(--font-ui);--font-heading:var(--font-ui);--display:var(--font-display);--sky-100:#DDEEF5;--sky-300:#A9D4E5;--sky-500:#78B6D0;--cloud:#F6F3EA;--ivory:#F2EBDD;--stone-200:#D8D0BE;--stone-400:#B9AE96;--grass-300:#A7BD7A;--grass-500:#78965F;--deep-green:#405A45;--ink:#26343A;--ink-soft:#53636A;--surface-dark:#26383D;--interaction:#4E8FA8;--interaction-dark:#376E83;--warm-accent:#C29A5B;--page-gutter:32px;--header:64px;font:400 16px/1.6 var(--font-ui);color:var(--ink);background:var(--sky-100);word-break:keep-all;overflow-wrap:break-word}
+.portfolio-experience :is(button,input,select,textarea,nav,a,p,span,small,strong,dt,dd,li,h1,h2,h3,h4,kbd){font-family:var(--font-ui)}
+.portfolio-experience :is(.gallery-title h1,.contact-copy h1,.nexus-title h1,.world-scene-title){font-family:var(--font-display);font-weight:400;letter-spacing:0;line-height:1.1}
+.portfolio-experience :is(.gallery-title h1,.contact-copy h1,.nexus-title h1){font-size:clamp(38px,3.8vw,56px)}
+.portfolio-experience :is(*,*::before,*::after){text-shadow:none}
+.portfolio-experience :is(a,button,summary,input,textarea):focus-visible{outline:2px solid var(--interaction-dark);outline-offset:4px;box-shadow:none}
+.portfolio-experience .page-header :is(a,button):focus-visible{outline-color:var(--sky-300)}
+.portfolio-experience ::selection{background:var(--sky-300);color:var(--ink)}
+.portfolio-experience .skip-link{z-index:12000;background:var(--ivory);color:var(--ink);padding:16px;border-radius:10px}
+.portfolio-experience .next-destination{font:600 14px/1.4 var(--font-ui);color:var(--ink);background:var(--ivory);border:1px solid var(--stone-200);border-radius:14px;padding:12px 16px;box-shadow:none;right:var(--page-gutter);bottom:20px}
+.portfolio-experience .next-destination:before,.portfolio-experience .next-destination:after{display:none}
+.portfolio-experience .next-destination small{font-size:12px;letter-spacing:0;color:var(--ink-soft)}
+.portfolio-experience .next-destination span{font-size:16px}
+.portfolio-experience .exploration-navigation{position:fixed;left:var(--page-gutter);bottom:20px;top:auto;right:auto;z-index:70;display:block;pointer-events:auto;width:auto;height:auto}
+@media(min-width:1920px){.portfolio-experience{--page-gutter:48px}}
+@media(max-width:1279px){.portfolio-experience{--page-gutter:24px}}
+@media(max-width:767px){.portfolio-experience{--page-gutter:20px}.portfolio-experience .next-destination{bottom:16px;right:20px}}
+@media(max-width:390px){.portfolio-experience{--page-gutter:16px}}
+.portfolio-experience .next-destination{left:auto;width:auto;min-width:160px;min-height:64px}
+.portfolio-experience .next-destination:hover{background:var(--cloud);border-color:var(--interaction-dark)}
+.natural-map-button{display:flex;align-items:center;justify-content:center;gap:8px;height:44px;min-width:72px;padding:0 12px;background:var(--cloud);color:var(--ink);border:1px solid var(--stone-200);border-radius:10px;font:600 14px var(--font-ui)}.natural-map-button>span{display:inline-block;font-size:20px;transition:rotate .24s}.natural-map-button:hover{border-color:var(--interaction-dark);background:var(--ivory)}
+.portfolio-experience .destination-frame{padding-top:64px;background:transparent;position:relative;isolation:isolate;color:var(--ink)}
+.portfolio-experience .destination-arrival{position:relative;z-index:1;background:transparent;color:var(--ink);height:280px;padding-top:48px}.portfolio-experience .destination-arrival p{font:400 48px/1.2 var(--font-display)}.portfolio-experience .destination-arrival span{color:var(--ink-soft)}
+.portfolio-experience .destination-content{position:relative;z-index:1;background:var(--cloud);border-radius:20px;color:var(--ink);font:400 16px/1.8 var(--font-ui)}
+.portfolio-experience>.destination-content{margin:112px auto 96px;max-width:min(1120px,calc(100% - 64px));padding:48px}
+.portfolio-experience .destination-content p{color:var(--ink-soft)}.portfolio-experience .destination-content :is(li,blockquote){background:var(--ivory);color:var(--ink);border-color:var(--stone-200)}.portfolio-experience .destination-content a{color:var(--interaction-dark)}.portfolio-experience .destination-content button{color:var(--ink);background:var(--ivory);border-color:var(--stone-400)}
+.portfolio-experience .destination-footer{position:relative;z-index:1;background:var(--cloud);color:var(--ink);margin-top:32px;margin-bottom:96px;border-color:var(--stone-200)}
+.portfolio-experience .project_detail h1,.portfolio-experience .resume_world h1{font:600 40px/1.3 var(--font-ui);letter-spacing:-.02em}
+.portfolio-experience .project_detail h2{font:600 24px/1.4 var(--font-ui)}
+html[data-motion='reduced'] .portfolio-experience *,html[data-motion='reduced'] .portfolio-experience *::before,html[data-motion='reduced'] .portfolio-experience *::after{animation-play-state:paused!important;scroll-behavior:auto!important}
+@media(max-width:767px){.portfolio-experience .next-destination{min-width:140px;min-height:60px;right:20px;left:auto;bottom:16px}.portfolio-experience .exploration-navigation{left:20px;bottom:20px}.portfolio-experience>.destination-content{margin:88px 20px 112px;max-width:none;padding:24px}.portfolio-experience .destination-arrival{height:240px}.portfolio-experience .destination-arrival p{font-size:32px}.portfolio-experience .destination-content{border-radius:14px}.portfolio-experience .project_detail h1{font-size:32px}}
+@media print{.portfolio-experience .page-header,.portfolio-experience .living-environment,.portfolio-experience .exploration-navigation,.portfolio-experience .next-destination{display:none!important}.portfolio-experience>.destination-content{margin:0;padding:0;max-width:none;border:0;background:white}}
+
+.portfolio-experience :is(*,*::before,*::after){text-shadow:none!important}
+.portfolio-experience .contact-email{font-family:var(--font-ui);color:var(--ink);background:var(--cloud);border:1px solid var(--stone-200);border-radius:20px;box-shadow:none;padding:32px;max-height:calc(100dvh - 64px)}
+.portfolio-experience .contact-email:before,.portfolio-experience .contact-email:after{display:none}
+.portfolio-experience .contact-email h2{font:600 24px/1.4 var(--font-ui);color:var(--ink);letter-spacing:0}.portfolio-experience .email-eyebrow{font-size:12px;color:var(--ink-soft)}.portfolio-experience .email-intro{font-size:16px;color:var(--ink-soft)}
+.portfolio-experience .contact-email label{font:500 14px/1.6 var(--font-ui);color:var(--ink)}.portfolio-experience .contact-email input,.portfolio-experience .contact-email textarea{color:var(--ink);background:var(--ivory);border:1px solid var(--stone-400);border-radius:10px;padding:12px;font:400 16px/1.6 var(--font-ui);box-shadow:none}.portfolio-experience .contact-email :is(input,textarea)::placeholder{color:var(--ink-soft)}
+.portfolio-experience .email-send{color:var(--cloud);background:var(--surface-dark);border:1px solid var(--surface-dark);border-radius:10px;min-height:44px;font:600 14px var(--font-ui);box-shadow:none}.portfolio-experience .email-close{color:var(--ink);min-width:44px;min-height:44px;background:transparent}.portfolio-experience .email-privacy,.portfolio-experience .email-status{font-size:12px;color:var(--ink-soft)}
+@media(max-width:767px){.portfolio-experience .contact-email{padding:24px;max-width:calc(100vw - 32px)}}
+html[data-motion='reduced'] .portfolio-experience :is(.page-destination-preview,.archive-content-enter,.world-atlas){animation:none!important}

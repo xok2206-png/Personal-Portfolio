@@ -1,0 +1,1189 @@
+{
+  "checks": [
+    "Idle loops only calm opening",
+    "Click preserves media element and source",
+    "Playhead continues forward on click",
+    "Click preserves full-viewport dimensions",
+    "Entry stays on same URL and scene",
+    "Workspace stays playing during entry",
+    "Cinematic controls live inside current main",
+    "Separate title panel removed",
+    "Arrival reveals after decoded frame",
+    "Outgoing video retains actual final frame",
+    "Complete two-clip sequence reaches world",
+    "Replay and Escape skip still work",
+    "Mobile crop unchanged at entry",
+    "Mobile skip works",
+    "Direct entry still bypasses video",
+    "No runtime errors"
+  ],
+  "errors": [],
+  "before": {
+    "time": 0.45531,
+    "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 810,
+      "top": 0,
+      "right": 1440,
+      "bottom": 810,
+      "left": 0
+    }
+  },
+  "samples": [
+    {
+      "time": 0.496941,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.509821,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.526059,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.544389,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.559373,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.575977,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.601002,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.609111,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.625825,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.642806,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.659537,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.676356,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.693189,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.709668,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.72619,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.743054,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.759495,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.776275,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.793038,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.809614,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.826118,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.843011,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.859619,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.876296,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.892955,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.909478,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.926137,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.942924,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.959568,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.976164,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 0.992808,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.009396,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.025965,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.042771,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.059393,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.075966,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.092574,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.109272,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.125867,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.142567,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.159226,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.175855,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.192497,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.209199,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.225904,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.242604,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.259331,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.275975,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.292613,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.309402,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.325888,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.342542,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.359241,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.375971,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.392912,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.409266,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.425889,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.442563,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.45945,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.475951,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.49253,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.509198,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.525886,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.542515,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.55924,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.575907,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    },
+    {
+      "time": 1.592529,
+      "paused": false,
+      "sameNode": true,
+      "src": "http://127.0.0.1:5174/assets/production/video/premium-to-portal-preview.mp4",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 810,
+        "top": 0,
+        "right": 1440,
+        "bottom": 810,
+        "left": 0
+      },
+      "path": "/"
+    }
+  ],
+  "mobileBefore": {
+    "pos": "62% 0%",
+    "rect": {
+      "x": 0,
+      "y": 0,
+      "width": 430,
+      "height": 932,
+      "top": 0,
+      "right": 430,
+      "bottom": 932,
+      "left": 0
+    }
+  }
+}

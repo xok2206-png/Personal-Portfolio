@@ -9,11 +9,11 @@ export default function FlowingWater({ island, running, speed = 1 }) {
   <svg className="lw-water-streams" viewBox="0 0 100 150" preserveAspectRatio="none" style={{ '--water-duration': `${1.8 / speed}s` }}>
    <defs>
     <linearGradient id={`${id}-body`}>
-     <stop stopColor="#9bc9e4" stopOpacity="0"/>
-     <stop offset=".22" stopColor="#b6d9ed" stopOpacity=".25"/>
-     <stop offset=".5" stopColor="#edf8ff" stopOpacity=".55"/>
-     <stop offset=".78" stopColor="#b6d9ed" stopOpacity=".25"/>
-     <stop offset="1" stopColor="#9bc9e4" stopOpacity="0"/>
+     <stop stopColor="var(--sky-500)" stopOpacity="0"/>
+     <stop offset=".22" stopColor="var(--sky-300)" stopOpacity=".25"/>
+     <stop offset=".5" stopColor="var(--cloud)" stopOpacity=".55"/>
+     <stop offset=".78" stopColor="var(--sky-300)" stopOpacity=".25"/>
+     <stop offset="1" stopColor="var(--sky-500)" stopOpacity="0"/>
     </linearGradient>
     <linearGradient id={`${id}-fade`} x1="0" y1="0" x2="0" y2="1">
      <stop stopColor="white" stopOpacity="0"/>
@@ -31,10 +31,10 @@ export default function FlowingWater({ island, running, speed = 1 }) {
     {Array.from({length:12},(_,lane)=>{
      const sx=x+w*(.10+lane*.071)
      const d=`M${sx},${y} C${sx-w*.04},${y+h*.3} ${sx+w*.06},${y+h*.65} ${sx+w*.03},${y+h}`
-     return <g key={lane} fill="none" stroke="#e5f6ff" strokeWidth={Math.min(w*(lane%3===0?.035:.02),.23)} strokeLinecap="round">
+     return <g key={lane} fill="none" stroke="var(--cloud)" strokeWidth={Math.min(w*(lane%3===0?.035:.02),.23)} strokeLinecap="round">
       <path d={d} opacity=".14"/>
       <path className="lw-water-flow" d={d} pathLength="100" strokeDasharray={broad?"17 5":"9 13"} opacity={broad?.28:.48} style={{animationDelay:`${-lane*.27-i*.7}s`,animationDuration:`${(1.6+(lane%3)*.35)/speed}s`}}/>
-      <path className="lw-water-flow lw-water-undercurrent" d={d} pathLength="100" stroke="#5fa2ca" strokeWidth={Math.min(w*.02,.16)} strokeDasharray="5 17" opacity={broad?.12:.22} style={{animationDelay:`${-lane*.19-i*.5}s`,animationDuration:`${2.8/speed}s`}}/>
+      <path className="lw-water-flow lw-water-undercurrent" d={d} pathLength="100" stroke="var(--interaction)" strokeWidth={Math.min(w*.02,.16)} strokeDasharray="5 17" opacity={broad?.12:.22} style={{animationDelay:`${-lane*.19-i*.5}s`,animationDuration:`${2.8/speed}s`}}/>
      </g>
     })}
    </g>)}

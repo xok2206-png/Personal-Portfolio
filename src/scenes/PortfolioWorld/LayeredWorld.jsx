@@ -1,142 +1,118 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { gsap } from 'gsap'
+import { Link } from 'react-router-dom'
 import { usePortfolioUI } from '../../app/PortfolioUIContext.jsx'
-import { islandLayers, layerRoot, recommendedDestination, rememberDestination, readWorldVisits } from './layers.config.js'
+import { islandLayers, rememberDestination } from './layers.config.js'
 import WorldAtmosphere, { WaterMist } from './WorldAtmosphere.jsx'
 import FlowingWater from './FlowingWater.jsx'
-import IslandLife from './IslandLife.jsx'
 import WorldHUD from './WorldHUD.jsx'
 import WorldCharacter from './WorldCharacter.jsx'
 import IslandRibbon from './IslandRibbon.jsx'
 import useWorldWalk from './useWorldWalk.js'
-import './IslandLife.css'
 import './LayeredWorld.css'
 import './WorldAtmosphere.css'
 import './WorldHUD.css'
 import './WorldRefinement.css'
 import './IslandOrbit.css'
+import './NaturalWorld.css'
 
-const firstGuide=()=>{try{return sessionStorage.getItem('world-guide-seen')!=='true'}catch{return true}}
-const shortestHeading=(from,to)=>from+(((to-from)%360+540)%360)-180
+const firstGuide = () => { try { return sessionStorage.getItem('world-guide-seen') !== 'true' } catch { return true } }
+const shortestHeading = (from, to) => from + (((to - from) % 360 + 540) % 360) - 180
+const naturalRoot = '/assets/production/images/natural-world/'
 
-export default function LayeredWorld(){
- const {reduced,tone}=usePortfolioUI(),navigate=useNavigate(),location=useLocation()
- const root=useRef(null),camera=useRef(null),timeline=useRef(null),deadline=useRef(null),pointerType=useRef('mouse'),islandNav=useRef(null),travelTarget=useRef(null),railIndex=useRef(0)
- const [hidden,setHidden]=useState(document.hidden),[onscreen,setOnscreen]=useState(true)
- const [selected,setSelected]=useState(null),[hovered,setHovered]=useState(null),[entering,setEntering]=useState(null),[failed,setFailed]=useState({})
- const [initialAttention,setInitialAttention]=useState(true),[guide,setGuide]=useState(firstGuide),[bearing,setBearing]=useState(0)
- const [panelOpen,setPanelOpen]=useState(false),[mobileIndex,setMobileIndex]=useState(0),[recommended]=useState(recommendedDestination)
- const dismissGuide=useCallback(()=>{setGuide(false);try{sessionStorage.setItem('world-guide-seen','true')}catch{/* optional storage */}},[])
- const cancelTravel=useCallback(()=>{
-  timeline.current?.kill();clearTimeout(deadline.current);timeline.current=null;travelTarget.current=null;setEntering(null);setSelected(null)
-  if(camera.current)gsap.set(camera.current,{scale:1})
-  if(root.current)gsap.set(root.current.querySelector('.lw-entry-veil'),{opacity:0})
- },[])
- const manual=useCallback(()=>{dismissGuide();setInitialAttention(false);setSelected(null);setHovered(null)},[dismissGuide])
- useEffect(()=>{cancelTravel()},[location.key,cancelTravel])
- useEffect(()=>{window.addEventListener('popstate',cancelTravel);return()=>window.removeEventListener('popstate',cancelTravel)},[cancelTravel])
- const player=useWorldWalk({reduced,hidden,sceneRef:camera,blocked:panelOpen||Boolean(entering),onManual:manual})
- const focusId=entering?.id||hovered||selected
- const lookId=entering?.id||(!player.moving&&!panelOpen?(hovered||(initialAttention?'about':null)):null)
- const running=!reduced&&!hidden&&onscreen
- const recommendVisible=!focusId&&!panelOpen&&Boolean(recommended)
- useEffect(()=>{if(!guide)return;const timer=setTimeout(dismissGuide,2700);window.addEventListener('keydown',dismissGuide,{once:true});return()=>{clearTimeout(timer);window.removeEventListener('keydown',dismissGuide)}},[guide,dismissGuide])
- useEffect(()=>{
-  const measure=()=>{
-   const scene=camera.current,person=root.current?.querySelector('.lw-explorer')
-   if(!scene||!person)return
-   const p=person.getBoundingClientRect()
-   const island=root.current.querySelector(`[data-island="${lookId}"]`)
-   if(island){const a=island.getBoundingClientRect(),target=Math.atan2(a.x+a.width/2-p.x-p.width/2,p.bottom-a.y-a.height*.4)*180/Math.PI;setBearing(previous=>shortestHeading(previous,target))}
-   else setBearing(previous=>shortestHeading(previous,player.heading))
+export default function LayeredWorld() {
+ const { reduced, travelTo, previewDestination } = usePortfolioUI()
+ const root = useRef(null), camera = useRef(null), islandNav = useRef(null), pointerType = useRef('mouse')
+ const [hidden, setHidden] = useState(document.hidden), [onscreen, setOnscreen] = useState(true)
+ const [selected, setSelected] = useState(null), [hovered, setHovered] = useState(null), [failed, setFailed] = useState({})
+ const [guide, setGuide] = useState(firstGuide), [bearing, setBearing] = useState(0), [panelOpen, setPanelOpen] = useState(false), [mobileIndex, setMobileIndex] = useState(0)
+ const dismissGuide = useCallback(() => { setGuide(false); try { sessionStorage.setItem('world-guide-seen', 'true') } catch { /* Optional hint. */ } }, [])
+ const manual = useCallback(() => { dismissGuide(); setSelected(null); setHovered(null) }, [dismissGuide])
+ const player = useWorldWalk({ reduced, hidden, sceneRef: camera, blocked: panelOpen, onManual: manual })
+ const preview = islandLayers.find(island => island.route === previewDestination)?.id
+ const focusId = preview || hovered || selected
+ const running = !reduced && !hidden && onscreen
+ const active = islandLayers.find(island => island.id === focusId)
+ useEffect(() => {
+  if (!guide) return
+  const timer = setTimeout(dismissGuide, 4500)
+  return () => clearTimeout(timer)
+ }, [guide, dismissGuide])
+ useEffect(() => {
+  const measure = () => {
+   const person = root.current?.querySelector('.lw-explorer'), island = root.current?.querySelector('[data-island="' + focusId + '"]')
+   if (!person) return
+   if (island && !player.moving) {
+    const p = person.getBoundingClientRect(), a = island.getBoundingClientRect()
+    setBearing(previous => shortestHeading(previous, Math.atan2(a.x + a.width / 2 - p.x - p.width / 2, p.bottom - a.y - a.height * .4) * 180 / Math.PI))
+   } else setBearing(previous => shortestHeading(previous, player.heading))
   }
-  measure();window.addEventListener('resize',measure);return()=>window.removeEventListener('resize',measure)
- },[lookId,player.x,player.y,player.heading,recommended])
- useEffect(()=>{
-  const visibility=()=>setHidden(document.hidden);document.addEventListener('visibilitychange',visibility)
-  const ob=new IntersectionObserver(([e])=>setOnscreen(e.isIntersecting),{threshold:.05});ob.observe(camera.current)
-  return()=>{ob.disconnect();document.removeEventListener('visibilitychange',visibility);timeline.current?.kill();clearTimeout(deadline.current)}
- },[])
- // Alter playback rate without changing animation duration/currentTime (no phase jumps).
- useEffect(()=>{
-  if(!root.current)return
-  root.current.querySelectorAll('.lw-float,.lw-landmark-life *,.lw-spray,.lw-cloud,.lw-ship,.lw-cloud-bank,.lw-cloud-bank img,.lw-haze-ribbon,.lw-flock,.lw-leaf-flight').forEach(node=>{
-   const island=node.closest('[data-island]'),rate=focusId&&island?.dataset.island!==focusId? .6:1
-   node.getAnimations().forEach(animation=>animation.updatePlaybackRate(rate))
-  })
- },[focusId])
- useEffect(()=>{
-  const nav=islandNav.current
-  const update=()=>{if(!matchMedia('(max-aspect-ratio: 1/1)').matches)return;const b=nav.getBoundingClientRect();let closest=0,distance=Infinity;[...nav.children].forEach((e,i)=>{const a=e.getBoundingClientRect(),d=Math.abs(a.x+a.width/2-b.x-b.width/2);if(d<distance){closest=i;distance=d}});if(closest!==railIndex.current){railIndex.current=closest;if(!travelTarget.current){setSelected(null);setHovered(null)}}setMobileIndex(closest)}
-  nav.addEventListener('scroll',update,{passive:true});window.addEventListener('resize',update);update()
-  return()=>{nav.removeEventListener('scroll',update);window.removeEventListener('resize',update)}
- },[])
- const finishTravel=useCallback(island=>{rememberDestination(island.id);navigate(island.route)},[navigate])
- useEffect(()=>{if(reduced&&entering){timeline.current?.kill();clearTimeout(deadline.current);travelTarget.current=null;finishTravel(entering)}},[reduced,entering,finishTravel])
- const enter=useCallback((e,island)=>{
-  if(!island||(e.button!==undefined&&e.button!==0)||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return
-  e.preventDefault();dismissGuide();cancelTravel()
-  if(reduced||readWorldVisits().includes(island.id)){finishTravel(island);return}
-  setInitialAttention(false);setEntering(island);setSelected(island.id);setHovered(null);tone();travelTarget.current=island.id
-  const finish=()=>{if(travelTarget.current!==island.id)return;travelTarget.current=null;clearTimeout(deadline.current);finishTravel(island)}
-  deadline.current=setTimeout(finish,1850)
-  const target=root.current?.querySelector(`[data-island="${island.id}"]`)
-  if(!target||!camera.current){finish();return}
-  if(matchMedia('(max-aspect-ratio: 1/1)').matches){const nav=islandNav.current;nav.scrollTo({left:target.offsetLeft-(nav.clientWidth-target.clientWidth)/2,behavior:'instant'})}
-  const b=camera.current.getBoundingClientRect(),t=target.getBoundingClientRect()
-  try{timeline.current=gsap.timeline({onComplete:finish})
-   .to(camera.current,{transformOrigin:`${t.x+t.width/2-b.x}px ${t.y+t.height*.4-b.y}px`,scale:2.8,duration:1.05,ease:'power2.inOut'},.5)
-   .to(root.current.querySelector('.lw-entry-veil'),{opacity:1,duration:.45},1.1)
-  }catch{finish()}
- },[cancelTravel,dismissGuide,reduced,finishTravel,tone])
- useEffect(()=>{
-  const action=e=>{
-   if(e.key==='Escape'&&!panelOpen){cancelTravel();setHovered(null);return}
-   if(panelOpen||entering||!selected||!['Enter','e','E'].includes(e.key)||e.target.closest?.('a,button,summary,input,textarea,select,[data-hud-panel]'))return
-   enter(e,islandLayers.find(i=>i.id===selected))
+  measure(); window.addEventListener('resize', measure)
+  return () => window.removeEventListener('resize', measure)
+ }, [focusId, player.x, player.y, player.heading, player.moving])
+ useEffect(() => {
+  const visibility = () => setHidden(document.hidden)
+  document.addEventListener('visibilitychange', visibility)
+  const observer = new IntersectionObserver(([entry]) => setOnscreen(entry.isIntersecting), { threshold: .05 })
+  observer.observe(camera.current)
+  return () => { observer.disconnect(); document.removeEventListener('visibilitychange', visibility) }
+ }, [])
+ const browse = useCallback(index => {
+  dismissGuide(); setSelected(null); setHovered(null)
+  const nav = islandNav.current, item = nav.children[index]
+  if (item) nav.scrollTo({ left: item.offsetLeft - (nav.clientWidth - item.clientWidth) / 2, behavior: reduced ? 'instant' : 'smooth' })
+ }, [dismissGuide, reduced])
+ useEffect(() => {
+  const nav = islandNav.current
+  const update = () => {
+   if (!matchMedia('(max-aspect-ratio: 1/1)').matches) return
+   const bounds = nav.getBoundingClientRect()
+   let closest = 0, distance = Infinity
+   ;[...nav.children].forEach((element, index) => { const rect = element.getBoundingClientRect(), d = Math.abs(rect.x + rect.width / 2 - bounds.x - bounds.width / 2); if (d < distance) { closest = index; distance = d } })
+   setMobileIndex(closest)
   }
-  window.addEventListener('keydown',action);return()=>window.removeEventListener('keydown',action)
- },[selected,panelOpen,entering,enter,cancelTravel])
- const hover=useCallback(id=>{if(travelTarget.current||panelOpen)return;setHovered(id);if(id){setInitialAttention(false);dismissGuide()}},[panelOpen,dismissGuide])
- function chooseIsland(e,i){
-  if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return
-  const touch=e.nativeEvent.pointerType==='touch'||(e.detail>0&&pointerType.current==='touch')
-  if(touch&&selected!==i.id){e.preventDefault();dismissGuide();setHovered(null);setSelected(i.id);return}
-  enter(e,i)
+  const reset = () => browse(0)
+  nav.addEventListener('scroll', update, { passive: true }); window.addEventListener('resize', update); window.addEventListener('app:worldreset', reset); update()
+  return () => { nav.removeEventListener('scroll', update); window.removeEventListener('resize', update); window.removeEventListener('app:worldreset', reset) }
+ }, [browse])
+ const enter = useCallback((event, island) => {
+  if (!island || (event.button !== undefined && event.button !== 0) || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+  event.preventDefault(); dismissGuide(); rememberDestination(island.id); travelTo(island.route, island.title)
+ }, [dismissGuide, travelTo])
+ useEffect(() => {
+  const key = event => {
+   if (event.key === 'Escape') { setSelected(null); setHovered(null) }
+   if (panelOpen || !selected || !['Enter', 'e', 'E'].includes(event.key) || event.target.closest?.('a,button,summary,input,textarea,select,dialog')) return
+   enter(event, islandLayers.find(island => island.id === selected))
+  }
+  window.addEventListener('keydown', key); return () => window.removeEventListener('keydown', key)
+ }, [enter, selected, panelOpen])
+ const hover = id => { if (!panelOpen) { setHovered(id); if (id) dismissGuide() } }
+ function choose(event, island) {
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+  const touch = event.nativeEvent.pointerType === 'touch' || (event.detail > 0 && pointerType.current === 'touch')
+  if (touch && selected !== island.id) { event.preventDefault(); dismissGuide(); setHovered(null); setSelected(island.id); return }
+  enter(event, island)
  }
- function browse(index){dismissGuide();setSelected(null);setHovered(null);const nav=islandNav.current,item=nav.children[index];if(!item)return;nav.scrollTo({left:item.offsetLeft-(nav.clientWidth-item.clientWidth)/2,behavior:reduced?'instant':'smooth'})}
- const reset=e=>{if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();cancelTravel();setHovered(null);browse(0)}
- return <main id="main" ref={root} className={`layered-world world-refined ${entering?'is-entering':''}`} data-paused={!running} data-focus={focusId||undefined} data-selected={selected||undefined} aria-describedby="world-movement-help" onPointerDownCapture={e=>{pointerType.current=e.pointerType;dismissGuide()}} onKeyDownCapture={dismissGuide}>
-  <h1 className="lw-sr">Portfolio World</h1>
-  <p className="lw-sr" id="world-movement-help">방향키 또는 WASD로 전망대 안에서 이동합니다. Tab으로 목적지를 선택하고 Enter로 입장합니다. 이동 중 Escape로 취소할 수 있습니다. 상단 메뉴로 모든 목적지에 접근할 수 있습니다.</p>
+ return <main id="main" ref={root} className="layered-world world-refined natural-world" data-paused={!running} data-focus={focusId || undefined} data-selected={selected || undefined} aria-describedby="world-movement-help" onPointerDownCapture={event => { pointerType.current = event.pointerType; dismissGuide() }}>
+  <div className="natural-world-heading"><p>JUNYOUNG · PERSONAL PORTFOLIO</p><h1 className="world-scene-title">A world of possibilities.</h1><span>{active ? active.description + ' ↗' : '네 개의 섬에서 만나는, 디자인과 구현의 기록.'}</span></div>
+  <p className="lw-sr" id="world-movement-help">방향키 또는 WASD로 전망대 안에서 이동합니다. Tab으로 목적지를 선택하고 Enter로 입장합니다. 상단 메뉴로 모든 목적지에 바로 접근할 수 있습니다.</p>
   <div className="lw-viewport"><div className="lw-scene" ref={camera}>
-   <img className="lw-backdrop" src={`${layerRoot}background-golden-v11.webp`} alt="" fetchPriority="high" onError={()=>setFailed(s=>({...s,background:true}))}/>
-   {failed.background&&<div className="lw-backdrop-fallback"/>}<div className="world-distance-haze" aria-hidden="true"/>
-   <img className="lw-cloud lw-cloud-far" src={`${layerRoot}cloud.webp`} alt=""/>
-   <img className="lw-ship lw-ship-far" src={`${layerRoot}airship.webp`} alt=""/>
-   <div className="lw-bridges" aria-hidden="true">{[1,2,3].map(i=><img key={i} className={`lw-bridge b${i}`} src={`${layerRoot}bridge.webp`} alt=""/>)}</div>
+   <img className="lw-backdrop" src={naturalRoot + 'world-sky-v1.webp'} alt="" fetchPriority="high" onError={() => setFailed(state => ({ ...state, background: true }))}/>
+   {failed.background && <div className="lw-backdrop-fallback"/>}
+   <img className="lw-cloud lw-cloud-far" src={naturalRoot + 'painted-cloud-v1.webp'} alt=""/>
    <nav ref={islandNav} aria-label="세계의 네 목적지" className="lw-islands">
-    {islandLayers.map(i=>{
-     const isSelected=(entering?.id||selected)===i.id,isHovered=!entering&&hovered===i.id,isFocused=focusId===i.id
-     return <Link key={i.id} to={i.route} data-island={i.id} data-recommended={recommendVisible&&recommended===i.id} data-focus={isFocused} data-entering={entering?.id===i.id} className={`lw-island lw-${i.id} ${isSelected?'is-selected':''} ${isHovered?'is-hovered':''} ${isFocused?'is-reacting':''}`} aria-label={`${i.number} ${i.title} 탐색${recommended===i.id?' · 추천 목적지':''}`} style={{left:`${i.x}%`,top:`${i.y}%`,width:`${i.w}%`,'--duration':`${i.duration}s`,'--phase':`${i.phase}s`,'--drift':`${i.drift}px`,'--label':`${i.label}%`}} onPointerEnter={e=>{if(e.pointerType!=='touch')hover(i.id)}} onPointerLeave={()=>hover(null)} onFocus={()=>{if(pointerType.current!=='touch')hover(i.id)}} onBlur={()=>hover(null)} onClick={e=>chooseIsland(e,i)}>
-      <div className="lw-float"><div className="lw-response">
-       {!failed[i.id]&&<><img className="lw-island-art" src={`${layerRoot}${i.art}`} alt="" width="1254" height="1254" onError={()=>setFailed(s=>({...s,[i.id]:true}))}/><IslandLife id={i.id}/><FlowingWater island={i} running={running} speed={focusId&&!isFocused? .6:1}/><WaterMist island={i}/></>}
-       <span className="lw-label lw-ribbon-label"><IslandRibbon title={i.title}/></span>
-      </div></div>
-     </Link>
-    })}
+    {islandLayers.map(island => <Link key={island.id} to={island.route} data-island={island.id} data-focus={focusId === island.id} className={'lw-island lw-' + island.id + (focusId === island.id ? ' is-reacting' : '')} aria-label={island.title + ' · ' + island.description} style={{ '--label': '89%' }} onPointerEnter={event => { if (event.pointerType !== 'touch') hover(island.id) }} onPointerLeave={() => hover(null)} onFocus={() => { if (pointerType.current !== 'touch') hover(island.id) }} onBlur={() => hover(null)} onClick={event => choose(event, island)}>
+     <div className="lw-float"><div className="lw-response">
+      {!failed[island.id] && <><img className="lw-island-art" src={naturalRoot + island.art} alt="" width="1254" height="1254" onError={() => setFailed(state => ({ ...state, [island.id]: true }))}/><span className="natural-island-shadow" aria-hidden="true" style={{ maskImage: 'url(' + naturalRoot + island.art + ')' }}/><FlowingWater island={island} running={running}/><WaterMist island={island}/></>}
+      <span className="lw-label lw-ribbon-label"><IslandRibbon title={island.title} subtitle={island.description}/></span>
+     </div></div>
+    </Link>)}
    </nav>
-   <img className="lw-cloud lw-cloud-mid" src={`${layerRoot}cloud.webp`} alt=""/>
-   <img className="lw-cloud lw-cloud-near" src={`${layerRoot}cloud.webp`} alt=""/>
-   <img className="lw-ship lw-ship-near" src={`${layerRoot}airship.webp`} alt=""/>
-   <div className="lw-foreground" aria-hidden="true"><img className="lw-lookout" src={`${layerRoot}lookout-tree-v14.webp`} alt=""/>
-    <WorldCharacter player={player} hovered={hovered||(initialAttention?'about':null)} selected={entering?.id} bearing={bearing} reduced={reduced} blocked={panelOpen}/>
-   </div>
-   <WorldAtmosphere/><div className="lw-entry-veil"/>
+   <img className="lw-cloud lw-cloud-mid" src={naturalRoot + 'painted-cloud-v1.webp'} alt=""/>
+   <img className="lw-cloud lw-cloud-near" src={naturalRoot + 'painted-cloud-v1.webp'} alt=""/>
+   <div className="lw-foreground" aria-hidden="true"><img className="lw-lookout" src={naturalRoot + 'world-lookout-v1.webp'} alt="" onError={event => { event.currentTarget.hidden = true }}/><WorldCharacter player={player} hovered={focusId} bearing={bearing} reduced={reduced} blocked={panelOpen}/></div>
+   <WorldAtmosphere/>
   </div></div>
-  <WorldHUD selected={selected} entering={entering} onEnter={enter} onHover={hover} guide={guide} onDismissGuide={dismissGuide} moving={player.moving} onPanelChange={setPanelOpen} onReset={reset} bearing={bearing} mobileIndex={mobileIndex} onBrowse={browse}/>
-  {entering&&<div className="lw-status"><span role="status">{entering.title}</span><Link to={entering.route}>바로 이동 ↗</Link><button type="button" onClick={cancelTravel}>취소</button></div>}
+  <WorldHUD selected={selected} onEnter={enter} guide={guide} moving={player.moving} onPanelChange={setPanelOpen} bearing={bearing} mobileIndex={mobileIndex} onBrowse={browse}/>
  </main>
 }
-

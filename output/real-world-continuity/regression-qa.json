@@ -1,0 +1,277 @@
+{
+  "checks": [
+    "21 viewports, idle and active, retain fullscreen and visible controls",
+    "Replay preserves actual video element, source, playhead and route",
+    "Next decoded frame covers the actual outgoing final frame",
+    "Full cinematic reaches world",
+    "Keyboard reaches direct entry",
+    "Direct entry bypasses playback",
+    "Slow arrival keeps last room frame instead of a black overlay",
+    "Slow arrival becomes visible only when playable",
+    "Touch skip works during arrival",
+    "Reduced motion pauses media",
+    "Reduced motion bypasses cinematic",
+    "Video failure keeps matching poster and direct access",
+    "Video failure recovers to content",
+    "Motion OFF pauses idle",
+    "Motion ON resumes idle",
+    "Hidden intro controls become inert",
+    "Enabling reduced motion during playback recovers immediately",
+    "No runtime errors"
+  ],
+  "layouts": [
+    {
+      "width": 2560,
+      "height": 1440,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 767,
+      "height": 900,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 1023,
+      "height": 820,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 1024,
+      "height": 820,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 1279,
+      "height": 810,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 1280,
+      "height": 810,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 1919,
+      "height": 1080,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 720,
+      "height": 405,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "active": false,
+      "faults": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 767,
+      "height": 900,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 1023,
+      "height": 820,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 1024,
+      "height": 820,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 1279,
+      "height": 810,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 1280,
+      "height": 810,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 1919,
+      "height": 1080,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 720,
+      "height": 405,
+      "active": true,
+      "faults": []
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "active": true,
+      "faults": []
+    }
+  ],
+  "errors": []
+}

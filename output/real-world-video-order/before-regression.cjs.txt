@@ -1,0 +1,121 @@
+const fs = require('node:fs/promises')
+const assert = require('node:assert/strict')
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE || 'playwright')
+const origin = process.env.QA_ORIGIN || 'http://127.0.0.1:5174'
+const viewports = [[2560,1440],[1920,1080],[1440,810],[1366,768],[1180,820],[1024,768],[768,1024],[430,932],[402,874],[390,844],[360,800],[767,900],[768,900],[1023,820],[1024,820],[1279,810],[1280,810],[1919,1080],[1920,1080],[720,405],[844,390]]
+const report = { checks: [], layouts: [], errors: [] }
+const ok = (name, condition = true) => { assert(condition, name); report.checks.push(name) }
+async function run() {
+  const browser = await chromium.launch({ channel: 'msedge', headless: true })
+  const page = async options => {
+    const p = await browser.newPage(options)
+    p.on('pageerror', e => report.errors.push(e.message))
+    return p
+  }
+  try {
+    const p = await page({ viewport: { width:1440, height:810 } })
+    await p.goto(origin)
+    await p.waitForFunction(() => document.querySelector('.start-video')?.readyState >= 2)
+    await p.evaluate(() => document.fonts.ready)
+    for (const active of [false, true]) {
+      if (active) {
+        await p.locator('.enter-world-button').click()
+        await p.locator('.portal-cinematic').waitFor()
+      }
+      for (const [width,height] of viewports) {
+        await p.setViewportSize({ width,height })
+        const faults = await p.evaluate(active => {
+          const faults = []
+          const selectors = active ? ['.portal-actions a','.portal-actions button'] : ['.real-credit-copy','.enter-world-button','.journey-direct','.real-header']
+          const rects = selectors.map(s => ({ s, ...document.querySelector(s).getBoundingClientRect().toJSON() }))
+          for (const r of rects) if (r.x < 0 || r.y < 0 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1) faults.push(r.s + ' clipped')
+          for (let a=0;a<rects.length;a++) for (let b=a+1;b<rects.length;b++) {
+            const x=rects[a], y=rects[b]
+            if (x.x < y.right && x.right > y.x && x.y < y.bottom && x.bottom > y.y) faults.push('UI overlap')
+          }
+          const v = document.querySelector('.start-video').getBoundingClientRect()
+          if (v.x !== 0 || v.y !== 0 || v.width !== innerWidth || v.height !== innerHeight) faults.push('video lost fullscreen bounds')
+          if (document.documentElement.scrollWidth > innerWidth) faults.push('horizontal overflow')
+          return faults
+        }, active)
+        report.layouts.push({ width,height,active,faults })
+      }
+    }
+    ok('21 viewports, idle and active, retain fullscreen and visible controls', report.layouts.every(r => !r.faults.length))
+    await p.keyboard.press('Escape')
+    await p.locator('.natural-world').waitFor()
+    await p.goBack()
+    await p.locator('.enter-world-button').waitFor()
+    await p.setViewportSize({ width:1440,height:810 })
+    await p.waitForFunction(() => { const v=document.querySelector('.start-video'); return v.currentTime > .2 && v.currentTime < .8 })
+    const before = await p.evaluate(() => { window.continuityVideo=document.querySelector('.start-video'); return { src:window.continuityVideo.currentSrc,time:window.continuityVideo.currentTime } })
+    await p.locator('.enter-world-button').click()
+    await p.waitForTimeout(600)
+    ok('Replay preserves actual video element, source, playhead and route', await p.locator('.start-video').evaluate((v,b) => v===window.continuityVideo && v.currentSrc===b.src && v.currentTime>b.time && !v.paused && location.pathname==='/', before))
+    await p.locator('.portal-arrival.is-visible').waitFor({ timeout:18000 })
+    ok('Next decoded frame covers the actual outgoing final frame', await p.locator('.start-video').evaluate(v=>v.ended && v.currentTime>10) && await p.locator('.portal-arrival').evaluate(v=>v.readyState>=2 && !v.paused))
+    await p.locator('.natural-world').waitFor({ timeout:18000 })
+    ok('Full cinematic reaches world')
+    await p.goBack()
+    await p.locator('.enter-world-button').waitFor()
+    await p.locator('.enter-world-button').focus()
+    await p.keyboard.press('Tab')
+    ok('Keyboard reaches direct entry', await p.locator('.journey-direct').evaluate(e=>e===document.activeElement))
+    await p.keyboard.press('Enter')
+    await p.locator('.natural-world').waitFor()
+    ok('Direct entry bypasses playback', await p.locator('.portal-cinematic').count()===0)
+
+    const slow = await page({ viewport:{width:430,height:932},hasTouch:true,isMobile:true })
+    await slow.route('**/hf_20260928_083251_*.mp4',async route=>{await new Promise(r=>setTimeout(r,1800));await route.continue().catch(()=>{})})
+    await slow.goto(origin)
+    await slow.locator('.enter-world-button').tap()
+    await slow.waitForFunction(()=>document.querySelector('.start-video').duration>0)
+    await slow.locator('.start-video').evaluate(v=>{v.currentTime=v.duration-.1})
+    await slow.waitForFunction(()=>document.querySelector('.start-video').ended)
+    ok('Slow arrival keeps last room frame instead of a black overlay', await slow.locator('.portal-arrival').evaluate(v=>getComputedStyle(v).opacity==='0') && await slow.locator('.start-video').evaluate(v=>v.readyState>=2))
+    await slow.locator('.portal-arrival.is-visible').waitFor()
+    ok('Slow arrival becomes visible only when playable',await slow.locator('.portal-arrival').evaluate(v=>v.readyState>=2))
+    await slow.getByRole('button',{name:'연출 건너뛰기'}).tap()
+    await slow.locator('.natural-world').waitFor()
+    ok('Touch skip works during arrival')
+
+    const reduced = await page({ reducedMotion:'reduce' })
+    await reduced.goto(origin)
+    await reduced.locator('.enter-world-button').waitFor()
+    ok('Reduced motion pauses media',await reduced.locator('.start-video').evaluate(v=>v.paused))
+    await reduced.locator('.enter-world-button').click()
+    await reduced.locator('.natural-world').waitFor()
+    ok('Reduced motion bypasses cinematic')
+
+    const failed = await page()
+    await failed.route('**/production/video/**',route=>route.abort())
+    await failed.goto(origin)
+    await failed.locator('.enter-world-button').waitFor()
+    ok('Video failure keeps matching poster and direct access',await failed.locator('.room-photo').evaluate(e=>getComputedStyle(e).backgroundImage.includes('real-world-portal-poster.webp')) && await failed.locator('.journey-direct').isVisible())
+    await failed.locator('.enter-world-button').click()
+    await failed.locator('.natural-world').waitFor({ timeout:10000 })
+    ok('Video failure recovers to content')
+
+    const motion = await page()
+    await motion.goto(origin)
+    await motion.locator('.real-settings summary').click()
+    await motion.getByRole('button',{name:'Motion ON'}).click()
+    ok('Motion OFF pauses idle',await motion.locator('.start-video').evaluate(v=>v.paused))
+    await motion.getByRole('button',{name:'Motion OFF'}).click()
+    await motion.waitForFunction(()=>!document.querySelector('.start-video').paused)
+    ok('Motion ON resumes idle')
+    await motion.keyboard.press('Escape')
+    await motion.locator('.enter-world-button').click()
+    ok('Hidden intro controls become inert',await motion.locator('.start-copy').evaluate(e=>e.inert))
+    await motion.emulateMedia({reducedMotion:'reduce'})
+    await motion.locator('.natural-world').waitFor()
+    ok('Enabling reduced motion during playback recovers immediately')
+    ok('No runtime errors',report.errors.length===0)
+  } finally {
+    await fs.mkdir('output/real-world-continuity',{recursive:true})
+    await fs.writeFile('output/real-world-continuity/regression-qa.json',JSON.stringify(report,null,2))
+    await browser.close()
+  }
+  console.log(JSON.stringify({ passed:report.checks.length, layouts:report.layouts.length, errors:report.errors }))
+}
+run().catch(e=>{console.error(e);process.exitCode=1})

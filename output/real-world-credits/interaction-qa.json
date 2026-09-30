@@ -1,0 +1,25 @@
+{
+  "checks": [
+    "Fullscreen ambient video plays",
+    "CTA arrow moves without glow",
+    "CTA decorative scan removed",
+    "Quick View accessible by keyboard",
+    "Settings keyboard focus",
+    "Settings opens by keyboard",
+    "Motion control pauses video",
+    "Motion control resumes video",
+    "Sound setting toggles",
+    "Settings closes and restores focus",
+    "Quick View opens direct content",
+    "Back returns to fullscreen Real World",
+    "ENTER WORLD launches existing portal",
+    "Portal skip reaches world content",
+    "Return visitor replay and Escape skip work",
+    "Reduced motion pauses background",
+    "Touch / reduced motion enters directly",
+    "Ambient failure preserves poster and navigation",
+    "Touch direct access works after video failure",
+    "No page runtime errors"
+  ],
+  "errors": []
+}

@@ -7,12 +7,25 @@
 
 ------------------------------------------------------------------------
 
+## 2026-09-30 공통 아트 제작 기준
+
+에셋 작업은 [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md)의 **01.1 Portfolio World
+공통 아트 제작 기준**과 AGENTS.md의 같은 날짜 결정 범위를 따른다.
+회화적 색면·무광 재질·디테일 배분·명암 일치를 기준으로 배경과 캐릭터를
+함께 검토한다. 이동 바닥·가림·콘텐츠 Safe Area를 먼저 설계하고 대표
+외부/실내 장면을 검토한 뒤 확장한다. Real World의 실사 방향은 유지한다.
+
+이번 반영은 에셋 표현 기준이며 문서 간 충돌, 페이지별 공간·이동·카메라의
+우선순위는 해당 작업 시 판단한다. Skills의 Ancient Ruin / Skill Orbit은
+작업 시 검토할 방향으로, 아래 LOCKED 표기만으로 자동 확정하지 않는다.
+문서 반영을 새 에셋·화면 적용·브라우저 검증 완료로 보고하지 않는다.
+
 ## 01. 작업 시작 순서
 
 Claude Code는 작업 전에 다음 순서로 확인한다.
 
 1.  `AGENTS.md`
-2.  `Personal-Portfolio_PRD_FINAL.md`
+2.  `Personal-Portfolio_PRD_V4_FINAL.md`
 3.  `DESIGN_SYSTEM.md`
 4.  `PROJECT_CONTEXT.md`
 5.  관련 `.agents/skills/.../SKILL.md`
@@ -77,7 +90,15 @@ Claude Code는 작업 전에 다음 순서로 확인한다.
 -   Real World의 현재 방향
 -   Real World → Portal → Tool Universe → Arrival → Portfolio World의 큰
     흐름
--   About / Skills / Projects × 4 / Q&A / Contact / Resume
+-   Portfolio World 메인 월드맵: **About / Skills / Projects / Contact
+    4개 섬**
+-   Projects: 실제 Project 4개
+-   Q&A / Resume 콘텐츠 자체는 삭제하지 않으며, 최신 PRD / Route에서
+    진입 위치와 표현 방식을 확인
+-   Portfolio World Visual Direction: **밝고 자연적인 Fantasy Adventure
+    × Minimal UI**
+-   Typography: **Marcellus + SUIT**
+-   공통 Navigation / Responsive / AI Visual Cleanup Rules
 -   실제 Project 정보
 -   실제 Role / Process / Result / Limitation
 -   게임이나 3D 없이도 핵심 콘텐츠에 접근 가능한 구조
@@ -90,17 +111,19 @@ Claude Code는 작업 전에 다음 순서로 확인한다.
 
 아직 최종 확정하지 않는다.
 
--   Portfolio World에서 Character가 실제 이동할지 여부
--   About 공간 디자인
--   Skills 최종 디자인
--   Skills Toolkit / Game Item 표현 방식
--   Projects 최종 공간 디자인
--   Project Archive / Gallery 채택 여부
--   Project 선택 시 Character 이동 여부
--   Point-based Movement
--   Q&A / Contact 공간 연출
--   각 콘텐츠의 Camera / Transition
--   Ending 세부 연출
+-   Character 이동의 정확한 Physics / Speed / Collision / Pathfinding
+-   Point-based Movement 여부
+-   각 콘텐츠의 세부 Camera Timing / Transition 수치
+-   Q&A / Resume의 최종 배치 방식
+-   Contact Ending의 세부 연출
+-   각 Scene의 세부 Asset 구성과 Motion Timing
+
+다음 Page Visual Identity는 최신 확정 방향으로 취급한다. - World → Wide
+Landscape / Exploration / World Overview - About → Interior / 3/4
+Composition / Personal Space / Object Interaction - Skills → Ancient
+Ruin / Skill Orbit / Negative Space / 기술 탐색 - Projects →
+Architectural Gallery / Project Archive / 4 Project Stages - Contact →
+Quiet Ending / Destination / Contact UI 중심
 
 Claude Code는 WORKING 항목을 임의로 확정 구현하지 않는다.
 
@@ -271,28 +294,30 @@ Legacy Route를 삭제하기 전 다음을 확인한다.
 
 ## 09. Character / Interaction
 
-Real World 이후 Character 이동 방식은 아직 확정되지 않았다.
+Portfolio World는 정적인 배경 감상 페이지가 아니라 **Interactive
+Experience**다.
 
-따라서 다음을 기본 전제로 구현하지 않는다.
+기본 Interaction 언어: - Desktop: `WASD = 이동`, `E = 상호작용`을 기본
+후보로 사용 - Mouse / Keyboard / Touch 접근 가능 - Direct / Quick Access
+가능 - Hover에만 핵심 정보를 숨기지 않음 - Motion / 3D가 없어도 핵심
+기능 유지 - Character가 모든 Navigation을 수행하는 구조는 금지 - Jump /
+Combat / XP / HP 등 Portfolio 목적과 무관한 Game Mechanic은 추가하지
+않음
 
--   WASD 자유 이동
--   Arrow Key 자유 이동
--   Jump
--   Collision
--   Auto Path
--   Point-based Movement
--   Character가 모든 Navigation을 수행하는 구조
+정확한 Collision / Physics / Point-based Movement 방식은 실제 Scene
+구조를 확인한 뒤 결정한다.
 
-현재 확정된 Interaction 요구사항:
+Object Interaction 기본 상태: `Idle → Near/Focus → Selected → Exit`
 
--   Mouse 접근 가능
--   Keyboard 접근 가능
--   Touch 접근 가능
--   Direct Access 가능
--   Hover에만 핵심 정보를 숨기지 않음
--   Motion / 3D가 없어도 핵심 기능 유지
+-   Idle: 불필요한 UI / Glow 없음
+-   Near/Focus: 상호작용 가능한 대상만 제한적으로 반응
+-   Selected: 필요한 정보만 표시
+-   Exit: Scene을 깨끗한 기본 상태로 복귀
 
-Character Movement는 해당 화면의 디자인이 확정된 후 구현한다.
+모든 Object가 동시에 빛나거나 움직이거나 Prompt를 띄우지 않는다.
+
+Mobile에서는 Desktop WASD를 그대로 복제하지 않고 Tap / Direct Selection
+/ Bottom Sheet 등 동등한 접근 방식으로 재구성한다.
 
 ------------------------------------------------------------------------
 
@@ -354,19 +379,29 @@ Reduced Motion에서는 강한 Camera Travel, Suction, Parallax 등을 줄이거
 -   Accessibility
 -   Motion Principle
 
-현재 Font System:
+현재 Font System은 **2-Font System으로 LOCKED**다.
 
--   Pretendard Variable → Primary
--   Instrument Serif → Editorial Accent
+-   **Marcellus** → Fantasy Display 전용
+    -   World / Chapter / Page Display Title
+    -   세계관을 나타내는 제한적인 영문 Display
+-   **SUIT** → 나머지 전체
+    -   Korean
+    -   English Hero Copy
+    -   Navigation
+    -   Button / Label
+    -   Skill / Project Name
+    -   Body / Description
+    -   Number / Metadata
+    -   Control Guide / Utility UI
 
-Legacy Font:
-
--   Fredoka
--   Silkscreen
--   RetroMario
--   SuperMario256
+Legacy Font: - Pretendard Variable - Instrument Serif - Fredoka -
+Silkscreen - RetroMario - SuperMario256
 
 파일이 존재하더라도 새 디자인에 자동 적용하지 않는다.
+
+금지: - 새 Font 임의 추가 - Handwriting / Pixel / Decorative Font 임의
+사용 - 큰 영문 문장이라는 이유만으로 Marcellus 사용 - 과도한 ALL CAPS /
+Letter Spacing - `text-shadow` / Text Glow로 가독성 해결
 
 Design System의 주요 기준을 변경해야 한다면:
 
@@ -377,6 +412,86 @@ Design System의 주요 기준을 변경해야 한다면:
 5.  브라우저 검증
 
 순서로 처리한다.
+
+### 11.1 Color / Art Direction --- LOCKED
+
+Portfolio World는 **밝고 자연적인 Fantasy Adventure Palette**를
+사용한다.
+
+핵심 색감: - Clear Sky Blue - Cloud / Warm Ivory - Warm Stone / Sand -
+Natural Grass / Sage Green - Deep Natural Green - Neutral Ink - 제한적인
+Interaction Blue - 제한적인 Warm Accent
+
+원칙: - 자연광 / 하늘 / 구름 / 식생 / 석재 / 대기 원근이 색감의 중심 -
+Dark Navy + Gold + Purple/Cyan Glow를 모든 페이지의 기본 조합으로
+사용하지 않음 - Gold / Warm Accent는 제한적인 포인트에만 사용 - Skill
+Brand Color는 Logo / Selected State 등 필요한 범위에서만 사용 -
+페이지마다 별도 Color System을 만들지 않음 - 같은 Palette를 공유하고
+시간대와 Lighting으로 Scene 차이를 만듦 - 특정 게임의 HEX / Asset / UI를
+그대로 복제하지 않음 - Design System 밖의 HEX를 임의 추가하지 않음
+
+시간대 방향: - World → Clear Morning - About → Warm Afternoon - Skills →
+Clear Day / Ancient Ruins - Projects → Late Afternoon - Contact → Golden
+Hour
+
+### 11.2 AI Visual Cleanup --- LOCKED
+
+Claude는 다음 AI-style Pattern을 새로 추가하거나 복원하지 않는다.
+
+-   의미 없는 가로선 / 두 줄 장식선
+-   Double Border / Frame 안의 Frame
+-   Corner Ornament 남발
+-   `◆`, `◇`, `✦`, `✧` 등 장식 기호 반복
+-   Text Shadow / Text Glow
+-   빈 공간을 채우는 감성 영어 카피
+-   `EXPLORE / CREATE / GROW`류의 일반적 장식 카피 남발
+-   같은 의미의 한글 / 영문 중복
+-   과도한 Glassmorphism
+-   모든 Hover에 Scale + Glow + Particle
+-   모든 Object의 상시 Glow
+-   모든 페이지의 동일한 중앙 후면 Character 구도
+-   모든 페이지의 Floating Island 반복
+-   빈 공간을 책 / 식물 / 랜턴 / 배너 / 크리스탈로 무조건 채움
+-   AI 배경 이미지에 실제 UI / Navigation / Button / Text를 Bake-in
+-   AI Object 안에 Brand Logo를 억지로 합성
+-   AI Asset에 맞춰 Layout / Typography / Hierarchy를 역으로 변경
+
+**Fantasy는 Environment가 담당하고 UI는 Minimal / Functional하게
+유지한다.**
+
+AI / Astra / Higgsfield는 Asset 제작 도구로 사용한다. Layout /
+Typography / UI / Interaction은 `DESIGN_SYSTEM.md`와 실제 코드가
+결정한다.
+
+### 11.3 Common Navigation --- LOCKED
+
+Portfolio World 공통 Navigation:
+`JY. | World | About | Skills | Projects | Contact`
+
+-   페이지마다 위치 / 높이 / Font / Spacing / Active Rule을 바꾸지 않음
+-   SUIT 사용
+-   Active는 Weight / Color + 얇은 Underline 등 최소 표현
+-   Glow / RPG Frame / Particle / Gradient Text 금지
+-   Mobile에서는 정보 구조를 유지하며 적절한 Menu Pattern으로 변환
+
+### 11.4 Page Composition --- LOCKED
+
+같은 세계관이지만 Page마다 Camera / Composition / Interaction을 다르게
+한다.
+
+-   World → Wide Landscape / Exploration
+-   About → Interior / 3/4 Composition / Object Interaction
+-   Skills → Ancient Ruin / Skill Orbit / Negative Space
+-   Projects → Architectural Gallery / 4 Project Stages
+-   Contact → Quiet Ending / Contact Action 중심
+
+Projects를 World Map처럼 다시 여러 Floating Island로 만들지 않는다.
+
+Character는 세계관 연결 장치지만 모든 Page의 Hero Visual이 아니다. 특히
+Projects에서는 실제 Project가 주인공이어야 한다.
+
+Portfolio World에 Pet / Companion / NPC를 임의로 추가하지 않는다. Real
+World의 기존 Maltipom 연출은 별도 확정 Scene 규칙을 따른다.
 
 ------------------------------------------------------------------------
 
@@ -433,6 +548,13 @@ public/assets/
 -   Browser Playback
 -   Layer Separation
 
+추가 Asset 규칙: - Environment Asset에는 실제 UI Text / Navigation /
+Button / Skill Name / Project Name을 생성하지 않는다. - Interactive
+Object는 필요 시 Background와 분리해 상태를 코드에서 제어한다. - AI
+Asset이 Layout을 결정하지 않는다. - 확정 Layout / Safe Area / Focal
+Point에 맞춰 Asset을 제작한다. - 과도한 소품 밀도보다 Negative Space와
+명확한 Silhouette을 우선한다.
+
 완성 이미지 한 장을 전체 Interactive Scene 완성으로 판단하지 않는다.
 
 ------------------------------------------------------------------------
@@ -484,16 +606,35 @@ Mobile    430×932
 ### Rules
 
 -   Desktop을 단순 축소해 Mobile로 만들지 않는다.
--   Visual Parity보다 Content Parity를 우선한다.
--   Important Object는 Safe Area를 유지한다.
+-   Visual Parity보다 **Content Parity / Interaction Parity**를
+    우선한다.
+-   Important Object / Character / CTA / Navigation은 Safe Area를
+    유지한다.
+-   Background는 `cover`만 사용해 끝내지 않고 Viewport별 Focal Point /
+    Crop을 검증한다.
 -   Ultrawide에서 중앙 Scene을 과도하게 확대하지 않는다.
 -   Short Viewport를 별도로 확인한다.
 -   Hover 기능은 Touch / Keyboard 대체 경로를 제공한다.
--   200% Zoom을 확인한다.
+-   200% Zoom에서도 핵심 콘텐츠와 Navigation이 손실되지 않아야 한다.
 -   Mobile에서 복잡한 3D / Character 조작을 강제하지 않는다.
+-   Desktop WASD Interaction은 Mobile에서 Tap / Direct Selection /
+    Bottom Sheet 등으로 재설계한다.
+-   Navigation / Project 진입 / Contact는 모든 Breakpoint에서 직접 접근
+    가능해야 한다.
+-   장식 Asset은 Mobile에서 단순 축소하지 않고 우선순위에 따라 제거 /
+    단순화할 수 있다.
+-   Typography는 Breakpoint Token을 사용하고 이미지 비율에 맞춰 임의
+    축소하지 않는다.
+-   Panel은 Mobile에서 Drawer / Bottom Sheet / Fullscreen Sheet로 전환할
+    수 있다.
+-   Touch Target 약 44×44px 이상을 유지한다.
+-   필요한 Mobile UI에 `env(safe-area-inset-*)`를 반영한다.
+-   `100vh` 고정 의존을 피하고 필요한 경우 `dvh/svh`를 사용한다.
+-   Orientation Change / Landscape Mobile / Tablet에서도 핵심 콘텐츠가
+    가려지지 않는지 확인한다.
 
-Real World 외 화면의 구체적인 Responsive Layout은 디자인 확정 전 임의로
-확정하지 않는다.
+최종 디자인이 확정된 Portfolio World 화면은 위 Responsive 원칙에 따라
+명시적으로 구현하고 QA한다.
 
 ------------------------------------------------------------------------
 
@@ -729,6 +870,25 @@ LOCKED / WORKING에 영향을 준 부분.
 미완료 / 미검증 / 추가 확인 항목.
 
 완료하지 않은 작업을 완료했다고 보고하지 않는다.
+
+------------------------------------------------------------------------
+
+## 22.1 Final Visual Prohibitions
+
+사용자 명시적 변경 없이 다음을 하지 않는다.
+
+-   Marcellus + SUIT 외 Font 추가
+-   Design System 밖의 HEX / Radius / Spacing 임의 추가
+-   Text Shadow / Text Glow
+-   Double Border / 의미 없는 두 줄 장식
+-   장식용 영어 카피로 빈 공간 채우기
+-   AI Background 안에 실제 UI / Text Bake-in
+-   모든 페이지를 동일한 Character 후면 중앙 구도로 반복
+-   World와 Projects를 동일한 Floating Island 선택 구조로 반복
+-   Portfolio World에 Pet / Companion / NPC 추가
+-   Responsive를 Desktop 비율 축소로 해결
+-   Mobile에 Desktop Interaction을 그대로 강제
+-   정상 동작하는 접근성 / Fallback / Direct Access 제거
 
 ------------------------------------------------------------------------
 

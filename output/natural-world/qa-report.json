@@ -1,0 +1,1499 @@
+{
+  "base": "http://127.0.0.1:5174",
+  "started": "2026-09-30T07:20:53.662Z",
+  "viewport": [
+    {
+      "width": 2560,
+      "height": 1440,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 68,
+        "y": 131.1875,
+        "w": 314.328125,
+        "h": 38.390625
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 380,
+        "y": 269.578125,
+        "w": 470,
+        "h": 110.375
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 1010,
+        "y": 104,
+        "w": 540,
+        "h": 61.59375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 972.796875,
+        "y": 133.59375,
+        "w": 614.390625,
+        "h": 61.59375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 824,
+        "y": 162,
+        "w": 912,
+        "h": 61.59375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 68,
+        "y": 131.1875,
+        "w": 314.328125,
+        "h": 38.390625
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 60,
+        "y": 211.984375,
+        "w": 470,
+        "h": 110.375
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 690,
+        "y": 104,
+        "w": 540,
+        "h": 61.59375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 729.59375,
+        "y": 133.59375,
+        "w": 460.796875,
+        "h": 61.59375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 504,
+        "y": 162,
+        "w": 912,
+        "h": 61.59375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 52,
+        "y": 131.1875,
+        "w": 311.1875,
+        "h": 38.015625
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 32,
+        "y": 167.1875,
+        "w": 417.59375,
+        "h": 109.28125
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 450,
+        "y": 104,
+        "w": 540,
+        "h": 60.1875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 547.1875,
+        "y": 133.59375,
+        "w": 345.59375,
+        "h": 60.1875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 264,
+        "y": 162,
+        "w": 912,
+        "h": 60.1875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 52,
+        "y": 131.1875,
+        "w": 295.171875,
+        "h": 36.046875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 32,
+        "y": 167.1875,
+        "w": 396.125,
+        "h": 103.65625
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 413,
+        "y": 104,
+        "w": 540,
+        "h": 57.09375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 519.078125,
+        "y": 133.59375,
+        "w": 327.828125,
+        "h": 57.09375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 227,
+        "y": 162,
+        "w": 912,
+        "h": 57.09375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 44,
+        "y": 131.1875,
+        "w": 255.390625,
+        "h": 31.1875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 24,
+        "y": 151.1875,
+        "w": 413,
+        "h": 89.53125
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 320,
+        "y": 104,
+        "w": 540,
+        "h": 49.328125
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 448.390625,
+        "y": 133.59375,
+        "w": 283.1875,
+        "h": 49.328125
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 134,
+        "y": 162,
+        "w": 912,
+        "h": 49.328125
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 44,
+        "y": 131.1875,
+        "w": 255.390625,
+        "h": 31.1875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 24,
+        "y": 151.1875,
+        "w": 358.390625,
+        "h": 78.1875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 256,
+        "y": 104,
+        "w": 512,
+        "h": 42.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 389.109375,
+        "y": 133.59375,
+        "w": 245.75,
+        "h": 42.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 75.203125,
+        "y": 162,
+        "w": 873.59375,
+        "h": 42.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 36,
+        "y": 131.1875,
+        "w": 520,
+        "h": 28.796875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 24,
+        "y": 151.1875,
+        "w": 268.796875,
+        "h": 78.1875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 192,
+        "y": 104,
+        "w": 384,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 291.828125,
+        "y": 145.59375,
+        "w": 184.3125,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 118,
+        "y": 162,
+        "w": 532,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 36,
+        "y": 131.1875,
+        "w": 358,
+        "h": 28.796875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 135.1875,
+        "w": 390,
+        "h": 78.1875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 104,
+        "w": 390,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 129.59375,
+        "w": 134.546875,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 146,
+        "w": 390,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 36,
+        "y": 131.1875,
+        "w": 330,
+        "h": 28.796875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 135.1875,
+        "w": 362,
+        "h": 78.1875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 104,
+        "w": 362,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 129.59375,
+        "w": 134.546875,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 146,
+        "w": 362,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 36,
+        "y": 131.1875,
+        "w": 318,
+        "h": 28.796875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 16,
+        "y": 135.1875,
+        "w": 358,
+        "h": 78.1875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 104,
+        "w": 350,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 129.59375,
+        "w": 134.546875,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 146,
+        "w": 350,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 36,
+        "y": 131.1875,
+        "w": 288,
+        "h": 28.796875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 16,
+        "y": 135.1875,
+        "w": 328,
+        "h": 78.1875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 104,
+        "w": 320,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 129.59375,
+        "w": 134.546875,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 146,
+        "w": 320,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 767,
+      "height": 900,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 36,
+        "y": 131.1875,
+        "w": 520,
+        "h": 28.796875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 767,
+      "height": 900,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 135.1875,
+        "w": 727,
+        "h": 78.1875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 767,
+      "height": 900,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 104,
+        "w": 727,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 767,
+      "height": 900,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 20,
+        "y": 129.59375,
+        "w": 134.546875,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 767,
+      "height": 900,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 93.5,
+        "y": 146,
+        "w": 580,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 36,
+        "y": 131.1875,
+        "w": 520,
+        "h": 28.796875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 24,
+        "y": 151.1875,
+        "w": 268.796875,
+        "h": 78.1875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 192,
+        "y": 104,
+        "w": 384,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 291.828125,
+        "y": 145.59375,
+        "w": 184.3125,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 118,
+        "y": 162,
+        "w": 532,
+        "h": 41.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1023,
+      "height": 820,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 44,
+        "y": 131.1875,
+        "w": 255.390625,
+        "h": 31.1875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1023,
+      "height": 820,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 24,
+        "y": 151.1875,
+        "w": 358.046875,
+        "h": 78.1875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1023,
+      "height": 820,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 255.75,
+        "y": 104,
+        "w": 511.5,
+        "h": 42.75
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1023,
+      "height": 820,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 388.734375,
+        "y": 145.59375,
+        "w": 245.515625,
+        "h": 42.75
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1023,
+      "height": 820,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 75.15625,
+        "y": 162,
+        "w": 872.6875,
+        "h": 42.75
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1024,
+      "height": 820,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 44,
+        "y": 131.1875,
+        "w": 255.390625,
+        "h": 31.1875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1024,
+      "height": 820,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 24,
+        "y": 151.1875,
+        "w": 358.390625,
+        "h": 78.1875
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1024,
+      "height": 820,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 256,
+        "y": 104,
+        "w": 512,
+        "h": 42.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1024,
+      "height": 820,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 389.109375,
+        "y": 133.59375,
+        "w": 245.75,
+        "h": 42.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1024,
+      "height": 820,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 75.203125,
+        "y": 162,
+        "w": 873.59375,
+        "h": 42.796875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1279,
+      "height": 810,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 44,
+        "y": 131.1875,
+        "w": 276.3125,
+        "h": 33.765625
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1279,
+      "height": 810,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 24,
+        "y": 151.1875,
+        "w": 447.640625,
+        "h": 97.0625
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1279,
+      "height": 810,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 369.5,
+        "y": 104,
+        "w": 540,
+        "h": 53.46875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1279,
+      "height": 810,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 486.015625,
+        "y": 133.59375,
+        "w": 306.953125,
+        "h": 53.46875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1279,
+      "height": 810,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 183.5,
+        "y": 162,
+        "w": 912,
+        "h": 53.46875
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1280,
+      "height": 810,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 52,
+        "y": 131.1875,
+        "w": 276.609375,
+        "h": 33.78125
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1280,
+      "height": 810,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 32,
+        "y": 167.1875,
+        "w": 371.1875,
+        "h": 97.125
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1280,
+      "height": 810,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 370,
+        "y": 104,
+        "w": 540,
+        "h": 53.5
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1280,
+      "height": 810,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 486.390625,
+        "y": 133.59375,
+        "w": 307.1875,
+        "h": 53.5
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1280,
+      "height": 810,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 184,
+        "y": 162,
+        "w": 912,
+        "h": 53.5
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1919,
+      "height": 1080,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 52,
+        "y": 131.1875,
+        "w": 314.328125,
+        "h": 38.390625
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1919,
+      "height": 1080,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 32,
+        "y": 167.1875,
+        "w": 470,
+        "h": 110.375
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1919,
+      "height": 1080,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 689.5,
+        "y": 104,
+        "w": 540,
+        "h": 61.59375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1919,
+      "height": 1080,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 729.21875,
+        "y": 133.59375,
+        "w": 460.546875,
+        "h": 61.59375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1919,
+      "height": 1080,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 503.5,
+        "y": 162,
+        "w": 912,
+        "h": 61.59375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "route": "world-map",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 68,
+        "y": 131.1875,
+        "w": 314.328125,
+        "h": 38.390625
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "route": "about",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 60,
+        "y": 211.984375,
+        "w": 470,
+        "h": 110.375
+      },
+      "font": "SUIT, sans-serif",
+      "broken": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "route": "skills",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 690,
+        "y": 104,
+        "w": 540,
+        "h": 61.59375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "route": "projects",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 729.59375,
+        "y": 133.59375,
+        "w": 460.796875,
+        "h": 61.59375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "route": "contact",
+      "overflow": false,
+      "headingVisible": true,
+      "heading": {
+        "x": 504,
+        "y": 162,
+        "w": 912,
+        "h": 61.59375
+      },
+      "font": "Marcellus, serif",
+      "broken": []
+    }
+  ],
+  "behavior": [
+    {
+      "name": "Centered navigation and live fonts",
+      "passed": true
+    },
+    {
+      "name": "Hover previews and last destination wins",
+      "passed": true
+    },
+    {
+      "name": "Escape finishes travel without duplicate history",
+      "passed": true
+    },
+    {
+      "name": "About tabs support keyboard and all content",
+      "passed": true
+    },
+    {
+      "name": "Skills explanation, proof links and focus recovery",
+      "passed": true
+    },
+    {
+      "name": "Bounded movement still responds on World, Skills, Projects",
+      "passed": true
+    },
+    {
+      "name": "Project cases and direct reload preserve facts",
+      "passed": true
+    },
+    {
+      "name": "Atlas, Q&A and Email dialogs open and recover focus",
+      "passed": true
+    },
+    {
+      "name": "Ambient layers move in every main page and pause persists",
+      "passed": true
+    },
+    {
+      "name": "System reduced motion allows immediate navigation",
+      "passed": true
+    },
+    {
+      "name": "Missing artwork never blocks navigation or case study",
+      "passed": true
+    },
+    {
+      "name": "Touch menu, island pager, project content parity",
+      "passed": true
+    },
+    {
+      "name": "200% equivalent CSS viewport reflow (native browser zoom not tested)",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "zoom": {
+    "w": 1440,
+    "viewport": 1440,
+    "content": 1376
+  },
+  "finished": "2026-09-30T07:21:37.826Z",
+  "summary": {
+    "samples": 95,
+    "overflow": 0,
+    "headingFailures": [],
+    "broken": [],
+    "behaviorFailed": []
+  }
+}

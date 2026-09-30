@@ -1,0 +1,21 @@
+[
+  {
+    "width": 1440,
+    "height": 810,
+    "aboutIdleOpenCloseFocus": true
+  },
+  {
+    "width": 430,
+    "height": 932,
+    "aboutIdleOpenCloseFocus": true
+  },
+  {
+    "width": 720,
+    "height": 405,
+    "aboutIdleOpenCloseFocus": true
+  },
+  {
+    "projectEmptyHudHidden": true,
+    "selectedHudAvailable": true
+  }
+]

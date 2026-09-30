@@ -1,0 +1,65 @@
+/* Natural-world composition. Shared header owns navigation; environment owns motion. */
+.portfolio-experience .natural-world{height:100svh;min-height:560px;background:var(--sky-100);color:var(--ink);isolation:isolate}
+.natural-world .lw-viewport{inset:64px 0 0}.natural-world .lw-scene{inset:0;background:var(--sky-300)}
+.natural-world .lw-backdrop{filter:none;opacity:1;object-fit:cover;object-position:center;animation:none}
+.natural-world .lw-backdrop-fallback{background:linear-gradient(var(--sky-300),var(--cloud))}
+.natural-world-heading{position:absolute;left:var(--page-gutter);top:96px;z-index:12;pointer-events:none}
+.natural-world-heading p{font-size:12px;letter-spacing:.08em;font-weight:600;margin:0 0 8px;color:var(--ink-soft)}
+.natural-world-heading h1{font-size:clamp(24px,2.4vw,38px);margin:0 0 8px;max-width:520px}
+.natural-world-heading>span{font-size:14px;color:var(--ink-soft)}
+.natural-world .lw-float{animation:none!important}.natural-world .lw-response{transform:none!important;filter:none!important;transition:none}
+.natural-world .lw-island-art{filter:none!important;opacity:1;animation:none}
+.natural-world .lw-island{aspect-ratio:1;height:auto;filter:none!important;opacity:1!important;transition:none;outline:none}
+.natural-world .lw-island:before,.natural-world .lw-island:after{display:none!important}
+.natural-world .lw-island .lw-ribbon-label{position:absolute;left:50%;top:86%;width:max-content!important;max-width:none!important;padding:0;transform:translateX(-50%);filter:none!important;opacity:1!important;background:none;border:0;box-shadow:none;animation:none!important}
+.natural-island-label{display:block;text-align:center;background:var(--cloud);border:1px solid var(--stone-200);border-radius:10px;padding:8px 16px;min-width:128px;transition:background .16s,border-color .16s}
+.natural-island-label strong{display:flex;align-items:center;justify-content:center;gap:16px;color:var(--ink);font:600 14px/1.5 var(--font-ui);letter-spacing:.04em}
+.natural-island-label strong>span{display:inline-block;color:var(--interaction-dark);transition:translate .18s;translate:0 0}
+.natural-island-label small{display:block;color:var(--ink-soft);font:400 12px/1.5 var(--font-ui);margin-top:4px}
+.natural-world .is-reacting .natural-island-label,.natural-world .lw-island:focus-visible .natural-island-label{background:var(--ivory);border-color:var(--interaction-dark)}
+.natural-world .is-reacting .natural-island-label strong>span{translate:3px -3px}
+.natural-world .lw-island:focus-visible .natural-island-label{outline:2px solid var(--interaction-dark);outline-offset:4px}
+.natural-island-shadow{position:absolute;inset:0;pointer-events:none;mask-size:100% 100%;background:linear-gradient(115deg,transparent 28%,color-mix(in srgb,var(--deep-green) 18%,transparent) 45%,transparent 62%);background-size:280% 100%;animation:natural-cloud-shadow 13s -6s linear infinite}
+@keyframes natural-cloud-shadow{from{background-position:140% 0}to{background-position:-60% 0}}
+.natural-world .lw-cloud{filter:none!important;opacity:.62}.natural-world .lw-cloud-far{animation-duration:32s;top:8%;width:38%}.natural-world .lw-cloud-mid{animation-duration:22s;top:54%;opacity:.3}.natural-world .lw-cloud-near{animation-duration:18s;top:80%;opacity:.65}
+.natural-world .lw-cloud-bank{animation-duration:24s!important;filter:none!important}.natural-world .lw-cloud-bank img{animation:none;opacity:.6}
+.natural-world .bank-2,.natural-world .bank-4,.natural-world .lw-seeds,.natural-world .lw-framing-tree,.natural-world .lw-fern,.natural-world .flock-1,.natural-world .flock-2{display:none}
+.natural-world .lw-leaf-flight:nth-child(n+4){display:none}.natural-world .lw-bird{fill:var(--ink-soft);filter:none}.natural-world .lw-haze-ribbon{opacity:.2;filter:none}
+.natural-world .lw-foreground{pointer-events:none;z-index:8}.natural-world .lw-lookout{filter:none!important}
+.natural-world .world-control-guide,.natural-world .world-intro-guide{background:var(--cloud);color:var(--ink);border:1px solid var(--stone-200);border-radius:10px;box-shadow:none;max-width:360px;padding:12px 16px;bottom:20px;left:120px;font-size:12px}
+.natural-world .world-control-guide:before,.natural-world .world-control-guide:after,.natural-world .world-intro-guide:before,.natural-world .world-intro-guide:after,.natural-world .world-controls-emblem{display:none}
+.natural-world .world-control-guide kbd,.natural-world .world-intro-guide kbd{color:var(--ink);background:var(--ivory);border-color:var(--stone-200)}
+.natural-world .world-mobile-pager{color:var(--ink);background:var(--cloud);border:1px solid var(--stone-200);border-radius:10px;box-shadow:none}
+.natural-world .world-mobile-pager button{color:var(--ink);min-width:44px;min-height:44px}.natural-world .world-mobile-pager span{font:600 14px var(--font-ui)}
+.natural-world .lw-context-action{width:auto;height:44px;padding:0 16px;border:1px solid var(--interaction-dark);border-radius:10px;background:var(--cloud);color:var(--ink);font:600 14px/44px var(--font-ui);box-shadow:none}
+.natural-world[data-paused='true'] *,html[data-motion='reduced'] .natural-world *{animation-play-state:paused!important}
+@media(min-aspect-ratio:1/1){
+ .world-refined.natural-world .lw-islands{width:min(100%,1800px);height:100%;left:50%;right:auto;transform:translateX(-50%)}
+ .world-refined.natural-world .lw-islands .lw-about{left:15%!important;top:21%!important;width:min(24vw,41svh,440px)!important;z-index:4}
+ .world-refined.natural-world .lw-islands .lw-projects{left:45%!important;top:7%!important;width:min(32vw,53svh,560px)!important;z-index:3}
+ .world-refined.natural-world .lw-islands .lw-skills{left:37%!important;top:55%!important;width:min(22vw,34svh,400px)!important;z-index:5}
+ .world-refined.natural-world .lw-islands .lw-contact{left:74%!important;top:48%!important;width:min(23vw,38svh,400px)!important;z-index:4}
+}
+@media(max-aspect-ratio:1/1){
+ .natural-world-heading{top:88px;max-width:calc(100% - 40px)}.natural-world-heading h1{font-size:28px}.natural-world-heading>span{font-size:14px}
+ .world-refined.natural-world .lw-islands{top:18%;height:62%;gap:0;padding:0 10vw;scroll-padding:10vw;z-index:7}
+ .world-refined.natural-world .lw-islands .lw-island{width:80vw!important;max-width:520px;min-width:80vw;height:80vw;max-height:520px;top:auto!important;left:auto!important;flex:0 0 80vw;align-self:center}
+ .natural-world .lw-island .lw-ribbon-label{top:82%;transform:translateX(-50%);bottom:auto}
+ .natural-world .natural-island-label{min-width:160px;padding:12px 16px}.natural-world .natural-island-label strong{font-size:16px}
+ .natural-world .world-mobile-pager{bottom:20px;left:auto;right:20px;transform:none;z-index:22}
+ .natural-world .world-control-guide,.natural-world .world-intro-guide{display:none}.natural-world .lw-context-action{bottom:84px;left:auto;right:20px;transform:none}
+ .natural-world .lw-foreground .lw-lookout{height:39%;width:78%}.natural-world .lw-foreground .lw-explorer{width:18%}
+}
+@media(max-height:650px) and (min-aspect-ratio:1/1){.natural-world-heading{top:80px}.natural-world-heading h1{font-size:24px}.natural-world-heading>span{display:none}.natural-world .natural-island-label{padding:4px 12px}.natural-world .natural-island-label small{display:none}}
+@media(prefers-reduced-motion:reduce){.natural-world *{animation:none!important;transition:none!important}}
+.natural-world .natural-world-heading{background:var(--cloud);padding:16px 20px;border-radius:14px;max-width:430px;top:88px}
+.natural-world .natural-world-heading h1{font:600 clamp(26px,2.2vw,32px)/1.2 var(--font-ui);letter-spacing:-.02em}
+.natural-world .lw-island .lw-ribbon-label{border:0!important;outline:0!important;background:none!important;box-shadow:none!important;backdrop-filter:none}
+.natural-world .lw-island .lw-ribbon-label:before,.natural-world .lw-island .lw-ribbon-label:after{display:none!important}
+.natural-world .lw-island .lw-ribbon-label strong{font:600 14px/1.5 var(--font-ui);color:var(--ink)}
+.natural-world .lw-island .lw-ribbon-label small{display:block;font:400 12px/1.5 var(--font-ui);color:var(--ink-soft)}
+.natural-world .world-control-guide,.natural-world .world-intro-guide{transform:none!important;left:120px!important;right:auto!important;bottom:20px;max-width:340px;color:var(--ink)}
+.natural-world .world-control-guide *,.natural-world .world-intro-guide *{color:var(--ink)}
+@media(max-aspect-ratio:1/1){.natural-world .natural-world-heading{left:20px;right:20px;max-width:none;padding:16px;top:88px}.natural-world .natural-world-heading h1{font-size:24px}.natural-world .natural-world-heading>span{font-size:12px}.natural-world .lw-island .lw-ribbon-label{max-width:90%!important}.natural-world .world-control-guide,.natural-world .world-intro-guide{display:none!important}}
+.natural-world .lw-island .lw-ribbon-label small{max-height:none;opacity:1;margin-top:4px;white-space:normal}
+.natural-world .lw-wind-life{z-index:3}

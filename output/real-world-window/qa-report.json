@@ -1,0 +1,841 @@
+{
+  "started": "2026-09-30T07:43:28.973Z",
+  "viewports": [
+    {
+      "width": 2560,
+      "height": 1440,
+      "overflow": false,
+      "cta": {
+        "x": 1886.765625,
+        "y": 1180,
+        "w": 193.234375,
+        "h": 72,
+        "b": 1252,
+        "r": 2080
+      },
+      "heading": {
+        "x": 480,
+        "y": 1173.796875,
+        "w": 1374.765625,
+        "h": 50,
+        "b": 1223.796875,
+        "r": 1854.765625
+      },
+      "window": {
+        "x": 480,
+        "y": 246,
+        "w": 1600,
+        "h": 900,
+        "b": 1146,
+        "r": 2080
+      },
+      "quick": {
+        "x": 1911.359375,
+        "y": 178,
+        "w": 100.640625,
+        "h": 44,
+        "b": 222,
+        "r": 2012
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "overflow": false,
+      "cta": {
+        "x": 1520.546875,
+        "y": 973.984375,
+        "w": 193.234375,
+        "h": 72,
+        "b": 1045.984375,
+        "r": 1713.78125
+      },
+      "heading": {
+        "x": 206.234375,
+        "y": 967.78125,
+        "w": 1282.3125,
+        "h": 50,
+        "b": 1017.78125,
+        "r": 1488.546875
+      },
+      "window": {
+        "x": 206.234375,
+        "y": 92,
+        "w": 1507.546875,
+        "h": 847.984375,
+        "b": 939.984375,
+        "r": 1713.78125
+      },
+      "quick": {
+        "x": 1545.140625,
+        "y": 24,
+        "w": 100.640625,
+        "h": 44,
+        "b": 68,
+        "r": 1645.78125
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "overflow": false,
+      "cta": {
+        "x": 1040.546875,
+        "y": 703.984375,
+        "w": 193.234375,
+        "h": 72,
+        "b": 775.984375,
+        "r": 1233.78125
+      },
+      "heading": {
+        "x": 206.234375,
+        "y": 702.984375,
+        "w": 802.3125,
+        "h": 39.609375,
+        "b": 742.59375,
+        "r": 1008.546875
+      },
+      "window": {
+        "x": 206.234375,
+        "y": 92,
+        "w": 1027.546875,
+        "h": 577.984375,
+        "b": 669.984375,
+        "r": 1233.78125
+      },
+      "quick": {
+        "x": 1065.140625,
+        "y": 24,
+        "w": 100.640625,
+        "h": 44,
+        "b": 68,
+        "r": 1165.78125
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "overflow": false,
+      "cta": {
+        "x": 966.203125,
+        "y": 661.984375,
+        "w": 193.234375,
+        "h": 72,
+        "b": 733.984375,
+        "r": 1159.4375
+      },
+      "heading": {
+        "x": 206.5625,
+        "y": 662.015625,
+        "w": 727.640625,
+        "h": 37.546875,
+        "b": 699.5625,
+        "r": 934.203125
+      },
+      "window": {
+        "x": 206.5625,
+        "y": 92,
+        "w": 952.875,
+        "h": 535.984375,
+        "b": 627.984375,
+        "r": 1159.4375
+      },
+      "quick": {
+        "x": 990.796875,
+        "y": 24,
+        "w": 100.640625,
+        "h": 44,
+        "b": 68,
+        "r": 1091.4375
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "overflow": false,
+      "cta": {
+        "x": 919.4375,
+        "y": 713.984375,
+        "w": 193.234375,
+        "h": 72,
+        "b": 785.984375,
+        "r": 1112.671875
+      },
+      "heading": {
+        "x": 67.34375,
+        "y": 714.03125,
+        "w": 828.09375,
+        "h": 37.5,
+        "b": 751.53125,
+        "r": 895.4375
+      },
+      "window": {
+        "x": 67.34375,
+        "y": 92,
+        "w": 1045.328125,
+        "h": 587.984375,
+        "b": 679.984375,
+        "r": 1112.671875
+      },
+      "quick": {
+        "x": 944.03125,
+        "y": 24,
+        "w": 100.640625,
+        "h": 44,
+        "b": 68,
+        "r": 1044.671875
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "overflow": false,
+      "cta": {
+        "x": 795.203125,
+        "y": 661.984375,
+        "w": 193.234375,
+        "h": 72,
+        "b": 733.984375,
+        "r": 988.4375
+      },
+      "heading": {
+        "x": 35.5625,
+        "y": 662.03125,
+        "w": 735.640625,
+        "h": 37.5,
+        "b": 699.53125,
+        "r": 771.203125
+      },
+      "window": {
+        "x": 35.5625,
+        "y": 92,
+        "w": 952.875,
+        "h": 535.984375,
+        "b": 627.984375,
+        "r": 988.4375
+      },
+      "quick": {
+        "x": 819.796875,
+        "y": 24,
+        "w": 100.640625,
+        "h": 44,
+        "b": 68,
+        "r": 920.4375
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "cta": {
+        "x": 550.765625,
+        "y": 773.6875,
+        "w": 193.234375,
+        "h": 72,
+        "b": 845.6875,
+        "r": 744
+      },
+      "heading": {
+        "x": 24,
+        "y": 675.296875,
+        "w": 720,
+        "h": 40,
+        "b": 715.296875,
+        "r": 744
+      },
+      "window": {
+        "x": 24,
+        "y": 246.296875,
+        "w": 720,
+        "h": 405,
+        "b": 651.296875,
+        "r": 744
+      },
+      "quick": {
+        "x": 575.359375,
+        "y": 178.296875,
+        "w": 100.640625,
+        "h": 44,
+        "b": 222.296875,
+        "r": 676
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "overflow": false,
+      "cta": {
+        "x": 20,
+        "y": 531.984375,
+        "w": 390,
+        "h": 72,
+        "b": 603.984375,
+        "r": 410
+      },
+      "heading": {
+        "x": 20,
+        "y": 383.375,
+        "w": 390,
+        "h": 78.21875,
+        "b": 461.59375,
+        "r": 410
+      },
+      "window": {
+        "x": 20,
+        "y": 132,
+        "w": 390,
+        "h": 219.375,
+        "b": 351.375,
+        "r": 410
+      },
+      "quick": {
+        "x": 249.359375,
+        "y": 24,
+        "w": 100.640625,
+        "h": 44,
+        "b": 68,
+        "r": 350
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "overflow": false,
+      "cta": {
+        "x": 20,
+        "y": 511.171875,
+        "w": 362,
+        "h": 72,
+        "b": 583.171875,
+        "r": 382
+      },
+      "heading": {
+        "x": 20,
+        "y": 367.625,
+        "w": 362,
+        "h": 73.15625,
+        "b": 440.78125,
+        "r": 382
+      },
+      "window": {
+        "x": 20,
+        "y": 132,
+        "w": 362,
+        "h": 203.625,
+        "b": 335.625,
+        "r": 382
+      },
+      "quick": {
+        "x": 221.359375,
+        "y": 24,
+        "w": 100.640625,
+        "h": 44,
+        "b": 68,
+        "r": 322
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "cta": {
+        "x": 16,
+        "y": 506.734375,
+        "w": 358,
+        "h": 72,
+        "b": 578.734375,
+        "r": 374
+      },
+      "heading": {
+        "x": 16,
+        "y": 365.375,
+        "w": 358,
+        "h": 70.96875,
+        "b": 436.34375,
+        "r": 374
+      },
+      "window": {
+        "x": 16,
+        "y": 132,
+        "w": 358,
+        "h": 201.375,
+        "b": 333.375,
+        "r": 374
+      },
+      "quick": {
+        "x": 213.359375,
+        "y": 24,
+        "w": 100.640625,
+        "h": 44,
+        "b": 68,
+        "r": 314
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "overflow": false,
+      "cta": {
+        "x": 16,
+        "y": 486.484375,
+        "w": 328,
+        "h": 72,
+        "b": 558.484375,
+        "r": 344
+      },
+      "heading": {
+        "x": 16,
+        "y": 348.5,
+        "w": 328,
+        "h": 67.59375,
+        "b": 416.09375,
+        "r": 344
+      },
+      "window": {
+        "x": 16,
+        "y": 132,
+        "w": 328,
+        "h": 184.5,
+        "b": 316.5,
+        "r": 344
+      },
+      "quick": {
+        "x": 183.359375,
+        "y": 24,
+        "w": 100.640625,
+        "h": 44,
+        "b": 68,
+        "r": 284
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 767,
+      "height": 900,
+      "overflow": false,
+      "cta": {
+        "x": 20,
+        "y": 726.515625,
+        "w": 727,
+        "h": 72,
+        "b": 798.515625,
+        "r": 747
+      },
+      "heading": {
+        "x": 20,
+        "y": 572.9375,
+        "w": 727,
+        "h": 83.1875,
+        "b": 656.125,
+        "r": 747
+      },
+      "window": {
+        "x": 20,
+        "y": 132,
+        "w": 727,
+        "h": 408.9375,
+        "b": 540.9375,
+        "r": 747
+      },
+      "quick": {
+        "x": 586.359375,
+        "y": 24,
+        "w": 100.640625,
+        "h": 44,
+        "b": 68,
+        "r": 687
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "overflow": false,
+      "cta": {
+        "x": 550.765625,
+        "y": 711.6875,
+        "w": 193.234375,
+        "h": 72,
+        "b": 783.6875,
+        "r": 744
+      },
+      "heading": {
+        "x": 24,
+        "y": 613.296875,
+        "w": 720,
+        "h": 40,
+        "b": 653.296875,
+        "r": 744
+      },
+      "window": {
+        "x": 24,
+        "y": 184.296875,
+        "w": 720,
+        "h": 405,
+        "b": 589.296875,
+        "r": 744
+      },
+      "quick": {
+        "x": 575.359375,
+        "y": 116.296875,
+        "w": 100.640625,
+        "h": 44,
+        "b": 160.296875,
+        "r": 676
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 1023,
+      "height": 820,
+      "overflow": false,
+      "cta": {
+        "x": 762.703125,
+        "y": 719.1875,
+        "w": 193.234375,
+        "h": 72,
+        "b": 791.1875,
+        "r": 955.9375
+      },
+      "heading": {
+        "x": 67.0625,
+        "y": 620.796875,
+        "w": 888.875,
+        "h": 40,
+        "b": 660.796875,
+        "r": 955.9375
+      },
+      "window": {
+        "x": 67.0625,
+        "y": 96.8125,
+        "w": 888.875,
+        "h": 499.984375,
+        "b": 596.796875,
+        "r": 955.9375
+      },
+      "quick": {
+        "x": 787.296875,
+        "y": 28.8125,
+        "w": 100.640625,
+        "h": 44,
+        "b": 72.8125,
+        "r": 887.9375
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 1024,
+      "height": 820,
+      "overflow": false,
+      "cta": {
+        "x": 806.765625,
+        "y": 694.5,
+        "w": 193.234375,
+        "h": 72,
+        "b": 766.5,
+        "r": 1000
+      },
+      "heading": {
+        "x": 24,
+        "y": 694.546875,
+        "w": 758.765625,
+        "h": 37.5,
+        "b": 732.046875,
+        "r": 782.765625
+      },
+      "window": {
+        "x": 24,
+        "y": 111.5,
+        "w": 976,
+        "h": 549,
+        "b": 660.5,
+        "r": 1000
+      },
+      "quick": {
+        "x": 831.359375,
+        "y": 43.5,
+        "w": 100.640625,
+        "h": 44,
+        "b": 87.5,
+        "r": 932
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 1279,
+      "height": 810,
+      "overflow": false,
+      "cta": {
+        "x": 960.046875,
+        "y": 703.984375,
+        "w": 193.234375,
+        "h": 72,
+        "b": 775.984375,
+        "r": 1153.28125
+      },
+      "heading": {
+        "x": 125.734375,
+        "y": 704.03125,
+        "w": 810.3125,
+        "h": 37.5,
+        "b": 741.53125,
+        "r": 936.046875
+      },
+      "window": {
+        "x": 125.734375,
+        "y": 92,
+        "w": 1027.546875,
+        "h": 577.984375,
+        "b": 669.984375,
+        "r": 1153.28125
+      },
+      "quick": {
+        "x": 984.640625,
+        "y": 24,
+        "w": 100.640625,
+        "h": 44,
+        "b": 68,
+        "r": 1085.28125
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 1280,
+      "height": 810,
+      "overflow": false,
+      "cta": {
+        "x": 960.546875,
+        "y": 703.984375,
+        "w": 193.234375,
+        "h": 72,
+        "b": 775.984375,
+        "r": 1153.78125
+      },
+      "heading": {
+        "x": 126.234375,
+        "y": 704.03125,
+        "w": 802.3125,
+        "h": 37.5,
+        "b": 741.53125,
+        "r": 928.546875
+      },
+      "window": {
+        "x": 126.234375,
+        "y": 92,
+        "w": 1027.546875,
+        "h": 577.984375,
+        "b": 669.984375,
+        "r": 1153.78125
+      },
+      "quick": {
+        "x": 985.140625,
+        "y": 24,
+        "w": 100.640625,
+        "h": 44,
+        "b": 68,
+        "r": 1085.78125
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 1919,
+      "height": 1080,
+      "overflow": false,
+      "cta": {
+        "x": 1520.046875,
+        "y": 973.984375,
+        "w": 193.234375,
+        "h": 72,
+        "b": 1045.984375,
+        "r": 1713.28125
+      },
+      "heading": {
+        "x": 205.734375,
+        "y": 967.78125,
+        "w": 1282.3125,
+        "h": 50,
+        "b": 1017.78125,
+        "r": 1488.046875
+      },
+      "window": {
+        "x": 205.734375,
+        "y": 92,
+        "w": 1507.546875,
+        "h": 847.984375,
+        "b": 939.984375,
+        "r": 1713.28125
+      },
+      "quick": {
+        "x": 1544.640625,
+        "y": 24,
+        "w": 100.640625,
+        "h": 44,
+        "b": 68,
+        "r": 1645.28125
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "overflow": false,
+      "cta": {
+        "x": 1520.546875,
+        "y": 973.984375,
+        "w": 193.234375,
+        "h": 72,
+        "b": 1045.984375,
+        "r": 1713.78125
+      },
+      "heading": {
+        "x": 206.234375,
+        "y": 967.78125,
+        "w": 1282.3125,
+        "h": 50,
+        "b": 1017.78125,
+        "r": 1488.546875
+      },
+      "window": {
+        "x": 206.234375,
+        "y": 92,
+        "w": 1507.546875,
+        "h": 847.984375,
+        "b": 939.984375,
+        "r": 1713.78125
+      },
+      "quick": {
+        "x": 1545.140625,
+        "y": 24,
+        "w": 100.640625,
+        "h": 44,
+        "b": 68,
+        "r": 1645.78125
+      },
+      "font": "SUIT, sans-serif",
+      "videoFit": "contain"
+    }
+  ],
+  "checks": [
+    {
+      "name": "SUIT, direct Quick View, Back and reload",
+      "passed": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(await p.evaluate(()=>document.fonts.check('16px SUIT')))\n"
+    },
+    {
+      "name": "Hover/focus keeps CTA stable and previews window",
+      "passed": true
+    },
+    {
+      "name": "Ambient plays, pauses via settings and persists after reload",
+      "passed": true
+    },
+    {
+      "name": "First frame waits for expansion; focus and Escape recover",
+      "passed": false,
+      "error": "Expected values to be strictly equal:\n\ntrue !== false\n"
+    },
+    {
+      "name": "Skip during expansion and explicit replay",
+      "passed": false,
+      "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '처음의 여정 다시 보기 ↗', exact: true })\u001b[22m\n"
+    },
+    {
+      "name": "Reduced motion bypasses all cinematic media",
+      "passed": true
+    },
+    {
+      "name": "Delayed portal retains ambient, then plays its first frame",
+      "passed": false,
+      "error": "Expected values to be strictly equal:\n\n'false' !== 'true'\n"
+    },
+    {
+      "name": "Failed ambient and portal keep direct content recovery",
+      "passed": false,
+      "error": "The expression evaluated to a falsy value:\n\n  assert(await p.getByRole('link',{name:'QUICK VIEW ↗',exact:true}).isVisible())\n"
+    },
+    {
+      "name": "Back during pending expansion cancels stale navigation",
+      "passed": true
+    },
+    {
+      "name": "Both real clips play in order and arrive without user input",
+      "passed": true
+    },
+    {
+      "name": "Touch entry preserves full movie and direct exit",
+      "passed": false,
+      "error": "Expected values to be strictly equal:\n\ntrue !== false\n"
+    },
+    {
+      "name": "200% equivalent viewport keeps every action reachable",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "finished": "2026-09-30T07:44:36.868Z",
+  "summary": {
+    "viewports": 19,
+    "checks": 12,
+    "failed": [
+      {
+        "name": "SUIT, direct Quick View, Back and reload",
+        "passed": false,
+        "error": "The expression evaluated to a falsy value:\n\n  assert(await p.evaluate(()=>document.fonts.check('16px SUIT')))\n"
+      },
+      {
+        "name": "First frame waits for expansion; focus and Escape recover",
+        "passed": false,
+        "error": "Expected values to be strictly equal:\n\ntrue !== false\n"
+      },
+      {
+        "name": "Skip during expansion and explicit replay",
+        "passed": false,
+        "error": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '처음의 여정 다시 보기 ↗', exact: true })\u001b[22m\n"
+      },
+      {
+        "name": "Delayed portal retains ambient, then plays its first frame",
+        "passed": false,
+        "error": "Expected values to be strictly equal:\n\n'false' !== 'true'\n"
+      },
+      {
+        "name": "Failed ambient and portal keep direct content recovery",
+        "passed": false,
+        "error": "The expression evaluated to a falsy value:\n\n  assert(await p.getByRole('link',{name:'QUICK VIEW ↗',exact:true}).isVisible())\n"
+      },
+      {
+        "name": "Touch entry preserves full movie and direct exit",
+        "passed": false,
+        "error": "Expected values to be strictly equal:\n\ntrue !== false\n"
+      }
+    ],
+    "pageErrors": []
+  }
+}

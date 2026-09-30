@@ -1,7 +1,7 @@
-import { layerRoot } from './layers.config.js'
+const cloud = '/assets/production/images/natural-world/painted-cloud-v1.webp'
 
 // Fixed seeds keep hydration/reloads stable; long staggered quiet intervals avoid a confetti loop.
-const leaves = Array.from({ length: 12 }, (_, i) => ({
+const leaves = Array.from({ length: 3 }, (_, i) => ({
   delay: -(i * 4.7 + 6), duration: 24 + (i * 7 % 19),
   top: 13 + (i * 17 % 67), size: 11 + (i * 3 % 10), depth: i % 3,
 }))
@@ -13,27 +13,24 @@ const leafContours = [
 
 export function WaterMist({ island }) {
   return <div className="lw-water-mist" aria-hidden="true">{island.water.map(([x,y,w,h],i)=><img
-    key={i} src={`${layerRoot}cloud.webp`} alt="" className="lw-spray"
+    key={i} src={cloud} alt="" className="lw-spray"
     style={{left:`${x-w*1.5}%`,top:`${y+h-9}%`,width:`${w*4}%`,'--mist-time':`${11+i*4+island.drift}s`,'--mist-delay':`${-i*6-island.drift}s`}}
   />)}</div>
 }
 
 export default function WorldAtmosphere() {
   return <>
-    <div className="lw-cloud-banks" aria-hidden="true">{[0,1,2,3,4].map(i=><div key={i} className={`lw-cloud-bank bank-${i}`}><img src={`${layerRoot}cloud.webp`} alt=""/></div>)}</div>
+    <div className="lw-cloud-banks" aria-hidden="true">{[0,1,3].map(i=><div key={i} className={`lw-cloud-bank bank-${i}`}><img src={cloud} alt=""/></div>)}</div>
     <div className="lw-haze" aria-hidden="true">
-      <img className="lw-haze-ribbon haze-a" src={`${layerRoot}cloud.webp`} alt=""/>
-      <img className="lw-haze-ribbon haze-b" src={`${layerRoot}cloud.webp`} alt=""/>
-      <img className="lw-haze-ribbon haze-c" src={`${layerRoot}cloud.webp`} alt=""/>
+      <img className="lw-haze-ribbon haze-a" src={cloud} alt=""/>
+      <img className="lw-haze-ribbon haze-b" src={cloud} alt=""/>
+      <img className="lw-haze-ribbon haze-c" src={cloud} alt=""/>
     </div>
-    <div className="lw-birdlife" aria-hidden="true">{[0,1,2].map(flock=><div className={`lw-flock flock-${flock}`} key={flock}>{[0,1,2,3,4].map(i=><svg key={i} viewBox="0 0 32 18" className="lw-bird" style={{left:`${i*27}px`,top:`${Math.abs(i-2)*10}px`,'--wing-delay':`${-i*.37}s`,width:`${flock===1?11:16+i%2*3}px`}}><path className="bird-wing bird-left" d="M16 11Q8 2 0 5Q8 5 16 13Z"/><path className="bird-wing bird-right" d="M16 11Q24 2 32 5Q24 5 16 13Z"/><path d="m15 9 2 0 1 6-2-1-2 1Z"/></svg>)}</div>)}</div>
+    <div className="lw-birdlife" aria-hidden="true">{[0].map(flock=><div className={`lw-flock flock-${flock}`} key={flock}>{[0,1,2,3,4].map(i=><svg key={i} viewBox="0 0 32 18" className="lw-bird" style={{left:`${i*27}px`,top:`${Math.abs(i-2)*10}px`,'--wing-delay':`${-i*.37}s`,width:`${flock===1?11:16+i%2*3}px`}}><path className="bird-wing bird-left" d="M16 11Q8 2 0 5Q8 5 16 13Z"/><path className="bird-wing bird-right" d="M16 11Q24 2 32 5Q24 5 16 13Z"/><path d="m15 9 2 0 1 6-2-1-2 1Z"/></svg>)}</div>)}</div>
     <div className="lw-wind-life" aria-hidden="true">
       {leaves.map((leaf,i)=><div key={i} className={`lw-leaf-flight leaf-depth-${leaf.depth}`} style={{top:`${leaf.top}%`,'--leaf-time':`${leaf.duration}s`,'--leaf-delay':`${leaf.delay}s`,'--leaf-size':`${leaf.size}px`}}>
-        <svg viewBox="0 0 30 16" className="lw-leaf"><path d={leafContours[i%3]} fill={i%3===0?'#b59a46':'#768742'}/><path d="M0 13 26 3M10 9 11 6M17 6 18 10" stroke="#d0bd72" strokeWidth=".45" fill="none"/></svg>
+        <svg viewBox="0 0 30 16" className="lw-leaf"><path d={leafContours[i%3]} fill={i%3===0?'var(--grass-300)':'var(--grass-500)'}/><path d="M0 13 26 3M10 9 11 6M17 6 18 10" stroke="var(--stone-200)" strokeWidth=".45" fill="none"/></svg>
       </div>)}
-      <div className="lw-grass-edge">{[0,1,2].map(i=><div className={`lw-fern fern-${i}`} key={i} style={{'--gust-delay':`${-5-i*1.8}s`}}><img src={`${layerRoot}meadow-airy-v4.webp`} alt=""/></div>)}</div>
-      <div className="lw-seeds">{Array.from({length:7},(_,i)=><i key={i} style={{left:`${7+i*12}%`,top:`${47+i*7%39}%`,'--seed-delay':`${-i*5.7}s`,'--seed-time':`${23+i*3}s`}}/>)}</div>
     </div>
   </>
 }
-

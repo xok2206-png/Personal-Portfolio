@@ -1,0 +1,112 @@
+/* Option 3: fullscreen cinematic credits. Video/camera/portal rules stay in RealWorld.css. */
+.start-scene.cinematic-credits {
+  --credit-gutter: 48px;
+  --credit-bottom: 64px;
+  --credit-top: max(24px,env(safe-area-inset-top));
+  --credit-white: #F6F3EA;
+  --credit-muted: #D8D0BE;
+  --credit-ink: #26343A;
+  height: 100svh;
+  min-height: 100svh;
+  color: var(--credit-white);
+}
+.cinematic-credits .room-shade {
+  background: linear-gradient(0deg,#080d18eb 0%,#080d1880 18%,#080d1800 48%),linear-gradient(180deg,#080d1840,transparent 18%);
+}
+.start-scene.cinematic-credits .real-world-brand {
+  left: var(--credit-gutter); top: var(--credit-top);
+  min-width: 44px; min-height: 44px;
+  font-size: 24px; line-height: 1; font-weight: 600; letter-spacing: -.02em;
+  color: var(--credit-white);
+}
+.start-scene.cinematic-credits .real-header.real-secondary-tools {
+  top: var(--credit-top); right: var(--credit-gutter); left: auto; height: 44px;
+}
+.cinematic-credits .real-utilities { gap: 24px; }
+.start-scene.cinematic-credits .real-quick {
+  display: inline-flex; align-items: center; gap: 12px;
+  min-height: 44px; color: var(--credit-white);
+  font-size: 12px; font-weight: 600; letter-spacing: .02em;
+}
+.cinematic-credits .real-quick span { display: inline-block; transition: transform .18s ease; }
+.cinematic-credits .real-quick:hover span { transform: translate(2px,-2px); }
+.cinematic-credits .real-settings-panel {
+  width: 256px; padding: 20px; border-radius: 14px;
+  border: 1px solid #B9AE96; background: #080d18; color: var(--credit-white);
+  backdrop-filter: none;
+}
+.cinematic-credits .real-settings-panel strong { font-size: 16px; font-weight: 600; }
+.start-scene.cinematic-credits .real-settings-panel button { font-size: 14px; color: var(--credit-white); }
+.cinematic-credits .real-settings-panel button span,.cinematic-credits .real-settings-panel small { color: var(--credit-muted); font-size: 12px; }
+.start-scene.cinematic-credits .start-copy {
+  position: absolute; inset: 0; width: auto; max-width: none;
+  margin: 0; padding: 0; pointer-events: none;
+}
+.cinematic-credits .real-credit-copy {
+  position: absolute; left: var(--credit-gutter); bottom: var(--credit-bottom);
+  width: min(460px,50%); pointer-events: auto;
+}
+.start-scene.cinematic-credits .start-copy h1 {
+  font: 400 clamp(30px,2.8vw,40px)/1.25 'SUIT',sans-serif;
+  letter-spacing: -.02em; white-space: normal; margin: 0;
+  color: var(--credit-white); word-break: keep-all;
+}
+.cinematic-credits .start-copy h1 strong { font-weight: 600; }
+.cinematic-credits .real-credit-identity {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px;
+  margin-top: 20px; color: var(--credit-muted); font-size: 14px; line-height: 1.6; letter-spacing: 0;
+}
+.cinematic-credits .real-credit-identity>span:first-child { color: var(--credit-white); font-weight: 600; }
+.start-scene.cinematic-credits .gateway {
+  position: absolute; right: var(--credit-gutter); bottom: var(--credit-bottom);
+  margin: 0; pointer-events: auto;
+}
+.start-scene.cinematic-credits .enter-world-button,
+.start-scene.cinematic-credits .enter-world-button:is(:hover,:focus-visible) {
+  width: auto; min-height: 64px; padding: 0 4px 0 0; gap: 20px;
+  color: var(--credit-white); background: transparent;
+  border: 0; border-radius: 32px; box-shadow: none; backdrop-filter: none;
+  overflow: visible; font: 600 14px/1.4 'SUIT',sans-serif; letter-spacing: .02em;
+}
+.cinematic-credits .enter-world-button:before,.cinematic-credits .enter-world-button:after { display: none; animation: none; }
+.cinematic-credits .credit-entry-circle {
+  display: grid; place-items: center; flex: 0 0 64px; width: 64px; height: 64px;
+  background: var(--credit-white); color: var(--credit-ink); border-radius: 50%;
+  transition: background .18s ease;
+}
+.start-scene.cinematic-credits .gateway-arrow { width: 24px; height: 24px; margin: 0; transform: none; transition: transform .18s ease; }
+.cinematic-credits .enter-world-button:is(:hover,:focus-visible) .credit-entry-circle { background: #F2EBDD; }
+.start-scene.cinematic-credits .enter-world-button:is(:hover,:focus-visible) .gateway-arrow { transform: translateX(4px); }
+.start-scene.cinematic-credits .journey-direct { display: inline-flex; align-items: center; gap: 4px; line-height: 1.5; text-decoration: underline; text-underline-offset: 4px; position: absolute; right: 0; top: calc(100% + 4px); white-space: nowrap; min-height: 44px; margin: 0; padding: 8px 0; font-size: 12px; color: var(--credit-muted); }
+.start-scene.cinematic-credits :is(button,a,summary):focus-visible { outline: 2px solid var(--credit-white); outline-offset: 5px; box-shadow: none; }
+.cinematic-credits.is-launching .real-header,.cinematic-credits.is-launching .real-world-brand { opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+@media(max-width:1279px) { .start-scene.cinematic-credits { --credit-gutter: 32px; --credit-bottom: 48px; } }
+@media(max-width:1023px) { .start-scene.cinematic-credits { --credit-gutter: 24px; } }
+@media(max-width:767px),(max-aspect-ratio:1/1) {
+  .start-scene.cinematic-credits { --credit-gutter: 20px; --credit-bottom: max(32px,env(safe-area-inset-bottom)); }
+  .cinematic-credits .real-utilities { gap: 16px; }
+  .cinematic-credits .real-credit-copy { width: calc(100% - var(--credit-gutter)*2); bottom: calc(var(--credit-bottom) + 120px); }
+  .start-scene.cinematic-credits .start-copy h1 { font-size: 32px; line-height: 1.3; }
+  .cinematic-credits .real-credit-identity { margin-top: 16px; font-size: 14px; }
+  .start-scene.cinematic-credits .gateway { left: var(--credit-gutter); right: auto; bottom: calc(var(--credit-bottom) + 20px); }
+  .start-scene.cinematic-credits .journey-direct { left: 0; right: auto; }
+  .cinematic-credits .room-shade { background: linear-gradient(0deg,#080d18f2 0%,#080d18a6 30%,#080d1800 68%),linear-gradient(180deg,#080d1840,transparent 20%); }
+}
+@media(max-width:390px) { .start-scene.cinematic-credits { --credit-gutter: 16px; }.start-scene.cinematic-credits .start-copy h1 { font-size: 30px; } }
+@media(max-height:620px) {
+  .start-scene.cinematic-credits { --credit-top: 12px; --credit-bottom: 24px; }
+  .start-scene.cinematic-credits:has(.journey-direct) { --credit-bottom: 48px; }
+  .start-scene.cinematic-credits .start-copy h1 { font-size: 30px; }
+}
+@media(max-height:460px) and (max-width:767px) {
+  .cinematic-credits .real-credit-copy { bottom: 112px; }
+  .cinematic-credits:has(.journey-direct) .real-credit-copy { bottom: 144px; }
+  .start-scene.cinematic-credits .gateway { bottom: 20px; }
+  .start-scene.cinematic-credits .journey-direct { position: static; }
+  .cinematic-credits .gateway:has(.journey-direct) { bottom: 8px; }
+}
+html[data-motion='reduced'] .cinematic-credits .gateway-arrow,html[data-motion='reduced'] .cinematic-credits .real-quick span { transition: none; transform: none; }
+@media(prefers-reduced-motion:reduce) { .cinematic-credits .gateway-arrow,.cinematic-credits .real-quick span { transition: none!important; transform: none!important; } }
+
+.cinematic-credits .journey-direct:hover { color: var(--credit-white); }
+.cinematic-credits.is-launching .journey-direct { pointer-events: none; }

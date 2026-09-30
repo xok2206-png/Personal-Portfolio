@@ -1,0 +1,22 @@
+.living-environment{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.living-cloud-window{position:absolute;inset:0;overflow:hidden}
+.living-cloud{position:absolute;width:48%;max-width:none;opacity:.7;animation:living-cloud-pass 26s -9s linear infinite}
+.living-cloud-one{left:0;top:24%}.living-cloud-two{left:45%;top:42%;width:42%;opacity:.45;animation-duration:36s;animation-delay:-23s}
+@keyframes living-cloud-pass{from{translate:-110% 0}to{translate:240% -10%}}
+.living-shadow{position:absolute;inset:0;background:linear-gradient(110deg,transparent 24%,color-mix(in srgb,var(--deep-green) 18%,transparent) 45%,transparent 65%);background-size:250% 100%;animation:living-shadow-pass 16s -7s linear infinite}
+@keyframes living-shadow-pass{from{background-position:130% 0}to{background-position:-50% 0}}
+.living-atelier .living-cloud-window{left:45%;right:24%;bottom:38%;clip-path:polygon(0 0,100% 0,100% 100%,0 88%)}
+.living-atelier .living-cloud{width:130%;top:36%;animation-duration:18s;opacity:.75}
+.living-atelier .living-cloud-two{top:68%;animation-duration:25s;opacity:.5}
+.living-atelier .living-shadow{top:64%;opacity:.75}
+.living-ruins .living-cloud-window{left:17%;right:17%;bottom:44%;clip-path:polygon(8% 0,95% 0,100% 100%,0 100%)}
+.living-ruins .living-cloud{width:70%;top:32%;animation-duration:22s}.living-ruins .living-cloud-two{top:61%;animation-duration:30s}
+.living-ruins .living-shadow{top:67%;opacity:.8}
+.living-leaves{position:absolute;inset:0}.living-leaves i{position:absolute;top:calc(20% + var(--leaf-index)*17%);width:12px;height:6px;border-radius:100% 0 100% 0;background:var(--grass-500);animation:living-leaf-pass 12s linear infinite;animation-delay:calc(var(--leaf-index)*-3s)}
+@keyframes living-leaf-pass{0%{translate:-5vw 0;rotate:-20deg;opacity:0}6%{opacity:.8}50%{translate:50vw 12vh;rotate:170deg;opacity:.8}95%,100%{translate:110vw 4vh;rotate:310deg;opacity:0}}
+.living-reading{position:fixed;top:64px;background:linear-gradient(var(--sky-100),var(--cloud));z-index:0}.living-reading .living-cloud{top:16%}.living-reading .living-shadow{display:none}
+.living-environment[data-still='true'] *,html[data-motion='reduced'] .living-environment *{animation-play-state:paused!important}
+@media(max-width:767px){.living-atelier .living-cloud-window{left:0;right:0;bottom:60%;opacity:.45}.living-leaves i:nth-child(n+3){display:none}}
+@media(prefers-reduced-motion:reduce){.living-environment *{animation:none!important}}
+
+.living-cloud{mask-image:radial-gradient(ellipse,black 35%,transparent 72%)}

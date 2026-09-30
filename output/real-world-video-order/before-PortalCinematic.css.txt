@@ -1,0 +1,14 @@
+/* Media stays inside RealWorld from idle through arrival. No fullscreen modal,
+   replacement backdrop, or second workspace video is mounted on ENTER WORLD. */
+.real-world-media{position:absolute;inset:0;z-index:-2;overflow:hidden;pointer-events:none}
+.real-world-media .start-video,.real-world-media .portal-video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:var(--scene-video-position,50% 50%)}
+.real-world-media .portal-arrival{z-index:1;opacity:0;transition:opacity .42s ease}
+.real-world-media .portal-arrival.is-visible{opacity:1}
+.real-world-media::after{content:'';position:absolute;z-index:2;inset:0;pointer-events:none;background:#f8fcff;opacity:0;transition:opacity .7s ease}
+.real-world-media.is-arriving::after{opacity:1}
+.portal-cinematic{position:absolute;inset:0;z-index:50;pointer-events:none;color:var(--credit-white);font-family:var(--font-primary)}
+.portal-actions{position:absolute;right:var(--credit-gutter);bottom:var(--credit-bottom);display:flex;gap:24px;align-items:center;pointer-events:auto}
+.start-scene .portal-actions>a,.start-scene .portal-actions>button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 0;color:var(--credit-white);background:none;border:0;border-radius:0;font:400 12px/1.5 'SUIT',sans-serif;text-decoration:underline;text-underline-offset:4px}
+.start-scene .portal-actions :is(a,button):focus-visible{outline:2px solid var(--credit-white);outline-offset:4px}
+@media(max-width:767px),(max-aspect-ratio:1/1){.portal-actions{left:var(--credit-gutter);right:var(--credit-gutter);bottom:max(24px,env(safe-area-inset-bottom));justify-content:space-between;gap:16px}}
+@media(prefers-reduced-motion:reduce){.real-world-media .portal-arrival,.real-world-media::after{transition:none}}
