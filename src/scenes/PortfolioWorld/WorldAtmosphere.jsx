@@ -14,7 +14,7 @@ const leafContours = [
 export function WaterMist({ island }) {
   return <div className="lw-water-mist" aria-hidden="true">{island.water.map(([x,y,w,h],i)=><img
     key={i} src={cloud} alt="" className="lw-spray"
-    style={{left:`${x-w*1.5}%`,top:`${y+h-9}%`,width:`${w*4}%`,'--mist-time':`${11+i*4+island.drift}s`,'--mist-delay':`${-i*6-island.drift}s`}}
+    style={{left:`${x-w*1.5}%`,top:`${y+h-9}%`,width:`${w*4}%`,'--mist-time':`${3.8+i*.6}s`,'--mist-delay':`${-i*1.3-island.drift*.2}s`}}
   />)}</div>
 }
 

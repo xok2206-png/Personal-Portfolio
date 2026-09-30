@@ -5,7 +5,6 @@ import VoyageTransition from './components/VoyageTransition.jsx'
 import AppRouter from './app/router.jsx'
 import LivingEnvironment from './components/LivingEnvironment.jsx'
 import PageHeader from './components/PageHeader.jsx'
-import ExplorationMap from './components/ExplorationMap.jsx'
 import { PortfolioUIContext } from './app/PortfolioUIContext.jsx'
 import './styles/portfolio-theme.css'
 
@@ -113,7 +112,6 @@ export default function App() {
       <AppRouter />
       <NextDestination />
       {voyage && <VoyageTransition key={voyage.id} trip={voyage} onFinish={finishTravel} />}
-      {!worldMode && !realWorld && <ExplorationMap key={location.pathname} />}
     </div>
   </PortfolioUIContext.Provider>
 }

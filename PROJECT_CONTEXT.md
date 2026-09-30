@@ -6,6 +6,94 @@
 과거 구현/QA 기록이며, 현재 요구사항과 충돌하면 현재 Source of Truth가
 우선한다.
 
+## 2026-09-30 월드맵 기본 움직임과 Hover 강화
+
+- 사용자 요청에 따라 네 섬의 부유를 복원했다. 기존 NaturalWorld의 정지 규칙보다
+  우선하는 SeasonalWorld 범위에서 About 7.4초/±12px, Skills 6.6초/±14px,
+  Projects 9.6초/±9px, Contact 8.3초/±10px의 독립 주기와 시작 위상을 사용한다.
+  건물의 형태를 변형하거나 전체 배경/카메라를 흔들지 않는다.
+- FlowingWater는 기존 에셋의 물 부분을 SVG pattern으로 재사용해 폭포 안에서
+  아래로 연속 이동시킨다. 부드러운 마스크, 포말, 수면 흐름, 빨라진 물안개를
+  더했다. 단계 폭포를 포함한 8개 물줄기의 좌표를 실제 에셋에 맞췄다.
+- SeasonalIslandLife의 기본 동작: About 꽃잎/기록관 조명, Skills 기어 회전/
+  바람과 천의 명암, Projects 낙엽/전시 패널 순차 조명, Contact 눈발/
+  등대 빛 회전. 바람 날개 자체의 입체 회전은 구현하지 않았다.
+- Hover/키보드 Focus/Touch 선택은 해당 섬의 9px 상승, 명암 대비, 밑줄과
+  `입장하기 →` 텍스트로 구분한다. 클릭 영역은 부유와 분리해 고정했다.
+  기존 Hover 카드 테두리를 제거하고 이름표를 물줄기와 덜 겹치는 위치로 조정했다.
+- 모션 소유자는 CSS 하나다. 설정의 Motion OFF, OS Reduced Motion, 숨긴 탭/
+  장면 상태를 유지하며, 세로 화면에서는 보이지 않는 섬의 애니메이션을 정지한다.
+  기존 섬 이미지, HTML 링크/본문, Direct URL, Real World, 제한 이동은 유지했다.
+  페이지별 공간/이동의 WORKING·LOCKED 변경 없음.
+- 관련 구현: `SeasonalWorld.css`, `SeasonalIslandLife.jsx`, `FlowingWater.jsx`,
+  `WorldAtmosphere.jsx`, `layers.config.js`, `LayeredWorld.jsx`, `IslandRibbon.jsx`.
+  확인 자료는 `output/world-motion-qa/`, 회귀 검증은 `qa/world-motion-check.cjs`와
+  `qa/seasonal-world-check.cjs`에 보관한다.
+
+- 검증: npm run lint/build, git diff --check 통과. Headless Edge 23개 화면 크기
+  (현재 사용자 화면 1058×879 포함), 4개 목적지 이동/Reload/Back,
+  Keyboard/Touch, 에셋 실패, 모션 정지/재개와 Reduced Motion을 확인했다.
+  다른 움직임을 고정한 상태에서도 8개 폭포 영역의 실제 화면 픽셀이 바뀌는지 검증했다.
+  현재 열린 in-app browser 2개 탭에서도 Motion full / 부유 running 상태를 확인했다.
+  콘솔 런타임 오류 0. Safari/모바일 실기기, 네이티브 200% Zoom과 Web Vitals는 미확인이다.
+  200%에 해당하는 720×405 @2x 레이아웃의 메뉴 접근만 별도 확인했다.
+
+## 2026-09-30 승인한 사계절 섬 월드맵 배치
+
+- 사용자 승인 기준: `output/material-world-v10/02-material-shadow-preview.png`.
+  About 1안 거목 기록관(봄), Skills 3안 바람 제작소(여름), Projects 3안 접힌 지붕
+  전시관(가을), Contact 등대 항구(겨울)를 실제 월드맵에 배치했다.
+- 내장 image_gen으로 섬별 투명 PNG를 분리하고 1254×1254 WebP 4개로
+  인코딩했다. 브라우저용 합계 약 2.07MB. 원본/프롬프트는
+  `public/assets/source/seasonal-world/`, 사용 에셋은
+  `public/assets/production/images/seasonal-world/`에 보관한다.
+  기존 natural-world 에셋과 승인 시안은 보존했다.
+- LayeredWorld/layers.config에 개별 섬 이미지를 연결하고 SeasonalWorld.css로
+  Projects 중심의 크기, 이름표와 전경의 겹침, 세로 화면의 섬 넘김을 조정했다.
+  확대 필터 없이 원본 색을 기준으로 분리 과정에서 강해진 채도만 섬별 보정했다.
+- 섬 그림과 HTML 이름표를 분리해 Hover/Focus/Touch 선택 시 대상의 대비가
+  또렷하고 다른 섬은 조금 어두워지도록 했다. 이름표는 계속 읽히며 각 Route에
+  직접 연결된다. 섬별 폭포의 시작 위치를 맞추고 물 흐름/물안개,
+  꽃잎·낙엽, 제작 장치의 작은 기어 표시, 등대 빛/항구 물결을 CSS/SVG로 연결했다.
+  건물·절벽은 안정적으로 유지한다. 바람 날개 전체의 입체 회전은 구현하지 않았다.
+- 기존 Header 미리보기, VoyageTransition, DestinationFrame의 목적지 이미지도
+  같은 사계절 에셋으로 연결했다. 이동 구름은 기존 painted-cloud를 사용한다.
+  Real World 영상, 프로젝트 사실/본문, 각 페이지 내부 공간과 캐릭터의 제한 이동,
+  지도 UI 제거는 유지했다. 페이지 내부 구조/이동의 WORKING·LOCKED 변경 없음.
+- 빠른 페이지 전환 검증에서 발견한 Projects ResizeObserver의 null ref 접근을
+  방어했다. 개발 서버의 원본 이미지 파일 감시 EBUSY 종료를 방지하도록
+  vite.config의 watch에서 source 이미지와 output만 제외했다.
+- 검증: npm run lint/build 통과. Headless Edge에서 필수 11개, 경계 8개,
+  짧은 화면 1280×600, 초광폭 2560×1080, 현재 사용자 화면 1007×966을 포함한
+  22개 Viewport의 넘침/이름표 경계와 세로 화면 4개 목적지 넘김 통과.
+  4개 Route 이동·새로고침·뒤로/앞으로, 리얼월드 복귀, Keyboard Enter,
+  터치 선택 후 입장, Hover 대비, 실제 물 흐름 변화, Motion OFF/Reduced Motion,
+  전체 새 이미지 실패 시 HTML 링크, 전체 이동 연출의 에셋 로딩 통과. 런타임 오류 0건.
+- 직접 이미지 확인: 1440×810, 1024×768, 1007×966, 1280×600,
+  430×932 About/Skills/Projects. 720×405 @2x의 200% 상당 레이아웃에서
+  직접 메뉴 접근을 확인했다. 실제 브라우저 200% Zoom·실기기 Safari·성능 지표는
+  이번 검증에서 측정하지 않았다.
+- 결과: `output/seasonal-world-qa/verification.json`, `assets.json` 및 화면 PNG.
+  코드 QA: `qa/seasonal-world-check.cjs`, 에셋 인코딩:
+  `qa/prepare-seasonal-islands.cjs`.
+
+
+## 2026-09-30 하단 지도 UI 제거
+
+- 사용자 요청으로 전체 페이지의 하단 지도 버튼과 지도 Dialog를 제거했다.
+  App 및 WorldHUD의 연결, LayeredWorld의 지도 전용 panel 상태,
+  portfolio-theme.css의 지도 전용 규칙을 정리했다.
+- 참조 확인 후 ExplorationMap.jsx/CSS 및 WorldAtlas.jsx/CSS를 삭제했다.
+  DESIGN_SYSTEM.md 01.2의 이동 수단도 현재 상태와 맞췄다.
+- 월드맵 Route, 네 목적지 섬, 캐릭터 이동, 모바일 섬 넘김, Header·리얼월드 복귀,
+  기존 콘텐츠·영상·페이지 구조는 유지한다. WORKING/LOCKED 변경 없음.
+- 검증: lint/build 통과. Headless Edge에서 World/About/Skills/Projects/Contact를
+  1440×810, 1007×966, 430×932로 확인해 지도 UI 제거 15개 조건 통과.
+  Desktop/Mobile Header 이동, 모바일 섬 넘김, Browser Back, 리얼월드 복귀 통과.
+  런타임 오류 0건. Projects 1007×966 및 430×932 스크린샷을 직접 확인했다.
+- 결과: output/map-removal/qa.json. 이번 변경에서 발견한 남은 오류 없음.
+  실기기 Safari·200% Zoom·전체 필수/경계 Viewport QA는 수행하지 않았다.
+
 ## 2026-09-30 공통 Header 리얼월드 복귀 경로 추가
 
 - PageHeader 왼쪽 로고 옆에 항상 보이는 `← 리얼월드` 링크를 추가했다.

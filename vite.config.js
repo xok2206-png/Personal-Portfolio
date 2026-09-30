@@ -7,6 +7,7 @@ export default defineConfig({
   build: {assetsInlineLimit: 0},
   server: {
     host: '0.0.0.0',
+    watch: {ignored: ['**/public/assets/source/**', '**/output/**']},
     fs: {deny: ['.env', '.env.*', '**/.env*', '**/*.{crt,pem}', '**/.git/**', '**/server/**', '**/.asset-jobs/**']},
     proxy: process.env.HF_ASSET_DEV_PROXY === 'true' ? {
       '/api/higgsfield': {target: 'http://127.0.0.1:8787', changeOrigin: true},

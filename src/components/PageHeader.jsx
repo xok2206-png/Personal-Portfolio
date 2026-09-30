@@ -46,7 +46,7 @@ export default function PageHeader() {
       <span className="page-current-location">{current}</span>
       <div className="page-header-tools"><Link className="page-resume" to="/resume">Resume <span aria-hidden="true">↗</span></Link><button className="page-settings" type="button" aria-haspopup="dialog" aria-expanded={panel === 'settings'} onClick={() => setPanel('settings')}>설정</button><button className="page-menu-toggle" type="button" aria-haspopup="dialog" aria-expanded={panel === 'menu'} onClick={() => setPanel('menu')}>메뉴</button></div>
     </header>
-    {!panel && pathname !== '/world-map' && previewId && <aside className="page-destination-preview" aria-hidden="true"><img src={"/assets/production/images/natural-world/" + previewId + "-island-v1.webp"} alt=""/><span>{destinations.find(([, path]) => path === previewDestination)?.[0]} ↗</span></aside>}
+    {!panel && pathname !== '/world-map' && previewId && <aside className="page-destination-preview" aria-hidden="true"><img src={"/assets/production/images/seasonal-world/" + previewId + "-island-v1.webp"} alt=""/><span>{destinations.find(([, path]) => path === previewDestination)?.[0]} ↗</span></aside>}
     {panel && <HeaderDialog kind={panel} onClose={close}>
       {panel === 'menu' ? <><nav className="page-mobile-nav" aria-label="모바일 주요 메뉴">{links()}</nav><div className="page-mobile-utilities"><Link to="/" onClick={close}>← 리얼월드</Link><Link to="/resume" onClick={close}>Resume ↗</Link><button type="button" onClick={() => setPanel('settings')}>환경 설정</button></div></> : <div className="page-settings-list">
         <button type="button" disabled={systemReduced} aria-pressed={!reduced} onClick={() => setPaused(!paused)}><span>배경 움직임</span><strong>{reduced ? '일시정지' : '재생 중'}</strong></button>

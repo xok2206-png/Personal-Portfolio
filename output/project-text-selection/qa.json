@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "height": 810,
+      "selector": ".gallery-title h1",
+      "selection": "Projects"
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "selector": ".gallery-title>span",
+      "selection": "SELECTED WORKS"
+    },
+    {
+      "width": 1007,
+      "height": 966,
+      "selector": ".gallery-title h1",
+      "selection": "Projects"
+    },
+    {
+      "width": 1007,
+      "height": 966,
+      "selector": ".gallery-title>span",
+      "selection": "SELECTED WORKS"
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "selector": ".gallery-title h1",
+      "selection": "Projects"
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "selector": ".gallery-title>span",
+      "selection": "SELECTED WORKS"
+    }
+  ],
+  "annotationHitsHeading": true,
+  "artworkSelect": true,
+  "caseStudyNavigation": true,
+  "browserBack": true,
+  "runtimeErrors": []
+}

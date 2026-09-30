@@ -1,0 +1,43 @@
+{
+  "status": "preview-only; not applied to website",
+  "tool": "built-in image_gen",
+  "source": "../four-seasons-v9/world-four-seasons-preview.png",
+  "output": "02-material-shadow-preview.png",
+  "intermediate": "01-stone-shadow-pass.png",
+  "requestedRefinement": "Preserve seasonal identity and preferred detailed depth; refine artificial repetition, add meaningful stone detail and coherent shadows.",
+  "passes": [
+    {
+      "purpose": "Stone detail, weathering and shadow refinement",
+      "prompt": "Use case: precise material and lighting refinement of an approved fantasy environment image.\nThe attached image is the edit target. Produce ONE finished wide 16:9 portfolio world concept preview, refining this exact image. The user wants less generic AI-rendered appearance but explicitly wants MORE convincing fine stone detail and shadows. Do not flatten, blur, or remove depth to achieve simplicity. Add purposeful, materially plausible detail and coherent shadows instead of generic microtexture.\n\nLOCK THE DESIGN AND SEASONS:\nKeep the composition, scale, camera, sky, all four island silhouettes, selected buildings, and text positions. Upper-left ABOUT is a spring tree-root circular archive, with pink blossom canopy and green new leaves. Lower-left SKILLS is a clearly lush green summer island with ivory helical canvas wind rotor, bronze gears, circular maker table and channels. Upper-right PROJECTS is the dominant grand folded-roof exhibition pavilion with FOUR blank display panels, surrounded by clearly autumnal copper/red/ochre deciduous foliage and leaf drifts. Lower-right CONTACT is the unmistakably snow-covered winter lighthouse and harbor with frosted fir trees, bare branches, snow on the shore building, paths and ledges, and icy harbor edges. Preserve these four distinct seasons. Keep captions exactly: ABOUT, SKILLS, PROJECTS, CONTACT. No imaginary project screenshots.\n\nMAIN EDIT — ART-DIRECTED STONE DETAIL:\nMake the stone feel like substantial natural weathered limestone rather than repeated rounded chunks or a molded toy. Retain broad strata but break the uniform brick-like rhythm of natural cliff faces. Give each cliff a few UNIQUE large fractures and irregular offsets, with secondary hairline cracks, selectively chipped corners, occasional tiny pores, undercut weathering and thin sedimentary grain where close inspection is useful. Details should vary in scale, depth and density: some calm worn faces, some fractured edges, no evenly tiled texture. Natural cliff rock and constructed masonry must remain visibly different. Architectural stone has intentional block courses and compressed joints; cliffs have geological seams, not regular bricks. Steps have subtly worn centers; stone edges show varied real erosion rather than matching rounded bevels. Keep surfaces matte.\n\nGROUNDED WEATHERING:\nSubtle dark damp streaks just below water channels, darker cool rock beside waterfalls, a few mineral traces at old runoff paths, patchy moss concentrated in sheltered moist cracks. No universal green moss outline around every rock and no random grime everywhere. Roots grip particular fissures and cast small contact shadows. Winter snow has believable thickness and soft blue-grey shade where it meets rock; leave exposed vertical cliff faces readable. Do not cover winter snow with stone texture.\n\nSHADOWS THAT EXPLAIN SHAPE:\nOne coherent upper-left daylight source with cool sky fill. Add readable soft-edged cast shadows from gallery roof onto columns, steps and rear exhibition wall; keep all four panels legible and blank. Strengthen graduated shadow under overhanging strata and within the Projects waterfall chasm, with reflected sky light still visible. Add small varied contact shadows where roots touch ground, gears meet their support, tables/columns meet paving, and dock posts meet snow/water. Tree shadows should follow each canopy and lie naturally on the local stone/grass/snow; do not scatter random dark blobs. Canvas folds should show translucent lit edges and broad soft shadow, not plastic shine. No uniform black ambient-occlusion outline and no harsh HDR contrast.\n\nPRESERVE THE PREFERRED RICHNESS:\nKeep the dimensional painterly adventure-game environment style, grand scale, tactile timber and stone, calm atmosphere and detailed focal points. Individual materials differ naturally. Maintain fresh summer greens, dusty spring pinks, earthy varied autumn reds/ochres, and off-white winter snow. Gently restrain overly uniform bright orange on autumn shrubs by mixing earthy copper, burgundy-brown and subdued ochre while keeping autumn obvious. Keep warm pale limestone balanced by cool blue-grey shadows. No global saturation filter, no golden rim light, no glitter, plastic gloss or bloom. Avoid noisy all-over sharpness: crisp selected stone edges and functional architecture, softer distant background. Do not redesign buildings, rearrange islands, add objects, change words or convert to flat cel shading. This should feel like careful final environment-art detailing and lighting, not a different scene.",
+      "source": "C:/Users/EZEN/.codex/generated_images/01a0f0bf-01a2-7350-989d-b73fa8507b2c/exec-4605917f-c40b-4a22-8e03-efb3628ac151.png"
+    },
+    {
+      "purpose": "Restrain autumn/spring saturation and reduce repetitive decoration while preserving stone detail",
+      "prompt": "Precise limited cleanup of the attached image. Preserve all newly improved rock detail, fractures, stratification, the deep soft shadows, stone volume, architecture, composition, four seasons and labels. Do NOT simplify stone, remove relief, flatten shading, or redesign anything. Keep all four blank gallery panels.\n\nCorrect only these local distractions:\n1. AUTUMN PROJECTS foliage is too uniformly vivid orange. Retain unmistakable autumn, but replace the fluorescent orange/yellow highlights with natural matte rust, burnt sienna, subdued ochre, dusty brick-red and a small amount of olive/brown foliage. Vary tone by tree and branch. Keep neutral stone, timber, sky and water color unchanged. Do not apply an orange or grey global filter.\n2. ABOUT blossom and SKILLS grass have too many tiny brilliant flower dots. Remove the floating pink confetti around ABOUT. Keep the large spring blossom canopy but use gentler dusty rose and soft pink, no hot pink highlights. Remove roughly half the evenly sprinkled small white/yellow flower dots on grass and ledges, leaving irregular sparse clusters with quiet areas between. Preserve summer's rich green leaves, distinct material detail, and all trees. Do not turn it into flat illustration.\n3. CONTACT has too many identical icicle teeth along its front edge. Keep abundant settled winter snow and snow-covered trees, but reduce fringe icicles to a few varied-length irregular clusters at plausible drip points. Keep rock contact shadows, snow depth and cool reflected light.\n\nFinal finish should remain detailed, dimensional and tactile, with natural matte highlights. No added particles, no sparkle, no bloom, no oversharpening, no new geometry. Preserve the single upper-left light, warm stone/cool shadow balance and the grandeur of the selected detailed version. Everything else stays visually the same. Deliver the same wide 16:9 composition.",
+      "source": "C:/Users/EZEN/.codex/generated_images/01a0f0bf-01a2-7350-989d-b73fa8507b2c/exec-e7cc0f50-e2ab-4fb5-b650-789986adbba8.png"
+    }
+  ],
+  "preserved": [
+    "Spring About tree-root archive",
+    "Summer Skills wind workshop",
+    "Autumn Projects folded-roof pavilion",
+    "Winter Contact lighthouse",
+    "Four blank project display panels",
+    "Composition and caption positions"
+  ],
+  "visualReview": {
+    "observed": [
+      "Visible irregular stone cracks and weathered edges",
+      "Deeper relief shadows in cliff ledges and chasm",
+      "Roof shadows visible on blank exhibition panels",
+      "Autumn foliage less uniformly bright orange in second pass",
+      "Four seasons remain identifiable"
+    ],
+    "limitations": [
+      "Some repeated fine vegetation and rock details remain",
+      "Still-image preview only; no asset separation, motion or website changes",
+      "No browser or code tests run for this image-only edit"
+    ]
+  },
+  "decisionScope": "Exterior art refinement; no interior page, navigation, movement or WORKING/LOCKED status changed."
+}

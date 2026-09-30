@@ -1,0 +1,35 @@
+{
+  "status": "preview-only; not applied to website",
+  "tool": "built-in image_gen",
+  "baseSelection": "User preferred the FIRST v7 image: detailed strata composition; not the flatter final v7 image.",
+  "base": "preferred-original.png",
+  "output": "world-detailed-cleanup.png",
+  "prompt": "Use case: precise-object-edit, restrained environment cleanup.\nThe attached image is the user's PREFERRED VERSION. Keep its exact composition, architecture, dimensional rendering, natural palette, rich material separation, depth, scale and lighting. The user specifically prefers this detailed version over a flatter painted version. DO NOT flatten shading, posterize, simplify entire canopies, or convert the whole scene to a different illustration style. This is a small professional art-direction cleanup of repetitive details, not a redesign.\n\nMake ONLY these three local corrections:\n1. On the exposed natural CLIFF WALLS beneath the islands, selectively merge some repeated small stone cracks and tiny chips into larger calm limestone areas. Keep the major horizontal strata, irregular silhouettes, overhangs, vertical fissures and deep cast shadows. Vary the remaining seams naturally, using a few long geological fractures. Preserve the relief and weight of the rock. Do not change masonry of the architecture, steps or supports. Do not erase all rock texture or make smooth plastic cliffs.\n2. On grassy rims and ground patches, thin out the tiny evenly scattered white/yellow flower dots and highlight speckles. Leave a few irregular flower clusters and more quiet stretches of natural grass. Preserve the trees, their branching, spring pink blossom canopy, autumn accents, summer greens and winter branches exactly. Preserve moss and vines but remove the impression of uniformly repeated tiny decorative dots.\n3. Within WATERFALLS ONLY, replace repetitive uniformly spaced bright white glints and zigzag/lattice foam with irregular flowing translucent blue-green body tones, several varied-length pale vertical streaks, and localized foam at the lip and foot. Maintain realistic painterly volume, the existing broad central Projects waterfall, About stepped cascade, Skills two narrow falls and Contact basin spill. Do not make water look like a flat turquoise ribbon.\n\nSTRICT INVARIANTS: keep the four chosen landmarks: About giant tree embracing round archive at top left; Skills tall twisting ivory canvas wind rotor and gear-driven maker table lower left; Projects monumental folded-roof open exhibition pavilion at upper right, with exactly FOUR blank exhibit panels; Contact spiral-stair lighthouse and harbor lower right. Preserve the same 16:9 framing, island positions and visual hierarchy. Keep all labels unchanged and legible: ABOUT, SKILLS, PROJECTS, CONTACT. Preserve the warm/cool balance, natural sky, varied tree species, canvas folds, bronze mechanics, timber grain, deep shadow under the gallery roof and in cliff chasm, background atmosphere and grandeur. No global smoothing, no global desaturation, no bloom, no added glow, no extra objects, no new text, no invented project content. The user must recognize this as the same preferred detailed image with a few distracting repeated patterns carefully cleaned up.",
+  "inputs": [
+    {
+      "role": "User-selected edit target",
+      "source": "C:/Users/EZEN/.codex/generated_images/01a0f0bf-01a2-7350-989d-b73fa8507b2c/exec-bcab1ce4-a642-403e-aba5-9511af705a1e.png"
+    }
+  ],
+  "generatedSource": "C:/Users/EZEN/.codex/generated_images/01a0f0bf-01a2-7350-989d-b73fa8507b2c/exec-cc055874-5937-487d-bf2d-943f0b37a5e2.png",
+  "editScope": [
+    "Selective reduction of repeated cliff microtexture",
+    "Thinning of small uniformly scattered flower speckles",
+    "Subtle reduction of repetitive waterfall highlights"
+  ],
+  "preserved": [
+    "Selected About 1 / Skills 3 / Projects 3 / Contact lighthouse designs",
+    "Relative island positions and hierarchy",
+    "Detailed dimensional shading and material differentiation",
+    "Four blank gallery panels and four labels"
+  ],
+  "visualReview": {
+    "result": "Preferred composition, deep cliff shadows and material differentiation retained; cleanup is deliberately subtle. Fine repeated waterfall and rock details remain.",
+    "limitations": [
+      "Still image only",
+      "No production assets, webpage code or motion changed",
+      "No browser or responsive validation required for this preview"
+    ]
+  },
+  "decisionScope": "User preference recorded for the detailed preview. No interior layout, movement or product WORKING/LOCKED decision changed."
+}

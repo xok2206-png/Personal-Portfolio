@@ -15,7 +15,7 @@ export default function Projects(){
  const [onscreen,setOnscreen]=useState(true)
  const [hidden,setHidden]=useState(document.hidden),[selected,setSelected]=useState(null),[hovered,setHovered]=useState(null),[measure,setMeasure]=useState({width:1440,view:1440}),[spriteFailed,setSpriteFailed]=useState(false)
  const {player,go,stop,keyDown,keyUp}=useGalleryWalk({reduced,paused,hidden:hidden||!onscreen})
- useEffect(()=>{const update=()=>setHidden(document.hidden);document.addEventListener('visibilitychange',update);const observer=new ResizeObserver(()=>setMeasure({width:stage.current.offsetWidth,view:viewport.current.clientWidth}));observer.observe(viewport.current);const visibility=new IntersectionObserver(([entry])=>setOnscreen(entry.isIntersecting));visibility.observe(viewport.current);return()=>{visibility.disconnect();observer.disconnect();document.removeEventListener('visibilitychange',update)}},[])
+ useEffect(()=>{const update=()=>setHidden(document.hidden);document.addEventListener('visibilitychange',update);const observer=new ResizeObserver(()=>{if(stage.current&&viewport.current)setMeasure({width:stage.current.offsetWidth,view:viewport.current.clientWidth})});observer.observe(viewport.current);const visibility=new IntersectionObserver(([entry])=>setOnscreen(entry.isIntersecting));visibility.observe(viewport.current);return()=>{visibility.disconnect();observer.disconnect();document.removeEventListener('visibilitychange',update)}},[])
  const near=exhibitStops.findIndex(p=>Math.hypot(p.x-player.x,(p.y-player.y)*1.6)<7)
  const current=hovered??selected??(near>=0?near:null)
  const pan=Math.max(-(measure.width-measure.view)/2,Math.min((measure.width-measure.view)/2,(50-player.x)/100*measure.width))

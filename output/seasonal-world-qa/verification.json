@@ -1,0 +1,1054 @@
+{
+  "viewports": [
+    {
+      "width": 2560,
+      "height": 1440,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 692.796875,
+          "y": 738.390625,
+          "right": 820.796875,
+          "bottom": 806.078125,
+          "width": 128,
+          "height": 67.6875
+        },
+        {
+          "id": "skills",
+          "x": 1288.59375,
+          "y": 1117.984375,
+          "right": 1400.59375,
+          "bottom": 1185.671875,
+          "width": 112,
+          "height": 67.6875
+        },
+        {
+          "id": "projects",
+          "x": 1465.9296875,
+          "y": 347.59375,
+          "right": 1632.0703125,
+          "bottom": 415.28125,
+          "width": 166.140625,
+          "height": 67.6875
+        },
+        {
+          "id": "contact",
+          "x": 1819.859375,
+          "y": 1050.59375,
+          "right": 1971.328125,
+          "bottom": 1118.28125,
+          "width": 151.46875,
+          "height": 67.6875
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 362.03125,
+          "y": 613.421875,
+          "right": 490.03125,
+          "bottom": 681.109375,
+          "width": 128,
+          "height": 67.6875
+        },
+        {
+          "id": "skills",
+          "x": 938.328125,
+          "y": 886.875,
+          "right": 1050.328125,
+          "bottom": 954.5625,
+          "width": 112,
+          "height": 67.6875
+        },
+        {
+          "id": "projects",
+          "x": 1112.7265625,
+          "y": 318.375,
+          "right": 1278.8671875,
+          "bottom": 386.0625,
+          "width": 166.140625,
+          "height": 67.6875
+        },
+        {
+          "id": "contact",
+          "x": 1485.890625,
+          "y": 845.078125,
+          "right": 1637.359375,
+          "bottom": 912.765625,
+          "width": 151.46875,
+          "height": 67.6875
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 810,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 223.125,
+          "y": 464.46875,
+          "right": 351.125,
+          "bottom": 526.765625,
+          "width": 128,
+          "height": 62.296875
+        },
+        {
+          "id": "skills",
+          "x": 678.9375,
+          "y": 665.15625,
+          "right": 790.9375,
+          "bottom": 727.453125,
+          "width": 112,
+          "height": 62.296875
+        },
+        {
+          "id": "projects",
+          "x": 807.4609375,
+          "y": 238.78125,
+          "right": 973.6015625,
+          "bottom": 301.078125,
+          "width": 166.140625,
+          "height": 62.296875
+        },
+        {
+          "id": "contact",
+          "x": 1126.375,
+          "y": 633.796875,
+          "right": 1261.0625,
+          "bottom": 696.09375,
+          "width": 134.6875,
+          "height": 62.296875
+        }
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 208.328125,
+          "y": 451.53125,
+          "right": 336.328125,
+          "bottom": 512.578125,
+          "width": 128,
+          "height": 61.046875
+        },
+        {
+          "id": "skills",
+          "x": 641.078125,
+          "y": 630.65625,
+          "right": 753.078125,
+          "bottom": 691.703125,
+          "width": 112,
+          "height": 61.046875
+        },
+        {
+          "id": "projects",
+          "x": 761.5703125,
+          "y": 226.390625,
+          "right": 927.7109375,
+          "bottom": 287.4375,
+          "width": 166.140625,
+          "height": 61.046875
+        },
+        {
+          "id": "contact",
+          "x": 1064.96875,
+          "y": 600.9375,
+          "right": 1199.65625,
+          "bottom": 661.984375,
+          "width": 134.6875,
+          "height": 61.046875
+        }
+      ]
+    },
+    {
+      "width": 1180,
+      "height": 820,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 180.46875,
+          "y": 446.265625,
+          "right": 308.46875,
+          "bottom": 505.859375,
+          "width": 128,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": 572.328125,
+          "y": 661.09375,
+          "right": 684.328125,
+          "bottom": 720.6875,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": 672.1171875,
+          "y": 218.046875,
+          "right": 838.2578125,
+          "bottom": 277.640625,
+          "width": 166.140625,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 919.59375,
+          "y": 614.1875,
+          "right": 1054.28125,
+          "bottom": 673.78125,
+          "width": 134.6875,
+          "height": 59.59375
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 148.171875,
+          "y": 415.703125,
+          "right": 276.171875,
+          "bottom": 475.296875,
+          "width": 128,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": 489.265625,
+          "y": 604.15625,
+          "right": 601.265625,
+          "bottom": 663.75,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": 572.2734375,
+          "y": 189.234375,
+          "right": 738.4140625,
+          "bottom": 248.828125,
+          "width": 166.140625,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 789.125,
+          "y": 560.625,
+          "right": 923.8125,
+          "bottom": 620.21875,
+          "width": 134.6875,
+          "height": 59.59375
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "portrait": true,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": -1798.75,
+          "y": 621.5625,
+          "right": -1638.75,
+          "bottom": 681.15625,
+          "width": 160,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": -890.9375,
+          "y": 644.5,
+          "right": -778.9375,
+          "bottom": 704.09375,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": -344.796875,
+          "y": 472.46875,
+          "right": -176.796875,
+          "bottom": 532.0625,
+          "width": 168,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 214,
+          "y": 650.234375,
+          "right": 374,
+          "bottom": 709.828125,
+          "width": 160,
+          "height": 59.59375
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "portrait": true,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": -1042.9375,
+          "y": 533.5625,
+          "right": -882.9375,
+          "bottom": 593.15625,
+          "width": 160,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": -524.109375,
+          "y": 548,
+          "right": -412.109375,
+          "bottom": 607.59375,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": -230.640625,
+          "y": 439.65625,
+          "right": -62.640625,
+          "bottom": 499.25,
+          "width": 168,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 83.96875,
+          "y": 551.625,
+          "right": 243.96875,
+          "bottom": 611.21875,
+          "width": 160,
+          "height": 59.59375
+        }
+      ]
+    },
+    {
+      "width": 402,
+      "height": 874,
+      "portrait": true,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": -979.8125,
+          "y": 500.140625,
+          "right": -819.8125,
+          "bottom": 559.734375,
+          "width": 160,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": -493.203125,
+          "y": 513.65625,
+          "right": -381.203125,
+          "bottom": 573.25,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": -220.671875,
+          "y": 412.34375,
+          "right": -52.671875,
+          "bottom": 471.9375,
+          "width": 168,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 73.71875,
+          "y": 517.03125,
+          "right": 233.71875,
+          "bottom": 576.625,
+          "width": 160,
+          "height": 59.59375
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "portrait": true,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": -953.203125,
+          "y": 483.28125,
+          "right": -793.203125,
+          "bottom": 542.875,
+          "width": 160,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": -480.390625,
+          "y": 496.375,
+          "right": -368.390625,
+          "bottom": 555.96875,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": -216.828125,
+          "y": 398.109375,
+          "right": -48.828125,
+          "bottom": 457.703125,
+          "width": 168,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 68.890625,
+          "y": 499.65625,
+          "right": 228.890625,
+          "bottom": 559.25,
+          "width": 160,
+          "height": 59.59375
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "portrait": true,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": -885.640625,
+          "y": 456.46875,
+          "right": -725.640625,
+          "bottom": 516.0625,
+          "width": 160,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": -447.359375,
+          "y": 468.5625,
+          "right": -335.359375,
+          "bottom": 528.15625,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": -206.234375,
+          "y": 377.84375,
+          "right": -38.234375,
+          "bottom": 437.4375,
+          "width": 168,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 57.828125,
+          "y": 471.578125,
+          "right": 217.828125,
+          "bottom": 531.171875,
+          "width": 160,
+          "height": 59.59375
+        }
+      ]
+    },
+    {
+      "width": 767,
+      "height": 900,
+      "portrait": true,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": -1797.03125,
+          "y": 546.296875,
+          "right": -1637.03125,
+          "bottom": 605.890625,
+          "width": 160,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": -890.375,
+          "y": 566.453125,
+          "right": -778.375,
+          "bottom": 626.046875,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": -344.984375,
+          "y": 415.25,
+          "right": -176.984375,
+          "bottom": 474.84375,
+          "width": 168,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 213.078125,
+          "y": 571.5,
+          "right": 373.078125,
+          "bottom": 631.09375,
+          "width": 160,
+          "height": 59.59375
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "portrait": true,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": -1798.75,
+          "y": 546.296875,
+          "right": -1638.75,
+          "bottom": 605.890625,
+          "width": 160,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": -890.9375,
+          "y": 566.453125,
+          "right": -778.9375,
+          "bottom": 626.046875,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": -344.796875,
+          "y": 415.25,
+          "right": -176.796875,
+          "bottom": 474.84375,
+          "width": 168,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 214,
+          "y": 571.5,
+          "right": 374,
+          "bottom": 631.09375,
+          "width": 160,
+          "height": 59.59375
+        }
+      ]
+    },
+    {
+      "width": 1023,
+      "height": 900,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 147.953125,
+          "y": 434.484375,
+          "right": 275.953125,
+          "bottom": 494.078125,
+          "width": 128,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": 488.734375,
+          "y": 675.25,
+          "right": 600.734375,
+          "bottom": 734.84375,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": 571.6328125,
+          "y": 189.046875,
+          "right": 737.7734375,
+          "bottom": 248.640625,
+          "width": 166.140625,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 788.28125,
+          "y": 625.125,
+          "right": 922.96875,
+          "bottom": 684.71875,
+          "width": 134.6875,
+          "height": 59.59375
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 148.171875,
+          "y": 434.6875,
+          "right": 276.171875,
+          "bottom": 494.28125,
+          "width": 128,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": 489.265625,
+          "y": 675.4375,
+          "right": 601.265625,
+          "bottom": 735.03125,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": 572.2734375,
+          "y": 189.234375,
+          "right": 738.4140625,
+          "bottom": 248.828125,
+          "width": 166.140625,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 789.125,
+          "y": 625.3125,
+          "right": 923.8125,
+          "bottom": 684.90625,
+          "width": 134.6875,
+          "height": 59.59375
+        }
+      ]
+    },
+    {
+      "width": 1279,
+      "height": 900,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 200.984375,
+          "y": 484.65625,
+          "right": 328.984375,
+          "bottom": 544.25,
+          "width": 128,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": 625.0625,
+          "y": 722.609375,
+          "right": 737.0625,
+          "bottom": 782.203125,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": 735.4765625,
+          "y": 236.34375,
+          "right": 901.6171875,
+          "bottom": 295.9375,
+          "width": 166.140625,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 1002.40625,
+          "y": 671.203125,
+          "right": 1137.09375,
+          "bottom": 730.796875,
+          "width": 134.6875,
+          "height": 59.59375
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 201.1875,
+          "y": 484.84375,
+          "right": 329.1875,
+          "bottom": 544.4375,
+          "width": 128,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": 625.578125,
+          "y": 722.796875,
+          "right": 737.578125,
+          "bottom": 782.390625,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": 736.1171875,
+          "y": 236.53125,
+          "right": 902.2578125,
+          "bottom": 296.125,
+          "width": 166.140625,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 1003.234375,
+          "y": 671.390625,
+          "right": 1137.921875,
+          "bottom": 730.984375,
+          "width": 134.6875,
+          "height": 59.59375
+        }
+      ]
+    },
+    {
+      "width": 1919,
+      "height": 1080,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 361.53125,
+          "y": 613.421875,
+          "right": 489.53125,
+          "bottom": 681.109375,
+          "width": 128,
+          "height": 67.6875
+        },
+        {
+          "id": "skills",
+          "x": 937.828125,
+          "y": 886.875,
+          "right": 1049.828125,
+          "bottom": 954.5625,
+          "width": 112,
+          "height": 67.6875
+        },
+        {
+          "id": "projects",
+          "x": 1112.2265625,
+          "y": 318.375,
+          "right": 1278.3671875,
+          "bottom": 386.0625,
+          "width": 166.140625,
+          "height": 67.6875
+        },
+        {
+          "id": "contact",
+          "x": 1485.390625,
+          "y": 845.078125,
+          "right": 1636.859375,
+          "bottom": 912.765625,
+          "width": 151.46875,
+          "height": 67.6875
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 900,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 343.03125,
+          "y": 511.171875,
+          "right": 471.03125,
+          "bottom": 578.859375,
+          "width": 128,
+          "height": 67.6875
+        },
+        {
+          "id": "skills",
+          "x": 896.609375,
+          "y": 739.078125,
+          "right": 1008.609375,
+          "bottom": 806.765625,
+          "width": 112,
+          "height": 67.6875
+        },
+        {
+          "id": "projects",
+          "x": 1052.4296875,
+          "y": 265.3125,
+          "right": 1218.5703125,
+          "bottom": 333,
+          "width": 166.140625,
+          "height": 67.6875
+        },
+        {
+          "id": "contact",
+          "x": 1460.625,
+          "y": 704.25,
+          "right": 1612.09375,
+          "bottom": 771.9375,
+          "width": 151.46875,
+          "height": 67.6875
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 600,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 178.546875,
+          "y": 399.796875,
+          "right": 306.546875,
+          "bottom": 447.796875,
+          "width": 128,
+          "height": 48
+        },
+        {
+          "id": "skills",
+          "x": 569.46875,
+          "y": 492.71875,
+          "right": 681.46875,
+          "bottom": 540.71875,
+          "width": 112,
+          "height": 48
+        },
+        {
+          "id": "projects",
+          "x": 671.390625,
+          "y": 176.875,
+          "right": 831.390625,
+          "bottom": 224.875,
+          "width": 160,
+          "height": 48
+        },
+        {
+          "id": "contact",
+          "x": 980.234375,
+          "y": 469.5,
+          "right": 1108.234375,
+          "bottom": 517.5,
+          "width": 128,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "width": 2560,
+      "height": 1080,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 682.03125,
+          "y": 613.421875,
+          "right": 810.03125,
+          "bottom": 681.109375,
+          "width": 128,
+          "height": 67.6875
+        },
+        {
+          "id": "skills",
+          "x": 1258.328125,
+          "y": 886.875,
+          "right": 1370.328125,
+          "bottom": 954.5625,
+          "width": 112,
+          "height": 67.6875
+        },
+        {
+          "id": "projects",
+          "x": 1432.7265625,
+          "y": 318.375,
+          "right": 1598.8671875,
+          "bottom": 386.0625,
+          "width": 166.140625,
+          "height": 67.6875
+        },
+        {
+          "id": "contact",
+          "x": 1805.890625,
+          "y": 845.078125,
+          "right": 1957.359375,
+          "bottom": 912.765625,
+          "width": 151.46875,
+          "height": 67.6875
+        }
+      ]
+    },
+    {
+      "width": 1007,
+      "height": 966,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 144.625,
+          "y": 448.515625,
+          "right": 272.625,
+          "bottom": 508.109375,
+          "width": 128,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": 480.21875,
+          "y": 707.90625,
+          "right": 592.21875,
+          "bottom": 767.5,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": 561.3984375,
+          "y": 186.078125,
+          "right": 727.5390625,
+          "bottom": 245.671875,
+          "width": 166.140625,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 774.90625,
+          "y": 654.578125,
+          "right": 909.59375,
+          "bottom": 714.171875,
+          "width": 134.6875,
+          "height": 59.59375
+        }
+      ]
+    },
+    {
+      "width": 1058,
+      "height": 879,
+      "portrait": false,
+      "noHorizontalOverflow": true,
+      "noVerticalOverflow": true,
+      "labels": [
+        {
+          "id": "about",
+          "x": 155.203125,
+          "y": 435.890625,
+          "right": 283.203125,
+          "bottom": 495.484375,
+          "width": 128,
+          "height": 59.59375
+        },
+        {
+          "id": "skills",
+          "x": 507.375,
+          "y": 670.375,
+          "right": 619.375,
+          "bottom": 729.96875,
+          "width": 112,
+          "height": 59.59375
+        },
+        {
+          "id": "projects",
+          "x": 594.0390625,
+          "y": 195.515625,
+          "right": 760.1796875,
+          "bottom": 255.109375,
+          "width": 166.140625,
+          "height": 59.59375
+        },
+        {
+          "id": "contact",
+          "x": 817.5625,
+          "y": 621.125,
+          "right": 952.25,
+          "bottom": 680.71875,
+          "width": 134.6875,
+          "height": 59.59375
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "4 decoded transparent seasonal assets; 4 independent motion layers; removed map UI stays absent",
+    "hover contrast isolates selected art while labels stay readable; waterfall actually changes over time",
+    "settings pause and prefers-reduced-motion stop island effects",
+    "23 required/boundary/short/ultrawide viewport bounds and all four portrait destinations",
+    "all four islands navigate; each direct route reloads; Browser Back returns to map",
+    "keyboard focus/Enter and Back/Forward; header preview uses matching seasonal art",
+    "Real World return link preserved",
+    "touch paging and first-tap selection for each island; second tap enters",
+    "all new image failures preserve HTML destination access",
+    "full-motion voyage uses seasonal destination and original cloud asset",
+    "200%-equivalent 720x405 @2x layout preserves direct menu access; native browser zoom not tested"
+  ],
+  "errors": [],
+  "passed": true
+}

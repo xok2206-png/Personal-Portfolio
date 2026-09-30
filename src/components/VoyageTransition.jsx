@@ -8,8 +8,8 @@ export default function VoyageTransition({trip,onFinish}) {
   const dx=(to.x-from.x)/length,dy=(to.y-from.y)/length
   return <div className="voyage-transition" style={{'--flight-x':dx,'--flight-y':dy}} data-destination={to.id||'world'}>
     <div className="voyage-sky" aria-hidden="true" />
-    {from.id&&<img className="voyage-departure" src={`/assets/production/images/natural-world/${from.id}-island-v1.webp`} alt="" aria-hidden="true"/>}
-    {to.id&&<img className="voyage-destination" src={`/assets/production/images/natural-world/${to.id}-island-v1.webp`} alt="" aria-hidden="true"/>}
+    {from.id&&<img className="voyage-departure" src={`/assets/production/images/seasonal-world/${from.id}-island-v1.webp`} alt="" aria-hidden="true"/>}
+    {to.id&&<img className="voyage-destination" src={`/assets/production/images/seasonal-world/${to.id}-island-v1.webp`} alt="" aria-hidden="true"/>}
     {[0,1,2].map(i=><img key={i} className={`voyage-cloud voyage-cloud-${i}`} src="/assets/production/images/natural-world/painted-cloud-v1.webp" alt="" aria-hidden="true"/>)}
     <div className="voyage-caption"><span role="status">{trip.label}로 이동</span><Link to={trip.to} onClick={event=>{if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();onFinish()}}>바로 보기</Link></div>
   </div>

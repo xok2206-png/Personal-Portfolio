@@ -1,43 +1,63 @@
 import { useId } from 'react'
+import { seasonalRoot } from './layers.config.js'
 
-// SVG alpha gradients remain consistent across browser GPU/compositing backends.
-// The original island art supplies the source; this layer extends it into mist.
-export default function FlowingWater({ island, running, speed = 1 }) {
- const broad = island.id === 'projects'
+// Reuse the approved water pixels, tiled downwards inside feathered waterfall masks.
+// CSS moves only original water pixels; no drawn white ripple/foam strokes.
+export default function FlowingWater({ island, running }) {
  const id = useId().replace(/:/g, '')
  return <div className="lw-water" aria-hidden="true" data-running={running}>
-  <svg className="lw-water-streams" viewBox="0 0 100 150" preserveAspectRatio="none" style={{ '--water-duration': `${1.8 / speed}s` }}>
+  <svg className="lw-water-streams" viewBox="0 0 100 100" focusable="false">
    <defs>
-    <linearGradient id={`${id}-body`}>
-     <stop stopColor="var(--sky-500)" stopOpacity="0"/>
-     <stop offset=".22" stopColor="var(--sky-300)" stopOpacity=".25"/>
-     <stop offset=".5" stopColor="var(--cloud)" stopOpacity=".55"/>
-     <stop offset=".78" stopColor="var(--sky-300)" stopOpacity=".25"/>
-     <stop offset="1" stopColor="var(--sky-500)" stopOpacity="0"/>
-    </linearGradient>
-    <linearGradient id={`${id}-fade`} x1="0" y1="0" x2="0" y2="1">
+    <filter id={id + '-surface-soft'} x="-10%" y="-10%" width="120%" height="120%">
+     <feGaussianBlur stdDeviation=".22"/>
+    </filter>
+    <mask id={id + '-surface'} maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+     <g fill="white" filter={`url(#${id}-surface-soft)`}>
+      {island.surfaceAreas.map(d => <path key={d} d={d}/>)}
+     </g>
+    </mask>
+    <linearGradient id={id + '-edge'}>
      <stop stopColor="white" stopOpacity="0"/>
-     <stop offset=".05" stopColor="white"/>
-     <stop offset=".35" stopColor="white" stopOpacity=".8"/>
-     <stop offset=".7" stopColor="white" stopOpacity=".3"/>
+     <stop offset=".18" stopColor="white"/>
+     <stop offset=".82" stopColor="white"/>
      <stop offset="1" stopColor="white" stopOpacity="0"/>
     </linearGradient>
-    {island.water.map(([x,y,w,h],i)=><mask key={i} id={`${id}-fall-${i}`} maskUnits="userSpaceOnUse" x={x-w*.1} y={y} width={w*1.2} height={h}>
-     <rect x={x-w*.1} y={y} width={w*1.2} height={h} fill={`url(#${id}-fade)`}/>
-    </mask>)}
-   </defs>
-   {island.water.map(([x,y,w,h],i)=><g key={i} mask={`url(#${id}-fall-${i})`}>
-    <path d={`M${x},${y} L${x+w},${y} Q${x+w*.97},${y+h*.5} ${x+w*1.08},${y+h} L${x-w*.08},${y+h} Q${x+w*.03},${y+h*.5} ${x},${y}`} fill={`url(#${id}-body)`}/>
-    {Array.from({length:12},(_,lane)=>{
-     const sx=x+w*(.10+lane*.071)
-     const d=`M${sx},${y} C${sx-w*.04},${y+h*.3} ${sx+w*.06},${y+h*.65} ${sx+w*.03},${y+h}`
-     return <g key={lane} fill="none" stroke="var(--cloud)" strokeWidth={Math.min(w*(lane%3===0?.035:.02),.23)} strokeLinecap="round">
-      <path d={d} opacity=".14"/>
-      <path className="lw-water-flow" d={d} pathLength="100" strokeDasharray={broad?"17 5":"9 13"} opacity={broad?.28:.48} style={{animationDelay:`${-lane*.27-i*.7}s`,animationDuration:`${(1.6+(lane%3)*.35)/speed}s`}}/>
-      <path className="lw-water-flow lw-water-undercurrent" d={d} pathLength="100" stroke="var(--interaction)" strokeWidth={Math.min(w*.02,.16)} strokeDasharray="5 17" opacity={broad?.12:.22} style={{animationDelay:`${-lane*.19-i*.5}s`,animationDuration:`${2.8/speed}s`}}/>
+    <linearGradient id={id + '-fade'} x1="0" y1="0" x2="0" y2="1">
+     <stop stopColor="white" stopOpacity="0"/>
+     <stop offset=".08" stopColor="white"/>
+     <stop offset=".7" stopColor="white"/>
+     <stop offset="1" stopColor="white" stopOpacity="0"/>
+    </linearGradient>
+    {island.water.map(([x,y,w,h],i) => {
+     const tile = Math.min(8, h * .65)
+     return <g key={i}>
+      <pattern id={id + '-texture-' + i} x={x} y={y} width={w} height={tile}
+       patternUnits="userSpaceOnUse" viewBox={`${x} ${y + h * .18} ${w} ${tile}`} preserveAspectRatio="none">
+       <image href={seasonalRoot + island.art} width="100" height="100"/>
+      </pattern>
+      <mask id={id + '-fall-' + i} maskUnits="userSpaceOnUse" x={x} y={y} width={w} height={h}>
+       <rect x={x} y={y} width={w} height={h} fill={`url(#${id}-fade)`}/>
+      </mask>
+      <mask id={id + '-sides-' + i} maskUnits="userSpaceOnUse" x={x} y={y} width={w} height={h}>
+       <rect x={x} y={y} width={w} height={h} fill={`url(#${id}-edge)`}/>
+      </mask>
      </g>
     })}
-   </g>)}
+   </defs>
+   {island.water.map(([x,y,w,h],i) => {
+    const tile = Math.min(8, h * .65)
+    return <g key={i} mask={`url(#${id}-fall-${i})`}>
+     <g mask={`url(#${id}-sides-${i})`}>
+      <rect className="lw-water-texture" x={x} y={y-tile} width={w} height={h+tile*2}
+       fill={`url(#${id}-texture-${i})`}
+       style={{'--water-travel':tile + 'px',animationDuration:(.85+i*.17) + 's',animationDelay:(-i*.37) + 's'}}/>
+     </g>
+    </g>
+   })}
+   <g mask={`url(#${id}-surface)`}>
+    <image className="lw-water-surface-texture" href={seasonalRoot + island.art} width="100" height="100"
+     style={{animationDelay:island.phase + 's',animationDuration:island.id === 'contact' ? '6.8s' : '4.8s'}}/>
+   </g>
   </svg>
  </div>
 }

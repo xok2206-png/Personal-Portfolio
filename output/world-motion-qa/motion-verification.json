@@ -1,0 +1,84 @@
+{
+  "checks": [
+    "four independent floats, eight water textures, gear, beacon, petals and gallery lights advance without hover",
+    "stationary hit silhouette retains hover while floating; 9px lift, entry cue and no card frame",
+    "motion OFF freezes all moving owners; ON resumes",
+    "reduced motion stops floats and retains keyboard entry",
+    "portrait rail pauses offscreen effects and resumes the next visible island",
+    "all eight waterfall regions change actual pixels with every other motion frozen"
+  ],
+  "errors": [],
+  "floatTravelOver1300ms": [
+    6.02247,
+    15.59833,
+    7.85743,
+    0.5208200000000005
+  ],
+  "waterPixelChanges": [
+    {
+      "x": 315,
+      "y": 404,
+      "width": 19,
+      "height": 16,
+      "changedRatio": 0.47039473684210525,
+      "meanDifference": 9.376096491228063
+    },
+    {
+      "x": 342,
+      "y": 426,
+      "width": 23,
+      "height": 23,
+      "changedRatio": 0.42533081285444235,
+      "meanDifference": 10.444864524259614
+    },
+    {
+      "x": 368,
+      "y": 461,
+      "width": 34,
+      "height": 81,
+      "changedRatio": 0.30610021786492375,
+      "meanDifference": 6.4682885499878795
+    },
+    {
+      "x": 617,
+      "y": 588,
+      "width": 17,
+      "height": 15,
+      "changedRatio": 0.5294117647058824,
+      "meanDifference": 11.85359477124183
+    },
+    {
+      "x": 657,
+      "y": 627,
+      "width": 17,
+      "height": 73,
+      "changedRatio": 0.42143432715551976,
+      "meanDifference": 10.191780821917805
+    },
+    {
+      "x": 787,
+      "y": 630,
+      "width": 17,
+      "height": 80,
+      "changedRatio": 0.5536764705882353,
+      "meanDifference": 15.501960784313727
+    },
+    {
+      "x": 878,
+      "y": 296,
+      "width": 54,
+      "height": 176,
+      "changedRatio": 0.26325757575757575,
+      "meanDifference": 6.222152076318774
+    },
+    {
+      "x": 1304,
+      "y": 618,
+      "width": 18,
+      "height": 72,
+      "changedRatio": 0.29012345679012347,
+      "meanDifference": 6.258230452674898
+    }
+  ],
+  "passed": true
+}

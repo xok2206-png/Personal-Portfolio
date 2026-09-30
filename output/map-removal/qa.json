@@ -1,0 +1,101 @@
+{
+  "checks": [
+    {
+      "route": "/world-map",
+      "width": 1440,
+      "height": 810,
+      "mapRemoved": true
+    },
+    {
+      "route": "/about",
+      "width": 1440,
+      "height": 810,
+      "mapRemoved": true
+    },
+    {
+      "route": "/skills",
+      "width": 1440,
+      "height": 810,
+      "mapRemoved": true
+    },
+    {
+      "route": "/projects",
+      "width": 1440,
+      "height": 810,
+      "mapRemoved": true
+    },
+    {
+      "route": "/contact",
+      "width": 1440,
+      "height": 810,
+      "mapRemoved": true
+    },
+    {
+      "route": "/world-map",
+      "width": 1007,
+      "height": 966,
+      "mapRemoved": true
+    },
+    {
+      "route": "/about",
+      "width": 1007,
+      "height": 966,
+      "mapRemoved": true
+    },
+    {
+      "route": "/skills",
+      "width": 1007,
+      "height": 966,
+      "mapRemoved": true
+    },
+    {
+      "route": "/projects",
+      "width": 1007,
+      "height": 966,
+      "mapRemoved": true
+    },
+    {
+      "route": "/contact",
+      "width": 1007,
+      "height": 966,
+      "mapRemoved": true
+    },
+    {
+      "route": "/world-map",
+      "width": 430,
+      "height": 932,
+      "mapRemoved": true
+    },
+    {
+      "route": "/about",
+      "width": 430,
+      "height": 932,
+      "mapRemoved": true
+    },
+    {
+      "route": "/skills",
+      "width": 430,
+      "height": 932,
+      "mapRemoved": true
+    },
+    {
+      "route": "/projects",
+      "width": 430,
+      "height": 932,
+      "mapRemoved": true
+    },
+    {
+      "route": "/contact",
+      "width": 430,
+      "height": 932,
+      "mapRemoved": true
+    }
+  ],
+  "menuNavigation": true,
+  "worldIslands": 4,
+  "mobilePager": true,
+  "desktopNavigation": true,
+  "browserBack": true,
+  "realWorldReturn": true,
+  "runtimeErrors": []
+}

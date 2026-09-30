@@ -1,0 +1,30 @@
+[
+  {
+    "id": "about",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 612594,
+    "alpha": true
+  },
+  {
+    "id": "skills",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 564682,
+    "alpha": true
+  },
+  {
+    "id": "projects",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 467070,
+    "alpha": true
+  },
+  {
+    "id": "contact",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 428252,
+    "alpha": true
+  }
+]

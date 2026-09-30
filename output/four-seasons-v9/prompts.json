@@ -1,0 +1,30 @@
+{
+  "status": "preview-only; not applied to website",
+  "tool": "built-in image_gen",
+  "source": "../detailed-world-v8/world-detailed-cleanup.png",
+  "output": "world-four-seasons-preview.png",
+  "prompt": "Use case: lighting-weather / seasonal environment edit.\nEdit the attached preferred portfolio world image. The user says the three islands SKILLS, PROJECTS and CONTACT do not clearly read as summer, autumn and winter. Make their seasons unmistakable through localized vegetation, ground and water conditions, while preserving the preferred dimensional painterly rendering and restrained natural material palette.\n\nSTRICTLY KEEP: overall 16:9 composition; all four islands' positions, scale, cliff structure and architectural designs; giant spring tree embracing round ABOUT archive upper left; twisting ivory canvas wind rotor, bronze gear mechanism and maker table on SKILLS lower left; monumental folded butterfly roof gallery on PROJECTS upper right with exactly FOUR blank display panels; spiral-stair lighthouse, small shore building, pier and crescent harbor on CONTACT lower right. Keep sky/background, common upper-left light direction, deep shadows, rich material differentiation, visual grandeur and readable labels ABOUT / SKILLS / PROJECTS / CONTACT. ABOUT is already spring: preserve its pink blossoms and young greens substantially unchanged.\n\nSKILLS — unmistakable peak SUMMER:\nRepaint this island's existing vegetation in rich natural forest green, cool emerald-green and deep leaf green, with no orange, yellow autumn foliage, pink blossoms or snow. Use full lush broadleaf canopies around the mechanism, deep cool canopy shade, leafy ferns beside the water channels and flourishing uneven green grass patches on the ledges. Replace the sparse dry-looking vegetation with a visibly flourishing summer ecosystem without obscuring the rotor, gears, stairs or worktable. Keep a few tall dark-green conifers as accents but dominant trees are densely leafed broadleaf trees. Strong sunlit/cool-shade contrast on foliage, open clear blue-green flowing streams and fresh moss near water. Vegetation reads as intentional masses, not millions of detailed individual leaves, flowers or luminous highlights. No tropical beach props.\n\nPROJECTS — unmistakable AUTUMN:\nChange the island's principal deciduous trees and shrubs to a natural mix of muted copper-red, rust, burnt sienna, dusty terracotta and ochre. At least the prominent left and right tree canopies and canopy behind the gallery must visibly read as autumn at thumbnail scale. These are richly colored real autumn leaves, not neon orange or fluorescent yellow-gold. Include a few olive/brown leaves and exposed branches for variation. Replace summer-green rim grass with subdued straw/olive ground tones and add small naturally accumulated drifts of fallen leaves beside steps and at terrace edges. Keep the stairs and exhibit panels clear. Vines turn muted russet/olive. Preserve neutral limestone and brown timber; do NOT apply an orange color wash to buildings, cliffs, water or the whole image. Keep the four blank exhibition surfaces, gallery roof and water system untouched in form.\n\nCONTACT — unmistakable WINTER:\nClearly visible settled off-white snow blankets exposed ground ledges, the small building roof, parts of the lighthouse steps/rail edges, dock edges and evergreen boughs. Make this recognizably winter, not merely pale lighting or a tiny dusting. Create continuous quiet snow surfaces with soft blue-grey shaded thickness on horizontal surfaces; selective rock faces remain bare. Leafless deciduous branches, sparse deep blue-green firs carrying snow, short restrained icicles under selected overhangs. No green grass or flowering plants on this island. Harbor is deeper muted teal with thin matte ice around sheltered edges; central water stays open and the spill continues between a few frozen fringes. Keep a clear usable narrow path and stairs to lighthouse and pier. The lighthouse lantern remains a small warm amber cue. No giant icicles, blizzard, falling snow particles across the scene, Christmas decorations or blue neon glow.\n\nCOLOR AND FINISH: emphasize season through clearly different foliage hues and physical ground conditions rather than excessive saturation, busy detail or whole-island color filters. Keep matte stone, warm timber, natural leaf color, deep shadows and delicate atmosphere. No flattened poster shading, no new global filter, no toy-plastic gloss, no excessive bloom, no uniform tiny highlight speckles, no added buildings or labels. The final image should read at a glance as ABOUT spring, SKILLS summer, PROJECTS autumn, CONTACT winter, all belonging to the same world.",
+  "generatedSource": "C:/Users/EZEN/.codex/generated_images/01a0f0bf-01a2-7350-989d-b73fa8507b2c/exec-f0471d96-92c9-4af7-aff3-144f37aba047.png",
+  "seasons": {
+    "about": "Spring blossom archive retained",
+    "skills": "Summer green foliage and fuller vegetation around flowing channels",
+    "projects": "Autumn rust/copper/ochre canopies and leaf accumulation",
+    "contact": "Winter settled snow, snow-covered conifers, bare branches and icy harbor edges"
+  },
+  "preserved": [
+    "Four chosen landmark structures and locations",
+    "Detailed dimensional rendering and geological structure",
+    "Four blank project exhibit panels",
+    "Readable ABOUT/SKILLS/PROJECTS/CONTACT captions",
+    "Shared daylight and sky"
+  ],
+  "visualReview": {
+    "observed": "Spring blossoms, green summer vegetation, autumn deciduous foliage and snow-covered winter harbor are visible in the generated preview. Architecture and blank display panels remain.",
+    "limitations": [
+      "Still image only",
+      "No website, motion or production asset replacement performed",
+      "Art direction remains subject to user preview selection"
+    ]
+  },
+  "decisionScope": "Exterior seasonal concept refinement only. No interior page layout, navigation or movement decision changed."
+}
