@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import NextDestination from './components/NextDestination.jsx'
+import MovementGuide from './components/MovementGuide.jsx'
 import VoyageTransition from './components/VoyageTransition.jsx'
 import AppRouter from './app/router.jsx'
 import LivingEnvironment from './components/LivingEnvironment.jsx'
 import PageHeader from './components/PageHeader.jsx'
 import { PortfolioUIContext } from './app/PortfolioUIContext.jsx'
 import './styles/portfolio-theme.css'
+import './styles/chapter-light.css'
 
 function useStoredBoolean(key, fallback) {
   const [value, setValue] = useState(() => {
@@ -64,7 +66,7 @@ export default function App() {
     const trip = { from: location.pathname, to: path, label, id: performance.now() }
     activeTrip.current = trip; setVoyage(trip); tone()
     // Routes remain independently usable; never wait for media or animation events.
-    timers.current = [setTimeout(() => { if (activeTrip.current === trip) { trip.navigated = true; navigate(path) } }, 240), setTimeout(clearTravel, 1000)]
+    timers.current = [setTimeout(() => { if (activeTrip.current === trip) { trip.navigated = true; navigate(path) } }, 350), setTimeout(clearTravel, 2000)]
   }, [clearTravel, location.pathname, navigate, reduced, tone])
 
   useEffect(() => {
@@ -86,6 +88,12 @@ export default function App() {
   }, [clearTravel, finishTravel])
   useEffect(() => () => timers.current.forEach(clearTimeout), [])
   useEffect(() => {
+    if (['/about', '/skills', '/projects'].includes(location.pathname)) {
+      try {
+        const visited = JSON.parse(sessionStorage.getItem('portfolio-visited-places') || '[]')
+        sessionStorage.setItem('portfolio-visited-places', JSON.stringify([...new Set([...visited, location.pathname])]))
+      } catch { /* Optional session-only telescope lights; never gates content. */ }
+    }
     if (activeTrip.current && ![activeTrip.current.from, activeTrip.current.to].includes(location.pathname)) clearTravel()
     window.scrollTo(0, 0)
     const previousFocus = document.activeElement
@@ -111,7 +119,8 @@ export default function App() {
       {['/resume', '/quick-view', '/ending'].includes(location.pathname) && <LivingEnvironment variant="reading"/>}
       <AppRouter />
       <NextDestination />
-      {voyage && <VoyageTransition key={voyage.id} trip={voyage} onFinish={finishTravel} />}
+      <MovementGuide />
+      {voyage && <VoyageTransition key={voyage.id} trip={voyage} />}
     </div>
   </PortfolioUIContext.Provider>
 }

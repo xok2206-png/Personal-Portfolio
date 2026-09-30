@@ -1,0 +1,118 @@
+.flight-world{position:relative;height:100dvh;min-height:540px;overflow:hidden;isolation:isolate;background:var(--sky-100);color:var(--ink);outline:none}
+.flight-sky{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--sky-300),var(--sky-100) 54%,var(--cloud));pointer-events:none}
+.flight-sky:after{content:'';position:absolute;inset:0;background:url('/assets/production/images/natural-world/world-sky-v1.webp') center/cover;opacity:.42}
+.flight-canvas{display:block;position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .8s ease;pointer-events:none}
+.flight-world[data-mode='flight'] .flight-canvas{opacity:1}
+.flight-world[data-mode='direct'] .flight-canvas{display:none}
+.flight-world[data-mode='loading'] :is(.flight-islands,.flight-controls){visibility:hidden}
+.flight-heading{position:absolute;left:var(--page-gutter);bottom:max(32px,env(safe-area-inset-bottom));z-index:2;pointer-events:none}
+.flight-heading h1{font:400 clamp(38px,3.8vw,56px)/1.1 var(--font-display);margin:0 0 8px;letter-spacing:0}
+.flight-heading p{font:400 14px/1.6 var(--font-ui);color:var(--ink-soft);margin:0}
+.flight-islands{position:absolute;inset:0;pointer-events:none;z-index:3}
+.flight-island{position:absolute;display:flex;align-items:center;justify-content:flex-end;flex-direction:column;transform:translate(-50%,-50%);text-decoration:none;color:var(--ink);pointer-events:auto;border-radius:14px}
+.flight-island img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.flight-label{position:relative;display:flex;align-items:center;justify-content:center;min-height:44px;padding:8px 16px;background:transparent;color:var(--ink);font:600 20px/1.4 var(--font-ui);transition:color .18s ease;white-space:nowrap}
+.flight-label strong{font:inherit}
+.flight-label:after{content:'';position:absolute;bottom:0;left:calc(50% - 3px);width:6px;height:6px;border-radius:50%;background:currentColor;opacity:0;transition:opacity .18s ease}
+.flight-island:is(:hover,:focus-visible,[data-active='true']) .flight-label{color:var(--interaction-dark)}
+.flight-island[data-active='true'] .flight-label:after{opacity:1}
+.flight-island:is(:hover,:focus-visible,[data-emphasis='true']) .flight-label{color:var(--interaction-dark)}
+.flight-world[data-mode='flight'] .flight-label{position:absolute;left:50%;top:calc(50% + var(--label-y, -100px));transform:translate(-50%,-100%)}
+.flight-label strong{position:relative}
+.flight-label strong:after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:center;transition:transform .2s ease}
+.flight-island:is(:hover,:focus-visible,[data-emphasis='true'],[data-active='true']) .flight-label strong:after{transform:scaleX(1)}
+.flight-world[data-mode='direct'] .flight-island img{transition:filter .25s ease,translate .25s ease}
+.flight-world[data-mode='direct'][data-highlighted]:not([data-highlighted='']) .flight-island:not([data-emphasis='true']) img{filter:saturate(.8) brightness(.86)}
+.flight-world[data-mode='direct'] .flight-island[data-emphasis='true'] img{filter:saturate(1.08) brightness(1.05);translate:0 -4px}
+.flight-world .flight-island:focus-visible{outline:none;box-shadow:none}
+.flight-world .flight-island:focus-visible .flight-label{outline:2px solid var(--interaction-dark);outline-offset:4px}
+.flight-island-description{position:relative;font:400 14px/1.55 var(--font-ui);color:var(--ink-soft);margin-top:8px}
+.flight-world[data-mode='flight'] .flight-island img,.flight-world[data-mode='flight'] .flight-island-description{display:none}
+.flight-world[data-mode='flight'] .flight-island{left:0;top:0;width:var(--project-width);height:var(--project-height);transform:translate3d(var(--project-x),var(--project-y),0) translate(-50%,-50%);will-change:transform}
+.flight-world[data-mode='direct'] .flight-islands{inset:0;padding:216px max(var(--page-gutter),calc((100vw - 1500px)/2)) 112px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:center}
+.flight-world[data-mode='direct'] .flight-label{position:absolute;top:0;left:50%;transform:translateX(-50%)}
+.flight-world[data-mode='direct'] .flight-island img{inset:44px 0 auto;height:calc(100% - 96px)}
+.flight-world[data-mode='direct'] .flight-island{position:relative;left:auto!important;top:auto!important;width:100%!important;height:auto!important;min-height:240px;aspect-ratio:1;transform:none;padding-bottom:16px}
+.flight-controls{position:absolute;inset:0;z-index:5;pointer-events:none}
+.flight-controls button,.flight-controls a{pointer-events:auto;min-height:44px;border:0;border-radius:10px;font:500 14px/1.5 var(--font-ui);color:var(--ink);background:var(--cloud);padding:12px 16px;cursor:pointer;text-decoration:none}
+.flight-controls :is(button,a):hover{background:var(--ivory)}
+.flight-destination kbd{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;border:1px solid var(--stone-400);border-radius:6px;font:500 12px var(--font-ui);margin-right:4px}
+.flight-destination{position:absolute;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;white-space:nowrap}
+.flight-destination:empty{display:none}.flight-destination>span{font:400 14px var(--font-ui);background:var(--cloud);padding:8px 16px;border-radius:10px}
+.flight-destination>span button{min-height:44px;padding:4px 8px;margin-left:8px;text-decoration:underline;text-underline-offset:4px}
+.flight-destination a{display:flex;align-items:center;gap:12px;background:var(--surface-dark);color:var(--cloud)}
+.flight-destination a:hover{background:var(--deep-green)}
+.flight-sr{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
+.world-arrival{position:fixed;inset:0;margin:0;width:100%;max-width:none;height:100dvh;max-height:none;border:0;border-radius:0;padding:24px;display:grid;place-items:center;background:color-mix(in srgb,var(--cloud) 86%,transparent);color:var(--ink);animation:arrival-reveal .8s ease both}
+.world-arrival[data-leaving='true']{animation:arrival-depart .6s ease both}
+.app:has(.world-arrival) .page-header{visibility:hidden}
+.flight-world[data-arrival='true'] :is(.flight-heading,.flight-controls,.flight-label){visibility:hidden}
+.world-arrival::backdrop{background:transparent}
+.world-arrival-copy{text-align:center;margin-top:-32px}
+.portfolio-experience .world-arrival h1{font:400 clamp(44px,4.4vw,64px)/1.08 var(--font-display);letter-spacing:0;margin:0 0 32px}
+.portfolio-experience .world-arrival h1 span{display:block;font:400 18px/1.5 var(--font-ui);letter-spacing:0;margin-bottom:20px}
+.world-arrival button{display:inline-flex;align-items:center;gap:32px;min-height:48px;padding:12px 24px;border:1px solid var(--stone-400);border-radius:10px;background:var(--cloud);color:var(--ink);font:600 14px var(--font-ui);cursor:pointer}
+.world-arrival button:hover{background:var(--ivory)}
+@keyframes arrival-reveal{from{opacity:0}to{opacity:1}}
+@keyframes arrival-depart{from{opacity:1}to{opacity:0}}
+.flight-world[data-mode='direct'] .flight-heading{top:104px;bottom:auto}
+@media(max-width:1023px),(max-aspect-ratio:1/1){
+ .flight-world{min-height:720px;height:max(100dvh,720px)}
+ .flight-world[data-mode='direct'] .flight-heading{top:104px;bottom:auto}
+ .flight-world[data-mode='direct'] .flight-islands{padding:216px 16px 72px;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:8px;align-items:stretch}
+ .flight-world[data-mode='direct'] .flight-island{min-height:0;height:100%!important;aspect-ratio:auto;padding-bottom:8px}
+ .flight-island-description{font-size:14px;max-width:100%;text-align:center;line-height:1.4}
+ .flight-label{padding:8px 12px;font-size:20px}
+}
+@media(max-width:390px){.flight-world[data-mode='direct'] .flight-heading h1{font-size:38px}.flight-label{gap:8px}.flight-island-description{max-width:140px}.flight-world[data-mode='direct'] .flight-islands{gap:16px 4px}}
+@media(max-height:650px) and (min-width:1024px){.flight-heading{bottom:24px}.flight-heading h1{font-size:38px}.flight-destination{bottom:16px}}
+@media(prefers-reduced-motion:reduce){.flight-canvas,.flight-label,.flight-label>span{transition:none}.world-arrival{animation:none;backdrop-filter:none}}
+
+@media(prefers-reduced-motion:reduce){.flight-label strong:after,.flight-world[data-mode='direct'] .flight-island img{transition:none}.flight-world[data-mode='direct'] .flight-island[data-emphasis='true'] img{translate:none}}
+
+/* Arrival title over the world's open sky, rather than a milky modal surface. */
+.world-arrival {
+  isolation:isolate; overflow:hidden; background:var(--sky-100);
+  padding:max(32px,env(safe-area-inset-top)) 24px max(32px,env(safe-area-inset-bottom));
+}
+.world-arrival-sky {
+  position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:var(--sky-100) url('/assets/production/images/natural-world/world-sky-v1.webp') center/cover no-repeat;
+  animation:arrival-sky-drift 5s ease-out both;
+}
+.world-arrival-copy { margin:0; width:100%; text-align:center; }
+.portfolio-experience .world-arrival h1 {
+  font:400 clamp(48px,6vw,96px)/1.1 var(--font-display);
+  letter-spacing:-.02em; margin:0 0 48px;
+}
+.portfolio-experience .world-arrival h1 span {
+  font:400 18px/1.5 var(--font-ui); letter-spacing:0; margin-bottom:24px;
+}
+.world-arrival button {
+  gap:24px; min-height:48px; padding:0; border:0; border-radius:0;
+  background:transparent; font:500 14px/1.5 var(--font-ui);
+}
+.world-arrival button:hover { background:transparent; }
+.arrival-arrow {
+  display:grid; place-items:center; width:48px; height:48px;
+  border-radius:50%; background:var(--cloud); transition:background .2s ease;
+}
+.arrival-arrow svg { transition:transform .2s ease; }
+.world-arrival button:is(:hover,:focus-visible) .arrival-arrow { background:var(--ivory); }
+.world-arrival button:is(:hover,:focus-visible) svg { transform:translateX(3px); }
+.world-arrival button:active svg { transform:translateX(5px); }
+@keyframes arrival-sky-drift { from { transform:scale(1.04); } to { transform:scale(1); } }
+@media(max-width:767px) {
+  .portfolio-experience .world-arrival h1 { font-size:clamp(36px,8vw,56px); margin-bottom:32px; }
+  .portfolio-experience .world-arrival h1 span { font-size:16px; margin-bottom:16px; }
+  .world-arrival-sky { background-position:44% center; }
+}
+@media(max-height:460px) {
+  .portfolio-experience .world-arrival h1 { font-size:40px; margin-bottom:24px; }
+  .portfolio-experience .world-arrival h1 span { margin-bottom:12px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .world-arrival-sky { animation:none; }
+  .arrival-arrow,.arrival-arrow svg { transition:none; }
+}
+.world-arrival:focus { outline:none; }

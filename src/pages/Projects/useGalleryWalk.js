@@ -50,6 +50,3 @@ export default function useGalleryWalk({reduced,paused,hidden,initialPosition={x
  useEffect(()=>{const clear=()=>{keys.current.clear();target.current=null;setActive(false);setPlayer(p=>({...p,moving:false}))};window.addEventListener('blur',clear);document.addEventListener('visibilitychange',clear);return()=>{window.removeEventListener('blur',clear);document.removeEventListener('visibilitychange',clear)}},[])
  return {player,go,stop,keyDown,keyUp}
 }
-
-
-

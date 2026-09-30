@@ -1,37 +1,35 @@
 import { useEffect, useRef, useState } from 'react'
-
-// Configure a public form endpoint; never place private mail API keys in Vite variables.
+// Public JSON endpoint only; private provider keys must never enter the Vite bundle.
 const endpoint = import.meta.env.VITE_CONTACT_FORM_ENDPOINT
-export default function ContactEmail({onClose}) {
- const dialog=useRef(null), request=useRef(null)
- const [status,setStatus]=useState('idle')
- useEffect(()=>{const previous=document.activeElement;dialog.current.showModal();return()=>{request.current?.abort();previous?.focus?.()}},[])
- const submit=async e=>{
-  e.preventDefault()
-  if(status==='sending')return
-  if(!endpoint){setStatus('unconfigured');return}
-  const form=e.currentTarget, data=Object.fromEntries(new FormData(form))
-  if(data.website)return
-  setStatus('sending');request.current=new AbortController()
-  const timeout=setTimeout(()=>request.current.abort(),15000)
-  try{
-   const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data),signal:request.current.signal})
-   if(!response.ok)throw new Error('send failed')
-   setStatus('sent');form.reset()
-  }catch{setStatus('error')}finally{clearTimeout(timeout)}
- }
- return <dialog ref={dialog} className="contact-email" aria-labelledby="email-title" onCancel={e=>{e.preventDefault();onClose()}} onClick={e=>{if(e.target===e.currentTarget)onClose()}}>
-  <button className="email-close" onClick={onClose} aria-label="이메일 창 닫기">×</button>
-  <p className="email-eyebrow">✧ A NEW CONNECTION</p><h2 id="email-title">Send a little hello.</h2>
-  <p className="email-intro">함께 만들고 싶은 경험이 있나요?<br/>프로젝트 제안부터 짧은 인사까지, 편하게 남겨주세요.</p>
-  <form onSubmit={submit} aria-busy={status==='sending'}>
-   <div className="email-fields"><label>이름<input name="name" autoComplete="name" placeholder="이름을 알려주세요" required maxLength={80}/></label><label>회신 이메일<input name="email" type="email" autoComplete="email" placeholder="you@example.com" required maxLength={254}/></label></div>
-   <label>제목<input name="subject" placeholder="어떤 이야기로 만나볼까요?" required maxLength={160}/></label>
-   <label>메시지<textarea name="message" rows={4} placeholder="프로젝트 내용, 협업 일정 또는 궁금한 점을 적어주세요." required maxLength={5000}/></label>
-   <div hidden aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off"/></label></div>
-   <p className="email-privacy">남겨주신 이름과 이메일은 문의 답변을 위해서만 사용합니다.</p>
-   <p className="email-status" role="status">{status==='unconfigured'?'전송 서비스 연결 전입니다. 작성한 내용은 전송되지 않았습니다.':status==='error'?'전송하지 못했습니다. 내용은 유지되어 있으니 잠시 후 다시 시도해주세요.':status==='sent'?'메시지를 보냈습니다. 소중한 이야기 감사합니다.':''}</p>
-   <button className="email-send" disabled={status==='sending'} type="submit">{status==='sending'?'보내는 중…':'메시지 보내기'} <span aria-hidden="true">↗</span></button>
+export default function ContactEmail({ draft, setDraft, onSent }) {
+  const request = useRef(null), mounted = useRef(true)
+  const [status, setStatus] = useState('idle')
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false; request.current?.abort() } }, [])
+  const change = event => setDraft(previous => ({ ...previous, [event.target.name]: event.target.value }))
+  const submit = async event => {
+    event.preventDefault()
+    if (request.current) return
+    if (!endpoint) { setStatus('unconfigured'); return }
+    const data = Object.fromEntries(new FormData(event.currentTarget))
+    if (data.website) return
+    setStatus('sending')
+    const controller = new AbortController(); request.current = controller
+    const timeout = setTimeout(() => controller.abort(), 15000)
+    try {
+      const response = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify({ ...data, subject: 'Portfolio connection' }), signal: controller.signal })
+      if (!response.ok) throw new Error('Message rejected')
+      if (mounted.current) { setStatus('sent'); setDraft({ name: '', email: '', message: '' }); onSent() }
+    } catch { if (mounted.current) setStatus('error') }
+    finally { clearTimeout(timeout); request.current = null }
+  }
+  if (status === 'sent') return <div className="connect-sent" role="status"><span className="connect-sent-orbit" aria-hidden="true"/><h3>MESSAGE SENT</h3><p>Thank you.</p><p>메시지가 접수되었습니다. 소중한 이야기 감사합니다.</p></div>
+  return <form className="connect-form" onSubmit={submit} aria-busy={status === 'sending'}>
+    <div className="connect-fields"><label>NAME<input name="name" autoComplete="name" required maxLength={80} value={draft.name} onChange={change}/></label><label>EMAIL<input name="email" type="email" autoComplete="email" required maxLength={254} value={draft.email} onChange={change}/></label></div>
+    <label>MESSAGE<textarea name="message" rows={5} required maxLength={5000} value={draft.message} onChange={change}/></label>
+    <div hidden aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off"/></label></div>
+    <p className="connect-form-note">남겨주신 이름과 이메일은 문의 답변을 위해 사용합니다.</p>
+    {!endpoint && <p className="connect-form-note">메시지 전송 서비스는 아직 연결 전입니다.</p>}
+    <p className="connect-status" role="status">{status === 'unconfigured' ? '전송 서비스 연결 전입니다. 작성한 내용은 전송되지 않았습니다.' : status === 'error' ? '전송하지 못했습니다. 작성 내용은 유지되어 있으니 다시 시도해주세요.' : ''}</p>
+    <button className="connect-primary" type="submit" disabled={status === 'sending'}>{status === 'sending' ? '보내는 중…' : 'SEND MESSAGE ↗'}</button>
   </form>
- </dialog>
 }

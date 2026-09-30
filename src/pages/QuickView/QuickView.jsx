@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { profile, projects } from '../../data/content.js'
+import { profile } from '../../data/content.js'
+import { worldProjects as projects } from '../Projects/projectWorld'
 function QuickView() {
   return (
     <main id="main" className="destination-content">

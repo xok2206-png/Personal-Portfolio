@@ -1,54 +1,126 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { GalleryNav, GalleryIntro, ProjectHUD, GalleryControls, GalleryCompass } from './GalleryHUD.jsx'
-import ProjectPedestal from './ProjectPedestal.jsx'
-import { projects } from '../../data/content.js'
-import { usePortfolioUI } from '../../app/PortfolioUIContext.jsx'
-import useGalleryWalk, { exhibitStops } from './useGalleryWalk.js'
-import './Projects.css'
-import './ProjectsNatural.css'
+import { Link, useNavigate } from 'react-router-dom'
+import { usePortfolioUI } from '../../app/PortfolioUIContext'
+import { worldAsset, sunsetAsset, worldProjects } from './projectWorld'
+import useProjectExploration from './useProjectExploration'
+import ProjectScreen from './ProjectScreen'
+import ProjectDepth from './ProjectDepth'
+import ProjectAtmosphere from './ProjectAtmosphere'
+import './ProjectsWorld.css'
+import './ProjectsHUD.css'
+import './ProjectsRefinement.css'
 
-const placements=[{x:16,y:62,w:25,h:37,z:9},{x:34,y:55,w:18,h:29,z:5},{x:65,y:55,w:18,h:29,z:5},{x:84,y:62,w:25,h:37,z:9}]
-const root='/assets/production/images/project-gallery/'
-export default function Projects(){
- const {reduced,systemReduced,paused,setPaused}=usePortfolioUI(),stage=useRef(null),viewport=useRef(null),floor=useRef(null)
- const [onscreen,setOnscreen]=useState(true)
- const [hidden,setHidden]=useState(document.hidden),[selected,setSelected]=useState(null),[hovered,setHovered]=useState(null),[measure,setMeasure]=useState({width:1440,view:1440}),[spriteFailed,setSpriteFailed]=useState(false)
- const {player,go,stop,keyDown,keyUp}=useGalleryWalk({reduced,paused,hidden:hidden||!onscreen})
- useEffect(()=>{const update=()=>setHidden(document.hidden);document.addEventListener('visibilitychange',update);const observer=new ResizeObserver(()=>{if(stage.current&&viewport.current)setMeasure({width:stage.current.offsetWidth,view:viewport.current.clientWidth})});observer.observe(viewport.current);const visibility=new IntersectionObserver(([entry])=>setOnscreen(entry.isIntersecting));visibility.observe(viewport.current);return()=>{visibility.disconnect();observer.disconnect();document.removeEventListener('visibilitychange',update)}},[])
- const near=exhibitStops.findIndex(p=>Math.hypot(p.x-player.x,(p.y-player.y)*1.6)<7)
- const current=hovered??selected??(near>=0?near:null)
- const pan=Math.max(-(measure.width-measure.view)/2,Math.min((measure.width-measure.view)/2,(50-player.x)/100*measure.width))
- function approach(index){setSelected(index)}
- useEffect(()=>{
-  const down=e=>{
-   if(e.altKey||e.ctrlKey||e.metaKey||e.target.closest?.('input,textarea,select,summary,a,[contenteditable="true"]')||(e.target.closest?.('button')&&e.target!==floor.current))return
-   if(e.key==='Escape'){stop();return}
-   if(['e','E','Enter'].includes(e.key)&&near>=0){e.preventDefault();setSelected(near);return}
-   if(/^Arrow/.test(e.key)||/^[wasd]$/i.test(e.key)){setSelected(null);setHovered(null);keyDown(e)}
+function ProjectPicker({ onClose, onWalk }) {
+  const dialog = useRef(null)
+  const [returnFocus] = useState(() => document.activeElement)
+  useEffect(() => {
+    const element=dialog.current
+    element.showModal()
+    return () => { element.close();returnFocus?.focus?.() }
+  }, [returnFocus])
+  return <dialog className="pw-picker" ref={dialog} onCancel={onClose} onClick={e => { if (e.target === e.currentTarget) onClose() }} aria-labelledby="pw-picker-title">
+    <header><h2 id="pw-picker-title">목적지 선택</h2><button onClick={onClose} aria-label="목록 닫기">닫기</button></header>
+    <div className="pw-destination-list">{worldProjects.map((p,index) => <section key={p.id} className="pw-destination-row"><div><small>{p.landmark}</small><h3>{p.name}</h3></div><div className="pw-destination-actions"><button className="pw-walk-action" onClick={() => { onClose(); onWalk(index) }}>길 안내</button><Link to={`/projects/${p.id}`}>상세 보기 ↗</Link></div></section>)}</div>
+  </dialog>
+}
+
+function EntryCinematic({ project, onClose }) {
+  const dialog = useRef(null)
+  useEffect(() => { dialog.current.showModal() }, [])
+  return <dialog ref={dialog} className="pw-entrance" onCancel={onClose} aria-label={`${project.name} 입장`}>
+    <span>{project.landmark}</span><h2>{project.name}</h2><Link to={`/projects/${project.id}`} autoFocus>바로 보기 ↗</Link>
+  </dialog>
+}
+
+export default function Projects() {
+  const { reduced, paused } = usePortfolioUI()
+  const viewport = useRef(null), stage = useRef(null), walker = useRef(null), roadCursor=useRef(null)
+  const navigate = useNavigate()
+  const [selected, setSelected] = useState(null)
+  const [waypoint, setWaypoint] = useState(null)
+  const [picker, setPicker] = useState(false)
+  const [entering, setEntering] = useState(null)
+  const [hidden, setHidden] = useState(document.hidden)
+  const [onscreen, setOnscreen] = useState(true)
+  const [artFailed, setArtFailed] = useState(false)
+  const [time, setTime] = useState(() => { try { return Math.min(240, Number(sessionStorage.getItem('projects-time')) || 0) } catch { return 0 } })
+  function enter(project) {
+    if (entering) return
+    if (reduced) { navigate(`/projects/${project.id}`); return }
+    explore.stop(); explore.aim(project); explore.changeZoom(1.8)
+    setEntering(project)
   }
-  window.addEventListener('keydown',down);window.addEventListener('keyup',keyUp)
-  return()=>{window.removeEventListener('keydown',down);window.removeEventListener('keyup',keyUp)}
- })
- function moveOnFloor(e){if(e.detail===0)return;const rect=stage.current.getBoundingClientRect();setSelected(null);setHovered(null);go({x:(e.clientX-rect.left)/rect.width*100,y:(e.clientY-rect.top)/rect.height*100});e.currentTarget.focus({preventScroll:true})}
- return <main id="main" className="project-gallery gallery-depth" data-still={reduced||paused||hidden||!onscreen}>
-  <GalleryNav projects={projects} onSelect={approach} paused={paused} reduced={systemReduced} onPause={()=>setPaused(v=>!v)}/><GalleryIntro/>
-    <div className="gallery-title"><span>SELECTED WORKS</span><h1 tabIndex="-1">Projects</h1><p>REAL PROBLEMS.<br/>THOUGHTFUL EXPERIENCES.</p></div>
-  <div className="gallery-viewport" ref={viewport}>
-   <div className="gallery-stage" ref={stage} style={{'--camera-pan':`${pan}px`}}>
-    <div className="gallery-room" aria-hidden="true"><img src="/assets/production/images/natural-world/projects-room-v1.webp" alt="" fetchPriority="high" onError={e=>{e.currentTarget.hidden=true}}/><div className="gallery-window-clouds"><img src="/assets/production/images/natural-world/painted-cloud-v1.webp" alt=""/></div><div className="gallery-banner-sheen"/><div className="gallery-sunlight"/><div className="gallery-floor-shimmer"/>{Array.from({length:12},(_,i)=><i key={i} className="gallery-mote" style={{left:`${10+i*7}%`,top:`${20+(i*17)%60}%`,animationDelay:`${-i*1.7}s`}}/>)}</div>
+  const explore = useProjectExploration({ viewport, stage, walker, roadCursor, paused: reduced || paused, onEnter: enter, onApproach: () => setSelected(null) })
+  const current = selected !== null ? worldProjects[selected] : explore.near !== null ? worldProjects[explore.near] : null
+  useEffect(() => {
+    const visibility = () => setHidden(document.hidden)
+    document.addEventListener('visibilitychange', visibility)
+    const observer = new IntersectionObserver(([entry]) => setOnscreen(entry.isIntersecting))
+    observer.observe(viewport.current)
+    const open = () => setPicker(true)
+    window.addEventListener('projects:select', open)
+    const escape = event => {
+      if (event.key === 'Escape') { setSelected(null); setEntering(null) }
+      if (event.key.toLowerCase()==='m' && !event.repeat && !event.altKey && !event.ctrlKey && !event.metaKey && !document.querySelector('dialog[open]') && !event.target.closest?.('input,textarea,select,[contenteditable="true"]')) { event.preventDefault();setPicker(true) }
+    }
+    window.addEventListener('keydown', escape)
+    return () => { observer.disconnect(); document.removeEventListener('visibilitychange', visibility); window.removeEventListener('projects:select', open); window.removeEventListener('keydown', escape) }
+  }, [])
+  useEffect(() => {
+    if (reduced || paused || hidden || !onscreen) return
+    const timer = setInterval(() => setTime(value => Math.min(value + 1, 240)), 1000)
+    return () => clearInterval(timer)
+  }, [reduced, paused, hidden, onscreen])
+  useEffect(() => {
+    if (!entering) return
+    const timer = setTimeout(() => navigate(`/projects/${entering.id}`), reduced ? 0 : 2200)
+    return () => clearTimeout(timer)
+  }, [entering, navigate, reduced])
+  useEffect(() => { try { sessionStorage.setItem('projects-time', String(time)) } catch { /* Optional storage. */ } }, [time])
+  function choose(index) { setSelected(index); explore.stop() }
+  function setDirection(index) { setWaypoint(index); setSelected(-1); explore.walkTo(worldProjects[index]) }
+  const sunset=Math.max(0,time-20)/220*.38
 
-    <button className="gallery-floor" ref={floor} type="button" aria-label="전시관 바닥: 클릭, WASD 또는 방향키로 캐릭터 이동" aria-describedby="gallery-help" onClick={moveOnFloor} onBlur={stop}/>
-    <nav className="gallery-exhibits" aria-label="네 개의 프로젝트 전시">
-     {projects.map((p,index)=><ProjectPedestal key={p.id} project={p} index={index} position={placements[index]} active={current===index} selected={selected===index} near={near===index} onSelect={approach} onHover={setHovered}/>)}
-    </nav>
-    <div className="gallery-walker" data-moving={player.moving&&!paused&&!hidden&&!reduced} data-direction={player.view} data-x={player.x.toFixed(2)} data-y={player.y.toFixed(2)} style={{left:`${player.x}%`,top:`${player.y}%`,zIndex:player.y>70?12:7,'--person-scale':.72+(player.y-65)/29*.4,'--facing':player.view==='side'?player.facing:1}} aria-hidden="true">
-     <span className="walker-shadow"/>
-     <div className="walker-body"><img className="walker-idle" src={`${root}character/${player.view}-idle.webp`} alt="" onError={e=>{e.currentTarget.onerror=null;e.currentTarget.src="/assets/production/images/world-layers/character.webp"}}/><div className={`walker-stride ${spriteFailed?'sprite-failed':''}`}><img src={`${root}character/${player.view}-walk.webp`} alt="" onError={()=>setSpriteFailed(true)}/></div></div>
-    </div>
-   </div>
-  </div>
-  <section className="gallery-project-index" aria-label="프로젝트 바로 보기"><h2>네 개의 작업</h2><ol>{projects.map(project => <li key={project.id}><span>{project.num} · {project.status}</span><h3>{project.name}</h3><p>{project.description}</p><small>{project.role}</small><Link to={"/projects/" + project.id}>작업 과정 보기 ↗</Link></li>)}</ol></section>
-  <GalleryControls/><ProjectHUD project={projects[current]} selected={current===selected&&selected!==null}/><GalleryCompass heading={player.view==="side"?(player.facing===1?-90:90):player.view==="front"?180:0}/>
- </main>
+  return <main id="main" className="projects-world" data-still={reduced || paused || hidden || !onscreen} data-entering={Boolean(entering)}>
+    <section className="pw-landscape" aria-label="다섯 프로젝트 탐험 공간">
+      <div className="pw-viewport" ref={viewport} tabIndex={0} aria-label="프로젝트 탐험: WASD와 방향키로 이동, Shift로 달리기, E로 입장" aria-describedby="pw-help" onPointerDown={explore.pointerDown} onPointerMove={explore.pointerMove} onPointerUp={explore.pointerUp} onPointerCancel={explore.stop} onPointerLeave={()=>{if(roadCursor.current)roadCursor.current.hidden=true}}>
+        <div className="pw-stage" ref={stage}>
+          <img className="pw-environment" src={worldAsset} alt="물가부터 숲과 언덕 정원까지 길로 연결된 프로젝트 계곡" fetchPriority="high" onError={() => setArtFailed(true)} />
+          <img className="pw-sunset" src={sunsetAsset} alt="" style={{ opacity: sunset }} onError={e => { e.currentTarget.hidden = true }} />
+          <ProjectAtmosphere sunset={sunset} />
+          <nav className="pw-landmarks" aria-label="랜드마크 선택">
+            {worldProjects.map((project, index) => <div key={project.id} className="pw-landmark" data-active={current?.id === project.id} data-near={explore.near === index} style={{ left: `${project.x}%`, top: `${project.y}%` }}>
+              <button className="pw-landmark-label" onClick={() => choose(index)} aria-pressed={selected === index} aria-label={`${project.name}${explore.visited.includes(project.id) ? ', 방문함' : ''}`}>
+                <strong>{project.name}</strong><i className="pw-location-pin" aria-hidden="true" data-visited={explore.visited.includes(project.id)} />
+              </button>
+              {project.screen && <ProjectScreen project={project} className="pw-landmark-screen" />}
+              {explore.near === index && <button className="pw-near-enter" onClick={() => enter(project)}><kbd>E</kbd> 입장</button>}
+            </div>)}
+          </nav>
+          {waypoint !== null && <div className="pw-waypoint" style={{ left: `${worldProjects[waypoint].entrance[0]}%`, top: `${worldProjects[waypoint].entrance[1]}%` }}><span /><b>{worldProjects[waypoint].name}</b></div>}
+          <div className="pw-character" ref={walker} aria-hidden="true" style={{ left: '71.5%', top: '88%' }}>
+            <span className="pw-shadow" /><div className="pw-person"><img className="pw-idle" src="/assets/production/images/projects-world/character/back-idle-v2.webp" alt="" onError={e => { e.currentTarget.hidden = true }} /><div className="pw-stride"><img src="/assets/production/images/projects-world/character/back-walk-v2.webp" alt="" onError={e => { e.currentTarget.closest('.pw-character').dataset.spriteFailed = true }} /></div></div>
+          </div>
+          <ProjectDepth sunset={sunset} />
+          <span className="pw-road-cursor" ref={roadCursor} hidden aria-hidden="true" />
+        </div>
+      </div>
+      <h1 className="pw-accessible-title">프로젝트</h1>
+      <div className="pw-camera" aria-label="카메라 배율"><button onClick={() => explore.changeZoom(explore.zoom + .2)} aria-label="확대" disabled={explore.zoom >= 1.8}>+</button><button onClick={() => explore.changeZoom(explore.zoom - .2)} aria-label="축소" disabled={explore.zoom <= 1}>−</button></div>
+      {artFailed && <p className="pw-art-fallback" role="status">풍경을 불러오지 못했습니다. 프로젝트 목록에서 모든 작업을 볼 수 있습니다.</p>}
+      <p className="pw-discovery" role="status">{explore.discovery && `${explore.discovery}에 도착했습니다.`}</p>
+      {current && <aside className="pw-preview" aria-label={`${current.name} 미리보기`}>
+        <button className="pw-preview-close" aria-label="미리보기 닫기" onClick={() => { setSelected(-1); viewport.current?.focus() }}>×</button>
+        {current.screen && <ProjectScreen key={current.id} project={current} />}
+        <div className="pw-preview-body"><small>{current.landmark}</small><h2>{current.name}</h2><p>{current.description}</p><span>{current.role || '담당 역할 자료 준비 중'}</span><div className="pw-preview-actions"><button onClick={() => setDirection(worldProjects.indexOf(current))}>길 따라 이동</button><Link to={`/projects/${current.id}`}>상세 보기 ↗</Link></div></div>
+      </aside>}
+      <div className="pw-bottom">
+        <button className="pw-journey-menu" onClick={() => setPicker(true)} aria-haspopup="dialog" aria-keyshortcuts="M"><span className="pw-compass-mark" aria-hidden="true"/><span>목적지 선택{waypoint !== null && <small>{worldProjects[waypoint].name}</small>}</span><kbd>M</kbd></button>
+        <p id="pw-help"><span><kbd>WASD</kbd> 이동</span><span><kbd>Shift</kbd> 달리기</span><span><kbd>E</kbd> 입장</span><span className="pw-mouse-hint">길 클릭으로 이동</span></p>
+      </div>
+    </section>
+    <section className="pw-mobile-index" aria-labelledby="pw-index-title"><h2 id="pw-index-title">목적지 선택</h2>{worldProjects.map(p => <Link key={p.id} to={`/projects/${p.id}`}><div><small>{p.landmark}</small><h3>{p.name}</h3><p>{p.role || '자료 준비 중'}</p></div><span aria-hidden="true">↗</span></Link>)}</section>
+    {picker && <ProjectPicker onClose={() => setPicker(false)} onWalk={setDirection} />}
+    {entering && <EntryCinematic project={entering} onClose={() => { setEntering(null); viewport.current?.focus() }} />}
+  </main>
 }

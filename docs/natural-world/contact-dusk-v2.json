@@ -1,0 +1,7 @@
+{
+  "tool": "Built-in image_gen",
+  "source": "public/assets/production/images/natural-world/contact-room-v1.webp",
+  "original": "public/assets/source/natural-world/contact-dusk-v2.png",
+  "production": "public/assets/production/images/natural-world/contact-dusk-v2.webp",
+  "prompt": "Edit target: the supplied landscape. Lighting-weather edit ONLY. Preserve its exact wide 16:9 composition, viewpoint, terrain silhouettes, island positions, lighthouse on the right, foreground stone terrace, and generous central sky safe area. Preserve its matte painterly gouache-like color planes, softly simplified detail and believable atmospheric perspective. Change the time to quiet early night immediately after sunset: muted warm amber and peach light remaining narrowly along the distant sea horizon, cool natural slate-blue sky above, soft dusky sage shadows on vegetation and stone. Lighthouse lantern softly lit in warm ivory, no huge beam. Clouds gently catch the last warm light along undersides. Foreground remains readable with soft ambient skylight, consistent lighting across all objects. Restrained natural colors, subtle value transitions, no exaggerated orange/purple gradient, no neon, no magical particles, no glossy materials, no ornamental additions. No people, no text, no UI, no logos. This is the calm final Contact scene of the same hand-painted world; do not redesign it."
+}

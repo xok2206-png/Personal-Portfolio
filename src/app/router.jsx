@@ -12,18 +12,17 @@ import ProjectDetail from '../pages/ProjectDetail/ProjectDetail.jsx'
 import Contact from '../pages/Contact/Contact.jsx'
 import QuickView from '../pages/QuickView/QuickView.jsx'
 import Resume from '../pages/Resume/Resume.jsx'
-import DestinationFrame from '../components/DestinationFrame.jsx'
 const PortfolioWorld = lazy(() => import('../scenes/PortfolioWorld/PortfolioWorld.jsx'))
 
 function AppRouter() {
   return (
-    <Suspense fallback={<main id="main" className="world-loading" aria-busy="true"><div className="world-loading-content"><span className="world-loading-star" aria-hidden="true">✧</span><p role="status">세계를 준비하고 있어요.</p><Link to="/projects">프로젝트 바로 보기 ↗</Link></div></main>}><Routes>
+    <Suspense fallback={<main id="main" className="world-loading" aria-busy="true"><div className="world-loading-content"><p role="status">세계를 준비하고 있어요.</p><Link to="/projects">프로젝트 바로 보기 ↗</Link></div></main>}><Routes>
       <Route path="/" element={<RealWorld />} />
       <Route path="/character" element={<Character />} />
       <Route path="/world-map" element={<PortfolioWorld />} />
 
       <Route path="/projects" element={<Projects />} />
-      <Route path="/projects/:projectId" element={<DestinationFrame destinationId="projects"><ProjectDetail /></DestinationFrame>} />
+      <Route path="/projects/:projectId" element={<ProjectDetail />} />
 
       <Route path="/about" element={<About />} />
       <Route path="/skills" element={<Skills />} />

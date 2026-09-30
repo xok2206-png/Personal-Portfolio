@@ -14,3 +14,7 @@
 @media(max-width:767px){.voyage-departure,.voyage-destination{width:90vw}.voyage-caption{bottom:24px}}
 @media(prefers-reduced-motion:reduce){.voyage-transition{display:none}}
 html[data-motion='reduced'] .voyage-transition{display:none}
+
+.voyage-transition{inset:0;animation-duration:2s}
+.voyage-departure{animation-duration:1.4s}.voyage-destination,.voyage-cloud{animation-duration:2s}
+.voyage-transition>.flight-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}

@@ -1,0 +1,14 @@
+{
+  "tool": "Built-in image_gen",
+  "reference": "public/assets/production/images/natural-world/skills-room-v1.webp",
+  "island": {
+    "source": "public/assets/source/skills-world/island-v1.png",
+    "production": "public/assets/production/images/skills-world/island-v1.webp",
+    "prompt": "Create a production background for an interactive portfolio Skills island, 1536x1024 landscape. Use reference only for painterly matte style, warm limestone, natural sage vegetation, bright blue daylight; CHANGE camera to elevated three-quarter overhead at roughly 45 degrees looking onto a large continuous ancient stone courtyard occupying x 10-90%, y 28-90%. One continuous walkable island ground, not four floating islands. Four understated activity clearings connected to a small flat circular central stone socket at x50 y56: north clearing x50 y35, west x25 y55, east x75 y55, south x50 y77. Clearings MUST remain EMPTY for code-mounted interactive devices; no crystals, no installed devices, no characters, no text. Subtle worn paving paths make the four routes visible, asymmetric low ruined arches and one mature broad tree at outer far perimeter only. Bright natural daytime, soft sunlight upper left, coherent perspective, large painterly color shapes, matte surfaces, scarce detail, weathered edges not repetitive AI filigree. Pale blue sky and distant atmospheric mountains surround island edges. Top left 28% width by 20% height is quiet sky for HTML title, top 8% quiet for navigation. Broad traversable surface, ground remains primary, no giant central tower, no distracting clutter. NO logos letters icons borders UI labels symbols banners neon bloom lens effects. Polished hand art-directed environmental game painting."
+  },
+  "device": {
+    "source": "public/assets/source/skills-world/device-v1.png",
+    "production": "public/assets/production/images/skills-world/device-v1.webp",
+    "prompt": "Create one isolated interactive stone device for the attached painterly daylight island, TRANSPARENT background. Exactly ONE single small ancient limestone pedestal, upright simple rectangular shaft with gently chamfered top corners, one small round inset dark blue-grey core centered near its top, a broad low square plinth. Three-quarter frontal view from elevated camera 35 degrees looking down, see top and right side. Warm matte limestone with a few worn edges and subtle sage patina, broad hand-painted planes, sunlight upper left, right side in soft shade. Keep silhouette simple and instantly repeatable, no logo, no text, no writing, no runes, no ornament, no crystals, no floating parts, no glow, no neon, no sci fi. Match material and rendering to reference environment. Device fills 80% of canvas height, centered with transparent margins, entire object visible. Single object only, not a sheet or lineup."
+  }
+}

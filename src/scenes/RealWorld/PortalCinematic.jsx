@@ -22,10 +22,10 @@ export default function PortalCinematic({ active = false, onArrive, reduced }) {
   const [arrivalVisible, setArrivalVisible] = useState(false)
   const [finishing, setFinishing] = useState(false)
 
-  const finish = () => {
+  const finish = (showWelcome = false) => {
     if (done.current) return
     done.current = true
-    complete.current()
+    complete.current(showWelcome === true)
   }
 
   // Keep the original ambient element playing beneath the first dissolve.
@@ -60,7 +60,7 @@ export default function PortalCinematic({ active = false, onArrive, reduced }) {
     const recover = () => {
       if (!disposed && active && !done.current) {
         done.current = true
-        complete.current()
+        complete.current(false)
       }
     }
     const clearWatchdog = () => window.clearTimeout(watchdog)
@@ -125,7 +125,7 @@ export default function PortalCinematic({ active = false, onArrive, reduced }) {
     const escape = event => {
       if (event.key === 'Escape' && !done.current) {
         done.current = true
-        complete.current()
+        complete.current(false)
       }
     }
     document.addEventListener('keydown', escape)
@@ -153,7 +153,7 @@ export default function PortalCinematic({ active = false, onArrive, reduced }) {
         className={`portal-video portal-arrival${arrivalVisible ? ' is-visible' : ''}`}
         src={ARRIVAL_CLIP}
         muted playsInline preload="auto" disablePictureInPicture
-        onEnded={finish}
+        onEnded={() => finish(true)}
         onTimeUpdate={event => {
           if (event.currentTarget.currentTime > 8.5) setFinishing(true)
         }}

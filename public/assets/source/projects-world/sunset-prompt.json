@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Edit this EXACT image to sunset. Preserve every pixel position of all terrain, paths, five buildings, trees, rocks and camera composition. ONLY relight: sun lower off left horizon, softly warm amber sunset on limestone with longer cool green-blue shadows, subtly pink warm sky, dimmer distant ridges, warm window light in the two village houses, gentle warm roof light at open right waypoint pavilion. Keep readable terrain and natural restrained painterly matte colors. Do not turn night. Absolutely NO added objects, people, text, UI, symbols, or different geometry. Used as perfectly registered dusk lighting overlay on the same landscape.",
+  "reference": "valley-v1.png",
+  "source": "valley-sunset-v1.png",
+  "production": "public/assets/production/images/projects-world/valley-sunset-v1.webp"
+}

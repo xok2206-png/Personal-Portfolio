@@ -1,0 +1,7 @@
+{
+  "tool": "Built-in image_gen",
+  "source": "public/assets/production/images/natural-world/projects-room-v1.webp",
+  "original": "public/assets/source/natural-world/projects-evening-v2.png",
+  "production": "public/assets/production/images/natural-world/projects-evening-v2.webp",
+  "prompt": "Lighting-weather edit of the supplied existing painted gallery background ONLY. Preserve EXACT 16:9 composition, viewpoint, every arch and column, the four empty round stone display plinths at their exact positions and sizes, foreground walkable paving, foliage silhouettes and distant floating islands. Preserve original matte hand-painted gouache-like shapes, restrained detail, soft atmospheric depth. Change clear midday into early evening just before sunset: low warm honey sunlight entering from the left across the floor, long soft stone-column shadows, warm ivory sandstone with cooler sage/slate shadow planes, muted pale peach near the horizon and a softly desaturated blue upper sky. The central top arch remains light enough for dark HTML heading to be overlaid in code. Keep the architecture bright and readable, nuanced natural golden light rather than orange tint over everything. This is earlier and brighter than a dusk/night scene. No new decorations, lanterns, objects, people, artworks or text. All four plinths must remain empty because real project artwork is placed by code. No neon, no glitter, no lens flare, no bloom, no purple, no glossy surfaces, no ornamental additions. Match the original art style exactly, changing light and shadows only."
+}

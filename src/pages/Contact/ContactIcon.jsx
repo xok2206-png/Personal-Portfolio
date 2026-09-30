@@ -1,0 +1,6 @@
+export default function ContactIcon({name}){
+ if(name==='send')return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m21 3-7 18-3-8-8-3L21 3Z M11 13 21 3"/></svg>
+ const paths={email:'M3 5h26v20H3z M3 6l13 11L29 6 M3 25l9-11m17 11-9-11',resume:'M7 2h12l7 7v21H7z M19 2v8h7 M11 15h11m-11 5h11m-11 5h8',question:'M6 5h20a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H14l-7 5v-5H6a4 4 0 0 1-4-4V9a4 4 0 0 1 4-4z M9 15h.1M16 15h.1M23 15h.1'}
+ if(name==='github')return <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.12.68-3.78-1.33-3.78-1.33-.51-1.29-1.25-1.63-1.25-1.63-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1.9 1.69 3.28 1.17.1-.72.39-1.21.71-1.49-2.49-.28-5.11-1.24-5.11-5.54 0-1.22.44-2.22 1.16-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.07-1.15 3.07-1.15.62 1.54.23 2.68.12 2.96.72.78 1.15 1.78 1.15 3.01 0 4.31-2.62 5.25-5.12 5.53.4.35.76 1.03.76 2.08v2.83c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8z"/></svg>
+ return <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round" aria-hidden="true"><path d={paths[name]}/></svg>
+}

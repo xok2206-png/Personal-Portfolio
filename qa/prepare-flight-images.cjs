@@ -1,0 +1,2 @@
+const sharp = require('C:/Users/wnsdu/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp')
+;(async()=>{for(const id of ['about','skills','projects','contact']){const output=await sharp('public/assets/production/images/seasonal-world/'+id+'-island-v1.webp').resize(768,768).webp({quality:88,alphaQuality:100}).toFile('public/assets/production/images/seasonal-world/'+id+'-island-flight-v1.webp');console.log(id,output.size)}})().catch(e=>{console.error(e);process.exit(1)})

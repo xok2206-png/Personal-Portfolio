@@ -1,0 +1,96 @@
+/* Exploration HUD: location names, grounded pins and contextual field menus.
+   Existing palette and fonts; scrims provide contrast without text shadows. */
+.projects-world{background:var(--ivory);color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent))}
+.pw-landscape::before,.pw-landscape::after{content:'';position:absolute;left:0;right:0;pointer-events:none;z-index:3}
+.pw-landscape::before{top:0;height:200px;background:linear-gradient(180deg,color-mix(in srgb,color-mix(in srgb,var(--ink) 60%,var(--warm-accent)) 60%,transparent),transparent)}
+.pw-landscape::after{bottom:0;height:140px;background:linear-gradient(0deg,color-mix(in srgb,color-mix(in srgb,var(--ink) 60%,var(--warm-accent)) 86%,transparent),transparent)}
+.pw-heading{top:104px;left:48px;padding:16px 32px 16px 20px;background:none;border-radius:0;max-width:350px;color:var(--ivory);isolation:isolate}
+.portfolio-experience .pw-heading h1{font-size:56px!important;line-height:1.1;margin:0 0 12px;color:var(--ivory);letter-spacing:-.02em}
+.pw-heading button{width:auto;gap:12px;min-height:44px;background:none;color:var(--ivory);border:0;font-weight:500}
+.pw-heading button>span{margin-left:12px}.pw-heading button:hover{text-decoration:underline;text-underline-offset:6px}
+.projects-world kbd{display:inline-grid;place-items:center;min-width:24px;min-height:24px;padding:2px 6px;border:1px solid currentColor;border-radius:6px;font:600 11px var(--font-ui);color:var(--ivory)}
+.projects-world .pw-landmark-label{position:relative;isolation:isolate;display:flex;flex-direction:column;gap:8px;padding:8px 16px 0;min-height:64px;background:none;border:0;border-radius:0;box-shadow:none;color:var(--ivory)}
+.pw-landmark-label::before{content:'';position:absolute;z-index:-1;inset:0 0 20px;background:color-mix(in srgb,var(--ink) 65%,var(--warm-accent));border-bottom:1px solid var(--stone-400);clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px);pointer-events:none}
+.pw-landmark-label strong{font:500 18px/1.4 var(--font-ui);padding-bottom:2px;color:var(--ivory)}
+.pw-landmark::after{display:none}
+.projects-world .pw-location-pin{display:block;width:10px;height:10px;border:2px solid var(--ivory);border-radius:50%;background:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));position:relative}
+.pw-location-pin::after{content:'';position:absolute;width:1px;height:12px;left:50%;top:8px;background:var(--ivory)}
+.projects-world .pw-location-pin[data-visited=true]{background:var(--ivory);border-color:var(--ivory)}
+.projects-world .pw-landmark-label:hover,.projects-world .pw-landmark[data-active=true] .pw-landmark-label{background:none;outline:0}
+.pw-landmark-label:hover strong,.pw-landmark[data-active=true] strong,.pw-landmark[data-near=true] strong{text-decoration:underline;text-underline-offset:6px}
+.projects-world .pw-landmark-label:focus-visible{outline:2px solid var(--ivory);outline-offset:4px}
+.projects-world .pw-near-enter{top:calc(100% + 12px);display:flex;align-items:center;gap:12px;padding:8px 16px 8px 8px;border-radius:24px;background:var(--ivory);color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent))}
+.projects-world .pw-near-enter kbd{width:28px;height:28px;border:0;border-radius:50%;background:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));color:var(--ivory);font-size:12px}
+.projects-world .pw-near-enter:hover{background:var(--cloud)}
+.pw-camera{top:104px;right:32px;flex-direction:column;gap:8px;background:none}
+.projects-world .pw-camera button{width:44px;height:44px;padding:0;border-radius:50%;background:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));color:var(--ivory);font-weight:400;font-size:22px}
+.projects-world .pw-camera button:disabled{opacity:.45}.projects-world .pw-camera button:hover:not(:disabled){background:color-mix(in srgb,var(--ink) 60%,var(--warm-accent))}
+.pw-bottom{left:40px;bottom:24px;align-items:flex-end;gap:32px;max-width:calc(100% - 250px);color:var(--ivory)}
+.pw-bottom>p{display:flex;align-items:center;gap:20px;padding:0;background:none;border-radius:0;max-width:none;white-space:nowrap}
+.pw-bottom>p>span{display:flex;align-items:center;gap:8px;margin:0;color:var(--ivory)}
+.pw-bottom>p>.pw-mouse-hint{color:var(--stone-200);font-size:12px}
+.pw-compass{background:none;color:var(--ivory);border-radius:0}
+.pw-compass summary{display:flex;align-items:center;gap:12px;padding:8px 0;list-style:none;min-height:44px}
+.pw-compass summary::-webkit-details-marker{display:none}
+.pw-compass summary:hover{text-decoration:underline;text-underline-offset:6px}
+.pw-compass-mark{width:20px;height:20px;border:1px solid var(--stone-200);border-radius:50%;position:relative;flex-shrink:0}
+.pw-compass-mark::after{content:'';position:absolute;left:7px;top:3px;width:4px;height:12px;background:var(--ivory);transform:rotate(35deg);clip-path:polygon(50% 0,100% 100%,50% 75%,0 100%)}
+.pw-destination-name{max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;color:var(--stone-200)}
+.pw-compass nav{min-width:280px;background:var(--ivory);padding:12px;border-radius:6px}
+.projects-world .pw-compass button{color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));background:none;font-weight:500;padding:12px}
+.projects-world .pw-compass button:hover,.projects-world .pw-compass button[aria-pressed=true]{background:var(--stone-200)}
+.pw-compass button span:last-child{color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent))}
+.pw-preview{right:32px;bottom:112px;width:350px;background:var(--ivory);color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));border-radius:6px;border:0}
+.pw-preview-body{padding:28px}.pw-preview-body small,.pw-preview-body>span{color:var(--ink-soft)}
+.pw-preview-body h2{font-size:26px;margin:12px 0 16px}.pw-preview-body p{line-height:1.7;color:var(--ink)}
+.projects-world .pw-preview-close{color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));background:none;font-weight:400}
+.pw-preview-actions{gap:12px;justify-content:space-between}
+.projects-world .pw-preview-actions button{background:none;color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));border:1px solid var(--stone-400);white-space:nowrap}
+.projects-world .pw-preview-actions a{background:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));color:var(--ivory);white-space:nowrap}
+.pw-discovery{top:96px;background:var(--ivory);color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));border-radius:6px;padding:12px 24px}
+.pw-waypoint b{background:var(--ivory);color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));border-radius:6px}.pw-waypoint span{outline:0;border:2px solid var(--ivory)}
+.pw-picker{background:var(--ivory);color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));border:0;border-radius:6px;padding:32px;max-width:560px}
+.pw-picker::backdrop{background:color-mix(in srgb,var(--ink) 65%,transparent)}
+.projects-world .pw-picker header button{background:none;color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));font-weight:400}
+.pw-picker h2{font-size:24px;font-weight:500}.pw-picker nav{margin-top:20px}
+.pw-picker nav a{color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));border-bottom:1px solid var(--stone-200);padding:20px 12px;justify-content:space-between}
+.pw-picker nav a:last-child{border:0}.pw-picker nav a:hover{background:var(--stone-200)}
+.pw-picker nav strong{font-size:20px;font-weight:500}.pw-picker nav small,.pw-picker nav a>span:last-child{color:var(--ink-soft)}
+.projects-world :is(button,a,summary):focus-visible{outline-color:var(--ivory)}
+.projects-world :is(.pw-picker,.pw-preview,.pw-compass nav) :is(button,a):focus-visible,.projects-world .pw-near-enter:focus-visible{outline:2px solid color-mix(in srgb,var(--ink) 60%,var(--warm-accent));outline-offset:4px}
+.pw-entrance{background:linear-gradient(180deg,color-mix(in srgb,var(--ivory) 55%,transparent),var(--ivory) 42%,var(--ivory) 64%,color-mix(in srgb,var(--ivory) 72%,transparent));color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));animation:pw-arrive .5s ease-out both}
+.pw-entrance{border-radius:0;box-shadow:none}
+.pw-entrance::backdrop{backdrop-filter:none}
+.pw-entrance span{color:var(--ink-soft)}
+.pw-entrance h2{max-width:90%;line-height:1.3}
+.pw-entrance a{color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent))}
+.projects-world .pw-entrance a:focus-visible{outline-color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent))}
+@keyframes pw-arrive{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.pw-entrance{animation:none}}
+.portfolio-experience.gallery-mode .next-destination{color:var(--ivory);background:none;border:0;border-radius:0;box-shadow:none;min-width:160px;padding:8px 0;bottom:24px;right:32px}
+.portfolio-experience.gallery-mode .next-destination small{color:var(--stone-200)}
+.portfolio-experience.gallery-mode .next-destination:hover{background:none;text-decoration:underline;text-underline-offset:6px}
+.pw-art-fallback{color:var(--ink)}
+@media(min-width:1920px){.pw-heading{top:112px;left:64px}.pw-bottom{left:64px;bottom:32px}}
+@media(max-width:1279px){.pw-heading{left:32px}.portfolio-experience .pw-heading h1{font-size:48px!important}.pw-bottom{left:32px;gap:24px}.pw-bottom>p{gap:12px}.pw-bottom>p>.pw-mouse-hint{display:none}.pw-destination-name{display:none}}
+@media(max-width:1023px){.pw-bottom>p{display:none}.pw-camera{top:104px;bottom:auto;right:24px}.pw-preview{right:24px;width:320px}.pw-heading button{margin-top:0}}
+@media(max-height:600px) and (min-width:1024px){.pw-heading{top:88px}.portfolio-experience .pw-heading h1{font-size:40px!important}.pw-preview{bottom:96px;max-height:calc(100% - 176px)}}
+@media(max-width:767px),(max-width:1023px) and (orientation:portrait){
+ .portfolio-experience.gallery-mode{background:var(--ivory);display:flow-root}
+ .pw-landscape{height:490px}.pw-viewport{inset:0}.pw-landscape::before{display:block}.pw-landscape::after{height:64px}
+ .pw-heading{top:88px;left:24px;right:24px;padding:0;background:none;color:var(--ivory)}.portfolio-experience .pw-heading h1{font-size:38px!important;margin-bottom:8px}
+ .pw-heading button,.pw-heading button kbd{color:var(--ivory)}
+ .pw-heading .pw-touch-intro{display:none}.pw-heading button{width:auto;gap:12px;margin:0}.pw-heading button kbd{display:none}
+ .pw-camera,.pw-bottom{display:none}.pw-mobile-index{padding:24px 24px 40px}
+ .pw-mobile-index>h2{font-size:14px;color:var(--ink-soft);font-weight:400;margin-bottom:12px}
+ .pw-mobile-index>a{padding:20px 0;color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));border-color:var(--stone-200)}
+ .pw-mobile-index>a:last-child{border:0}.pw-mobile-index small{font-size:12px;color:var(--ink-soft)}.pw-mobile-index h3{font-weight:500;margin:6px 0;font-size:22px}.pw-mobile-index p{color:var(--ink-soft);font-size:13px}.pw-mobile-index>a>span:last-child{color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent))}
+ .portfolio-experience.gallery-mode .next-destination,.portfolio-experience.gallery-mode .next-destination small{color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent))}
+ .projects-world :is(a,button):focus-visible{outline-color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent))}
+ .pw-picker{padding:24px}.pw-picker h2{font-size:20px}.pw-picker nav strong{font-size:18px}
+ .portfolio-experience.gallery-mode .next-destination{position:relative;inset:auto;margin:0 24px 32px;padding:16px 0;border-top:1px solid color-mix(in srgb,var(--stone-400) 28%,transparent);min-width:0;max-width:none}
+}
+
+.pw-heading::before{content:'';position:absolute;inset:0 -16px 0 0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,color-mix(in srgb,var(--ink) 65%,var(--warm-accent)),color-mix(in srgb,color-mix(in srgb,var(--ink) 65%,var(--warm-accent)) 55%,transparent) 65%,transparent);clip-path:polygon(8px 0,100% 0,100% 100%,0 100%,0 8px)}
+.pw-landmark[data-active=true] .pw-landmark-label::before,.pw-landmark[data-near=true] .pw-landmark-label::before{border-color:var(--warm-accent);background:color-mix(in srgb,var(--ink) 72%,var(--warm-accent))}
+@media(max-width:767px),(max-width:1023px) and (orientation:portrait){.pw-heading::before{display:none}.portfolio-experience .pw-heading h1{color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent))}}

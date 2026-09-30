@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "reference": "public/assets/production/images/natural-world/skills-room-v1.webp",
+  "prompt": "Production transparent game environment prop for a bright natural fantasy portfolio. ONE large ancient knowledge core, isolated on truly transparent background. Main subject: a calm translucent pale turquoise spherical energy heart floating inside TWO substantial weathered limestone curved half-rings forming a sculptural open astrolabe, with small dull bronze pivots. Rings are asymmetrical in orientation but balanced, craftsmanship and simple broad forms, no intricate ornament. Short broad circular limestone base beneath the sphere, grounded and entire base visible. Readable bold silhouette, sphere open in center, no pointed crystals. Painterly 2.5D game art matching reference daylight limestone courtyard: matte cream stone, subtle moss at base only, sunlight upper left, warm highlights, soft cool shadows. Soft core light within sphere only, daylight visible, NO neon bloom or gold glitter. Three quarter view, gently elevated camera, not isometric. Single artifact occupying 85% canvas, generous transparent margins. NO characters, no pet, no backdrop, no ground plane outside base, no text, no logos, no UI, no runes, no particle cloud, no duplicated props. Broad painterly color planes, clear silhouette, understated ancient technology, not a shiny jewel.",
+  "source": "public/assets/source/skills-world/core-v2.png",
+  "production": "public/assets/production/images/skills-world/core-v2.webp"
+}

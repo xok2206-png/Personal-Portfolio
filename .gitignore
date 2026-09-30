@@ -11,3 +11,7 @@ qa/*.png
 !.env.example
 .asset-jobs/
 *.log
+
+# Local multi-worktree preview bridge (machine paths, recovery copies, sync state)
+.page-worktrees.local.json
+.page-sync/

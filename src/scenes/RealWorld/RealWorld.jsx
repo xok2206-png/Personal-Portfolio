@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { usePortfolioUI } from '../../app/PortfolioUIContext.jsx'
 import './RealWorld.css'
 import './RealWorldCredits.css'
 import PortalCinematic from './PortalCinematic.jsx'
+import WorldMark from '../../components/WorldMark.jsx'
 
 const GATEWAY_STATUS = {
   idle: '● REAL WORLD',
@@ -18,10 +19,11 @@ function RealWorld() {
   const [journey, setJourney] = useState(false)
   const launching = journey
   const [gatewayState, setGatewayState] = useState('idle')
+  useEffect(() => { if (journey) import('../PortfolioWorld/PortfolioWorld.jsx').catch(() => {}) }, [journey])
 
-  const arrive = () => {
+  const arrive = (showWelcome = true) => {
     try { sessionStorage.setItem('portfolio-world-visited', 'true') } catch { /* optional */ }
-    navigate('/world-map', { state: { arrival: !reduced } })
+    navigate('/world-map', { state: { arrival: showWelcome && !reduced } })
   }
 
   const enterWorld = () => {
@@ -40,7 +42,7 @@ function RealWorld() {
       <div className="room-photo" />
       <PortalCinematic active={journey} reduced={reduced} onArrive={arrive} />
       <div className="room-shade" />
-      <Link className="real-world-brand" to="/" tabIndex={launching ? -1 : undefined} aria-hidden={launching || undefined} aria-label="JY · 리얼월드">JY.</Link>
+      <Link className="real-world-brand" to="/" tabIndex={launching ? -1 : undefined} aria-hidden={launching || undefined} aria-label="준영 · 리얼월드"><WorldMark /></Link>
 
       <div className="real-header real-secondary-tools" inert={launching} aria-hidden={launching || undefined}>
         <nav className="real-utilities" aria-label="리얼월드 바로가기">

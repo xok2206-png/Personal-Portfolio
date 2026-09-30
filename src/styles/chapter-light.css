@@ -1,0 +1,40 @@
+/* One palette, with light changing through the journey. Content stays on stable surfaces. */
+/* Projects is a viewport scene; project reading stays on the detail routes. */
+.portfolio-experience.gallery-mode{height:100dvh;min-height:0;overflow:clip}
+.portfolio-experience.gallery-mode .projects-world{height:100%;min-height:0;overflow:clip}
+.portfolio-experience.gallery-mode .pw-landscape{height:100%;min-height:0}
+.portfolio-experience.gallery-mode .pw-viewport{touch-action:none}
+.portfolio-experience.gallery-mode .pw-mobile-index{display:none}
+.portfolio-experience.gallery-mode .pw-picker{max-height:calc(100dvh - 32px);overflow:auto;overscroll-behavior:contain}
+@media(max-width:767px),(max-width:1023px) and (orientation:portrait){
+  .portfolio-experience.gallery-mode .next-destination{position:absolute;left:auto;right:24px;bottom:max(16px,env(safe-area-inset-bottom));margin:0;padding:8px 0;border:0;color:var(--ivory)}
+  .portfolio-experience.gallery-mode .next-destination small{color:var(--stone-200)}
+  .portfolio-experience.gallery-mode .pw-heading h1{color:var(--ivory)}
+}
+/* Direction 01: extend the Contact scenery behind the shared transparent header. */
+.portfolio-experience .connect-direct .connect-night-scene{inset:0}
+.connect-direct .connect-sky-figure{pointer-events:none;opacity:1}
+.connect-direct .sky-cassiopeia{left:auto;right:20%;top:12%;width:clamp(100px,12vw,190px)}
+.connect-direct .sky-orion{left:5%;top:31%;width:clamp(90px,10vw,150px);transform:rotate(-12deg)}
+.connect-direct .sky-cygnus{left:auto;right:5%;top:34%;width:clamp(100px,12vw,180px);transform:rotate(18deg)}
+@media(max-width:767px){
+  .connect-direct .sky-cassiopeia{right:25%;top:7%;width:76px}
+  .connect-direct .sky-orion{left:-12px;top:25%;width:64px}
+  .connect-direct .sky-cygnus{right:-8px;top:43%;width:64px}
+}
+.portfolio-experience .about-atelier{inset:0;filter:brightness(1.06) saturate(.88)}
+.portfolio-experience .about-archive:after{inset:0}
+.living-atelier .living-shadow{background:linear-gradient(112deg,transparent 15%,color-mix(in srgb,var(--sky-300) 17%,transparent) 43%,transparent 67%);background-size:250% 100%;animation-duration:22s}
+.portfolio-experience .skill-chamber .skill-environment{filter:brightness(1.06) saturate(.9)}
+.living-ruins .living-shadow{background:linear-gradient(112deg,transparent 24%,color-mix(in srgb,var(--deep-green) 22%,transparent) 46%,transparent 65%);background-size:250% 100%}
+.portfolio-experience .project-gallery .gallery-room>img{filter:none}
+.portfolio-experience .project-gallery .gallery-sunlight{background:linear-gradient(112deg,transparent 12%,color-mix(in srgb,var(--warm-accent) 30%,transparent) 42%,transparent 67%);background-size:250% 100%;opacity:.75}
+.portfolio-experience .contact-chapter{background:var(--surface-dark)}
+.portfolio-experience .contact-chapter .contact-reference-bg{filter:none}
+.portfolio-experience .contact-chapter .contact-shade{background:linear-gradient(180deg,color-mix(in srgb,var(--surface-dark) 24%,transparent),transparent 62%)}
+.portfolio-experience .contact-chapter .contact-lookout-character{filter:brightness(.78) saturate(.85)}
+.portfolio-experience .contact-chapter :is(.contact-copy h1,.contact-eyebrow,.contact-lead){color:var(--cloud)}
+.portfolio-experience .contact-chapter .contact-description{color:var(--ivory)}
+.portfolio-experience .contact-chapter .sunset-cloud{opacity:.26;filter:brightness(.82)}
+.portfolio-experience .contact-chapter .sunset-birds svg{stroke:var(--ivory)}
+@media(max-width:767px){.portfolio-experience .contact-chapter .contact-shade{background:linear-gradient(color-mix(in srgb,var(--surface-dark) 34%,transparent),transparent 62%)}}

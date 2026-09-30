@@ -1,0 +1,8 @@
+{
+  "tool": "built-in image_gen",
+  "intent": "New transparent gemstone sprite; separate HTML logos",
+  "prompt": "Create a production-ready fantasy gemstone sprite, isolated on true transparent background. ONE single large faceted gemstone, no pedestal, no rings, no jewelry, no other objects. A chunky irregular octagonal jewel, slightly taller than wide, front view with slight three-quarter depth. Broad polygon cut faces, crisp silhouette, dark deep teal central front face intentionally calm and empty to receive a separately coded white logo. Cool aqua and clear sky blue refracted edge faces, subtle ivory daylight highlights from upper left, restrained luminance, tactile illustrated fantasy game inventory asset. Strong gemstone volume, asymmetrical hand-cut mineral facets, not a glass sphere, not a neon bubble. Match a bright painterly ancient-ruins adventure environment. The subject fills 85 percent of a square canvas, centered, its central front face at exact center. No text, no logos, no symbols, no UI, no frame, no stars, no orbit trails, no particles, no baked ground shadow. Delicate colored internal refractions only, not a blinding glow. High quality clean alpha edge.",
+  "source": "crystal-faceted-v1.png",
+  "production": "/assets/production/images/skills-world/crystal-faceted-v1.webp",
+  "processing": "384×384 WebP; preserve alpha; color variation in CSS only"
+}

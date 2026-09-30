@@ -51,4 +51,3 @@ export default function useSkillOrbit({count,selected,still,compact,collected,ar
  },[count,selected,still,compact,collected,area,highlighted])
  return {nodes,positions}
 }
-

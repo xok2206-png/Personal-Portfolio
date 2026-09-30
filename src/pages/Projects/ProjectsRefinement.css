@@ -1,0 +1,33 @@
+/* One travel menu, open scenery and restrained material contrast. */
+.pw-accessible-title{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.projects-world .pw-stage{filter:saturate(.82)}
+.projects-world .pw-landscape::before{height:120px}
+.projects-world .pw-landscape::after{height:100px}
+.projects-world .pw-bottom{display:flex;left:32px;right:32px;bottom:max(24px,env(safe-area-inset-bottom));max-width:none;justify-content:space-between;pointer-events:none}
+.projects-world .pw-bottom>*{pointer-events:auto}
+.projects-world .pw-journey-menu{display:flex;gap:16px;align-items:center;background:var(--surface-dark);color:var(--cloud);padding:12px 20px;border-radius:6px;border-top:1px solid var(--stone-400);text-align:left}
+.pw-journey-menu>span:nth-child(2){display:grid;gap:4px}
+.pw-journey-menu small{font:400 12px var(--font-ui);color:var(--stone-200)}
+.projects-world .pw-journey-menu:hover{background:var(--ink)}
+.projects-world .pw-landmark-label{min-height:44px;padding:8px 16px;gap:8px}
+.projects-world .pw-landmark-label::before{inset:0 0 16px;background:color-mix(in srgb,var(--surface-dark) 85%,transparent);clip-path:none;border:0;border-radius:4px}
+.projects-world .pw-landmark-label strong{font-size:15px}
+.projects-world .pw-picker{background:var(--surface-dark);color:var(--cloud);border-radius:6px;padding:24px;width:min(560px,calc(100% - 32px))}
+.projects-world .pw-picker header button{color:var(--cloud);background:none}
+.pw-destination-list{margin-top:16px}
+.pw-destination-row{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px 0;border-top:1px solid color-mix(in srgb,var(--stone-400) 25%,transparent)}
+.pw-destination-row small{font:400 12px var(--font-ui);color:var(--stone-200)}
+.pw-destination-row h3{font:500 17px/1.5 var(--font-ui);margin:4px 0 0}
+.pw-destination-actions{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.projects-world .pw-destination-actions :is(a,button){display:flex;align-items:center;min-height:44px;padding:8px;background:none;color:var(--cloud);font-size:13px;text-decoration:none;white-space:nowrap}
+.projects-world .pw-destination-actions :is(a,button):hover{text-decoration:underline;text-underline-offset:6px}
+.projects-world .pw-picker :is(a,button):focus-visible{outline-color:var(--sky-300)}
+@media(max-width:767px),(max-width:1023px) and (orientation:portrait){
+  .projects-world .pw-bottom{left:20px;right:20px;bottom:max(20px,env(safe-area-inset-bottom))}
+  .projects-world .pw-journey-menu{width:100%;justify-content:center}
+  .projects-world .pw-journey-menu kbd,.projects-world .pw-walk-action{display:none}
+  .pw-destination-row{gap:12px;padding:16px 0}
+  .pw-destination-row h3{font-size:16px}
+  .pw-destination-actions{gap:0}
+}
+@media(max-height:500px){.pw-destination-row{padding:8px 0}.projects-world .pw-bottom{bottom:12px}.projects-world .pw-journey-menu{padding:8px 16px}}

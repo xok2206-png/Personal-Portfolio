@@ -1,10 +1,265 @@
 # Personal Portfolio --- PROJECT_CONTEXT CURRENT
 
+## 2026-10-01 통합 개발 주소 5173
+
+- 사용자 요청으로 최신 통합 작업 폴더 `1573/Personal-Portfolio`의 기본 Vite 포트를 5173으로 변경했다.
+- 기존 5173 원본 서버와 5174 통합 서버, 5178 Projects 미리보기 서버를 종료하고 통합본을 127.0.0.1:5173에서 실행했다.
+- 페이지별 원본 폴더와 자동 동기화 구조는 유지했다. 통합 폴더의 별도 수정 파일은 동기화로 덮어쓰지 않았다.
+- 실제 브라우저 /skills 진입, 설명 한 줄·코어 선택·공통 조작 안내 표시를 확인했다. 페이지 소스 변경 없이 서버 주소만 전환했다.
+
+
+## 2026-10-01 공통 헤더 — 첨부 이미지 레퍼런스 적용
+
+사용자가 후속 이미지 레퍼런스를 지정해 긴 푸른 반투명 바, 은색 이중 테두리,
+메뉴 구분선과 선택된 메뉴 아래의 푸른 빛/마름모 표식을 요청했다.
+이 헤더 범위에서는 이전의 배경 없는 메뉴와 장식/이중 테두리 금지보다 최신 요청을 우선한다.
+SUIT 16px와 기존 5개 메뉴/Route/모바일 Dialog/설정/로고를 유지한다.
+Header 내부에 한정한 nav-glass #263E61, nav-signal #65C8F4는 레퍼런스의
+푸른 유리 및 선택 빛을 재현하기 위한 색이며 다른 페이지 콘텐츠 팔레트에 확장하지 않는다.
+텍스트 그림자는 사용하지 않으며 선택 표식은 항상 하나다. 배경 흐림 미지원 및
+투명도 감소 환경에는 기존 불투명 SurfaceDark를 사용한다. 모바일은 기존 메뉴 Dialog로 접근한다.
+앞선 3개 내비게이션 후보는 비교 기록이며 이번 첨부 이미지가 현재 적용 기준이다.
+검증: 23개 필수/경계/가로 화면 크기에서 헤더 요소 겹침과 화면 밖 잘림 없음,
+모든 표시된 메뉴/버튼 44px 이상. World/About/Contact에서 밝고 어두운 배경을
+직접 확인했다. 메뉴 클릭 및 Enter 이동, 모바일 메뉴 열기/Escape 닫기와
+원래 버튼으로 포커스 복귀, 설정 열기 확인. 런타임 오류 없음.
+Lint/build 통과. 기존 Three.js 550KB 청크 경고 유지.
+실기기 Safari 및 200% 브라우저 확대, 투명도 감소 미디어 환경은 이번에 확인하지 않았다.
+
+
+## 2026-10-01 월드맵 화면 정리 / 공통 내비게이션 후보
+
+- 사용자 요청으로 월드맵의 조작 안내 팝오버와 처음 위치로 버튼을 제거했다.
+  기존 하단 공통 키보드 안내, Escape 복귀, 설정의 복귀 이벤트, 비행 취소와 입장은 유지한다.
+- 제목은 Desktop 왼쪽 아래 하늘 여백에 배치한다. Marcellus Display L
+  38–56px / 1.1, 보조 문구는 SUIT Body S 14px를 사용한다.
+  직접 접근/모바일 모드에서는 상단 104px에 두고 섬 목록 시작을 216px로 분리했다.
+- 모바일 전환 시 이전 WebGL 화면이 목록 위에 잠시 남지 않도록 직접 접근 모드에서
+  canvas를 즉시 숨긴다. 섬 데이터·선택·이동·콘텐츠와 기존 공통 헤더는 보존했다.
+- 공통 내비게이션은 짙은 공통 바 / 아이보리 메뉴판 / 지도 책갈피 3개 비교 시안만
+  제작했다. 각 시안의 메뉴로 5개 페이지 배경과 활성 상태를 비교할 수 있다.
+  아직 선택되거나 실제 공통 헤더에 적용된 안은 없다. WORKING/LOCKED 변경 없음.
+
+- 검증: 23개 Desktop/Mobile/경계/가로 화면 크기에서 제목과 섬 영역의 겹침,
+  가로 넘침 없음. 1111×930 및 390×844 직접 시각 확인. 키보드 Enter 비행과
+  Escape 취소/복귀 확인. 내비게이션 시안 3개 × 5개 배경 전환 및
+  1024/736/430/360px 브라우저 폭에서 44px 이상 메뉴와 가로 넘침 없음 확인.
+- npm run lint / npm run build 통과. 기존 Three.js 550KB 청크 경고 유지.
+  실제 모바일 기기와 Safari, 200% 브라우저 확대는 이번에 확인하지 않았다.
+
+
+### 후속 사용자 요청 — 상단 지명 / 호버 대비 / 선택 / 배치
+
+- 네 섬 모두 실제 이미지 alpha 실루엣 상단에서 12px 간격을 두고 지명을 배치한다.
+  Skills 측면 배치는 상단 중앙으로 변경했다. 카메라가 이동해도 Three.js 투영 좌표를 따른다.
+  Desktop/Mobile 모두 H4: SUIT 20px, 600, 1.4; 보조 설명은 Body S 14px다.
+- Hover/Focus: 이름에 얇은 밑줄과 Interaction Dark, 해당 섬은 소폭 명암/채도 강조,
+  나머지 섬은 약하게 낮춘다. 선택 시 점/밑줄과 강조를 비행 중·도착 상태까지 유지한다.
+  파티클·글로우·프레임은 추가하지 않았다. Reduced Motion에서 이동 효과를 생략한다.
+- About는 좌측 위, Skills는 좌측 아래에서 중앙 쪽, Projects는 위쪽 중앙, Contact는
+  우측으로 배치했다. 섬별 거리와 크기를 조정해 비행선 주변에 이동 여백을 확보했다.
+  좌표: About(-19,4,-8)/15.5, Skills(-9.5,-1.2,11)/12,
+  Projects(7,5,-19)/21, Contact(22,-.5,5)/13.7. 단위는 기존 Three.js 공간이다.
+- 최종 배치로 22개 필수/경계/가로 화면에서 지명 경계·44px·가로 넘침 재검증.
+  키보드 포커스의 동일 대비 효과, 선택 후 비행 상태, 런타임 오류 없음 확인.
+  기존 직접 접근/비행/물 흐름/캐릭터 크기 보정과 About 링크 제거를 유지했다.
+
+
+## 2026-10-01 월드맵 지명·물 흐름 / About 링크 / 캐릭터 크기
+
+- 현재 사용자 미리보기 5174를 제공하는 1573 작업 폴더에 적용했다. 4786의 이전
+  월드맵으로 덮어쓰지 않았다. 기존 미커밋 변경/Route/콘텐츠/비행 및 보행 기능은 보존했다.
+- FlightWorld.jsx/css: 선택한 하늘 지도 지명 시안 적용. 흰 상자/화살표 제거,
+  네 섬 위 이름과 Skills의 측면 간격, 모바일 이미지와 이름 분리, 선택 점/포커스 유지.
+- flightScene.js: 폭포 조각의 fract 반복을 없애고 연속 sin 굴절/반사광으로 대체.
+  물 영역의 경계 feather와 원본 alpha 유지. 낮은 Desktop 높이에서 시야각을 보정해
+  Projects 지명과 Header 간격을 확보했다. Three.js가 환경 모션의 단일 소유자다.
+- NextDestination.jsx: About의 다음 이야기 Skills 링크만 제거했다.
+- SkillsCore.css / ProjectsWorld.css / useProjectExploration.js: About 크기에 맞춤.
+  실제 alpha 높이와 Projects 기본 카메라 fit 보정. 발 위치/보행 프레임/충돌/확대/원근 유지.
+- 브라우저 확인: 월드맵 22 필수/경계/가로 화면 크기에서 가로 넘침 없음,
+  최소 44px 이름표 확인. 1280×600의 상단 간격 문제를 수정 후 재확인했다.
+  Desktop/Mobile 화면과 물줄기, About 다음 링크 0개를 직접 확인했다.
+- 캐릭터 실측: 1440×810에서 About/Skills 125.87px, Projects 125.89px.
+  1111×930, 1920×1080, 1024×768에서도 시작 상태의 실제 인물 높이 차이 <0.03px.
+  숫자는 alpha 영역을 반영한 화면 높이이며 프레임의 투명 여백은 제외했다.
+- 모바일 Projects는 기존 직접 콘텐츠 구조(캐릭터 숨김)를 유지한다.
+  실기기 Safari/영상 프레임 시간 계측/새 성능 지표는 이번 작업에서 검증하지 않았다.
+  다른 페이지의 공간 디자인/이동 방식에 대한 WORKING/LOCKED 변경은 없다.
+
+
 **Updated:** 2026-09-30\
 **Purpose:** 현재 실제 구현 상태와 최신 확정 문서 기준을 연결한다.\
 **Important:** 아래 `ARCHIVED IMPLEMENTATION HISTORY`는 삭제하지 않는다.
 과거 구현/QA 기록이며, 현재 요구사항과 충돌하면 현재 Source of Truth가
 우선한다.
+
+## 2026-10-01 Projects 보행·충돌 후속 수정
+
+- 앞/뒤 보행에서 몸 전체를 좌우 반전하던 처리를 제거하고 스프라이트의 4개 프레임을 사용한다. 실제 이동 거리에 보폭을 맞추고 방향 전환에 히스테리시스를 적용했다.
+- 발 너비를 포함한 충돌 검사, 중앙 사이프러스와 수족관 옆 나무 밑동, 이동 구간 검사를 추가했다. 자동 이동 그래프도 같은 충돌 검사를 사용하며 중앙 나무 앞을 우회한다.
+- 기존 WASD/달리기/클릭 이동/프로젝트 입장/모바일 직접 링크를 유지한다. 새로운 이동 방식이나 디자인 확정은 아니다.
+- 브라우저 1440×810에서 4개 보행 프레임·방향·키 해제/창 이탈 정지 및 런타임 오류 없음 확인. 1366×768 모션 감소 시 이동 유지/보행 애니메이션 정지, 430×932에서 5개 직접 링크를 확인했다.
+- lint/build 통과. 기존 Three.js 청크 크기 경고 유지. 회귀 검사: `qa/project-movement-check.mjs` 통과(입구 간 30개 경로, 7개 장애물 지점, 모든 길 노드에서 16방향 달리기 이동 구간). 길 검색의 임시 객체 생성과 제곱근 계산도 줄였다.
+
+## 2026-10-01 페이지별 최신 작업 통합
+
+- Projects 후속 충돌/UI 수정: 발 주변 검사와 별개로 모든 장애물 변까지의
+  몸 너비 여유를 검사한다. 새 여유에 맞춰 마을 앞/옆과 북쪽 도로의 경유점 4개를
+  조정했다. 30개 경로/도로 노드별 16방향 달리기 검사 통과. 1111×930 실제 화면에서
+  자두야 자동 이동 후 W를 4.5초 유지해 벽 앞 정지 확인. 다른 건물의 브라우저
+  수동 이동은 이번에 전부 반복하지 않았으며 전체 경로 검사는 코드 기반이다.
+  제목 박스를 제거하고 목록/목적지 안내를 하단 목적지 선택 Dialog로 통합했다.
+  길 안내와 상세 보기를 제공하며 모바일은 상세 보기를 유지한다. 배경 채도 .82,
+  노을 혼합 최대 .38로 조정했다. 원본 그림/캐릭터/5개 프로젝트는 보존한다.
+  1111×930,430×932,844×390,768×1024 UI 확인, lint/build 통과.
+
+- Projects 충돌 보정: 아쿠아리움 오른쪽 벽/앞 모서리와 시계탑 단상 경계를
+  `projectRoads.js`에 맞췄다. 기존 30개 입구 경로 및 도로 노드별 16방향 달리기
+  검증, 기존 장애물과 추가 모서리 3점 회귀 검증 통과. 1440×810 브라우저에서
+  해당 건물 클릭 3건 무시/도로 W 이동 유지 확인. lint/build 통과.
+
+- Projects는 사용자 요청으로 `chapter-light.css`의 페이지 한정 규칙을 통해
+  100dvh 원페이지로 고정했다. 모바일 하단 목록 대신 기존 프로젝트 목록 Dialog로
+  전체 작업에 접근한다. 상세 페이지 스크롤은 유지한다. 1440×810, 1366×768,
+  1024×768, 768×1024, 430×932, 360×800, 844×390에서 문서 높이=화면 높이,
+  휠 입력 후 scrollY=0과 현재 5개 프로젝트 목록 진입을 확인했다.
+
+### 공통 헤더 후속 수정
+
+- 2026-10-01 사용자 선택: 비교 시안 01 열린 탐험의 중앙 내비게이션과 우측
+  귀환/설정 아이콘만 적용했다. 배경 없는 텍스트 메뉴, 활성 위치 표식/밑줄,
+  배경 없는 우측 아이콘이다. 왼쪽 로고/이름/면과 페이지 콘텐츠는 보존했다.
+  5개 Route × 22 Viewport, 설정/키보드/모바일/귀환 QA 오류 0, lint/build 통과.
+  아래 금속 탭 설명은 이전 구현 기록이다. 기존 Three.js chunk 크기 경고는 유지된다.
+
+- 후속 피드백으로 녹색/Ivory 안내판 시안은 폐기했다. 현재는 Ink 기반 금속 면의
+  개별 메뉴 탭 + 목적지 아이콘 + 활성 항목의 Warm Accent 표시다.
+  귀환/설정/모바일 메뉴와 Dialog도 같은 어두운 재질로 수정했다.
+  PageHeader 범위의 색상 파생값만 추가했으며 전역 배경/팔레트/본문은 유지한다.
+  아래 Green/Ivory 설명은 이전 구현 기록이다. 최신 코드와 스크린샷이 우선한다.
+  수정 후 Header 전용 5 Route × 22 Viewport/키보드/모바일/귀환 QA와
+  lint/build가 다시 통과했다. `output/header-qa/`는 최신 시안으로 갱신했다.
+
+- 사용자 요청으로 Header를 Deep Green/ Ivory 안내판 형태로 수정했다.
+  Real World/설정/모바일 메뉴는 Radix Exit/Gear/Menu 아이콘과 aria-label로 표시한다.
+  Hover/Focus 툴팁, 44–48px 버튼, 모바일 설정 직접 진입을 제공한다.
+  공통 메뉴/라우트/방문 기록/Projects 빠른 목록 동작은 유지했다.
+- 변경은 PageHeader.jsx/CSS에 한정하며 `@radix-ui/react-icons`를 추가했다.
+  필요한 네 아이콘만 import한다. 기존 WorldMark와 색/폰트 토큰은 유지한다.
+  이전 누적 Header CSS를 해당 컴포넌트 범위에서 정리했다.
+  아래 과거 Header의 텍스트 복귀·설정 버튼 기록보다 이 후속 구현이 우선한다.
+- Header QA: `qa/header-check.cjs`에서 5개 Route × 22개 화면 크기,
+  44px 이상 아이콘 영역/메뉴 겹침 없음, 툴팁, 키보드 Enter/Escape와
+  포커스 복귀, 모바일 메뉴/설정 직접 진입, 리얼월드 귀환을 확인했다. 오류 0.
+  결과와 Desktop/Mobile 캡처는 `output/header-qa/`. Lint/build/diff 검사 통과.
+  기존 통합 QA의 Skills/Contact 조작 이름은 다른 채팅의 후속 변경으로 오래돼
+  선택자를 갱신했다. 이번 헤더 검증 완료는 위 전용 QA 기준이다.
+  Safari/실기기/네이티브 200% Zoom 미검증, 기존 Three.js chunk 크기 경고 유지.
+
+- 사용자가 다른 채팅에서 진행 중인 전체 페이지를 최신 버전으로 통일하도록 요청했다.
+  통합 미리보기는 이 작업 폴더의 `http://127.0.0.1:5174`이다.
+- World/공통 Header/Welcome/Voyage는 이 폴더의 비행 탐험 버전을 유지한다.
+  About는 원본 main 작업 폴더의 다섯 오브젝트 아침 작업실/StudioAtmosphere,
+  Skills는 052a의 단일 Core/측면 기술 패널, Projects는 22a0의 다섯 Landmark와
+  상세 페이지, Contact는 4786의 CONNECT 전망대/메뉴/망원경 버전을 통합했다.
+  아래 비행 추천안 기록의 기존 Projects 갤러리/Contact 배경 적용은 이 최신 통합으로 대체됐다.
+- 공통 충돌은 수동 병합했다: 최신 Header 디자인 + 현재 Projects 선택 시 목록 열기,
+  기존 Loading/Route + 새 프로젝트 상세의 독립 레이아웃,
+  2초 Voyage + Contact 망원경용 방문 기록. 기존 프로젝트 사실 데이터는 유지한다.
+  아쿠아리움은 해당 페이지 작업의 최신 사용자 요청으로 추가됐으며 자료 미제공 상태다.
+- `scripts/page-worktree-sync.mjs`는 개발 서버에서 지정된 페이지 소유 폴더만
+  1.2초 간격으로 확인하여 통합 폴더에 반영한다. 작성 중인 파일은 잠시 기다린다.
+  다른 원본 폴더에는 쓰지 않으며 삭제도 전파하지 않는다. 양쪽에서 같은 파일을
+  수정하면 통합 폴더의 변경을 보존하고 콘솔에 병합 필요를 표시한다.
+  첫 덮어쓰기 전 복구본은 git 제외 `.page-sync/backups/`에 보관한다.
+- 로컬 폴더 연결은 git 제외 `.page-worktrees.local.json`에 있다. 외부 폴더 연결이
+  없는 환경도 통합된 코드/에셋으로 실행·빌드 가능하다. 공유 App/Router/Header/문서는
+  자동 덮어쓰기하지 않는다. 향후 해당 공통 파일의 추가 변경은 별도 병합 대상이다.
+- 이 폴더의 Vite는 5174/strictPort로 고정했다. 포트 충돌 시 다른 번호로 몰래
+  이동하지 않는다. 다른 채팅의 작성/QA 서버는 중단하지 않았다.
+  원본 main/GitHub/Vercel 배포는 이번 로컬 통합에서 변경하지 않았다.
+- 페이지별 디자인과 인터랙션은 Working이며, 이번 통합이 최종 디자인 확정을 뜻하지 않는다.
+- 통합 QA: `qa/integrated-pages-check.cjs`로 다섯 주요 Route × 22개 Viewport의
+  가로 넘침/공통 메뉴 접근, About 정보창, Skills 분야 패널, Projects 메뉴 목록과
+  다섯 상세 URL, Contact 연결 메뉴, Back/Reload, Q&A/Resume/QuickView/RealWorld를
+  확인했다. 런타임 오류/실패 응답 0. 결과는 `output/integrated-pages-qa/report.json`.
+  1440×810/430×932 캡처를 검토했다. 실제 Safari/모바일 기기/네이티브 Zoom은 미확인.
+- 기존 비행 회귀 `qa/flight-extended-check.cjs`도 통과했다: 수동 조작/자동항로 취소,
+  모션 설정, 이미지 실패, WebGL 손실, 로딩 지연 시 HTML fallback. 오류 0.
+  `qa/page-sync-check.mjs`는 복사/변경 감지/충돌 보존/백업/삭제 미전파를 검증한다.
+  실제 개발 서버 로그에서도 후속 Contact/Projects 파일이 자동 복사되고 HMR 되는 것을 확인했다.
+- 통합 후 lint/build 및 diff whitespace 검사 통과. Three.js 약 550KB chunk 경고는 유지한다.
+  다른 채팅에서 작성 중인 변경은 계속 들어오므로 QA는 실행 시점의 통합 상태를 의미한다.
+
+## 비행 탐험 추천안 적용 — 현재 Working v1
+
+### 구현
+
+- 사용자가 추천안 적용을 요청했다. `/world-map`의 PortfolioWorld export를
+  FlightWorld로 연결했다. 기존 LayeredWorld/useWorldWalk와 관련 에셋은 보존하며,
+  Skills/Projects의 별도 캐릭터 조작과 모든 실제 포트폴리오 콘텐츠/Route는 유지했다.
+- Desktop은 Three.js의 절제된 천/목재 비행선 모델, 원근 카메라, 구름 깊이,
+  작은 새 무리, 프로펠러와 선회 기울기를 사용한다. W/S 전진·감속,
+  A/D 선회 및 방향키 대체, 섬 클릭 곡선 자동 항로, 가까운 섬에서 E/입장 링크.
+  섬 사이를 이동해도 자동 입장하지 않는다. 수동 입력은 자동 항로를 취소한다.
+  Escape/처음 위치로 복귀 가능. 조작 안내는 첫 동작에 접히고 다시 열 수 있다.
+- 섬은 기존 사계절 WebP를 3D 공간에 배치한 2.5D plane이다. 옆면/뒷면을
+  갖춘 섬 모델 또는 실제 지형 Collision은 구현하지 않았다. 비행 범위는 제한된다.
+  기존 waterfall 좌표를 사용해 물 픽셀만 shader에서 흐르게 한다.
+- 1024px 미만/세로 화면은 네 섬 HTML 직접 선택. Reduced Motion, Motion OFF,
+  WebGL 생성/컨텍스트/섬 이미지 실패 시에도 직접 Navigation이 작동한다.
+  Three.js는 해당 Desktop 경로에서 동적으로 로드한다. 숨긴 탭은 렌더링 정지,
+  언마운트는 listener/RAF/texture/material/geometry/renderer를 정리한다.
+- 월드 전용 `*-island-flight-v1.webp` 768px 파생본을 생성했다. 네 장 합계
+  825,534 bytes이며 원본 2,072,598 bytes는 그대로 보존한다. 생성 스크립트는
+  `qa/prepare-flight-images.cjs`. Loading 화면의 이전 대형 배경과 장식 별을
+  제거하고 기존 Sky/Cloud 토큰과 직접 접근 링크를 사용한다.
+- 비행 준비 전후 지도 nav의 전체 영역을 고정해 레이아웃 이동을 줄였다.
+  투영된 이름표의 연속 위치는 transform으로 갱신하고 크기는 resize 때만 계산한다.
+  최초 3D 프레임이 준비된 후 비행 지도를 노출한다. 8초 이상 준비가 지연되면
+  HTML 직접 선택으로 복구한다. 준비 중에도 Header 직접 이동을 사용할 수 있다.
+- 정상 영상 종료 후 Welcome dialog: 3.8초 후 600ms fade 또는 버튼/Enter/Escape.
+  숨긴 탭은 대기 시간을 정지한다. 영상 Skip/직접 진입/Reduced Motion은 생략하며
+  완료 후 history state를 지워 Reload에서 반복하지 않는다. Real World 영상 순서는 유지했다.
+- 공통 Header는 독립된 Cloud 표면과 밑줄 Hover/Focus. 열린 문+준영 SVG 로고,
+  같은 심벌의 파비콘, 눈에 띄는 리얼월드 복귀 버튼. 모바일은 메뉴 Dialog.
+  Resume는 설정/모바일 메뉴/Contact에서 접근한다. 이전 목적지 미리보기 카드는 숨겼다.
+- Voyage는 2초, Route는 350ms에 변경. 시각적 문구/버튼 제거,
+  스크린리더 상태 안내와 Escape 즉시 완료는 유지한다.
+- About 아침빛과 Skills 한낮은 기존 배경을 보정했다. Contact는 기존 구도를 보존한
+  `contact-dusk-v2.webp`로 초저녁 조명을 실제 에셋에 반영했고, 캐릭터 명암도 맞췄다.
+  배경은 내장 image_gen으로 제작했으며 원본 PNG는 source/natural-world에 보존한다.
+  Projects도 `projects-evening-v2.webp`로 기존 아치/네 전시대/바닥 구도를 보존한
+  낮은 저녁빛을 반영했다. 내장 image_gen 제작, PNG 원본 보존.
+  전체 프롬프트와 파일 경로는 `docs/natural-world/contact-dusk-v2.json` 및
+  `docs/natural-world/projects-evening-v2.json`에 기록했다.
+- 새 Font/Color Token, 허위 프로젝트 사실, 추가 세계/펫/게임 진행 규칙 없음.
+  사용자가 추천 방향 적용을 승인한 상태이며 비행 물성·카메라·모델 완성도는 Working이다.
+
+### 검증과 남은 범위
+
+- `npm run lint`, `npm run build`, `git diff --check` 통과.
+  Three.js를 포함한 지연 로딩 chunk 약 556KB(압축 약 140KB)의 크기 경고는 남아 있다.
+- Headless Edge 22개 Viewport: 필수 11개 + 경계 8개 + 1280×600,
+  844×390 landscape, 720×405(200% 상당 레이아웃). 수평 넘침 없고
+  이름표와 Header bounds를 확인했다. 실제 브라우저 200% Zoom/실기기 Safari는 미확인.
+- 네 섬으로의 비행/섬 간 비행/명시적 E 입장, 수동 조작·자동항로 취소,
+  Back/Reload, Mobile tap/menu/리얼월드 복귀, Motion OFF/ON, Reduced Motion,
+  WebGL 부재/실행 중 컨텍스트 손실/모든 섬 이미지 실패의 fallback 통과.
+- 실제 영상의 ended handler를 브라우저에서 발생시켜 Welcome 진입/클릭 종료/
+  자동 종료/Skip 생략을 검증했다. 영상 전체를 실제 재생해 마지막 프레임 연결까지
+  육안 검토한 검증은 이번에 수행하지 않았다.
+- 1440×810과 390×844의 네 내부 페이지 화면 및 Desktop 비행/430×932·360×800
+  직접 선택 화면을 캡처했다. 검증 코드: `qa/flight-world-check.cjs`,
+  `qa/flight-extended-check.cjs`. 결과/화면: `output/flight-world-qa/`.
+  현재 두 보고서의 runtime error는 0건이다.
+- 로컬 production preview의 Lighthouse Desktop 최종 측정: Performance 88,
+  Accessibility 100, LCP 1.8s, CLS 0, TBT 160ms. 보고서는
+  `output/flight-world-qa/lighthouse-desktop.json`. 실제 배포/모바일 네트워크의
+  실사용 측정은 아니며 INP는 별도 측정하지 않았다. 최초 검사에서 발견한
+  지도 로딩 재배치와 불필요한 Loading 배경 요청을 수정했다.
+
 
 ## 2026-09-30 월드맵 기본 움직임과 Hover 강화
 
@@ -3143,3 +3398,9 @@ devices unverified.
     (below). Desktop positions updated; Projects cap is now 660px/55svh.
     Other island caps and portrait carousel preserved. Desktop captures
     at 1440×810, 1920×1080 and 1007×963.
+
+### 2026-10-01 Welcome 화면 시각 수정
+- WorldArrival.jsx / FlightWorld.css: 흰색 86% 오버레이를 기존 world-sky-v1.webp의 선명한 구름·하늘 배경으로 변경. 기존 Marcellus/SUIT 및 팔레트 유지.
+- Portfolio World 타이틀과 텍스트+원형 화살표 버튼으로 정리. 배경은 5초 동안 4%의 느린 줌만 적용. Reduced Motion은 생략.
+- 3.8초 자동 진행, 600ms 종료, Enter/Escape/버튼 및 direct/skip 경로 유지. 최초 포커스는 dialog, Tab 시 버튼 포커스 표시.
+- 1440×810,430×932,360×800,844×390 배치·버튼 종료 확인. lint/build 통과(Three.js chunk 500kB 경고 존재). 전체 영상 재생은 재검증하지 않음.

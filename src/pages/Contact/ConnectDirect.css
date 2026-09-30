@@ -1,0 +1,103 @@
+/* Ending composition: page title → four direct actions → quiet utilities.
+   Typography and surfaces reuse DESIGN_SYSTEM.md tokens. */
+.connect-direct { min-height:max(100svh,760px); }
+.connect-night-scene { position:absolute; inset:64px 0 0; overflow:hidden; background:var(--connect-navy); }
+.connect-environment-layers { position:absolute; inset:0; }
+.connect-environment-layers[data-blocked='true'] * { animation-play-state:paused!important; }
+.connect-night-art,.connect-night-art img,.connect-night-vignette,.connect-meteors,.connect-night-clouds,.connect-night-stars { position:absolute; inset:0; width:100%; height:100%; }
+.connect-night-art img { object-fit:cover; object-position:50% 50%; }
+.connect-night-vignette { background:linear-gradient(var(--connect-navy),transparent 48%,transparent 80%,color-mix(in srgb,var(--connect-navy) 65%,transparent)); opacity:.65; pointer-events:none; }
+.connect-night-clouds { pointer-events:none; overflow:hidden; }
+.connect-night-clouds img { --cloud-opacity:.3; position:absolute; width:75%; right:-25%; bottom:-8%; opacity:0; filter:brightness(.7) saturate(.75); mask-image:radial-gradient(ellipse at 50% 60%,black 20%,transparent 70%); animation:connect-ending-clouds 24s linear -8s infinite; }
+.connect-night-clouds img:nth-child(2) { --cloud-opacity:.18; right:-15%; bottom:25%; width:55%; animation-delay:-20s; animation-duration:38s; }
+@keyframes connect-ending-clouds { 0%{opacity:0;transform:translate3d(30%,4%,0)} 15%{opacity:var(--cloud-opacity)} 80%{opacity:var(--cloud-opacity)} 100%{opacity:0;transform:translate3d(-85%,-4%,0)} }
+.connect-night-stars { pointer-events:none; }
+.connect-night-stars i { position:absolute; border-radius:50%; background:var(--cloud); box-shadow:0 0 5px var(--cloud),0 0 14px var(--sky-300); animation:connect-starlight 7s ease-in-out infinite; }
+@keyframes connect-starlight { 0%,100%{opacity:.28;scale:.75} 45%{opacity:1;scale:1.65} 65%{opacity:.55;scale:1} }
+.connect-constellation { position:absolute; left:5%; top:5%; z-index:1; width:clamp(180px,20vw,300px); overflow:visible; pointer-events:none; }
+.connect-constellation-thread { stroke:var(--sky-300); stroke-width:1; stroke-dasharray:1; stroke-dashoffset:0; opacity:.6; animation:connect-star-tracing 12s ease-in-out -2s infinite; }
+.connect-constellation-star { transform-box:fill-box; transform-origin:center; animation:connect-constellation-glow 5s ease-in-out infinite; }
+.connect-star-halo { fill:var(--sky-300); opacity:.22; filter:blur(4px); }
+.connect-star-core { fill:var(--cloud); }
+.connect-star-rays { stroke:var(--cloud); stroke-width:.7; opacity:.7; }
+@keyframes connect-star-tracing { 0%{stroke-dashoffset:1;opacity:.15} 45%,75%{stroke-dashoffset:0;opacity:.7} 100%{stroke-dashoffset:0;opacity:.15} }
+@keyframes connect-constellation-glow { 0%,100%{opacity:.5;scale:.85} 45%{opacity:1;scale:1.3} }
+.connect-airship-flight { position:absolute; left:76%; top:18%; width:132px; pointer-events:none; animation:connect-airship-crossing 44s linear -14s infinite; }
+.connect-airship-flight img { display:block; width:100%; filter:brightness(.75) saturate(.65); }
+@keyframes connect-airship-crossing { 0%{opacity:0;transform:translate3d(160px,-6px,0)} 10%,85%{opacity:.8} 100%{opacity:0;transform:translate3d(-260px,12px,0)} }
+.connect-walk-plane { position:absolute; pointer-events:none; }
+.connect-sunset-light { position:absolute; inset:0; mix-blend-mode:screen; pointer-events:none; }
+.connect-sunset-light i { position:absolute; left:0; top:56%; width:100%; height:24%; background:radial-gradient(ellipse at 45% 66%,var(--connect-peach),transparent 63%); opacity:.16; animation:connect-sunset-warmth 14s ease-in-out -4s infinite alternate; }
+.connect-sunset-light i:nth-child(2) { top:49%; background:radial-gradient(ellipse at 72% 55%,var(--connect-dusk),transparent 66%); animation-delay:-11s; animation-duration:19s; }
+.connect-sunset-light i:nth-child(3) { top:61%; height:16%; background:radial-gradient(ellipse at 43% 54%,var(--warm-accent),transparent 50%); animation-delay:-7s; animation-duration:11s; }
+@keyframes connect-sunset-warmth { from{opacity:.08;transform:translateX(-2%)} to{opacity:.36;transform:translateX(2%)} }
+.connect-water-texture { position:absolute; inset:0; clip-path:polygon(47% 77%,52% 78%,56% 80%,60% 84%,60% 88%,56% 90%,53% 87%,55% 86%,54% 82%,52% 80%,50% 81%,49% 83%,48% 79%); mask-image:linear-gradient(transparent 74%,black 82%,black 86%,transparent 90%); opacity:.65; }
+.connect-water-texture img { width:100%; height:100%; animation:connect-water-flow 5s ease-in-out -1s infinite alternate; transform-origin:50% 85%; }
+@keyframes connect-water-flow { from{transform:translate(-5px,-1px) scaleX(1.012)} to{transform:translate(6px,2px) scaleX(.995)} }
+.connect-water-light { position:absolute; inset:0; width:100%; height:100%; }
+.connect-water-ripples { stroke:var(--connect-peach); stroke-width:1.3; stroke-linecap:round; transform-box:fill-box; transform-origin:center; animation:connect-water-shimmer 5s ease-in-out infinite; }
+@keyframes connect-water-shimmer { 0%,100%{opacity:.08;transform:translate(-9px,-2px) scaleX(.85)} 50%{opacity:.5;transform:translate(12px,3px) scaleX(1.15)} }
+.connect-sea-glint { stroke:var(--ivory); stroke-width:1.4; stroke-linecap:round; transform-box:fill-box; transform-origin:center; animation:connect-sea-sparkle 4s ease-in-out infinite; }
+.connect-sea-glint:nth-of-type(3n) { stroke:var(--connect-peach); }
+@keyframes connect-sea-sparkle { 0%,100%{opacity:.08;transform:translateX(-3px) scaleX(.5)} 40%{opacity:.9;transform:translateX(3px) scaleX(1.4)} 70%{opacity:.2;transform:translateX(6px) scaleX(.8)} }
+.connect-direct .connect-character { width:6.5%; height:15.8%; animation:none; filter:brightness(.86); }
+.connect-direct .connect-sitting { height:80%; }
+.connect-meteors { pointer-events:none; overflow:hidden; }
+.connect-meteor { position:absolute; width:120px; height:2px; background:linear-gradient(90deg,var(--cloud),transparent); opacity:0; transform:rotate(-32deg); animation:connect-shooting-star 16s linear infinite; }
+.connect-meteor:before { content:''; position:absolute; left:0; top:-1px; width:4px; height:4px; border-radius:50%; background:var(--cloud); box-shadow:0 0 8px var(--sky-300); }
+.meteor-0 { top:9%; left:70%; animation-delay:1s; }
+.meteor-1 { top:32%; left:95%; animation-duration:23s; animation-delay:7s; }
+.meteor-2 { top:17%; left:25%; animation-duration:29s; animation-delay:13s; }
+@keyframes connect-shooting-star { 0%{opacity:0;transform:translate(0,0) rotate(-32deg)} 1%{opacity:.8} 8%{opacity:0;transform:translate(-300px,187px) rotate(-32deg)} 100%{opacity:0;transform:translate(-300px,187px) rotate(-32deg)} }
+.connect-invitation { position:relative; z-index:3; width:min(720px,calc(100% - 64px)); margin:0 auto; padding-top:clamp(144px,20svh,240px); text-align:center; }
+.connect-invitation:before { content:''; position:absolute; z-index:-1; inset:64px -50% -64px; background:radial-gradient(ellipse,color-mix(in srgb,var(--connect-navy) 78%,transparent) 25%,transparent 72%); pointer-events:none; }
+.portfolio-experience .connect-invitation h1 { font:400 clamp(38px,3.8vw,56px)/1.1 var(--font-display); letter-spacing:.02em; color:var(--ivory); }
+.connect-invitation>p { margin-top:20px; font:400 16px/1.6 var(--font-ui); color:var(--stone-200); word-break:keep-all; }
+.connect-card-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; margin-top:48px; }
+.connect-choice { --choice-color:var(--connect-yellow); display:flex; flex-direction:column; align-items:center; justify-content:flex-start; min-width:0; min-height:160px; padding:0 8px; border:0; border-radius:6px; background:none; color:var(--ivory); text-align:center; }
+.choice-resume { --choice-color:var(--sky-300); }
+.choice-github { --choice-color:var(--grass-300); }
+.choice-qa { --choice-color:var(--connect-peach); }
+.connect-choice-icon { position:relative; isolation:isolate; display:grid; place-items:center; width:96px; height:96px; flex:none; margin-bottom:12px; color:var(--connect-navy); transition:translate .18s; }
+/* One solid chamfered plate: a lit upper face and a darker lower cut.
+   Only the plate moves on hover; labels keep their reading position. */
+.connect-choice-icon:before { content:''; position:absolute; z-index:-1; inset:0; clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px); background:linear-gradient(to bottom, color-mix(in srgb,var(--cloud) 40%,var(--choice-color)) 0 3px,transparent 3px calc(100% - 6px),color-mix(in srgb,var(--ink) 38%,var(--choice-color)) calc(100% - 6px)),linear-gradient(140deg,color-mix(in srgb,var(--cloud) 12%,var(--choice-color)),var(--choice-color) 55%,color-mix(in srgb,var(--ink) 12%,var(--choice-color))); transition:filter .18s; }
+.connect-choice-icon svg { width:44px; height:44px; }
+.connect-choice strong { font:600 20px/1.4 var(--font-ui); }
+.connect-choice-action { display:flex; justify-content:center; align-items:center; gap:8px; margin-top:4px; color:var(--stone-200); font:400 14px/1.4 var(--font-ui); }
+.connect-choice-action b { font-weight:400; }
+.connect-choice-action svg { width:16px; height:16px; flex:none; }
+.connect-choice:is(:hover,:focus-visible) .connect-choice-icon { translate:0 -4px; }
+.connect-choice:is(:hover,:focus-visible) .connect-choice-icon:before { filter:brightness(1.12); }
+.connect-choice:is(:hover,:focus-visible) .connect-choice-action { color:var(--choice-color); }
+.portfolio-experience .connect-direct .connect-choice:focus-visible { outline:2px solid var(--sky-300); outline-offset:4px; }
+.connect-choice:active .connect-choice-icon { translate:0 0; }
+.connect-direct-footer { position:absolute; z-index:3; bottom:max(24px,env(safe-area-inset-bottom)); left:var(--page-gutter); right:var(--page-gutter); display:flex; align-items:end; justify-content:space-between; gap:24px; }
+.connect-direct-footer>p { font:400 14px/1.55 var(--font-ui); color:var(--ivory); padding:8px 12px; background:var(--connect-navy); border-radius:6px; }
+.connect-direct-footer>p span { display:block; margin-top:4px; font-size:12px; color:var(--stone-200); }
+.connect-direct-footer kbd { color:var(--ivory); margin-right:8px; }
+.connect-direct-footer nav { display:flex; gap:12px; }
+.connect-direct-footer a { display:flex; align-items:center; min-height:44px; padding:12px 16px; border-radius:6px; background:var(--connect-navy); color:var(--ivory); font:500 14px/1.4 var(--font-ui); }
+.connect-direct-footer a:hover { color:var(--sky-300); }
+.connect-direct-signal { left:78%; top:60%; }
+@media(max-width:767px) {
+  .connect-direct { min-height:max(100svh,800px); }
+  .connect-night-art img { object-position:28% 50%; }
+  .connect-invitation { width:min(360px,calc(100% - 40px)); padding-top:112px; }
+  .connect-invitation>p { max-width:24ch; margin:16px auto 0; }
+  .connect-card-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:32px; }
+  .connect-choice { min-height:144px; padding:0 8px; }
+  .connect-choice-icon { width:80px; height:80px; margin-bottom:12px; }
+  .connect-choice-icon svg { width:36px; height:36px; }
+  .connect-direct-footer { left:20px; right:20px; bottom:max(16px,env(safe-area-inset-bottom)); justify-content:center; }
+  .connect-direct-footer>p { display:none; }
+  .connect-direct-footer nav { width:100%; justify-content:space-between; gap:12px; }
+  .connect-direct-footer a { justify-content:center; flex:1; padding:12px; }
+  .connect-night-clouds img { width:120%; }
+  .connect-night-clouds img:nth-child(2) { width:110%; bottom:28%; }
+  .connect-constellation { left:8px; top:-16px; width:116px; }
+  .connect-airship-flight { left:64%; top:72%; width:80px; animation-name:connect-airship-crossing-mobile; }
+  .connect-night-stars i:nth-child(n+25) { display:none; }
+}
+@keyframes connect-airship-crossing-mobile { 0%{opacity:0;transform:translate3d(100px,0,0)} 10%,85%{opacity:.75} 100%{opacity:0;transform:translate3d(-260px,12px,0)} }
+@media(prefers-reduced-motion:reduce) { .connect-meteors { display:none; } .connect-night-stars i,.connect-water-ripples,.connect-sea-glint { animation:none; opacity:.4; } .connect-constellation-thread { stroke-dashoffset:0; opacity:.5; } .connect-constellation-star { opacity:.8; } .connect-sunset-light i { opacity:.16; } .connect-night-clouds img { opacity:.16; } .connect-water-texture { display:none; } .connect-airship-flight { opacity:.8; } }

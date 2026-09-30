@@ -3,11 +3,10 @@
   display: grid;
   place-items: center;
   padding: 24px;
-  color: #fff3d5;
-  background: linear-gradient(#192c4560, #192c4590), url('/assets/production/images/world-layers/background-golden-v11.webp') center / cover, #263e59;
+  color: var(--ink);
+  background: var(--sky-100);
 }
-.world-loading-content { text-align: center; text-shadow: 0 2px 12px #182b45; }
-.world-loading-star { display: block; font-size: 48px; color: #f6dca1; }
+.world-loading-content { text-align: center; }
 .world-loading-content p { font-family: var(--font-primary); font-size: 18px; margin: 16px 0 24px; }
-.world-loading-content a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 20px; color: inherit; border: 1px solid #f6dca180; border-radius: 24px; background: #192c4560; text-underline-offset: 5px; }
-.world-loading-content a:focus-visible { outline: 2px solid #fff3d5; outline-offset: 5px; }
+.world-loading-content a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 20px; color: inherit; border: 1px solid var(--stone-400); border-radius: 10px; background: var(--cloud); text-underline-offset: 4px; }
+.world-loading-content a:focus-visible { outline: 2px solid var(--interaction-dark); outline-offset: 4px; }

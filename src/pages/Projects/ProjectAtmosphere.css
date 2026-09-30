@@ -1,0 +1,34 @@
+/* The terrain, waterfalls and tree silhouettes never transform. Only separate
+   sky objects, loose leaves and faint water highlights own animation. */
+.pw-lake-surface{position:absolute;left:14%;top:68%;width:17%;height:8%;z-index:4;pointer-events:none;overflow:hidden;mask-image:radial-gradient(ellipse,black 12%,transparent 70%)}
+.pw-water-glints{position:absolute;inset:-30%;background:repeating-radial-gradient(ellipse at 25% 110%,transparent 0 17px,color-mix(in srgb,var(--cloud) 55%,transparent) 18px,transparent 20px 39px);opacity:.25;animation:pw-glints 7s ease-in-out var(--water-delay) infinite alternate;mix-blend-mode:soft-light}
+.pw-water-return{background-position:23px 9px;animation-duration:10.7s;animation-direction:alternate-reverse}
+.pw-falls-light{position:absolute;z-index:4;pointer-events:none;overflow:hidden;mask-image:linear-gradient(transparent,black 14%,black 82%,transparent)}
+.pw-falls-light i{position:absolute;top:-60%;height:160%;width:24%;background:radial-gradient(ellipse at 50% 18%,color-mix(in srgb,var(--cloud) 55%,transparent),transparent 23%),radial-gradient(ellipse at 50% 67%,color-mix(in srgb,var(--cloud) 38%,transparent),transparent 28%);animation:pw-water-fall var(--fall-time) linear var(--fall-delay) infinite;opacity:0}
+.pw-sun{position:absolute;left:35%;top:11.5%;width:76px;height:76px;z-index:2;pointer-events:none;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--warm-accent) 55%,transparent),transparent 68%);transform:translate(-50%,-50%)}
+.pw-sun span{position:absolute;inset:29%;border-radius:50%;background:radial-gradient(circle,var(--cloud) 30%,var(--ivory) 65%,color-mix(in srgb,var(--warm-accent) 75%,transparent) 95%)}
+@keyframes pw-water-fall{0%{transform:translateY(0);opacity:0}20%,75%{opacity:.48}100%{transform:translateY(52%);opacity:0}}
+.pw-sky-cloud{position:absolute;pointer-events:none;z-index:3;opacity:.23;animation:pw-cloud-pass 65s ease-in-out infinite alternate;mask-image:linear-gradient(black 50%,transparent)}
+.pw-sky-cloud img{display:block;width:100%;height:auto}
+.pw-sky-cloud-near{left:7%;top:1%;width:40%;animation-delay:-19s}
+.pw-sky-cloud-far{left:45%;top:3%;width:28%;opacity:.18;animation-duration:91s;animation-delay:-37s}
+.pw-airship-route{position:absolute;left:0;top:13%;width:112px;z-index:5;pointer-events:none;animation:pw-airship-pass 170s linear -74s infinite}
+.pw-airship{display:block;width:100%;height:auto;opacity:.85;filter:saturate(.65);animation:pw-airship-float 9s ease-in-out infinite alternate}
+.pw-bird-flock{position:absolute;left:0;top:16%;width:110px;height:40px;z-index:6;pointer-events:none;animation:pw-bird-pass 49s linear -24s infinite;color:var(--ink-soft)}
+.pw-bird{position:absolute;fill:currentColor;opacity:.8;overflow:visible}
+.pw-wing{transform-box:fill-box;animation:pw-wingbeat 1.25s ease-in-out var(--wing-delay) infinite}
+.pw-wing-left{transform-origin:100% 100%}.pw-wing-right{transform-origin:0 100%;animation-direction:reverse}
+.pw-wind-leaves{position:absolute;inset:0;pointer-events:none;z-index:1050;overflow:hidden}
+.pw-leaf-route{position:absolute;left:0;width:var(--leaf-size);animation:pw-leaf-pass var(--leaf-time) linear var(--leaf-delay) infinite;opacity:0}
+.pw-flying-leaf{display:block;width:100%;overflow:visible;animation:pw-leaf-tumble 3.7s ease-in-out var(--leaf-delay) infinite}
+@keyframes pw-airship-pass{from{transform:translate(1700px,0)}to{transform:translate(-140px,-14px)}}
+@keyframes pw-airship-float{from{transform:translateY(-3px) rotate(-1deg)}to{transform:translateY(3px) rotate(1deg)}}
+@keyframes pw-bird-pass{0%{transform:translate(-130px,14px);opacity:0}6%,93%{opacity:1}100%{transform:translate(1730px,-32px);opacity:0}}
+@keyframes pw-wingbeat{0%,100%{transform:scaleY(1) rotate(0deg)}45%{transform:scaleY(-.65) rotate(9deg)}65%{transform:scaleY(-.4) rotate(5deg)}}
+@keyframes pw-leaf-pass{0%{transform:translate(-35px,-15px);opacity:0}8%,70%{opacity:.75}30%{transform:translate(460px,17px)}65%{transform:translate(1100px,53px)}90%,100%{transform:translate(1660px,92px);opacity:0}}
+@keyframes pw-leaf-tumble{0%,100%{transform:rotate(-25deg) scaleY(1)}35%{transform:rotate(80deg) scaleY(.25)}70%{transform:rotate(190deg) scaleY(-.8)}}
+@keyframes pw-cloud-pass{from{transform:translateX(-60px)}to{transform:translateX(140px)}}
+@keyframes pw-glints{from{transform:translate(-9px,0) scaleY(.55);opacity:.15}to{transform:translate(10px,6px) scaleY(.62);opacity:.38}}
+.projects-world[data-still=true] :is(.pw-water-glints,.pw-falls-light i,.pw-sky-cloud,.pw-airship-route,.pw-airship,.pw-bird-flock,.pw-wing,.pw-leaf-route,.pw-flying-leaf){animation-play-state:paused}
+@media(max-width:767px),(max-width:1023px) and (orientation:portrait){.pw-sky-cloud-far,.pw-leaf-route:nth-child(n+4){display:none}}
+@media(prefers-reduced-motion:reduce){.pw-water-glints,.pw-falls-light i,.pw-sky-cloud,.pw-airship-route,.pw-airship,.pw-bird-flock,.pw-wing,.pw-leaf-route,.pw-flying-leaf{animation:none}.pw-wind-leaves,.pw-bird-flock,.pw-water-glints,.pw-falls-light{display:none}.pw-airship-route{left:55%;transform:none}}
