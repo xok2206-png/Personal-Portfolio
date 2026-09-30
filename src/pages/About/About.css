@@ -82,10 +82,11 @@
 .portfolio-experience .about-studio .studio-object:focus-visible{outline:none}
 
 /* The same reading surface, grid, spacing and close position for all five objects. */
-.studio-hud{position:fixed;inset:88px 24px auto auto;width:min(360px,42vw);height:min(560px,calc(100dvh - 112px));max-width:none;max-height:none;margin:0;padding:0;overflow:hidden;border:1px solid color-mix(in srgb,var(--ivory) 25%,transparent);border-radius:6px;background:var(--about-surface);color:var(--ivory);font:400 16px/1.6 var(--font-ui);box-shadow:none;animation:studio-panel-in 300ms ease-out}
+.studio-hud{position:fixed;inset:88px 24px auto auto;width:min(360px,42vw);height:min(560px,calc(100dvh - 112px));max-width:none;max-height:none;margin:0;padding:0;overflow:hidden;border:0;border-radius:0;background:color-mix(in srgb,var(--ink) 94%,transparent);color:var(--ivory);font:400 16px/1.6 var(--font-ui);box-shadow:none;clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);animation:studio-panel-in 300ms ease-out}
 .studio-hud[open]{display:flex;flex-direction:column}
+.studio-hud::before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:4px;background:var(--stone-400);pointer-events:none}
 .studio-hud::backdrop{background:color-mix(in srgb,var(--ink) 12%,transparent);backdrop-filter:none}
-.studio-hud-header{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 24px;padding:8px 0;border-bottom:1px solid color-mix(in srgb,var(--ivory) 20%,transparent)}
+.studio-hud-header{flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0 24px;padding:8px 0;border-bottom:0}
 .studio-hud-header h2{font:600 14px/1.4 var(--font-ui);letter-spacing:0}
 .studio-hud-header h2>span{color:var(--stone-200);margin-right:8px;font-variant-numeric:tabular-nums}
 .studio-hud-header h2:focus{outline:none}
@@ -108,7 +109,7 @@
 .studio-timeline{position:relative;list-style:none;padding:0;margin:32px 0 0}
 .studio-timeline::before{content:'';position:absolute;left:12px;top:24px;bottom:24px;width:1px;background:color-mix(in srgb,var(--ivory) 30%,transparent)}
 .studio-timeline li{display:flex;position:relative;align-items:center;gap:24px;min-height:80px}
-.studio-timeline li>span{display:grid;place-items:center;width:24px;height:32px;background:var(--ink);font-size:12px;color:var(--about-yellow)}
+.studio-timeline li>span{display:grid;place-items:center;width:24px;height:32px;background:var(--ink);font-size:12px;color:var(--stone-200)}
 .studio-timeline h4{flex:1}
 .studio-process{list-style:none;margin:32px 0;padding:0}
 .studio-process li{position:relative;display:flex;gap:20px;padding:0 0 32px}

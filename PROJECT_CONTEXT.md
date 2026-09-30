@@ -1,3 +1,36 @@
+## 2026-10-01 About 정보창 형태 적용
+
+- 사용자 승인에 따라 About.css의 공통 정보창을 Ink 94% / Ivory 글자 / Stone400 세로선 / 12px 절삭 모서리로 변경. 둘레 테두리와 헤더 구분선 제거.
+- 5개 본문, 오른쪽 최대360×560 패널, 본문 스크롤, ESC/포커스 복귀, E와 목록 및 배경 구조 유지. 새 폰트·색상 토큰 없음.
+- DESIGN_SYSTEM.md에 About 한정 승인 형태 기록. 다른 페이지 변경 없음.
+- lint/build 통과. 1440×810 실제 렌더링 확인. 실제 모바일 기기와 Safari 미검증.
+
+## 2026-10-01 About 반짝임 및 이야기 목록 후보
+
+- About.css: 다섯 오브제 모서리에 3.8초 반복 반짝임 추가. 기존 지속 윤곽 조명 유지, Hover 시 고정 강조, 정보창 열기/설정 Pause/Reduced Motion 대응 유지.
+- 이야기 목록은 현재 구현 유지. 탐험 기록/작업실 수첩/이야기 트래커 3개는 비교용 후보이며 채택하지 않음.
+- 참고: FFXIV 공식 Game Manual의 Duty List/Journal 구분, ESO 공식 지원의 Journal 내 항목 선택 흐름. 게임 고유 색상/폰트/문양 복제 없음.
+- 검증: lint/build, 기존 모션 QA 23크기 통과. qa/about-journal-preview.cjs로 시안 736/360px 선택과 overflow, 다섯 실제 Glint transform 변화와 Reduced Motion 정지 확인. 실제 기기 검증 없음.
+
+## 2026-10-01 About 이동 제한 수정 및 화면 표시 정리
+
+- 보드 접근 불가 원인: 공유 useGalleryWalk의 y=65 하한이 About 바닥 y=60보다 먼저 적용됨. minY 옵션(기본65)을 추가해 About만60 적용. Projects 기본 동작 유지.
+- WASD/클릭/Reduced Motion으로 보드 앞 접근 후 E로 Values 열기 검증 추가.
+- 다섯 물건은 기본 빛이 꺼지지 않으며 4.8초 주기로 은은하게 변화. Reduced Motion은 고정 조명.
+- 사용자 브라우저 표시 요청: World Map 버튼, 화면 About 제목, About의 Skills 다음 링크 제거. 공통 상단 메뉴와 접근성용 h1 유지.
+- 이야기 목록은 기존 Ivory/Stone/Ink/Deep Green 토큰과 책 아이콘으로 변경. 콘텐츠와 오른쪽 패널 구성 보존.
+- 수정 파일: About.jsx/CSS, Projects/useGalleryWalk.js, components/NextDestination.jsx, QA 및 DESIGN_SYSTEM.md. 다른 페이지 디자인 결정 변경 없음.
+- lint/build 통과. 기존 23크기 QA와 보드 접근 회귀 검증 수행. 실제 기기/Safari는 미검증.
+
+## 2026-10-01 About 아이템 상시 선택 표시
+
+- 최신 사용자 요청 적용: 선택 가능한 다섯 물건의 윤곽 조명을 기본 상태에서 기존 Hover 수준으로 유지. 반복 반짝임 제거.
+- 아이템 아래 작은 E 키 상시 표시, Hover/Focus/근접 시 이름과 살펴보기 문구 추가. 터치는 열기로 대체.
+- 정보창은 기존 Ink 97% / Ivory / Stone으로 변경. Navy는 환경 그림자에만 유지. 폰트, 콘텐츠, 이동, 공통 네비게이션, 오른쪽 소형 패널 구조 보존.
+- 변경: About.jsx, About.css, DESIGN_SYSTEM.md, qa/about-studio-motion.cjs. About 한정 사용자 결정이며 다른 페이지로 확대하지 않음.
+- 검증: lint/build 통과. Edge 자동 QA 23개 크기(360×800~2560×1440, 경계/가로/짧은 화면 포함)에서 스크롤 없음, 모든 항목 선택, 상시 빛/E 표시, 터치 대체, Reduced Motion, WebGL 실패 대체 통과.
+- 실제 모바일 기기/Safari/브라우저 자체 200% 확대는 이번에 확인하지 않음.
+
 # Personal Portfolio --- PROJECT_CONTEXT CURRENT
 
 ## 2026-10-01 통합 개발 주소 5173
@@ -89,6 +122,7 @@ Lint/build 통과. 기존 Three.js 550KB 청크 경고 유지.
 
 
 **Updated:** 2026-09-30\
+**Updated:** 2026-10-01\
 **Purpose:** 현재 실제 구현 상태와 최신 확정 문서 기준을 연결한다.\
 **Important:** 아래 `ARCHIVED IMPLEMENTATION HISTORY`는 삭제하지 않는다.
 과거 구현/QA 기록이며, 현재 요구사항과 충돌하면 현재 Source of Truth가
@@ -260,6 +294,171 @@ Lint/build 통과. 기존 Three.js 550KB 청크 경고 유지.
   실사용 측정은 아니며 INP는 별도 측정하지 않았다. 최초 검사에서 발견한
   지도 로딩 재배치와 불필요한 Loading 배경 요청을 수정했다.
 
+## 2026-10-01 About 중복 출구 연결 제거 / 발견성 후보 검토
+
+- 사용자 요청에 따라 작업실 아치 출구의 중복 월드맵 링크와 Hover 문구를
+  `About.jsx`/`About.css`에서 제거했다. 상단 World Map 버튼과 공통 Navigation은
+  유지했다. 건물 배경, 다섯 콘텐츠와 그 클릭 영역은 변경하지 않았다.
+- 발견성은 첨부 레퍼런스의 상시 이름·선택 화살표·배경 대비를 기준으로
+  작은 이름표 / 아이템 표식 / 하단 선택바의 세 가지 후보를 제안했다.
+  후보는 비교용이며 라이브 About의 표시 방식이나 LOCKED 결정을 바꾸지 않았다.
+- 중복 연결 제거 후 lint/build 통과. 현재 인앱 브라우저 1111×930에서 출구 링크가
+  사라지고 상단 World Map 및 다섯 오브제 버튼이 유지되는 것을 확인했다.
+  이번 변경으로 추가된 에셋·의존성은 없다. 실기기/Safari 추가 검증은 하지 않았다.
+
+## 2026-10-01 About 첨부 레퍼런스 / 넓은 작업실 구도 적용
+
+- 사용자의 “너무 크다, 이미지 레퍼런스처럼 수정” 요청에 따라 가까운 실내 책상을
+  넓은 열린 작업실 테라스로 재구성했다. 첨부 이미지의 건물·하늘·작은 책상·중앙
+  이동 바닥 관계를 참조하고 기존 아침 색감과 무광 재질을 유지했다. 배경의 글자,
+  카드, UI, 캐릭터는 생성하지 않았다. 이전 실내 에셋은 그대로 보관한다.
+- built-in image_gen으로 `terrace-workroom-v2.png`를 제작하고 WebP로 적용했다.
+  1672×941, 447,144 bytes. 소스/운영 경로·전체 프롬프트·구도 기준은
+  [제작 기록](docs/about-studio/wide-atelier-prompt.md)에 있다.
+- 변경 파일: `About.jsx`, `About.css`, `aboutStudio.js`, `StudioItemLights.jsx`,
+  `StudioAtmosphere.jsx`, About QA, DESIGN_SYSTEM 01.5 및 에셋 기록.
+  캐릭터 폭을 이미지의 8.2%에서 6.4%로 줄이고 바닥 경계를 새 테라스에 맞췄다.
+  오브제 클릭 영역·윤곽 조명·식생 모션·구름·컵의 김도 실제 새 위치에 맞췄다.
+  이미지가 크롭되는 창에서는 구도를 오른쪽으로 조금 옮겨 책상과 상자의 노출을
+  확보한다. 이전의 사각 이동 영역은 테라스 가장자리를 따르는 영역으로 바꿨다.
+- 유지: 스크롤 없는 한 화면, 선택 시 우측 최대 360×560px 패널, 다섯 실제 콘텐츠,
+  접힌 직접 접근 목록, 공통 Route/Header, 기존 이동 Hook, 폰트·색상 토큰.
+  최신 사용자 정정은 About 구도에만 적용하며 다른 페이지의 결정 상태는 바꾸지 않는다.
+- QA: 최종 lint/build 통과. 새 배경에서 Headless Edge 23개 Viewport의 가로·세로 넘침 0건.
+  다섯 물건 선택, E/이동 경계, 목록, 터치, 패널 내부 스크롤/닫기/포커스,
+  Direct URL·뒤로/앞으로, Reduced Motion/Pause, 이미지/WebGL 실패 대체 통과.
+  식생 영역의 두 프레임에서 실제 픽셀 변화도 확인했다.
+  [기능 결과](output/about-studio-qa/verification.json),
+  [모션 결과](output/about-studio-qa/motion-verification.json).
+- 화면 검토: 1440×810 전체/선택 패널, 360×800 기본 화면, 현재 인앱 브라우저
+  1111×930. 모바일은 보드 중심으로 크롭되며 다섯 내용 모두 목록에서 접근한다.
+  실물 기기·Safari·native 200% zoom은 미검증이다. 커밋/배포는 하지 않았다.
+
+## 2026-10-01 About 색상 카드 제거 / 오브제 조명 / 선택형 소형 HUD
+
+- 최신 사용자 요청: Palworld·Zelda 레퍼런스를 참고하고, 상시 색상 표식 대신
+  물건 자체에 빛이 나며 선택해야 내용을 볼 수 있게 한다. 아래 과거 기록의
+  번호·이름 카드, 화면 안으로 강제 이동한 표식, 400–440×680px 패널은 폐기됐다.
+- `StudioItemLights.jsx`를 추가했다. 기존 이미지 좌표에 맞춘 SVG 조명 마스크로
+  노트북·책등·노트·보드 종이·상자를 표시한다. Ivory/Cloud 반짝임은 시점을
+  엇갈리게 하며 Hover/Focus/근접한 물건 하나의 윤곽만 강해진다. 큰 색상 카드나
+  상시 텍스트를 없앴고 짧은 `물건 이름 · E 살펴보기`만 접근 시 표시한다.
+- `About.jsx`, `aboutStudio.js`: 실제 물건에 클릭 영역을 맞췄다. 세로 화면에서
+  크롭된 물건의 영역은 inert로 처리하며 모든 내용은 좌측 하단의 접힌
+  `이야기 목록`에서도 접근한다. 목록을 통해 열었다가 닫으면 목록 버튼으로
+  포커스가 복구된다. 상세 정보는 클릭·탭·E를 통한 선택 후에만 열린다.
+- `About.css`: 정보창을 최대 360×560px로 줄였다. Header/본문/Footer 구조는
+  다섯 내용이 공유하고 본문만 스크롤한다. 풀페이지 `100dvh`, 배경 움직임,
+  실제 콘텐츠, 캐릭터 이동 Hook, 공통 Header/Route 및 SUIT/Marcellus는 유지했다.
+  작은 조작 UI는 기존 surface-dark/Ivory를 사용하며 새 색상·폰트 토큰은 없다.
+- 결정 범위는 이번 사용자 요청의 About 오브제 반응과 HUD이다. 다른 페이지의
+  WORKING/LOCKED 상태는 변경하지 않았다. DESIGN_SYSTEM 01.5와
+  `docs/about-studio/asset-direction.md`에 공식 레퍼런스 및 최신 구현을 기록했다.
+- 검증: lint/build 통과. Headless Edge의 필수 11개·경계 8개·짧은/가로/울트라와이드
+  4개, 총 23개 Viewport에서 페이지 가로·세로 스크롤 없음, 패널 크기·본문 스크롤·
+  44px 입력 영역을 확인했다. 다섯 물건 선택, 접힌 목록, E/WASD, Escape/포커스,
+  터치, 경로 이동, Reduced Motion, Pause, 이미지/WebGL 실패 대체를 통과했다.
+  결과: [verification.json](output/about-studio-qa/verification.json),
+  [motion-verification.json](output/about-studio-qa/motion-verification.json).
+- 이미지 검토: 1440×810 기본/노트북 반응/선택 패널, 360×800 패널 및 현재
+  인앱 브라우저 약 1111×930의 선택/닫기 화면. 확인한 범위의 알려진 실패는 없다.
+  실물 기기·Safari·native 200% zoom은 미검증이다. 커밋/배포는 하지 않았다.
+
+## 2026-10-01 About 풀페이지 / 우측 소형 패널 정정
+
+- 사용자 정정: About은 스크롤 없는 한 화면이며 항목을 열면 옆에 작은 패널이
+  나타나야 한다. 앞선 3:2 이하/모바일 세로 목록과 하단 시트 전환을 제거했다.
+  아래 과거 기록의 세로 적층·하단 시트 설명은 현재 동작에 적용하지 않는다.
+- `About.css`: 모든 화면에서 About과 해당 Route 컨테이너를 `100dvh`로 고정했다.
+  페이지 아래 콘텐츠는 없으며 좁거나 짧은 화면의 바로 가기는 화면 안의 작은
+  가로 HUD다. 패널은 항상 오른쪽에서 열리고 Desktop 400px/큰 화면 440px,
+  최대 높이 680px이다. 작은 화면에서는 오른쪽 여백을 유지하며 뷰포트에 맞춘다.
+  Header/닫기/Footer는 고정하고 패널 본문만 스크롤한다.
+- `About.jsx`: 오브제 표식을 배경과 분리한 HTML 레이어로 옮겨 화면 경계 안에
+  제한한다. 세로 Mobile은 작업실을 크롭하고 다섯 터치 표식을 별도로 배치한다.
+  기존 다섯 콘텐츠·배경 움직임·이동 Hook·공통 Navigation/Route/폰트/색상은 유지했다.
+  이 정정은 About의 반응형과 패널에 한정하며 다른 페이지의 결정 상태는 바꾸지 않는다.
+- QA 스크립트 두 개에 세로 넘침, 우측 소형 패널 크기, 본문 내부 스크롤과
+  스크롤 시도 후 페이지 고정 검증을 추가했다. lint/build 통과. Headless Edge의
+  기존 23개 Viewport에서 가로·세로 페이지 넘침 0건, 다섯 표식 가림 0건,
+  패널 경계/닫기/스크롤 검증 통과. 기존 E/WASD/키보드·터치/경로/모션/실패 대체
+  검사도 통과했다. 1440×810 패널, 1024×900 및 360×800 기본 화면 캡처를 검토했다.
+  [verification.json](output/about-studio-qa/verification.json),
+  [motion-verification.json](output/about-studio-qa/motion-verification.json).
+- DESIGN_SYSTEM 01.5와 에셋 기록을 동기화했다. 실물 기기/Safari/native 200% zoom은
+  미검증이며 커밋/배포는 하지 않았다. 위 검사 범위의 알려진 실패는 없다.
+
+## 2026-10-01 About 오브제 발견성과 환경 움직임 보강
+
+- 추가 사용자 요청에 따라 노트북만 보이던 작은 점을 다섯 오브제의 번호·이름
+  표식으로 교체했다. 기존 Navy/Yellow/SUIT를 사용하며 Desktop에는 `열기 ↗`,
+  Mobile에는 번호·이름을 표시한다. 최소 44px, Hover/Focus 색 반응, 본문 선택 시
+  표식 숨김, 기존 근접 Prompt와 공통 HUD는 유지한다.
+- `StudioAtmosphere.jsx`를 추가했다. 기존 이미지의 녹색 식생 영역만 WebGL로
+  변위시키고, 기존 구름 WebP와 CSS 햇빛·구름 그림자·컵의 김을 독립 재생한다.
+  새 영상이나 환경 이미지는 생성하지 않았다. 캔버스는 약 30fps/최대 1800px,
+  DPR 1.25 상한이며 원본 이미지는 실패 시 대체 화면으로 유지한다.
+- 본문 읽기/설정 Pause/Reduced Motion/비활성 탭/작업실 화면 밖에서 환경 재생을
+  멈춘다. WebGL 사용 불가 시에도 원본 작업실·표식·모든 본문에 접근할 수 있다.
+- 세로로 긴 창(3:2 이하)과 짧은 모바일 가로 화면은 작업실과 목록을 위아래로
+  배치해 표식 잘림과 HUD 가림을 방지한다. 1024px 이상 바닥 이동은 유지한다.
+  기존 공통 Navigation, Route, 콘텐츠, 다른 Scene과 이동 Hook은 변경하지 않았다.
+- 수정 범위: `About.jsx`, `About.css`, 신규 `StudioAtmosphere.jsx`, About QA,
+  DESIGN_SYSTEM 01.5와 에셋 기록. 기존 단일 Idle 마커 방향만 최신 사용자 요청으로
+  대체하며 다른 페이지의 WORKING/LOCKED에는 영향이 없다.
+- 검증: lint/build 통과. Headless Edge의 기존 **23개** 필수·경계·짧은·가로·
+  Ultrawide 크기에서 다섯 표식의 44px 영역·화면 경계·다른 요소에 의한 가림과
+  가로 넘침을 확인했다. 실제 식물 픽셀 변화와 구름/빛/김의 변화, CSS/WebGL
+  일시정지, Reduced Motion, 화면 밖 정지, WebGL 실패 대체, 360px 터치 5항목을
+  통과했다. 기존 이동/E/패널/경로/이미지 실패 QA도 다시 통과했다.
+  [motion-verification.json](output/about-studio-qa/motion-verification.json),
+  [verification.json](output/about-studio-qa/verification.json).
+- 화면 캡처 검토: 1440×810, 1024×900, 360×800, 844×390.
+  실물 기기, Safari, 실제 스크린리더, native 200% zoom, 현장 성능은 미검증이다.
+  위 검사 범위의 알려진 실패는 없으며 커밋/배포는 수행하지 않았다.
+
+## 2026-10-01 About 아침 작업실 / 공통 Object HUD 구현
+
+- 사용자 2026-09-30 About 지시에 따라 따뜻한 아침 작업실을 제작·적용했다.
+  기존 About 방과 About 섬을 참조해 built-in image_gen으로 텍스트 없는 배경을
+  생성했으며, 원본 PNG와 199,210-byte WebP를 각각 source/production의
+  `about-studio/`에 보존한다. 프롬프트와 배치 기준:
+  [asset-direction.md](docs/about-studio/asset-direction.md).
+- `About.jsx`, `AboutHUD.jsx`, `About.css`, `aboutStudio.js`에 다섯 오브젝트를
+  구현했다. 노트북=Profile / 책장=Journey / 노트=Process / 보드=Values /
+  상자=Archive. 기존 프로필·여정·가치·관심사 자료를 보존했고 Process는 기존
+  `content.js` FAQ, Archive 프로젝트는 기존 실제 프로젝트 데이터를 사용한다.
+- UI는 Marcellus(Display) + SUIT. 사용자가 명시한 Navy `#0B315B`, Yellow
+  `#FFC928`는 About에만 적용하고, 본문은 기존 Ivory/Stone 토큰을 사용한다.
+  DESIGN_SYSTEM 01.5에 이 예외·시간대·HUD 기준을 기록했다. 새 폰트나 전역
+  색상 체계를 추가하지 않았다. 강한 경고 상태가 없어 Red는 사용하지 않는다.
+- 모든 패널의 Header/Padding/본문 영역/닫기/Footer를 공유한다. Desktop은
+  오른쪽 95% Navy 패널, Mobile·세로 Tablet은 하단 시트다. 기존 전역
+  `dialog::backdrop`의 blur 상속을 About에서 제거했다. 선택 시 6% 확대,
+  300ms 진입, 화면 제목·마커·도움말 숨김. Reduced Motion/설정 Pause에서는
+  확대와 진입 애니메이션을 생략한다. Escape·버튼·바깥 선택으로 닫을 수 있다.
+- 기존 gallery 이동 Hook과 방향별 캐릭터 sprite를 재사용한다. About의
+  Desktop 바닥 범위(x=23–84%, y=73–92%)에서 WASD/방향키·바닥 클릭 및
+  근접 E를 지원한다. 기존 World/Skills/Projects 이동 코드는 수정하지 않았다.
+  Mobile·세로 Tablet은 직접 탭/목록으로 접근하며 모든 다섯 항목을 제공한다.
+- 좌측 하단의 00/05는 현재 About에서 실제 열어본 항목 수다. 잠금/보상/
+  순서 강제/Secret Area는 없다. 기존 공통 Header, 다음 Skills 링크, Route,
+  실제 프로젝트, Resume, Q&A/Contact 경로를 보존했다.
+- QA: `npm run lint`, `npm run build` 통과. Headless Edge에서 필수 11개와
+  경계 8개, 844×390/1280×600/2560×1080/720×405를 포함한 **23개** 크기를
+  확인했다. 가로 넘침/패널 경계 잘림/44px 닫기 버튼 손실/JS 오류 0건.
+  다섯 실제 오브젝트 클릭, 목록, Hover/E, WASD/바닥 경계/근접 E, Escape 및
+  포커스 복구, 모바일 터치 5항목, 세로→가로 전환, 공통 메뉴 Contact 이동,
+  실제 Case Study 진입, Direct URL/Reload/Back/Forward, SUIT/Marcellus 로딩,
+  Reduced Motion/설정 Pause, 배경·캐릭터 이미지 실패 시 직접 접근을 확인했다.
+  재현 스크립트: `qa/about-studio-check.cjs`.
+  결과/스크린샷: [verification.json](output/about-studio-qa/verification.json).
+- 검증 한계: 720×405는 1440×810의 200% 상당 레이아웃이며 native browser
+  zoom·실물 모바일·Safari·실제 스크린리더·현장 Core Web Vitals는 검증하지 않았다.
+  기존 캐릭터 sprite의 그림체를 재사용했으며 새 캐릭터 제작은 하지 않았다.
+- 상태: 문서 기준 반영, 에셋 제작, 코드 적용, 위 범위의 실제 QA를 완료한
+  About 구현이다. 다른 페이지의 WORKING 구조나 전역 자유 이동을 LOCKED로
+  승격하지 않는다. 배포/커밋은 수행하지 않았다.
 
 ## 2026-09-30 월드맵 기본 움직임과 Hover 강화
 
@@ -3404,3 +3603,15 @@ devices unverified.
 - Portfolio World 타이틀과 텍스트+원형 화살표 버튼으로 정리. 배경은 5초 동안 4%의 느린 줌만 적용. Reduced Motion은 생략.
 - 3.8초 자동 진행, 600ms 종료, Enter/Escape/버튼 및 direct/skip 경로 유지. 최초 포커스는 dialog, Tab 시 버튼 포커스 표시.
 - 1440×810,430×932,360×800,844×390 배치·버튼 종료 확인. lint/build 통과(Three.js chunk 500kB 경고 존재). 전체 영상 재생은 재검증하지 않음.
+## 2026-10-01 Real World 제목 및 배치 수정
+- 사용자 첨부 레퍼런스에 따라 RealWorld.jsx / RealWorldCredits.css의 제목에 Griun DUJUNDUJUN 적용. 왼쪽 창가 상단으로 이동, 아이디어에 노란 마커 적용, 이름·직무를 입장 버튼 아래로 이동.
+- 공식 WOFF2 원본을 public/assets/production/fonts에 추가. Portfolio World 공통 폰트나 WORKING 결정은 변경하지 않음.
+- 기존 영상·포털 로직·Quick View·환경 설정·직접 입장 유지.
+- npm run lint / npm run build 통과. qa/real-world-type-check.cjs로 21개 viewport의 화면 경계·가로 overflow·폰트 로딩 확인. 1440×810 / 430×932 스크린샷 육안 확인. Reduced Motion ENTER WORLD의 /world-map 진입 확인.
+- 이번 수정에서는 전체 영상 시퀀스 재생과 200% 브라우저 줌은 재검증하지 않음.
+
+### 2026-10-01 Real World 컨트롤 후속 수정
+- ENTER WORLD의 hover 규칙이 기본 width/font/padding을 덮던 specificity 충돌을 수정했다. 버튼 크기는 유지하고 원형 배경·화살표·얇은 밑줄·pressed 반응만 적용한다.
+- 영상 없이 바로 입장 / 프로젝트 바로 보기 / 연출 건너뛰기를 공통 보조 액션 스타일과 SVG 아이콘으로 통일했다. 연출 중 버튼에는 기존 야간색 대비 배경을 제공한다.
+- 아이디어 마커는 최초 1회 그리기와 제목 hover 반응을 적용했다. Reduced Motion에서는 그리기 애니메이션을 생략한다.
+- qa/real-world-controls-check.cjs: 1440×810,430×932,720×405에서 hover 전후 폭·높이·폰트·패딩 동일, 실제 연출 건너뛰기 라우팅 통과. 기존 21 viewport 경계 검사와 Reduced Motion 진입도 통과. lint/build 통과. 전체 영상 재생은 이번 수정에서 재검증하지 않음.

@@ -5,6 +5,7 @@ import './RealWorld.css'
 import './RealWorldCredits.css'
 import PortalCinematic from './PortalCinematic.jsx'
 import WorldMark from '../../components/WorldMark.jsx'
+import RealWorldActionIcon from './RealWorldActionIcon.jsx'
 
 const GATEWAY_STATUS = {
   idle: '● REAL WORLD',
@@ -56,8 +57,7 @@ function RealWorld() {
 
       <div className={`start-copy${launching ? ' is-launching' : ''}`} inert={launching} aria-hidden={launching || undefined}>
         <div className="real-credit-copy">
-          <h1 tabIndex="-1">작은 아이디어가<br /><strong>더 나은 경험이 되는곳</strong></h1>
-          <p className="real-credit-identity"><span>김준영</span><span aria-hidden="true">·</span><span>Frontend Developer / UI·UX</span></p>
+          <h1 tabIndex="-1">작은 <span className="real-credit-highlight">아이디어</span>가<br /><strong>더 나은 경험이 되는 곳</strong></h1>
         </div>
         <div className="gateway">
           <div className="start-actions">
@@ -71,8 +71,9 @@ function RealWorld() {
               <span className="credit-entry-label">ENTER WORLD</span>
             </button>
           </div>
+          <p className="real-credit-identity"><span>김준영</span><span aria-hidden="true">—</span><span>Frontend Developer / UI·UX</span></p>
           <p className="gateway-status" aria-live="polite">{GATEWAY_STATUS[gatewayState]}</p>
-          <Link className="journey-direct" to="/world-map" tabIndex={launching ? -1 : undefined} aria-hidden={launching || undefined}>영상 없이 바로 입장 <span aria-hidden="true">↗</span></Link>
+          <Link className="journey-direct real-secondary-action" to="/world-map" tabIndex={launching ? -1 : undefined} aria-hidden={launching || undefined}><span>영상 없이 바로 입장</span><RealWorldActionIcon /></Link>
         </div>
       </div>
     </main>
