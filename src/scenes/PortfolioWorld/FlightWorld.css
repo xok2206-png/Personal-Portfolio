@@ -127,3 +127,6 @@
 @media(prefers-reduced-motion:reduce){.flight-destination a>span{transition:none;transform:none!important}}
 @supports not (backdrop-filter:blur(1px)){.flight-destination a,.flight-destination>span{background:var(--surface-dark)}}
 @media(prefers-reduced-transparency:reduce){.flight-destination a,.flight-destination>span{background:var(--surface-dark);backdrop-filter:none;-webkit-backdrop-filter:none}}
+@media(min-width:1024px) and (min-aspect-ratio:1/1){
+  .flight-world[data-mode=direct] .flight-islands{padding-top:144px;gap:32px}
+}

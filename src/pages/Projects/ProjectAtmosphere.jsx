@@ -13,13 +13,16 @@ const leaves = [
   { top:56, delay:-25, duration:32, size:7 },
 ]
 // Reuse the leaf and bird silhouettes from WorldAtmosphere. The landscape
-// itself stays fixed: no copied image patches, displacement, or scaling.
+// stays fixed outside the masked river and waterfall surfaces.
 const leafContours = [
   'M1 10 6 7 5 5 10 5 12 2 15 3 29 1 24 6 25 8 21 9 19 12 15 11 11 14 8 12Z',
   'M1 12 9 6 15 4 29 1 23 6 19 10 12 12 7 11Z',
 ]
 export default function ProjectAtmosphere({ sunset = 0 }) {
   return <>
+    <div className="pw-water-motion pw-river-motion" aria-hidden="true"><img src="/assets/production/images/projects-world/valley-roads-v3.webp" alt="" /></div>
+    <div className="pw-water-motion pw-cascade-motion pw-cascade-upper" aria-hidden="true"><img src="/assets/production/images/projects-world/valley-roads-v3.webp" alt="" /></div>
+    <div className="pw-water-motion pw-cascade-motion pw-cascade-lower" aria-hidden="true"><img src="/assets/production/images/projects-world/valley-roads-v3.webp" alt="" /></div>
     {water.map(([x,y,w,h],i)=><div key={`water-${i}`} className="pw-lake-surface" aria-hidden="true" style={{left:`${x}%`,top:`${y}%`,width:`${w}%`,height:`${h}%`,'--water-delay':`${-i*2.1}s`}}><div className="pw-water-glints" /><div className="pw-water-glints pw-water-return" /></div>)}
     {falls.map(([x,y,w,h],i)=><div key={`fall-${i}`} className="pw-falls-light" aria-hidden="true" style={{left:`${x}%`,top:`${y}%`,width:`${w}%`,height:`${h}%`}}>{[0,1,2].map(j=><i key={j} style={{left:`${j*33}%`,'--fall-delay':`${-j*.71-i*.32}s`,'--fall-time':`${1.6+j*.4}s`}} />)}</div>)}
     <div className="pw-sun" aria-hidden="true" style={{opacity:.85-sunset*.18}}><span /></div>

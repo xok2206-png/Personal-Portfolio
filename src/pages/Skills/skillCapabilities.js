@@ -24,7 +24,7 @@ export const skillCapabilities = [
     lead: 'AI로 초안을 만들고, 직접 확인하며 다듬습니다.',
     description: '아이디어 정리와 그림·코드 초안에 도움을 받고, 의도한 디자인과 실제 동작에 맞는지 확인합니다.',
     work: '이 포트폴리오의 배경에는 생성 이미지를 사용했습니다. 메뉴와 버튼, 글은 이미지와 분리해 실제로 작동하도록 구현했습니다.',
-    image: '/assets/production/images/skills-world/courtyard-v3.webp', imageAlt: 'Skills 공간에 실제 사용한 낮의 석재 안뜰 배경', caption: '현재 페이지에 사용한 생성 배경',
+    image: '/assets/production/images/skills-world/cave-summer-v1.webp', imageAlt: 'Skills 공간에 실제 사용한 낮의 석재 안뜰 배경', caption: '현재 페이지에 사용한 생성 배경',
     method: 'ChatGPT와 Claude로 요구사항·아이디어를 정리하고, Claude Code로 구현과 오류 점검을 보조합니다. Higgsfield는 시각 자산과 장면 참고에 활용합니다. 결과물은 그대로 확정하지 않고 확인합니다.', portfolio: true },
   { id: 'git', name: '함께 작업하기', tools: 'Git · GitHub',
     lead: '수정 기록을 남기고, 팀의 코드를 합칩니다.',

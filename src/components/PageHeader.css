@@ -79,3 +79,8 @@
 
 .page-nav-terminal{position:absolute;top:calc(50% - 10px);left:-7px;width:14px;height:20px;background:var(--cloud);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);pointer-events:none}
 .page-nav-terminal:last-child{left:auto;right:-7px}
+/* Desktop World uses the islands themselves as its primary navigation. */
+@media(min-width:1024px) and (min-aspect-ratio:1/1){
+  .page-header[data-world-map=true]{grid-template-columns:auto auto}
+  .page-header[data-world-map=true] .page-primary-nav{display:none}
+}

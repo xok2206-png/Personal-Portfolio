@@ -112,3 +112,6 @@
 .connect-form input::placeholder,.connect-form textarea::placeholder{color:var(--stone-200);opacity:.7}
 .connect-form .connect-primary{min-height:48px;width:100%}
 .connect-form textarea{min-height:160px}
+
+/* Winter surfaces remain matte: omit the additive sunset wash. */
+.connect-direct .connect-sunset-light{display:none}

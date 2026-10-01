@@ -1,3 +1,4 @@
+import SeasonalAtmosphere from '../../components/SeasonalAtmosphere.jsx'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import useGalleryWalk from '../Projects/useGalleryWalk.js'
 
@@ -68,7 +69,8 @@ export default function ConnectScene({ blocked, still, hidden, signal }) {
   const pose = walk.player.view
   return <div className="connect-night-scene" ref={scene} data-failed={failed} aria-hidden="true" onPointerDown={walkTo}>
     <div className="connect-environment-layers" data-blocked={blocked}>
-    <picture className="connect-night-art"><source media="(max-width:767px)" srcSet={root + 'contact/connect-night-clean-mobile-v3.webp'}/><img src={root + 'contact/connect-night-clean-v3.webp'} alt="" fetchPriority="high" onError={() => setFailed(true)}/></picture>
+    <picture className="connect-night-art"><source media="(max-width:767px)" srcSet={root + 'contact/connect-winter-mobile-v1.webp'}/><img src={root + 'contact/connect-winter-v1.webp'} alt="" fetchPriority="high" onError={() => setFailed(true)}/></picture>
+    <SeasonalAtmosphere season="winter" still={still || hidden || blocked} />
     <div className="connect-night-stars">{stars.map(({x,y,size,duration}, i) => <i key={i} style={{ left:x+'%', top:y+'%', width:size, height:size, animationDelay:-i*1.3+'s', animationDuration:duration+'s' }}/>)}</div>
     <div className="connect-meteors">{[0, 1, 2].map(i => <i key={i} className={'connect-meteor meteor-' + i}/>)}</div>
     <svg className="connect-constellation" viewBox="0 0 240 150" fill="none">
@@ -91,7 +93,7 @@ export default function ConnectScene({ blocked, still, hidden, signal }) {
     <div className="connect-night-clouds"><img src={root + 'contact/connect-cloud.webp'} alt="" onError={e => { e.currentTarget.hidden = true }}/><img src={root + 'contact/connect-cloud.webp'} alt="" onError={e => { e.currentTarget.hidden = true }}/></div>
     <div className="connect-walk-plane" ref={plane}>
       {!failed && <div className="connect-sunset-light"><i/><i/><i/></div>}
-      {!failed && <picture className="connect-water-texture"><source media="(max-width:767px)" srcSet={root + 'contact/connect-night-clean-mobile-v3.webp'}/><img src={root + 'contact/connect-night-clean-v3.webp'} alt="" onError={event => { event.currentTarget.hidden = true }}/></picture>}
+      {!failed && <picture className="connect-water-texture"><source media="(max-width:767px)" srcSet={root + 'contact/connect-winter-mobile-v1.webp'}/><img src={root + 'contact/connect-winter-v1.webp'} alt="" onError={event => { event.currentTarget.hidden = true }}/></picture>}
       {!failed && <svg className="connect-water-light" viewBox="0 0 1672 941" fill="none">
         <defs><clipPath id="connect-open-water"><path clipRule="evenodd" d="M737 717L805 718L867 751L1030 780L1018 841L952 853L921 831L901 837L871 820L836 829L805 813L796 789L771 759Z M809 803L824 777L845 763L868 774L883 793L905 808L864 819L824 817Z"/></clipPath></defs>
         <g clipPath="url(#connect-open-water)">

@@ -1,6 +1,6 @@
 /* One travel menu, open scenery and restrained material contrast. */
 .pw-accessible-title{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-.projects-world .pw-stage{filter:saturate(.82)}
+.projects-world .pw-stage{filter:saturate(.94)}
 .projects-world .pw-landscape::before{height:120px}
 .projects-world .pw-landscape::after{height:100px}
 .projects-world .pw-bottom{display:flex;left:32px;right:32px;bottom:max(24px,env(safe-area-inset-bottom));max-width:none;justify-content:space-between;pointer-events:none}

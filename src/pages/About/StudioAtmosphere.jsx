@@ -11,18 +11,20 @@ void main(){
   vec2 p=vec2(uv.x,1.0-uv.y);
   vec4 base=texture2D(picture,uv);
   float green=smoothstep(-0.015,0.045,base.g-base.r*0.96)*smoothstep(0.025,0.10,base.g-base.b);
-  float plants=max(area(p,vec2(0.26,0.09),vec2(0.30,0.22)),area(p,vec2(0.40,0.33),vec2(0.10,0.20)));
+  float plants=area(p,vec2(0.40,0.33),vec2(0.10,0.20));
   plants=max(plants,area(p,vec2(0.27,0.48),vec2(0.12,0.10)));
   plants=max(plants,area(p,vec2(0.72,0.30),vec2(0.12,0.21)));
   plants=max(plants,area(p,vec2(0.73,0.71),vec2(0.10,0.15)));
   plants=max(plants,area(p,vec2(0.87,0.49),vec2(0.09,0.10)));
   plants=max(plants,area(p,vec2(0.25,0.79),vec2(0.12,0.16)));
+  // Keep the entire upper-left tree rigid, including warm-colored bark.
+  float outsideTree=max(smoothstep(0.48,0.54,p.x),smoothstep(0.53,0.60,p.y));
   float wind=sin(time*1.35+p.y*19.0)+0.35*sin(time*2.1+p.x*27.0);
-  vec2 offset=vec2(wind*0.0035,sin(time*1.2+p.x*20.0)*0.0012)*plants*green;
+  vec2 offset=vec2(wind*0.0035,sin(time*1.2+p.x*20.0)*0.0012)*plants*green*outsideTree;
   gl_FragColor=texture2D(picture,clamp(uv+offset,0.001,0.999));
 }`
 
-// Only green foliage is displaced. Architecture, objects and HTML hit areas stay fixed.
+// Only small plants outside the upper-left tree move. The tree and architecture stay fixed.
 // The original <img> underneath is always available if WebGL cannot render.
 function FoliageWind({ running }) {
   const canvas = useRef(null), controls = useRef(null)
@@ -98,7 +100,7 @@ export default function StudioAtmosphere({ running }) {
       <img className="studio-cloud studio-cloud-front" src={cloud} alt="" />
       <img className="studio-cloud studio-cloud-back" src={cloud} alt="" />
     </div>
-    <div className="studio-sunlight"><div className="studio-cloud-shadow" /><div className="studio-light-shaft" /></div>
+    <div className="studio-sunlight"><div className="studio-cloud-shadow" /></div>
     <svg className="studio-cup-steam" viewBox="0 0 60 110" focusable="false">
       <path className="studio-steam-one" d="M27 104C9 83 48 71 29 52S16 23 29 3" />
       <path className="studio-steam-two" d="M40 108C54 90 20 76 37 54S45 25 37 11" />

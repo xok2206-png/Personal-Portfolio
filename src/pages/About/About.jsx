@@ -1,3 +1,4 @@
+import SeasonalAtmosphere from '../../components/SeasonalAtmosphere.jsx'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { usePortfolioUI } from '../../app/PortfolioUIContext.jsx'
@@ -102,6 +103,7 @@ export default function About() {
         {!imageFailed && <StudioAtmosphere key={studioRoom} running={!reduced && !hidden && visible && selected === null} />}
         {!imageFailed && <StudioItemLights active={active} selected={selected !== null} />}
         <button ref={floor} className="studio-floor" type="button" aria-label="작업실 바닥: WASD 또는 방향키로 이동" aria-describedby="studio-help" onClick={moveOnFloor} onBlur={stop} />
+        <SeasonalAtmosphere season="spring" still={reduced || hidden || !visible || selected !== null} />
         <StudioExplorer player={player} still={reduced || hidden || !visible || selected !== null} />
       </div>
         <div className="studio-objects" aria-label="작업실의 다섯 이야기">

@@ -56,7 +56,7 @@ export default function PageHeader() {
     })
   }
   return <>
-    <header className="page-header">
+    <header className="page-header" data-world-map={pathname === '/world-map'}>
       <div className="page-header-origin">
         <Link className="page-brand" to="/world-map" aria-label="Portfolio World · 월드맵" onClick={event => choose(event, '/world-map', 'World')}><WorldMark /></Link>
       </div>

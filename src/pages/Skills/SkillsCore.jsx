@@ -1,3 +1,4 @@
+import SeasonalAtmosphere from '../../components/SeasonalAtmosphere.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
@@ -100,8 +101,9 @@ export default function SkillsCore() {
   }
   return <main id="main" className="skills-world skills-core" data-still={still} data-panel={open} data-orbit={orbitActive}>
     <div className="sc-stage" ref={stage} tabIndex="-1" aria-label="Skills 공간. WASD 이동, 코어 근처에서 E로 할 수 있는 일 펼치기">
-      <img className="sc-background" src="/assets/production/images/skills-world/courtyard-v3.webp" alt="" fetchPriority="high" onError={event => { event.currentTarget.hidden = true }} />
+      <img className="sc-background" src="/assets/production/images/skills-world/cave-summer-v1.webp" alt="" fetchPriority="high" onError={event => { event.currentTarget.hidden = true }} />
       <div className="sc-atmosphere" aria-hidden="true" />
+      <SeasonalAtmosphere season="cave" still={still} />
       <button className="sc-floor" aria-label="바닥을 클릭해 이동" onClick={walk} />
       <button ref={core} className="sc-core" aria-label="Skill Core 공전 펼치기 또는 접기" aria-expanded={orbitActive} aria-controls="sc-orbit" onClick={toggleCore} data-near={near} data-failed={imageFailed}>
         <img className="sc-core-art" src="/assets/production/images/skills-world/relic-core-v3.webp" alt="" onError={() => setImageFailed(true)} />

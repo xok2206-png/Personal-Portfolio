@@ -1,0 +1,14 @@
+.seasonal-atmosphere{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:2}
+.season-particle{position:absolute;top:-24px;width:var(--size);height:var(--size);animation:season-fall var(--duration) linear var(--delay) infinite;background:var(--ivory);opacity:0;border-radius:50%}
+.season-spring .season-particle{background:color-mix(in srgb,var(--ivory) 70%,var(--connect-peach,var(--warm-accent)));border-radius:80% 10% 80% 35%;height:calc(var(--size)*.65)}
+.season-winter .season-particle{background:var(--cloud);filter:blur(.3px)}
+.season-mist{position:absolute;inset:55% -20% -10%;background:radial-gradient(ellipse,color-mix(in srgb,var(--cloud) 28%,transparent),transparent 65%);animation:season-mist 13s ease-in-out infinite alternate}
+.season-spring .season-mist{opacity:.3}
+.season-cave .season-mist{inset:50% -25% 5%;opacity:.55}
+.season-cave .season-particle{left:12%;width:1px;height:10px;background:var(--sky-100);animation-name:season-drip;opacity:0}
+@keyframes season-fall{0%{transform:translate3d(0,-20px,0) rotate(0);opacity:0}8%,85%{opacity:.8}100%{transform:translate3d(var(--drift),100vh,0) rotate(280deg);opacity:0}}
+@keyframes season-drip{0%,65%{transform:translateY(0);opacity:0}70%{opacity:.45}85%,100%{transform:translateY(65vh);opacity:0}}
+@keyframes season-mist{from{transform:translateX(-4%)}to{transform:translateX(9%)}}
+.seasonal-atmosphere[data-still=true] *{animation-play-state:paused!important}
+@media(max-width:767px){.season-particle:nth-child(n+17){display:none}}
+@media(prefers-reduced-motion:reduce){.seasonal-atmosphere *{animation:none!important}.season-particle{display:none}}

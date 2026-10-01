@@ -5,10 +5,10 @@ import { createWingCraft } from './createWingCraft.js'
 import { createWingTrails } from './createWingTrails.js'
 
 export const flightPlaces = [
-  { id: 'about', x: -19, y: 4, z: -8, size: 15.5, artTop: .0234 },
-  { id: 'skills', x: -9.5, y: -1.2, z: 11, size: 12, artTop: .1029 },
-  { id: 'projects', x: 7, y: 5, z: -19, size: 21, artTop: .181 },
-  { id: 'contact', x: 22, y: -.5, z: 5, size: 13.7, artTop: .0534 },
+  { id: 'about', x: -20, y: 4.5, z: -10, size: 17, artTop: .0234 },
+  { id: 'skills', x: -10, y: -1.2, z: 12, size: 13, artTop: .1029 },
+  { id: 'projects', x: 7, y: 6, z: -23, size: 22.5, artTop: .181 },
+  { id: 'contact', x: 23, y: -.5, z: 4, size: 14.5, artTop: .0534 },
 ]
 const clamp = THREE.MathUtils.clamp
 const angleDelta = (a, b) => Math.atan2(Math.sin(b - a), Math.cos(b - a))

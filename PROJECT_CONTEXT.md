@@ -1,3 +1,9 @@
+## 2026-10-01 데스크톱 월드맵 공간 확대
+
+- PageHeader의 월드맵 주요 메뉴만 데스크톱에서 숨긴다. 로고/설정/리얼월드 도구와 모바일 및 다른 페이지 메뉴는 유지한다.
+- flightScene의 네 섬 크기를 약 6~10% 늘리고 About/Projects를 위쪽, Contact를 오른쪽으로 분산했다. Direct 모드 데스크톱 여백도 조정했다.
+- lint/build 통과(기존 청크 경고), 배경 QA 19개 화면 크기 및 25개 우회 경로/전 방향 충돌 검사 통과. 1440×810 실제 이미지 검토. 데스크톱 메뉴 숨김/다른 페이지 유지/390×844 메뉴 열기 확인. 실기기 미검증.
+
 ## 2026-10-01 미완성 프로젝트 상세 공개 잠금 — 최신 사용자 결정
 
 - projectAccess.js의 projectDetailsEnabled=false로 전체 상세 공개를 잠갔다. 앞선 인라인 상세 창 동작보다 이 요청이 우선한다.
@@ -3758,3 +3764,12 @@ devices unverified.
 - 영상 없이 바로 입장 / 프로젝트 바로 보기 / 연출 건너뛰기를 공통 보조 액션 스타일과 SVG 아이콘으로 통일했다. 연출 중 버튼에는 기존 야간색 대비 배경을 제공한다.
 - 아이디어 마커는 최초 1회 그리기와 제목 hover 반응을 적용했다. Reduced Motion에서는 그리기 애니메이션을 생략한다.
 - qa/real-world-controls-check.cjs: 1440×810,430×932,720×405에서 hover 전후 폭·높이·폰트·패딩 동일, 실제 연출 건너뛰기 라우팅 통과. 기존 21 viewport 경계 검사와 Reduced Motion 진입도 통과. lint/build 통과. 전체 영상 재생은 이번 수정에서 재검증하지 않음.
+
+## 2026-10-01 계절 배경 / 무광 수정 적용
+
+- About의 terrace-spring-v1, Skills의 cave-summer-v1, Contact의 connect-winter-v1 및 모바일 WebP를 적용했다. 기존 원본 배경도 보존했다.
+- 봄/겨울 1차 생성본을 다시 무광 편집한 뒤 실제 페이지에서 재검토했다. About 바닥 빛줄기와 Contact 가산 노을 레이어를 제거했다. Skills 제목 뒤에는 기존 위치를 유지하는 국소 무광 대비면을 추가했다.
+- SeasonalAtmosphere는 벚꽃/동굴 안개와 낙수/눈의 CSS 움직임을 담당한다. About 큰 벚나무는 고정하고 주변 작은 식생만 WebGL로 움직인다. 붉은색 마스크가 나무껍질까지 왜곡하던 문제를 제거했으며 qa/about-tree-stability-check.cjs에서 1440×810 시간차 픽셀 비교로 나무 고정/다른 식생 움직임을 확인했다. Projects는 기존 이미지의 물 영역만 마스킹해 이동하고 폭포 흐름을 보강했다. 지형, 건물, 이동 영역, UI는 유지했다.
+- 숨김/정지 상태에 새 효과가 일시정지되며 reduced motion에서 입자와 물 변위를 생략한다. 실제 동영상 파일이 아닌 국소 애니메이션이다.
+- qa/seasonal-scenes-check.cjs: Headless Edge 1440×810, 390×844에서 네 페이지 이미지 로드/시간에 따른 움직임/reduced motion 확인. 해당 화면 스크린샷을 직접 검토했다. 실기기와 전체 반응형 행렬은 미검증.
+- lint/build 통과. 기존 Three.js 500kB 청크 경고는 남아 있다.

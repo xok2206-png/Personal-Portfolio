@@ -1,4 +1,4 @@
-export const studioRoom = '/assets/production/images/about-studio/terrace-workroom-v2.webp'
+export const studioRoom = '/assets/production/images/about-studio/terrace-spring-v1.webp'
 
 // Coordinates refer to terrace-workroom-v2 (1672 × 941), including floor stops.
 export const aboutObjects = [
