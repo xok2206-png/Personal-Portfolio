@@ -21,7 +21,7 @@ function ProjectPicker({ onClose, onWalk, onDetail }) {
   }, [returnFocus])
   return <dialog className="pw-picker" ref={dialog} onCancel={onClose} onClick={e => { if (e.target === e.currentTarget) onClose() }} aria-labelledby="pw-picker-title">
     <header><h2 id="pw-picker-title">목적지 선택</h2><button onClick={onClose} aria-label="목록 닫기">닫기</button></header>
-    <div className="pw-destination-list">{worldProjects.map((p,index) => <section key={p.id} className="pw-destination-row"><div><small>{p.landmark}</small><h3>{p.name}</h3></div><div className="pw-destination-actions"><button className="pw-walk-action" onClick={() => { onClose(); onWalk(index) }}>길 안내</button><button className="pw-detail-action" disabled={!projectDetailsEnabled} title="상세 내용 준비 중" onClick={() => onDetail(p)}>상세 보기</button></div></section>)}</div>
+    <div className="pw-destination-list">{worldProjects.map((p,index) => <section key={p.id} className="pw-destination-row"><div><small>{p.landmark}</small><h3>{p.name}</h3></div><div className="pw-destination-actions"><button className="pw-walk-action" onClick={() => { onClose(); onWalk(index) }}>바로 이동</button><button className="pw-detail-action" disabled={!projectDetailsEnabled} title="상세 내용 준비 중" onClick={() => onDetail(p)}>상세 보기</button></div></section>)}</div>
   </dialog>
 }
 
@@ -83,8 +83,8 @@ export default function Projects() {
     return () => clearInterval(timer)
   }, [reduced, paused, hidden, onscreen])
   useEffect(() => { try { sessionStorage.setItem('projects-time', String(time)) } catch { /* Optional storage. */ } }, [time])
-  function choose(index) { setSelected(index); explore.stop() }
-  function setDirection(index) { setWaypoint(index); setSelected(-1); explore.walkTo(worldProjects[index]) }
+  function choose(index) { setSelected(index); setWaypoint(index); explore.warpTo(worldProjects[index]) }
+  function setDirection(index) { choose(index) }
   const sunset=Math.max(0,time-20)/220*.38
 
   return <main id="main" className="projects-world" data-still={reduced || paused || hidden || !onscreen} data-entering={Boolean(entering)}>
@@ -118,14 +118,14 @@ export default function Projects() {
       {current && <aside className="pw-preview" aria-label={`${current.name} 미리보기`}>
         <button className="pw-preview-close" aria-label="미리보기 닫기" onClick={() => { setSelected(-1); viewport.current?.focus() }}>×</button>
         {current.screen && <ProjectScreen key={current.id} project={current} />}
-        <div className="pw-preview-body"><small>{current.landmark}</small><h2>{current.name}</h2><p>{current.description}</p><span>{current.role || '담당 역할 자료 준비 중'}</span><div className="pw-preview-actions"><button onClick={() => setDirection(worldProjects.indexOf(current))}>길 따라 이동</button><button className="pw-detail-action" disabled={!projectDetailsEnabled} title="상세 내용 준비 중" onClick={() => enter(current)}>상세 보기</button></div></div>
+        <div className="pw-preview-body"><small>{current.landmark}</small><h2>{current.name}</h2><p>{current.description}</p><span>{current.role || '담당 역할 자료 준비 중'}</span><div className="pw-preview-actions"><button onClick={() => setDirection(worldProjects.indexOf(current))}>바로 이동</button><button className="pw-detail-action" disabled={!projectDetailsEnabled} title="상세 내용 준비 중" onClick={() => enter(current)}>상세 보기</button></div></div>
       </aside>}
       <div className="pw-bottom">
         <button className="pw-journey-menu" onClick={() => setPicker(true)} aria-haspopup="dialog" aria-keyshortcuts="M"><span className="pw-compass-mark" aria-hidden="true"/><span>목적지 선택{waypoint !== null && <small>{worldProjects[waypoint].name}</small>}</span><kbd>M</kbd></button>
         <p id="pw-help"><span><kbd>WASD</kbd> 이동</span><span><kbd>Shift</kbd> 달리기</span><span><kbd>E</kbd> 입장</span><span className="pw-mouse-hint">길 클릭으로 이동</span></p>
       </div>
     </section>
-    <section className="pw-mobile-index" aria-labelledby="pw-index-title"><h2 id="pw-index-title">목적지 선택</h2>{worldProjects.map(p => <button key={p.id} disabled={!projectDetailsEnabled} title="상세 내용 준비 중" onClick={() => enter(p)}><div><small>{p.landmark}</small><h3>{p.name}</h3><p>{p.role || '자료 준비 중'}</p></div><span aria-hidden="true">↗</span></button>)}</section>
+    <section className="pw-mobile-index" aria-labelledby="pw-index-title"><h2 id="pw-index-title">목적지 선택</h2>{worldProjects.map((p,index) => <button key={p.id} onClick={() => choose(index)}><div><small>{p.landmark}</small><h3>{p.name}</h3><p>{p.role || '자료 준비 중'}</p></div><span aria-hidden="true">↗</span></button>)}</section>
     {picker && <ProjectPicker onClose={() => setPicker(false)} onWalk={setDirection} onDetail={enter} />}
     {projectDetailsEnabled && entering && <ProjectDetailDialog project={entering} fallback={viewport} onClose={() => setEntering(null)} />}
   </main>

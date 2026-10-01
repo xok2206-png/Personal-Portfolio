@@ -105,7 +105,7 @@ export async function createFlightScene({ canvas, labels, root, onNear, onManual
         const a = points[i-1], b = points[i]
         curve.add(new THREE.LineCurve3(new THREE.Vector3(a.x,a.y,a.z),new THREE.Vector3(b.x,b.y,b.z)))
       }
-      flight = { id, curve, time: 0, duration: Math.max(2.4, curve.getLength() / 7) }
+      flight = { id, curve, time: 0, duration: Math.max(1.6, curve.getLength() / 10.5) }
       keys.clear(); root.dataset.flying = id
     },
     reset() { wingTrails.reset(); flight = null; position.set(1, 1.2, 18); heading = -.25; clearKeys(); onNear(null); near = null; root.dataset.flying = '' },
@@ -130,7 +130,7 @@ export async function createFlightScene({ canvas, labels, root, onNear, onManual
         const steering = Number(keys.has('a') || keys.has('arrowleft')) - Number(keys.has('d') || keys.has('arrowright'))
         heading += steering * dt * .95
         const thrust = keys.has('w') || keys.has('arrowup'), brake = keys.has('s') || keys.has('arrowdown')
-        speed = THREE.MathUtils.damp(speed, thrust ? 8 : 0, brake ? 4 : 1.4, dt)
+        speed = THREE.MathUtils.damp(speed, thrust ? 12 : 0, brake ? 4 : 1.4, dt)
         const dx = clamp(position.x - Math.sin(heading) * speed * dt, -34, 36) - position.x
         const dz = clamp(position.z - Math.cos(heading) * speed * dt, -34, 30) - position.z
         const collided = moveOutsideIslands(position, dx, dz, flightPlaces)

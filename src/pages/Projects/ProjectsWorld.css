@@ -68,3 +68,20 @@
 .pw-heading .pw-touch-intro{display:none}
 @media(max-width:767px),(max-width:1023px) and (orientation:portrait){.pw-heading .pw-desktop-intro{display:none}.pw-heading .pw-touch-intro{display:block}.portfolio-experience.gallery-mode{background:var(--cloud)}}
 /* Ground-distance controller owns gait; no second timed CSS walk loop. */
+
+/* Brief local teleport: one departure pulse, then one arrival pulse. */
+.pw-character:before,.pw-character:after{content:'';position:absolute;pointer-events:none;opacity:0}
+.pw-character:before{inset:-12% -45% -8%;background:radial-gradient(ellipse at 50% 70%,color-mix(in srgb,var(--cloud) 85%,transparent),color-mix(in srgb,var(--sky-300) 65%,transparent) 28%,transparent 68%);transform-origin:50% 90%}
+.pw-character:after{left:-35%;right:-35%;bottom:0;height:24%;border:2px solid var(--sky-100);border-radius:50%;transform-origin:center}
+.pw-character[data-teleport=departing] .pw-person{animation:pw-vanish .22s ease-in forwards}
+.pw-character[data-teleport=arriving] .pw-person{animation:pw-materialize .48s ease-out both}
+.pw-character[data-teleport=departing]:before{animation:pw-depart-light .22s ease-in both}
+.pw-character[data-teleport=arriving]:before{animation:pw-arrive-light .48s ease-out both}
+.pw-character[data-teleport]:after{animation:pw-portal-ring .48s ease-out both}
+.pw-character[data-teleport] .pw-shadow{opacity:.2}
+@keyframes pw-vanish{from{opacity:1;translate:0 0}to{opacity:0;translate:0 -12px}}
+@keyframes pw-materialize{from{opacity:0;translate:0 -12px}to{opacity:1;translate:0 0}}
+@keyframes pw-depart-light{from{opacity:0;scale:.45 .7}to{opacity:.9;scale:1 1.1}}
+@keyframes pw-arrive-light{from{opacity:.9;scale:1 1.1}to{opacity:0;scale:1.35 1.2}}
+@keyframes pw-portal-ring{from{opacity:.8;scale:.35}to{opacity:0;scale:1.5}}
+@media(prefers-reduced-motion:reduce){.pw-character[data-teleport] .pw-person{animation:none}.pw-character:before,.pw-character:after{display:none}}

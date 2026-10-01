@@ -35,7 +35,7 @@ export default function useGalleryWalk({reduced,paused,hidden,initialPosition={x
    const length=Math.hypot(dx,dy)
    if(!length){setPlayer({...position.current,moving:false,facing,view});setActive(false);return}
    if(Math.abs(dx)>.01)facing=dx<0?1:-1;view=direction(dx,dy)
-   const distance=Math.min(speed*dt,length)
+   const distance=Math.min(speed*1.5*dt,length)
    const previous=position.current
    position.current=boundary.current({x:limit(previous.x+dx/length*distance,9,91),y:limit(previous.y+dy/length*distance/1.6,minY,94)})
    const moving=Math.hypot(position.current.x-previous.x,position.current.y-previous.y)>.001

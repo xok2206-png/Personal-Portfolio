@@ -18,10 +18,12 @@ export default function useProjectExploration({ viewport, stage, walker, roadCur
   useEffect(() => { callbacks.current = { onEnter, onApproach, paused, visited } }, [onEnter, onApproach, paused, visited])
 
   const stop = useCallback(() => { state.current.keys.clear(); state.current.route = [] }, [])
-  const walkTo = useCallback(project => {
+  const warpTo = useCallback(project => {
     const s=state.current
     s.keys.clear()
-    s.route=roadRoute(s.position,{x:project.entrance[0],y:project.entrance[1]})
+    s.route=[]
+    s.drag=null
+    s.teleport={target:{x:project.entrance[0],y:project.entrance[1]},started:performance.now(),arrived:false}
     s.follow=true
     viewport.current?.focus({preventScroll:true})
   }, [viewport])
@@ -55,6 +57,7 @@ export default function useProjectExploration({ viewport, stage, walker, roadCur
       if (matchMedia('(max-width:767px), (max-width:1023px) and (orientation:portrait)').matches) return
       if (document.querySelector('dialog[open]') || e.altKey || e.ctrlKey || e.metaKey || e.target.closest?.('input,textarea,select,a,button,summary,[contenteditable="true"]')) return
       if (e.key === 'Escape') { clear(); return }
+      if (s.teleport) return
       if (e.key.toLowerCase() === 'e' && s.near !== null) { e.preventDefault(); if (!e.repeat) callbacks.current.onEnter(worldProjects[s.near]); return }
       const key = aliases[e.key.toLowerCase()] || e.key
       if (key === 'Shift' || key.startsWith('Arrow')) {
@@ -68,6 +71,15 @@ export default function useProjectExploration({ viewport, stage, walker, roadCur
         const inView = viewport.current.getBoundingClientRect().bottom > 0
         const blocked = !inView || document.querySelector('dialog[open]')
         if (blocked) clear()
+        if (s.teleport) {
+          const trip=s.teleport, elapsed=now-trip.started
+          const instant=callbacks.current.paused
+          if ((elapsed>=220 || instant) && !trip.arrived) {
+            s.position={...trip.target};s.camera={x:s.position.x,y:s.position.y-12};s.warped=true;trip.arrived=true
+          }
+          walker.current.dataset.teleport=trip.arrived ? "arriving" : "departing"
+          if (elapsed>=700 || instant) { s.teleport=null;delete walker.current.dataset.teleport }
+        }
         let dx = Number(s.keys.has('ArrowRight')) - Number(s.keys.has('ArrowLeft'))
         let dy = Number(s.keys.has('ArrowDown')) - Number(s.keys.has('ArrowUp'))
         while (s.route.length && roadDistance(s.position, s.route[0]) < .06) s.route.shift()
@@ -76,8 +88,8 @@ export default function useProjectExploration({ viewport, stage, walker, roadCur
         const length = Math.hypot(dx, dy)
         const before = s.position
         const depth = .48 + s.position.y / 150
-        if (length && !blocked) {
-          const speed = (4.2 + s.position.y * .03) * (s.keys.has('Shift') ? 1.6 : 1)
+        if (length && !blocked && !s.teleport) {
+          const speed = (4.2 + s.position.y * .03) * 1.5 * (s.keys.has('Shift') ? 1.6 : 1)
           const step = Math.min(speed * dt, target ? length : Infinity)
           const next=moveOnRoad(s.position,{x:dx/length*step,y:dy/length*step*1.5})
           if (roadDistance(next, s.position) < .0001 && target) s.route = []
@@ -129,6 +141,7 @@ export default function useProjectExploration({ viewport, stage, walker, roadCur
           }
         }
         if (s.follow && !callbacks.current.paused) s.camera = { x: s.position.x, y: s.position.y - 12 }
+        if (s.warped) { renderCamera = { ...s.camera }; s.warped = false }
         const ease = callbacks.current.paused ? 1 : 1 - Math.exp(-dt * 7)
         renderCamera.x += (s.camera.x - renderCamera.x) * ease
         renderCamera.y += (s.camera.y - renderCamera.y) * ease
@@ -160,7 +173,7 @@ export default function useProjectExploration({ viewport, stage, walker, roadCur
   }, [viewport, stage, walker, stop])
 
   const pointerDown = e => {
-    if (e.target.closest('button,a') || e.pointerType === 'touch') return
+    if (state.current.teleport || e.target.closest('button,a') || e.pointerType === 'touch') return
     if(roadCursor.current)roadCursor.current.hidden=true
     state.current.drag = { x: e.clientX, y: e.clientY, startX: e.clientX, startY: e.clientY, moved: false }
     viewport.current.setPointerCapture(e.pointerId)
@@ -195,5 +208,5 @@ export default function useProjectExploration({ viewport, stage, walker, roadCur
     }
     s.drag = null
   }
-  return { near, visited, discovery, zoom, aim, walkTo, changeZoom, stop, pointerDown, pointerMove, pointerUp }
+  return { near, visited, discovery, zoom, aim, warpTo, changeZoom, stop, pointerDown, pointerMove, pointerUp }
 }
