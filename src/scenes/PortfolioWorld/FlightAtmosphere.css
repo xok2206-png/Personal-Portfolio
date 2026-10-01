@@ -1,0 +1,39 @@
+/* Backdrop motion is CSS-owned; flightScene owns the separate 3D foreground. */
+.flight-atmosphere{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;contain:paint}
+.flight-atmosphere .flight-daylight{position:absolute;inset:-8%;background:radial-gradient(ellipse at 76% 18%,color-mix(in srgb,var(--ivory) 48%,transparent),transparent 48%);animation:flight-daylight 18s -5s ease-in-out infinite alternate}
+.flight-sun{position:absolute;top:18%;right:22%;width:clamp(48px,5vw,80px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--ivory) 25%,color-mix(in srgb,var(--ivory) 55%,transparent) 52%,transparent 72%);opacity:.8}
+.flight-atmosphere .lw-cloud-banks{z-index:1}
+.flight-atmosphere .lw-cloud-bank{animation-duration:32s}
+.flight-atmosphere .bank-0{left:-18%;top:18%;width:48%;filter:none}
+.flight-atmosphere .bank-1{left:48%;top:40%;width:40%;opacity:.65;animation-duration:44s}
+.flight-atmosphere .bank-3{left:-10%;top:72%;width:62%;animation-duration:37s}
+.flight-atmosphere .lw-haze{z-index:2;opacity:.6}
+.flight-atmosphere .lw-birdlife{z-index:3}
+.flight-atmosphere[data-flight='true'] .lw-birdlife{display:none}
+.flight-atmosphere .lw-bird{fill:var(--ink-soft);filter:none}
+.flight-atmosphere .lw-flock{animation-duration:38s;animation-delay:-12s}
+.flight-atmosphere .flock-0{top:25%}
+.flight-atmosphere .lw-wind-life{z-index:4;opacity:.6}
+.flight-atmosphere .lw-leaf-flight{animation-duration:22s}
+.flight-distant-ship{position:absolute;z-index:2;top:28%;left:0;width:clamp(64px,7vw,112px);opacity:.65;animation:flight-ship-pass 65s -24s linear infinite}
+.flight-distant-ship img{display:block;width:100%;animation:flight-ship-bob 5s ease-in-out infinite alternate}
+.flight-breeze{position:absolute;inset:0;z-index:3;width:100%;height:100%;fill:none;stroke:var(--cloud);stroke-width:1;opacity:.4}
+.flight-breeze path{stroke-dasharray:80 1200;stroke-dashoffset:1280;animation:flight-wind 12s -3s linear infinite}
+.flight-breeze path+path{animation-delay:-8s;animation-duration:17s}
+.flight-world .flight-canvas{z-index:1}
+.flight-atmosphere[data-still='true'] *, .flight-atmosphere[data-still='true'] *::after{animation-play-state:paused!important}
+@keyframes flight-daylight{from{transform:translate(-1%,0);opacity:.7}to{transform:translate(1%,1%);opacity:1}}
+@keyframes flight-ship-pass{from{transform:translateX(110vw)}to{transform:translateX(-20vw)}}
+@keyframes flight-ship-bob{from{transform:translateY(-4px) rotate(-1deg)}to{transform:translateY(4px) rotate(1deg)}}
+@keyframes flight-wind{to{stroke-dashoffset:0}}
+@media(max-width:1023px){
+  .flight-atmosphere .bank-0{width:85%;left:-35%;top:15%}
+  .flight-atmosphere .bank-1{width:80%;left:44%;top:45%}
+  .flight-atmosphere .bank-3{width:85%;left:-26%;top:78%}
+  .flight-atmosphere .haze-c,.flight-atmosphere .lw-leaf-flight:nth-child(n+3){display:none}
+  .flight-atmosphere .lw-flock{transform-origin:left;scale:.75}
+  .flight-atmosphere .flock-0{top:22%}
+  .flight-sun{right:20%;top:20%}
+  .flight-distant-ship{top:20%;width:64px}
+}
+@media(prefers-reduced-motion:reduce){.flight-atmosphere *{animation-play-state:paused!important}.flight-breeze,.flight-distant-ship{display:none}}

@@ -1,5 +1,8 @@
 import * as THREE from 'three'
+import { islandDock, safeFlightPath, moveOutsideIslands } from './flightCollision.js'
 import { islandLayers } from './layers.config.js'
+import { createWingCraft } from './createWingCraft.js'
+import { createWingTrails } from './createWingTrails.js'
 
 export const flightPlaces = [
   { id: 'about', x: -19, y: 4, z: -8, size: 15.5, artTop: .0234 },
@@ -27,46 +30,23 @@ export async function createFlightScene({ canvas, labels, root, onNear, onManual
   const textures = new Set(), geometries = new Set(), materials = new Set()
   let disposed = false, initialized = false, readySent = false, frame = 0, active = !document.hidden, paused = false, near = null, flight = null
   let highlighted = ''
-  let last = 0, elapsed = 0, heading = -.25, speed = 0, bank = 0
-  const keys = new Set(), craft = new THREE.Group(), propellers = []
+  let last = 0, elapsed = 0, heading = -.25, speed = 0, bank = 0, surfBlend = 0
+  const keys = new Set(), craft = new THREE.Group(), riderTextures = {}, surfTextures = {}
   const position = new THREE.Vector3(1, 1.2, 18)
   const projected = new THREE.Vector3(), labelPoint = new THREE.Vector3(), topPoint = new THREE.Vector3(), lookAt = new THREE.Vector3(0, 1, -3)
   const viewport = { width: 0, height: 0, changed: true }
   const islands = [], clouds = [], birds = []
   const waterTime = { value: 0 }
   const makeMaterial = token => { const m = new THREE.MeshStandardMaterial({ color: color(token), roughness: .95 }); materials.add(m); return m }
-  const linen = makeMaterial('--ivory'), seam = makeMaterial('--stone-400'), wood = makeMaterial('--deep-green'), trim = makeMaterial('--warm-accent')
+  const wood = makeMaterial('--deep-green')
   const mesh = (geometry, material, parent, x, y, z, sx = 1, sy = 1, sz = 1) => {
     geometries.add(geometry)
     const object = new THREE.Mesh(geometry, material)
     object.position.set(x, y, z); object.scale.set(sx, sy, sz); parent.add(object); return object
   }
-  // Restrained, functional silhouette: linen envelope, timber gondola, two propellers.
-  mesh(new THREE.SphereGeometry(1, 32, 20), linen, craft, 0, 3.1, 0, 1.3, 1.25, 2.8)
-  for (const z of [-1.8, -.9, 0, .9, 1.8]) {
-    const r = Math.sqrt(1 - (z / 2.8) ** 2)
-    const points = Array.from({ length: 65 }, (_, i) => new THREE.Vector3(Math.cos(i / 64 * Math.PI * 2) * 1.307 * r, 3.1 + Math.sin(i / 64 * Math.PI * 2) * 1.257 * r, z))
-    mesh(new THREE.TubeGeometry(new THREE.CatmullRomCurve3(points), 64, .018, 4, true), seam, craft, 0, 0, 0)
-  }
-  mesh(new THREE.SphereGeometry(1, 16, 10), wood, craft, 0, .15, .15, .65, .38, 1.5)
-  mesh(new THREE.BoxGeometry(1.08, .1, 2.15), trim, craft, 0, .43, .15)
-  for (const x of [-.6, .6]) for (const z of [-.85, .85]) {
-    const rope = new THREE.LineCurve3(new THREE.Vector3(x, .42, z), new THREE.Vector3(x * 1.6, 2.5, z))
-    mesh(new THREE.TubeGeometry(rope, 1, .018, 4), seam, craft, 0, 0, 0)
-  }
-  const tail = mesh(new THREE.BoxGeometry(.06, 1.4, 1.25), wood, craft, 0, 3.5, 2.4)
-  tail.rotation.x = -.2
-  mesh(new THREE.BoxGeometry(2.3, .06, 1.05), wood, craft, 0, 2.95, 2.45)
-  for (const x of [-1.05, 1.05]) {
-    mesh(new THREE.CylinderGeometry(.13, .13, .7, 10), trim, craft, x, .4, .8).rotation.x = Math.PI / 2
-    const propeller = new THREE.Group(); propeller.position.set(x, .4, 1.2); craft.add(propeller)
-    for (let i = 0; i < 3; i++) {
-      const blade = mesh(new THREE.BoxGeometry(.12, .7, .035), wood, propeller, 0, 0, 0)
-      blade.rotation.z = i * Math.PI / 3
-    }
-    propellers.push(propeller)
-  }
+  const rider = createWingCraft({ craft, mesh, makeMaterial, materials })
   craft.scale.setScalar(.95); scene.add(craft)
+  const wingTrails = createWingTrails({ scene, craft, camera, color: color('--cloud'), geometries, materials })
   for (let i = 0; i < 3; i++) {
     const bird = new THREE.Group(), wings = []
     for (const side of [-1, 1]) {
@@ -117,15 +97,18 @@ export async function createFlightScene({ canvas, labels, root, onNear, onManual
     fly(id) {
       const island = flightPlaces.find(p => p.id === id)
       if (!island || paused) return
-      const end = new THREE.Vector3(island.x, island.y - 1.4, island.z + 6)
-      const start = position.clone(), distance = start.distanceTo(end)
-      const forward = new THREE.Vector3(-Math.sin(heading), 0, -Math.cos(heading))
-      const c1 = start.clone().addScaledVector(forward, Math.min(distance * .4, 7))
-      const c2 = end.clone().add(new THREE.Vector3(-3, 1.5, 5))
-      flight = { id, curve: new THREE.CubicBezierCurve3(start, c1, c2, end), time: 0, duration: clamp(distance / 8, 2.4, 5.2) }
+      const dock = islandDock(island)
+      const points = safeFlightPath(position, dock, flightPlaces)
+      if (!points) { onManual(); return }
+      const curve = new THREE.CurvePath()
+      for (let i = 1; i < points.length; i++) {
+        const a = points[i-1], b = points[i]
+        curve.add(new THREE.LineCurve3(new THREE.Vector3(a.x,a.y,a.z),new THREE.Vector3(b.x,b.y,b.z)))
+      }
+      flight = { id, curve, time: 0, duration: Math.max(2.4, curve.getLength() / 7) }
       keys.clear(); root.dataset.flying = id
     },
-    reset() { flight = null; position.set(1, 1.2, 18); heading = -.25; clearKeys(); onNear(null); near = null; root.dataset.flying = '' },
+    reset() { wingTrails.reset(); flight = null; position.set(1, 1.2, 18); heading = -.25; clearKeys(); onNear(null); near = null; root.dataset.flying = '' },
   }
   function tick(now) {
     frame = 0
@@ -148,21 +131,41 @@ export async function createFlightScene({ canvas, labels, root, onNear, onManual
         heading += steering * dt * .95
         const thrust = keys.has('w') || keys.has('arrowup'), brake = keys.has('s') || keys.has('arrowdown')
         speed = THREE.MathUtils.damp(speed, thrust ? 8 : 0, brake ? 4 : 1.4, dt)
-        position.x = clamp(position.x - Math.sin(heading) * speed * dt, -27, 29)
-        position.z = clamp(position.z - Math.cos(heading) * speed * dt, -22, 27)
+        const dx = clamp(position.x - Math.sin(heading) * speed * dt, -34, 36) - position.x
+        const dz = clamp(position.z - Math.cos(heading) * speed * dt, -34, 30) - position.z
+        const collided = moveOutsideIslands(position, dx, dz, flightPlaces)
+        root.dataset.blocked = String(collided)
+        if (collided) speed *= .82
         const closest = flightPlaces.reduce((best, p) => Math.hypot(position.x - p.x, position.z - p.z - 6) < Math.hypot(position.x - best.x, position.z - best.z - 6) ? p : best)
         position.y = THREE.MathUtils.damp(position.y, closest.y - 1.4, 1, dt)
         root.dataset.flying = ''
       }
       bank = THREE.MathUtils.damp(bank, clamp((heading - oldHeading) / Math.max(dt, .001) * .24, -.32, .32), 3, dt)
-      propellers.forEach(p => { p.rotation.z += dt * (3 + speed * 3) })
     }
     craft.position.copy(position); craft.position.y += Math.sin(elapsed * 1.4) * .12
     waterTime.value = elapsed
     craft.rotation.set(-speed * .007, heading, bank)
+    const facing = Math.cos(heading) > .55 ? 'back' : Math.cos(heading) < -.55 ? 'front' : 'side'
+    const riderTexture = riderTextures[facing] || riderTextures.back
+    if (riderTexture && rider.material.map !== riderTexture) { rider.material.map = riderTexture; rider.material.needsUpdate = true }
+    const surfer = rider.userData.surfer
+    const surfTexture = surfTextures[facing] || surfTextures.back
+    const surfing = speed > .45 || Math.abs(bank) > .025
+    if (moving) surfBlend = THREE.MathUtils.damp(surfBlend, surfing && surfTexture ? 1 : 0, 9, dt)
+    if (riderTexture) { rider.material.opacity = 1 - surfBlend; rider.material.rotation = -bank * .3 }
+    if (surfTexture && surfer.material.map !== surfTexture) { surfer.material.map = surfTexture; surfer.material.needsUpdate = true }
+    surfer.material.opacity = surfTexture ? surfBlend : 0
+    // Balance around planted feet; this renderer owns every pose transform.
+    surfer.material.rotation = -bank * .85 + Math.sin(elapsed * 3) * .018 * surfBlend
+    surfer.scale.y = 2.98 - Math.min(speed / 8, 1) * .12 + Math.sin(elapsed * 4) * .025 * surfBlend
+    root.dataset.riderPose = surfBlend > .5 ? 'surf' : 'idle'
+    root.dataset.riderLean = surfer.material.rotation.toFixed(3)
+    if (surfTextures.side) { surfTextures.side.repeat.x = Math.sin(heading) > 0 ? -1 : 1; surfTextures.side.offset.x = Math.sin(heading) > 0 ? 1 : 0 }
+    if (riderTextures.side) { riderTextures.side.repeat.x = Math.sin(heading) > 0 ? -1 : 1; riderTextures.side.offset.x = Math.sin(heading) > 0 ? 1 : 0 }
     camera.position.x = THREE.MathUtils.damp(camera.position.x, position.x * .16, 1.7, dt)
     camera.position.z = THREE.MathUtils.damp(camera.position.z, 50 + position.z * .1, 1.7, dt)
     lookAt.x = camera.position.x * .5; camera.lookAt(lookAt)
+    root.dataset.wingTrail = wingTrails.update(dt, speed, moving).toFixed(3)
     islands.forEach(({ plane, place, emphasis, dim }, i) => {
       emphasis.value = THREE.MathUtils.damp(emphasis.value, highlighted === place.id ? 1 : 0, 9, dt)
       dim.value = THREE.MathUtils.damp(dim.value, highlighted && highlighted !== place.id ? 1 : 0, 9, dt)
@@ -187,11 +190,11 @@ export async function createFlightScene({ canvas, labels, root, onNear, onManual
       plane.position.z = z + Math.cos(elapsed * drift * .7 + i) * 2
     })
     birds.forEach(({ bird, wings, offset }) => {
-      bird.position.set(Math.sin(elapsed * .024 + offset * .03) * 33, 11 + offset * .4, -26 + offset * 1.2)
+      bird.position.set(Math.sin(elapsed * .055 + offset * .035) * 33, 11 + offset * .4, -26 + offset * 1.2)
       wings.forEach((wing, index) => { wing.rotation.z = Math.sin(elapsed * 4 + offset) * .4 * (index ? 1 : -1) })
     })
     let nextNear = null
-    if (!flight) nextNear = flightPlaces.find(p => Math.hypot(position.x - p.x, position.z - p.z - 6) < 4.3)?.id || null
+    if (!flight) nextNear = flightPlaces.find(p => { const dock = islandDock(p); return Math.hypot(position.x - dock.x, position.z - dock.z) < 3 })?.id || null
     if (near !== nextNear) { near = nextNear; onNear(near) }
     root.dataset.shipX = position.x.toFixed(2); root.dataset.shipZ = position.z.toFixed(2)
     renderer.render(scene, camera)
@@ -201,6 +204,17 @@ export async function createFlightScene({ canvas, labels, root, onNear, onManual
   try {
     const loaded = await Promise.all(flightPlaces.map(p => load(`/assets/production/images/seasonal-world/${p.id}-island-flight-v1.webp`)))
     const cloudTexture = await load('/assets/production/images/natural-world/painted-cloud-v1.webp')
+    // Optional rider textures never block the renderer or the navigation fallback.
+    for (const direction of ['back','side','front']) {
+      load(`/assets/production/images/projects-world/character/${direction}-idle-v2.webp`)
+        .then(texture => { if (!disposed) riderTextures[direction] = texture })
+        .catch(() => { /* Retain the loaded view or fly without the decorative rider. */ })
+    }
+    for (const direction of ['back', 'side', 'front']) {
+      load('/assets/production/images/projects-world/character/' + direction + '-surf-v1.webp')
+        .then(texture => { if (!disposed) surfTextures[direction] = texture })
+        .catch(() => { /* Retain the original rider when a surfing pose fails. */ })
+    }
     if (disposed) return api
     flightPlaces.forEach((place, i) => {
       const material = new THREE.MeshBasicMaterial({ map: loaded[i], transparent: true, alphaTest: .025, depthWrite: true, side: THREE.DoubleSide })
@@ -249,7 +263,7 @@ export async function createFlightScene({ canvas, labels, root, onNear, onManual
       materials.add(material)
       const x = [-28, 18, -4, 35, -24, 12, 33][i], z = [-28, -32, -35, -15, 23, 30, 28][i]
       const plane = mesh(new THREE.PlaneGeometry(26, 13), material, scene, x, i < 4 ? 6 : -3, z)
-      clouds.push({ plane, x, z, drift: .012 + i * .003 })
+      clouds.push({ plane, x, z, drift: .03 + i * .004 })
     }
     initialized = true; frame = requestAnimationFrame(tick)
   } catch {

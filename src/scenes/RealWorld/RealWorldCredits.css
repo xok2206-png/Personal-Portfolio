@@ -229,3 +229,26 @@ html[data-motion='reduced'] .cinematic-credits .real-secondary-action>span::afte
   .cinematic-credits .credit-entry-label::after,
   .cinematic-credits .real-secondary-action>span::after { animation: none; transition: none; }
 }
+
+/* The introduction now takes the upper space previously occupied by the logo. */
+.cinematic-credits .real-credit-copy{top:max(48px,9svh);bottom:auto;width:min(72%,960px)}
+.start-scene.cinematic-credits .start-copy h1{font-size:clamp(48px,4.4vw,80px);line-height:1.3}
+.cinematic-credits .room-shade{background:linear-gradient(180deg,#080d1880,transparent 42%),linear-gradient(0deg,#080d18eb 0%,#080d1880 18%,#080d1800 48%)}
+@media(max-width:767px),(max-aspect-ratio:1/1){
+  .cinematic-credits .real-credit-copy{top:max(88px,10svh);width:calc(100% - var(--credit-gutter)*2)}
+  .start-scene.cinematic-credits .start-copy h1{font-size:clamp(38px,8vw,56px);line-height:1.35}
+}
+@media(max-height:620px) and (min-aspect-ratio:1/1){
+  .cinematic-credits .real-credit-copy{top:48px;width:68%}
+  .start-scene.cinematic-credits .start-copy h1{font-size:40px;line-height:1.25}
+}
+
+/* CSS owns the one-shot writing reveal; the heading keeps its full layout and accessible name. */
+.real-writing-heading .real-writing-line{display:block}
+.real-writing-heading .real-writing-word{display:inline-block;white-space:nowrap}
+.real-writing-heading .real-writing-letter{display:inline-block;animation:real-write-letter .34s var(--write-delay) cubic-bezier(.22,.61,.36,1) both}
+.cinematic-credits .real-writing-heading .real-credit-highlight::before{animation-delay:1.05s}
+@keyframes real-write-letter{from{clip-path:inset(0 100% 0 0);opacity:0}15%{opacity:1}to{clip-path:inset(0 0 0 0);opacity:1}}
+.real-writing-heading[data-reduced='true'] .real-writing-letter,
+.cinematic-credits .real-writing-heading[data-reduced='true'] .real-credit-highlight::before{animation:none;clip-path:none;opacity:1}
+@media(prefers-reduced-motion:reduce){.real-writing-heading .real-writing-letter{animation:none;clip-path:none;opacity:1}}

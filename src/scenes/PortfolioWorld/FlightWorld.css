@@ -6,8 +6,8 @@
 .flight-world[data-mode='direct'] .flight-canvas{display:none}
 .flight-world[data-mode='loading'] :is(.flight-islands,.flight-controls){visibility:hidden}
 .flight-heading{position:absolute;left:var(--page-gutter);bottom:max(32px,env(safe-area-inset-bottom));z-index:2;pointer-events:none}
-.flight-heading h1{font:400 clamp(38px,3.8vw,56px)/1.1 var(--font-display);margin:0 0 8px;letter-spacing:0}
-.flight-heading p{font:400 14px/1.6 var(--font-ui);color:var(--ink-soft);margin:0}
+.portfolio-experience .flight-heading h1{font:400 clamp(38px,3.8vw,56px)/1.1 var(--font-display);margin:0 0 8px;letter-spacing:0;text-transform:none}
+.portfolio-experience .flight-heading p{font:400 14px/1.55 var(--font-ui);color:var(--ink-soft);margin:0;letter-spacing:0;text-transform:none}
 .flight-islands{position:absolute;inset:0;pointer-events:none;z-index:3}
 .flight-island{position:absolute;display:flex;align-items:center;justify-content:flex-end;flex-direction:column;transform:translate(-50%,-50%);text-decoration:none;color:var(--ink);pointer-events:auto;border-radius:14px}
 .flight-island img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}
@@ -39,9 +39,7 @@
 .flight-destination kbd{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;border:1px solid var(--stone-400);border-radius:6px;font:500 12px var(--font-ui);margin-right:4px}
 .flight-destination{position:absolute;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;white-space:nowrap}
 .flight-destination:empty{display:none}.flight-destination>span{font:400 14px var(--font-ui);background:var(--cloud);padding:8px 16px;border-radius:10px}
-.flight-destination>span button{min-height:44px;padding:4px 8px;margin-left:8px;text-decoration:underline;text-underline-offset:4px}
 .flight-destination a{display:flex;align-items:center;gap:12px;background:var(--surface-dark);color:var(--cloud)}
-.flight-destination a:hover{background:var(--deep-green)}
 .flight-sr{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
 .world-arrival{position:fixed;inset:0;margin:0;width:100%;max-width:none;height:100dvh;max-height:none;border:0;border-radius:0;padding:24px;display:grid;place-items:center;background:color-mix(in srgb,var(--cloud) 86%,transparent);color:var(--ink);animation:arrival-reveal .8s ease both}
 .world-arrival[data-leaving='true']{animation:arrival-depart .6s ease both}
@@ -64,8 +62,8 @@
  .flight-island-description{font-size:14px;max-width:100%;text-align:center;line-height:1.4}
  .flight-label{padding:8px 12px;font-size:20px}
 }
-@media(max-width:390px){.flight-world[data-mode='direct'] .flight-heading h1{font-size:38px}.flight-label{gap:8px}.flight-island-description{max-width:140px}.flight-world[data-mode='direct'] .flight-islands{gap:16px 4px}}
-@media(max-height:650px) and (min-width:1024px){.flight-heading{bottom:24px}.flight-heading h1{font-size:38px}.flight-destination{bottom:16px}}
+@media(max-width:390px){.portfolio-experience .flight-world[data-mode='direct'] .flight-heading h1{font-size:38px}.flight-label{gap:8px}.flight-island-description{max-width:140px}.flight-world[data-mode='direct'] .flight-islands{gap:16px 4px}}
+@media(max-height:650px) and (min-width:1024px){.flight-heading{bottom:24px}.portfolio-experience .flight-heading h1{font-size:38px}.flight-destination{bottom:16px}}
 @media(prefers-reduced-motion:reduce){.flight-canvas,.flight-label,.flight-label>span{transition:none}.world-arrival{animation:none;backdrop-filter:none}}
 
 @media(prefers-reduced-motion:reduce){.flight-label strong:after,.flight-world[data-mode='direct'] .flight-island img{transition:none}.flight-world[data-mode='direct'] .flight-island[data-emphasis='true'] img{translate:none}}
@@ -116,3 +114,16 @@
   .arrival-arrow,.arrival-arrow svg { transition:none; }
 }
 .world-arrival:focus { outline:none; }
+
+/* Compact arrival action; the white description and visible cancel control are removed. */
+.flight-destination{--nav-glass:#263E61;--nav-signal:#65C8F4}
+.flight-destination a,.flight-destination>span{position:relative;isolation:isolate;min-height:48px;padding:12px 24px;border:1px solid color-mix(in srgb,var(--cloud) 80%,transparent);border-radius:40px;background:linear-gradient(90deg,color-mix(in srgb,var(--nav-signal) 18%,transparent),transparent 50%,color-mix(in srgb,var(--nav-signal) 18%,transparent)),color-mix(in srgb,var(--nav-glass) 88%,transparent);color:var(--cloud);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);font:500 14px/1.5 var(--font-ui)}
+.flight-destination a::before{content:'';position:absolute;inset:3px;border:1px solid color-mix(in srgb,var(--cloud) 32%,transparent);border-radius:inherit;pointer-events:none}
+.flight-destination a:is(:hover,:focus-visible){background:var(--nav-glass);box-shadow:0 0 12px color-mix(in srgb,var(--nav-signal) 35%,transparent)}
+.flight-destination a:focus-visible{outline:2px solid var(--sky-300);outline-offset:4px}
+.flight-destination a>span{transition:transform 160ms ease}
+.flight-destination a:is(:hover,:focus-visible)>span{transform:translateX(3px)}
+.flight-destination kbd{border-color:var(--sky-300);color:var(--cloud)}
+@media(prefers-reduced-motion:reduce){.flight-destination a>span{transition:none;transform:none!important}}
+@supports not (backdrop-filter:blur(1px)){.flight-destination a,.flight-destination>span{background:var(--surface-dark)}}
+@media(prefers-reduced-transparency:reduce){.flight-destination a,.flight-destination>span{background:var(--surface-dark);backdrop-filter:none;-webkit-backdrop-filter:none}}

@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { usePortfolioUI } from '../app/PortfolioUIContext.jsx'
 import './NextDestination.css'
-const journey={ '/skills':['Projects','/projects'] }
+const journey={}
 export default function NextDestination(){
  const {pathname}=useLocation(), {travelTo}=usePortfolioUI()
  const next=journey[pathname]

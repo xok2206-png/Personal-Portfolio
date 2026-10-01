@@ -13,8 +13,10 @@ const chapters = [
   ['build', 'Build', '구현'],
   ['result', 'Result', '결과와 남은 과제'],
 ]
-export default function ProjectDetail() {
-  const { projectId } = useParams()
+export default function ProjectDetail({ projectId: selectedId, onClose }) {
+  const { projectId: routeId } = useParams()
+  const projectId = selectedId || routeId
+  const Container = onClose ? 'div' : 'main'
   const project = worldProjects.find(p => p.id === projectId)
   const { reduced } = usePortfolioUI()
   const [active, setActive] = useState('overview')
@@ -23,10 +25,10 @@ export default function ProjectDetail() {
     if (!root.current) return
     const observer = new IntersectionObserver(entries => {
       for (const entry of entries) if (entry.isIntersecting) setActive(entry.target.id)
-    }, { rootMargin: '-20% 0px -55% 0px', threshold: 0 })
+    }, { root: onClose ? root.current.closest('dialog') : null, rootMargin: '-20% 0px -55% 0px', threshold: 0 })
     root.current.querySelectorAll('[data-chapter]').forEach(section => observer.observe(section))
     return () => observer.disconnect()
-  }, [projectId])
+  }, [projectId, onClose])
   if (!project) return <main id="main" className="project-reading"><h1 tabIndex={-1}>프로젝트를 찾을 수 없습니다.</h1><Link to="/projects">Projects로 돌아가기</Link></main>
   const copy = {
     overview: project.description,
@@ -36,9 +38,9 @@ export default function ProjectDetail() {
     build: project.implementation,
     result: project.result,
   }
-  return <main id="main" className="project-reading" ref={root} data-reduced={reduced}>
-    <header className="pr-heading"><Link to="/projects">← Projects</Link><p>{project.category}</p><h1 tabIndex={-1}>{project.name}</h1><dl><div><dt>담당</dt><dd>{project.role || '자료 준비 중'}</dd></div><div><dt>상태</dt><dd>{project.status}</dd></div></dl></header>
-    <nav className="pr-chapters" aria-label="프로젝트 내용">{chapters.map(([id, label]) => <a key={id} href={`#${id}`} aria-current={active === id ? 'location' : undefined}>{label}</a>)}</nav>
+  return <Container id={onClose ? undefined : "main"} className="project-reading" ref={root} data-reduced={reduced}>
+    <header className="pr-heading"><>{onClose ? <button onClick={onClose}>← 프로젝트로 돌아가기</button> : <Link to="/projects">← Projects</Link>}</><p>{project.category}</p><h1 tabIndex={-1}>{project.name}</h1><dl><div><dt>담당</dt><dd>{project.role || '자료 준비 중'}</dd></div><div><dt>상태</dt><dd>{project.status}</dd></div></dl></header>
+    <nav className="pr-chapters" aria-label="프로젝트 내용">{chapters.map(([id, label]) => <a key={id} href={`#${id}`} onClick={onClose ? event => { event.preventDefault(); root.current.querySelector(`#${id}`)?.scrollIntoView({ block: 'start', behavior: 'instant' }); setActive(id) } : undefined} aria-current={active === id ? 'location' : undefined}>{label}</a>)}</nav>
     <div className="pr-exhibition">
       <aside className="pr-display" aria-label="프로젝트 화면 전시" style={{ '--view-x': `${project.x}%`, '--view-y': `${project.y}%` }} data-chapter={active}>
         <img className="pr-place" src={worldAsset} alt="" />
@@ -54,6 +56,6 @@ export default function ProjectDetail() {
         {id === 'result' && project.limitation && <div className="pr-limitation"><h3>한계와 다음 단계</h3><p>{project.limitation}</p></div>}
       </section>)}</article>
     </div>
-    <footer className="pr-footer"><h2>프로젝트 확인하기</h2><div>{project.live && <a href={project.live} target="_blank" rel="noreferrer">사이트 보기 ↗</a>}{project.repo && <a href={project.repo} target="_blank" rel="noreferrer">코드 보기 ↗</a>}<Link to="/projects">Projects로 돌아가기 →</Link></div><p>실제 작업 화면과 사이트 링크는 추후 연결됩니다.</p></footer>
-  </main>
+    <footer className="pr-footer"><h2>프로젝트 확인하기</h2><div>{project.live && <a href={project.live} target="_blank" rel="noreferrer">사이트 보기 ↗</a>}{project.repo && <a href={project.repo} target="_blank" rel="noreferrer">코드 보기 ↗</a>}{onClose ? <button onClick={onClose}>상세 닫기</button> : <Link to="/projects">Projects로 돌아가기 →</Link>}</div><p>실제 작업 화면과 사이트 링크는 추후 연결됩니다.</p></footer>
+  </Container>
 }

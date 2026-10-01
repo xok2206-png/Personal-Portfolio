@@ -1,4 +1,147 @@
+## 2026-10-01 미완성 프로젝트 상세 공개 잠금 — 최신 사용자 결정
+
+- projectAccess.js의 projectDetailsEnabled=false로 전체 상세 공개를 잠갔다. 앞선 인라인 상세 창 동작보다 이 요청이 우선한다.
+- 미리보기/목적지 목록/모바일/근접 입장 버튼은 형태를 유지하며 disabled 및 준비 중 설명을 적용한다. E 입력의 공통 enter 함수도 차단한다.
+- /projects/:projectId 직접 접근은 /projects로 replace 복귀한다. 실제 프로젝트 데이터와 상세 컴포넌트는 보존했다. 공개 준비가 되면 하나의 플래그로 다시 활성화할 수 있다.
+- lint/build 통과(기존 청크 경고). 상세 잠금 검증은 qa/project-lock-check.cjs.
+
+## 2026-10-01 Contact 인라인 이력서 / 이메일 작성 창
+
+- Contact Resume 카드를 기존 ConnectHUD의 resume 패널에 연결했다. Resume 컴포넌트의 실제 내용을 embedded 모드로 재사용하며 /resume 직접 접근은 유지한다.
+- Email은 안내 단계를 건너뛰고 이름/답장 이메일/메시지 입력과 전송 버튼을 바로 보여준다. 기존 검증/오류/전송 중 상태를 유지했다.
+- profile.email은 미설정이며 전송 서비스 연결 전이다. 실제 전송은 검증하지 않았고 테스트 메시지도 발송하지 않았다. 수신 주소/전송 서비스 정보를 사용자에게 요청했다.
+- lint/build 통과(기존 청크 경고). Headless Edge 1151×882, 390×844에서 인라인 Resume, 입력, Escape, 가로 넘침 없음과 /resume 직접 접근 확인. 실기기 미검증. 결정 상태 변경 없음.
+
+## 2026-10-01 프로젝트 상세를 현재 화면에서 열기
+
+- Projects의 미리보기/목적지 목록/모바일 목록/E 입장은 Route 이동 대신 네이티브 dialog에서 기존 ProjectDetail 내용을 연다. 자동 상세 Route 전환 타이머를 제거했다.
+- 닫기/Escape와 포커스 복귀, 배경 스크롤/이동 잠금, 모바일 전체 화면을 지원한다. 상세 목차는 URL 변경 없이 창 내부를 스크롤한다.
+- 기존 /projects/:projectId 직접 접근과 실제 프로젝트 내용/외부 사이트 링크는 유지한다. Working/Locked 결정 변경 없음.
+- lint/build 통과(기존 청크 경고). Headless Edge 1151×882와 390×844에서 5개 상세, 닫기, URL 유지, 모바일 가로 넘침 없음 확인. 실기기 미검증.
+
+## 2026-10-01 섬 통과 방지
+
+- 사용자 요청으로 flightCollision.js에 섬 크기와 날개 폭을 포함하는 보수적인 수평 충돌 경계를 추가했다.
+  고도로 우회하지 않으며 수동 이동은 구간 검사와 작은 이동 단계로 관통을 막고 안전한 접선 이동만 허용한다.
+- flightScene.js의 자동 비행은 충돌 경계 밖의 가시성 그래프 최단 경로로 우회한다.
+  기존 Bezier가 섬을 가로지르는 문제를 없애고 입장 지점을 경계 밖으로 옮겼다. E/상단 직접 접근 유지.
+  수동 비행 범위를 우회 가능한 범위로 확장했다. 경계는 픽셀 실루엣이 아닌 보수적 원형 근사다.
+- 25개 시작/도착 조합 경로와 각 섬 전 방향 연속 돌진 구간 검사 통과.
+  Headless Edge 1440×810에서 자동 About 도착/E 입장 회귀 확인. lint/build 통과(기존 청크 경고).
+  사용자 월드맵 탭도 갱신했다. 실기기/모든 화면 크기 검증은 하지 않았다.
+## 2026-10-01 열린 월드맵 갱신 문제 수정
+
+- 기존 IAB 탭의 dataset에 riderPose/wingTrail이 없어 이전 WebGL 인스턴스가 유지됨을 확인했다.
+- FlightWorld.jsx에 개발용 flightScene HMR 수신 시 페이지 재로딩을 추가했다. 동적 import 후 생성된 장면이 이전 클로저를 계속 실행하는 문제를 방지한다.
+- 열려 있던 월드맵 두 탭을 갱신했다. 탭 4 자동 비행 화면에서 팔을 펼친 서핑 자세를 확인했다. lint/build 통과.
+
+## 2026-10-01 날개 끝 활공선
+
+- createWingTrails.js를 flightScene.js에 연결했다. 양쪽 날개 끝에 Cloud 토큰 색상의
+  얇은 반투명 리본을 표시하고 1.4초의 비행 경로를 따라 선회 곡선을 남긴다.
+  속도에 따라 길이/불투명도가 증가하며 제동 후 사라진다. Escape 복귀 시 기록을 비운다.
+- 기존 Three.js 루프를 사용하고 좌우 각각 최대 40개 점으로 제한한다. 자원은 기존 dispose에서
+  해제한다. 정지/설정 패널 중에는 갱신을 멈춘다. 직접 접근/Reduced Motion 구조는 유지한다.
+- 1440×810 Headless Edge에서 가속 시 표시, 제동 후 소멸, 서핑 자세와 에셋 실패 대체를 확인했다.
+  lint/build 통과(기존 Three.js 청크 경고). 실기기 미검증. Working/Locked 결정 변경 없음.
+  qa/wing-trails-check.cjs, output/flight-atmosphere-qa/wing-trails.png.
+## 2026-10-01 비행 캐릭터 서핑 자세
+
+- createWingCraft.js / flightScene.js: 기존 캐릭터 외형의 front/side/back 서핑 Sprite를 추가했다.
+  이동·선회 시 무릎을 굽히고 팔을 펼친 자세로 전환하며 정지 시 idle로 돌아온다.
+  선회 bank에 따른 발 중심 기울기와 속도에 따른 미세한 높이 변화는 기존 Three.js 루프가 소유한다.
+- 기존 비행, 카메라, E 입장, 직접 접근, 모바일/Reduced Motion 경로 및 결정 상태는 유지한다.
+  서핑 에셋 실패 시 기존 idle을 사용한다. 스켈레탈 3D 애니메이션은 아니다.
+- built-in imagegen 사용. 원본: public/assets/source/projects-world/character/surf-atlas-v1.png.
+  배포: public/assets/production/images/projects-world/character/{front,side,back}-surf-v1.webp.
+  제작 프롬프트: 기존 idle atlas의 머리·얼굴·검은 후드·카고 바지·운동화·백팩을 보존하고,
+  무릎을 굽히고 발을 벌린 서핑 균형 자세를 앞/왼쪽 옆/뒤 3방향으로 생성. 팔을 펼치고
+  몸을 앞으로 숙임. 투명 배경, 전신, 동일 발 기준선, 보드·배경·텍스트 제외.
+- lint/build 통과(기존 Three.js 청크 크기 경고). Headless Edge 1440×810에서 출발 자세,
+  좌우 균형 방향, 제동 후 idle 복귀, 에셋 실패 fallback 확인. 런타임 오류 0.
+  qa/surf-check.cjs / output/flight-atmosphere-qa/surfing.png. 실제 기기 검증은 하지 않았다.
+## 2026-10-01 월드맵 입장 UI 정리
+
+- 사용자 요청으로 입장 버튼 위 흰색 설명과 자동 비행 중 취소 버튼을 제거했다.
+- 입장 버튼은 공통 네비게이션의 파란 표면과 둥근 형태로 맞췄다. E 입장과 Escape 복귀는 유지한다.
+- Headless Edge 1440×810에서 실제 디자인과 설명 미표시, E 입장을 확인했다.
+  기존 Skills 제거 UI는 430×932에서도 확인했다. 실제 기기 검증은 하지 않았다.
+- Route, 이동 구조, Working/Locked 결정은 변경하지 않았다.
+## 2026-10-01 날개형 비행체와 캐릭터 / Skills 하단 UI 제거
+
+- 사용자 레퍼런스의 넓은 날개, 분할 패널과 중앙 탑승대 구성을 Three.js 메시로 구현했다.
+  월드맵 조작용 풍선형 비행체를 교체하고 기존 projects-world 캐릭터의 back/side/front idle
+  이미지를 탑승자로 재사용한다. 캐릭터는 3D 모델이 아닌 방향별 Sprite이며 원본 게임 에셋 복제는 아니다.
+- 선회에 따라 캐릭터 방향을 선택하고 날개와 함께 이동한다. 기존 비행 카메라, WASD/자동비행/E,
+  섬 배치와 물 셰이더를 유지한다. 캐릭터 이미지는 비동기로 불러오며 실패해도 비행을 막지 않는다.
+  모바일/Reduced Motion은 기존 직접 섬 선택을 유지한다. 원경 장식 비행선은 변경하지 않았다.
+- Skills에서 요청한 sc-controls(도구 전체 보기/공전 접기)와 다음 이야기 Projects 링크를 제거했다.
+  코어 클릭/키보드로 공전을 펼치거나 접을 수 있으며, 도구 전체 보기는 상세 패널 안에서 유지한다.
+- lint/build 통과(기존 Three.js 청크 경고). Headless Edge에서 W 이동, 자동 About 비행 후 E 진입,
+  캐릭터 에셋 실패 시 flight 유지, Skills 코어/상세패널/도구 접근 및 두 UI 미표시 확인. 런타임 오류 0.
+  배경 회귀 QA 19개 Viewport 통과. 실제 기기/Safari 미검증.
+  자료: qa/wing-skills-check.cjs, output/flight-atmosphere-qa/wing-rider.png.
+## 2026-10-01 리얼월드 소개 글쓰기 효과
+
+- RealWorldHeading으로 소개 제목을 분리했다. CSS가 글자별 왼쪽→오른쪽 reveal을 소유하며
+  첫 줄 다음 둘째 줄이 이어져 약 3초 안에 완성된다. 실제 폰트 획 추적이 아닌 글자 마스크 연출이다.
+  기존 손글씨 폰트·문구·레이아웃은 유지하고 아이디어 마커는 1.05초 뒤 시작한다.
+- 전체 제목은 접근성 이름으로 즉시 제공한다. 글자 공간을 처음부터 유지하며 입장은 기다리지 않는다.
+  Motion OFF/OS Reduced Motion에서 즉시 전체 표시한다. Hover에 글쓰기를 반복하지 않는다.
+- lint/build 및 21개 화면 크기 배치 검증 통과. 순차 노출/완성, 레이아웃 크기 유지,
+  입장 버튼 즉시 사용 가능, 접근성 이름, Motion OFF/Reduced Motion 확인.
+  검증: qa/real-writing-check.cjs / output/real-title-qa/. 실기기 스크린리더 미검증.
+## 2026-10-01 리얼월드 로고 제거 / 상단 소개 확대
+
+- RealWorld의 로고 링크와 WorldMark import를 제거했다. 다른 페이지 로고/파비콘은 유지한다.
+- 소개 문구를 상단으로 이동하고 Desktop 48–80px / Mobile 38–56px로 확대했다.
+  기존 손글씨 폰트와 강조, 입장 UI/이름/직무/영상은 유지하며 상단 명암만 보완했다.
+- lint/build 통과(기존 청크 경고). Headless Edge 21개 크기에서 제목의 상단 배치와
+  설정/입장 UI 겹침 없음 확인, Reduced Motion의 ENTER WORLD 이동 확인.
+  실제 모바일 기기와 네이티브 200% Zoom은 미검증.
+  qa/real-title-check.cjs / output/real-title-qa/에 검증 자료 보관.
+## 2026-10-01 로고 확대 / 섬 파비콘 / 헤더 도구 통일
+
+- 전체 로고를 Desktop 80px / 430px 이하 56px로 확대했다. 텍스트와 배경은 없는 상태를 유지한다.
+- index.html의 기존 문 모양 SVG 파비콘을 섬 심볼 PNG 32px로 교체하고 Apple Touch Icon 180px를 추가했다.
+  원본에서 로고 글자 영역을 제외한 심볼만 추출했다. 기존 SVG는 삭제하지 않았다.
+- 메뉴 Hover/Focus에 현재 페이지와 같은 파란 하단 빛을 추가했다. 블록 배경은 없고 별은 하나만 표시한다.
+  리얼월드/설정 도구를 동일한 푸른 유리/테두리/파란 Hover 빛으로 변경했다. 링크와 설정 기능 유지.
+- lint/build 통과(기존 청크 경고). 로고 12 URL×19 Viewport 검증 통과. 5개 메뉴의 별/파란빛,
+  active 복귀/키보드/Reduced Motion, 파비콘 HTTP 200, 설정 열기/닫기와 리얼월드 이동 확인.
+  실제 브라우저 탭 캐시와 iOS 홈 화면 아이콘 표시는 별도 실기기 검증하지 않았다.
+## 2026-10-01 월드맵 배경 모션 / 1안 맑은 아침 선택
+
+- 좁은 화면/모바일의 direct 모드에는 정적인 하늘만 있고 기존 3D 구름·새·비행선은
+  flight 모드에서만 실행되는 것을 확인했다. FlightAtmosphere에서 기존 WorldAtmosphere의
+  구름·새·잎과 기존 비행선 에셋을 재사용해 direct 모드에도 배경 움직임을 추가했다.
+- 모든 모드에 부드러운 해/채광 변화, 깊이가 다른 구름, 가는 바람 표현과 소량의 잎을 적용했다.
+  full flight의 새와 조작 비행선은 Three.js 소유를 유지하고 기존 구름/새 속도만 높였다.
+  CSS 배경은 섬과 HTML 콘텐츠 뒤에 배치한다. 모바일 비행선은 장식이며 조작 대상이 아니다.
+- CSS 배경은 설정 Motion OFF, OS Reduced Motion, 숨긴 탭/화면 밖, Arrival 동안 정지한다.
+  기존 섬 에셋·Route·직접 이동·WASD/자동 비행·물 셰이더와 공통 헤더는 유지한다.
+- 사용자가 1안 맑은 아침을 선택했다. 현재 배경과 모션을 유지한다. 높은 구름 바다 / 따뜻한 아침빛은 화면 캡처 비교
+  후보일 뿐 최종 결정이 아니다. 비교: output/flight-atmosphere-qa/concepts.html.
+- Edge headless 실제 flight 모드 및 direct 모드 모션 변화 확인, 필수11/경계8 크기
+  가로 넘침/4개 목적지 확인, Motion OFF 정지와 OS Reduced Motion, direct 이동/Back,
+  구름 에셋 실패 시 이동 확인. 런타임 오류 0. 실제 기기·Safari·Web Vitals는 미검증.
+  검증 스크립트: qa/flight-atmosphere-check.cjs. 기존 Three.js 청크 크기 경고 유지.
+
 ## 2026-10-01 About 정보창 형태 적용
+## 2026-10-01 사용자 로고 재적용 (최신 main 기준)
+
+- 최신 main의 WorldMark를 사용자 제공 섬 심볼로 교체했다. 후속 요청에 따라 모든 페이지의 로고 텍스트를 제거했다.
+  원본 PNG와 384px WebP는 assets/source/brand 및 assets/production/images/brand에 보존한다.
+  이미지의 기존 글자는 CSS viewport 밖으로 숨기며, 별도 HTML 로고 텍스트도 표시하지 않는다.
+  이미지 실패 시에도 로고 링크의 공간과 접근성 이름을 유지한다. 리얼월드의 Quick View 버튼은 제거했다.
+- PageHeader/RealWorld의 접근성 이름과 로고 패딩만 조정했다. 최신 Navigation, 메뉴,
+  리얼월드 도구, 페이지 내용과 이동은 유지한다. 페이지 공간/이동 결정 변경 없음.
+- lint/build 통과(Three.js 청크 500KB 초과 경고). Headless Edge에서 12개 URL과
+  필수 11개/경계 8개 Viewport 조합 228건의 로고 경계, 헤더 겹침, 로고 텍스트 미표시 확인 통과.
+  모바일 메뉴 열기/Escape 닫기와 이미지 실패 처리 확인.
+  실제 모바일 기기/200% Zoom/전체 페이지 기능은 이번 검증 범위 밖이다.
+  검증: qa/logo-check.cjs, output/logo-qa/. 기존 stash는 보존했다.
+
 
 - 사용자 승인에 따라 About.css의 공통 정보창을 Ink 94% / Ivory 글자 / Stone400 세로선 / 12px 절삭 모서리로 변경. 둘레 테두리와 헤더 구분선 제거.
 - 5개 본문, 오른쪽 최대360×560 패널, 본문 스크롤, ESC/포커스 복귀, E와 목록 및 배경 구조 유지. 새 폰트·색상 토큰 없음.

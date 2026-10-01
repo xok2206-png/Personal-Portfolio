@@ -1,5 +1,6 @@
+import { projectDetailsEnabled } from './projectAccess.js'
 import { useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import ProjectDetail from '../ProjectDetail/ProjectDetail'
 import { usePortfolioUI } from '../../app/PortfolioUIContext'
 import { worldAsset, sunsetAsset, worldProjects } from './projectWorld'
 import useProjectExploration from './useProjectExploration'
@@ -10,7 +11,7 @@ import './ProjectsWorld.css'
 import './ProjectsHUD.css'
 import './ProjectsRefinement.css'
 
-function ProjectPicker({ onClose, onWalk }) {
+function ProjectPicker({ onClose, onWalk, onDetail }) {
   const dialog = useRef(null)
   const [returnFocus] = useState(() => document.activeElement)
   useEffect(() => {
@@ -20,22 +21,33 @@ function ProjectPicker({ onClose, onWalk }) {
   }, [returnFocus])
   return <dialog className="pw-picker" ref={dialog} onCancel={onClose} onClick={e => { if (e.target === e.currentTarget) onClose() }} aria-labelledby="pw-picker-title">
     <header><h2 id="pw-picker-title">목적지 선택</h2><button onClick={onClose} aria-label="목록 닫기">닫기</button></header>
-    <div className="pw-destination-list">{worldProjects.map((p,index) => <section key={p.id} className="pw-destination-row"><div><small>{p.landmark}</small><h3>{p.name}</h3></div><div className="pw-destination-actions"><button className="pw-walk-action" onClick={() => { onClose(); onWalk(index) }}>길 안내</button><Link to={`/projects/${p.id}`}>상세 보기 ↗</Link></div></section>)}</div>
+    <div className="pw-destination-list">{worldProjects.map((p,index) => <section key={p.id} className="pw-destination-row"><div><small>{p.landmark}</small><h3>{p.name}</h3></div><div className="pw-destination-actions"><button className="pw-walk-action" onClick={() => { onClose(); onWalk(index) }}>길 안내</button><button className="pw-detail-action" disabled={!projectDetailsEnabled} title="상세 내용 준비 중" onClick={() => onDetail(p)}>상세 보기</button></div></section>)}</div>
   </dialog>
 }
 
-function EntryCinematic({ project, onClose }) {
+function ProjectDetailDialog({ project, onClose, fallback }) {
   const dialog = useRef(null)
-  useEffect(() => { dialog.current.showModal() }, [])
-  return <dialog ref={dialog} className="pw-entrance" onCancel={onClose} aria-label={`${project.name} 입장`}>
-    <span>{project.landmark}</span><h2>{project.name}</h2><Link to={`/projects/${project.id}`} autoFocus>바로 보기 ↗</Link>
+  const [returnFocus] = useState(() => document.activeElement)
+  useEffect(() => {
+    const element = dialog.current
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    element.showModal()
+    return () => {
+      element.close(); document.body.style.overflow = previousOverflow
+      if (returnFocus?.isConnected) returnFocus.focus()
+      else fallback.current?.focus()
+    }
+  }, [returnFocus, fallback])
+  return <dialog ref={dialog} className="pw-detail-dialog" aria-label={project.name + ' 상세 보기'} onCancel={onClose}>
+    <button className="pw-detail-close" onClick={onClose} autoFocus aria-label="상세 닫기">닫기 ×</button>
+    <ProjectDetail projectId={project.id} onClose={onClose} />
   </dialog>
 }
 
 export default function Projects() {
   const { reduced, paused } = usePortfolioUI()
   const viewport = useRef(null), stage = useRef(null), walker = useRef(null), roadCursor=useRef(null)
-  const navigate = useNavigate()
   const [selected, setSelected] = useState(null)
   const [waypoint, setWaypoint] = useState(null)
   const [picker, setPicker] = useState(false)
@@ -45,12 +57,11 @@ export default function Projects() {
   const [artFailed, setArtFailed] = useState(false)
   const [time, setTime] = useState(() => { try { return Math.min(240, Number(sessionStorage.getItem('projects-time')) || 0) } catch { return 0 } })
   function enter(project) {
-    if (entering) return
-    if (reduced) { navigate(`/projects/${project.id}`); return }
-    explore.stop(); explore.aim(project); explore.changeZoom(1.8)
+    if (!projectDetailsEnabled || entering) return
+    explore.stop(); setPicker(false)
     setEntering(project)
   }
-  const explore = useProjectExploration({ viewport, stage, walker, roadCursor, paused: reduced || paused, onEnter: enter, onApproach: () => setSelected(null) })
+  const explore = useProjectExploration({ viewport, stage, walker, roadCursor, paused: reduced || paused || Boolean(entering), onEnter: enter, onApproach: () => setSelected(null) })
   const current = selected !== null ? worldProjects[selected] : explore.near !== null ? worldProjects[explore.near] : null
   useEffect(() => {
     const visibility = () => setHidden(document.hidden)
@@ -60,7 +71,7 @@ export default function Projects() {
     const open = () => setPicker(true)
     window.addEventListener('projects:select', open)
     const escape = event => {
-      if (event.key === 'Escape') { setSelected(null); setEntering(null) }
+      if (event.key === 'Escape' && !document.querySelector('dialog[open]')) setSelected(null)
       if (event.key.toLowerCase()==='m' && !event.repeat && !event.altKey && !event.ctrlKey && !event.metaKey && !document.querySelector('dialog[open]') && !event.target.closest?.('input,textarea,select,[contenteditable="true"]')) { event.preventDefault();setPicker(true) }
     }
     window.addEventListener('keydown', escape)
@@ -71,11 +82,6 @@ export default function Projects() {
     const timer = setInterval(() => setTime(value => Math.min(value + 1, 240)), 1000)
     return () => clearInterval(timer)
   }, [reduced, paused, hidden, onscreen])
-  useEffect(() => {
-    if (!entering) return
-    const timer = setTimeout(() => navigate(`/projects/${entering.id}`), reduced ? 0 : 2200)
-    return () => clearTimeout(timer)
-  }, [entering, navigate, reduced])
   useEffect(() => { try { sessionStorage.setItem('projects-time', String(time)) } catch { /* Optional storage. */ } }, [time])
   function choose(index) { setSelected(index); explore.stop() }
   function setDirection(index) { setWaypoint(index); setSelected(-1); explore.walkTo(worldProjects[index]) }
@@ -94,7 +100,7 @@ export default function Projects() {
                 <strong>{project.name}</strong><i className="pw-location-pin" aria-hidden="true" data-visited={explore.visited.includes(project.id)} />
               </button>
               {project.screen && <ProjectScreen project={project} className="pw-landmark-screen" />}
-              {explore.near === index && <button className="pw-near-enter" onClick={() => enter(project)}><kbd>E</kbd> 입장</button>}
+              {explore.near === index && <button className="pw-near-enter" disabled={!projectDetailsEnabled} title="상세 내용 준비 중" onClick={() => enter(project)}><kbd>E</kbd> 입장</button>}
             </div>)}
           </nav>
           {waypoint !== null && <div className="pw-waypoint" style={{ left: `${worldProjects[waypoint].entrance[0]}%`, top: `${worldProjects[waypoint].entrance[1]}%` }}><span /><b>{worldProjects[waypoint].name}</b></div>}
@@ -112,15 +118,15 @@ export default function Projects() {
       {current && <aside className="pw-preview" aria-label={`${current.name} 미리보기`}>
         <button className="pw-preview-close" aria-label="미리보기 닫기" onClick={() => { setSelected(-1); viewport.current?.focus() }}>×</button>
         {current.screen && <ProjectScreen key={current.id} project={current} />}
-        <div className="pw-preview-body"><small>{current.landmark}</small><h2>{current.name}</h2><p>{current.description}</p><span>{current.role || '담당 역할 자료 준비 중'}</span><div className="pw-preview-actions"><button onClick={() => setDirection(worldProjects.indexOf(current))}>길 따라 이동</button><Link to={`/projects/${current.id}`}>상세 보기 ↗</Link></div></div>
+        <div className="pw-preview-body"><small>{current.landmark}</small><h2>{current.name}</h2><p>{current.description}</p><span>{current.role || '담당 역할 자료 준비 중'}</span><div className="pw-preview-actions"><button onClick={() => setDirection(worldProjects.indexOf(current))}>길 따라 이동</button><button className="pw-detail-action" disabled={!projectDetailsEnabled} title="상세 내용 준비 중" onClick={() => enter(current)}>상세 보기</button></div></div>
       </aside>}
       <div className="pw-bottom">
         <button className="pw-journey-menu" onClick={() => setPicker(true)} aria-haspopup="dialog" aria-keyshortcuts="M"><span className="pw-compass-mark" aria-hidden="true"/><span>목적지 선택{waypoint !== null && <small>{worldProjects[waypoint].name}</small>}</span><kbd>M</kbd></button>
         <p id="pw-help"><span><kbd>WASD</kbd> 이동</span><span><kbd>Shift</kbd> 달리기</span><span><kbd>E</kbd> 입장</span><span className="pw-mouse-hint">길 클릭으로 이동</span></p>
       </div>
     </section>
-    <section className="pw-mobile-index" aria-labelledby="pw-index-title"><h2 id="pw-index-title">목적지 선택</h2>{worldProjects.map(p => <Link key={p.id} to={`/projects/${p.id}`}><div><small>{p.landmark}</small><h3>{p.name}</h3><p>{p.role || '자료 준비 중'}</p></div><span aria-hidden="true">↗</span></Link>)}</section>
-    {picker && <ProjectPicker onClose={() => setPicker(false)} onWalk={setDirection} />}
-    {entering && <EntryCinematic project={entering} onClose={() => { setEntering(null); viewport.current?.focus() }} />}
+    <section className="pw-mobile-index" aria-labelledby="pw-index-title"><h2 id="pw-index-title">목적지 선택</h2>{worldProjects.map(p => <button key={p.id} disabled={!projectDetailsEnabled} title="상세 내용 준비 중" onClick={() => enter(p)}><div><small>{p.landmark}</small><h3>{p.name}</h3><p>{p.role || '자료 준비 중'}</p></div><span aria-hidden="true">↗</span></button>)}</section>
+    {picker && <ProjectPicker onClose={() => setPicker(false)} onWalk={setDirection} onDetail={enter} />}
+    {projectDetailsEnabled && entering && <ProjectDetailDialog project={entering} fallback={viewport} onClose={() => setEntering(null)} />}
   </main>
 }

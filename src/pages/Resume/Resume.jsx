@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import { profile, skills, projects } from '../../data/content.js'
 
-function Resume() {
+function Resume({ embedded = false }) {
+  const Container = embedded ? 'article' : 'main'
   return (
-    <main id="main" className="resume_world">
+    <Container id={embedded ? undefined : "main"} className={embedded ? "connect-resume" : "resume_world"}>
       <h1 tabIndex="-1">{profile.name}</h1>
       <p>{profile.role}</p>
       <p>{profile.intro}</p>
@@ -26,11 +27,11 @@ function Resume() {
         ))}
       </ul>
 
-      <button type="button" onClick={() => window.print()}>
+      {!embedded && <><button type="button" onClick={() => window.print()}>
         요약 인쇄 / PDF 저장
       </button>
-      <Link to="/contact">연락처 보기</Link>
-    </main>
+      <Link to="/contact">연락처 보기</Link></>}
+    </Container>
   )
 }
 

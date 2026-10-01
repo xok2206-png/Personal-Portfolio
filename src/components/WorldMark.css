@@ -1,0 +1,11 @@
+/* Show only the supplied island artwork, without the baked lettering. */
+.world-mark.portfolio-logo-lockup{display:inline-flex;align-items:center;gap:8px}
+.portfolio-logo-symbol{position:relative;width:80px;height:80px;overflow:hidden;flex-shrink:0}
+.portfolio-logo-symbol .portfolio-brand-logo{position:absolute;display:block;width:171.4286%;height:auto;max-width:none;left:-39.2857%;top:-14.2857%}
+@media(max-width:430px){
+  .portfolio-logo-symbol{width:56px;height:56px}
+  .portfolio-logo-symbol .portfolio-brand-logo{width:171.4286%;height:auto;left:-39.2857%;top:-14.2857%}
+  .portfolio-experience .page-header{gap:8px}
+  .page-header .page-header-tools{gap:4px}
+  .page-header .page-icon-control{width:44px;height:44px;min-width:44px}
+}

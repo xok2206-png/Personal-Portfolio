@@ -1,3 +1,4 @@
+import { projectDetailsEnabled } from '../pages/Projects/projectAccess.js'
 import { lazy, Suspense } from 'react'
 import './WorldLoading.css'
 import { Link, Navigate, Route, Routes } from 'react-router-dom'
@@ -22,7 +23,7 @@ function AppRouter() {
       <Route path="/world-map" element={<PortfolioWorld />} />
 
       <Route path="/projects" element={<Projects />} />
-      <Route path="/projects/:projectId" element={<ProjectDetail />} />
+      <Route path="/projects/:projectId" element={projectDetailsEnabled ? <ProjectDetail /> : <Navigate to="/projects" replace />} />
 
       <Route path="/about" element={<About />} />
       <Route path="/skills" element={<Skills />} />

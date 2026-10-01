@@ -4,8 +4,8 @@ import { usePortfolioUI } from '../../app/PortfolioUIContext.jsx'
 import './RealWorld.css'
 import './RealWorldCredits.css'
 import PortalCinematic from './PortalCinematic.jsx'
-import WorldMark from '../../components/WorldMark.jsx'
 import RealWorldActionIcon from './RealWorldActionIcon.jsx'
+import RealWorldHeading from './RealWorldHeading.jsx'
 
 const GATEWAY_STATUS = {
   idle: '● REAL WORLD',
@@ -43,11 +43,9 @@ function RealWorld() {
       <div className="room-photo" />
       <PortalCinematic active={journey} reduced={reduced} onArrive={arrive} />
       <div className="room-shade" />
-      <Link className="real-world-brand" to="/" tabIndex={launching ? -1 : undefined} aria-hidden={launching || undefined} aria-label="준영 · 리얼월드"><WorldMark /></Link>
 
       <div className="real-header real-secondary-tools" inert={launching} aria-hidden={launching || undefined}>
         <nav className="real-utilities" aria-label="리얼월드 바로가기">
-          <Link className="real-quick" to="/quick-view">QUICK VIEW <span aria-hidden="true">↗</span></Link>
           <details className="real-settings" onKeyDown={e=>{if(e.key==='Escape'){e.currentTarget.open=false;e.currentTarget.querySelector('summary').focus()}}}>
             <summary aria-label="환경 설정" title="환경 설정"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m9 3 1-1h4l1 3 3 1 3 1v4l-2 2v3l-3 2-1 3h-4l-2-2-3-1-3-2v-4l2-2V7l3-2Z"/><circle cx="12" cy="12" r="3.5"/></svg></summary>
             <div className="real-settings-panel"><strong>환경 설정</strong><button type="button" disabled={systemReduced} aria-pressed={!reduced} onClick={()=>setPaused(!paused)}>Motion <span>{reduced?'OFF':'ON'}</span></button><button type="button" aria-pressed={sound} onClick={()=>{setSound(!sound);if(!sound)tone(true)}}>Sound <span>{sound?'ON':'OFF'}</span></button><small>{systemReduced?'기기의 동작 줄이기 설정 적용 중':'Sound는 선택 효과음에 적용됩니다.'}</small></div>
@@ -57,7 +55,7 @@ function RealWorld() {
 
       <div className={`start-copy${launching ? ' is-launching' : ''}`} inert={launching} aria-hidden={launching || undefined}>
         <div className="real-credit-copy">
-          <h1 tabIndex="-1">작은 <span className="real-credit-highlight">아이디어</span>가<br /><strong>더 나은 경험이 되는 곳</strong></h1>
+          <RealWorldHeading reduced={reduced} />
         </div>
         <div className="gateway">
           <div className="start-actions">

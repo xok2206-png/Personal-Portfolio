@@ -58,7 +58,7 @@ export default function PageHeader() {
   return <>
     <header className="page-header">
       <div className="page-header-origin">
-        <Link className="page-brand" to="/world-map" aria-label="준영 · 월드맵" onClick={event => choose(event, '/world-map', 'World')}><WorldMark /></Link>
+        <Link className="page-brand" to="/world-map" aria-label="Portfolio World · 월드맵" onClick={event => choose(event, '/world-map', 'World')}><WorldMark /></Link>
       </div>
       <nav className="page-primary-nav" aria-label="주요 메뉴"><span className="page-nav-terminal" aria-hidden="true" />{links()}<span className="page-nav-terminal" aria-hidden="true" /></nav>
       <span className="page-current-location">{current}</span>

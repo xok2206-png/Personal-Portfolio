@@ -83,8 +83,8 @@
  .pw-heading .pw-touch-intro{display:none}.pw-heading button{width:auto;gap:12px;margin:0}.pw-heading button kbd{display:none}
  .pw-camera,.pw-bottom{display:none}.pw-mobile-index{padding:24px 24px 40px}
  .pw-mobile-index>h2{font-size:14px;color:var(--ink-soft);font-weight:400;margin-bottom:12px}
- .pw-mobile-index>a{padding:20px 0;color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));border-color:var(--stone-200)}
- .pw-mobile-index>a:last-child{border:0}.pw-mobile-index small{font-size:12px;color:var(--ink-soft)}.pw-mobile-index h3{font-weight:500;margin:6px 0;font-size:22px}.pw-mobile-index p{color:var(--ink-soft);font-size:13px}.pw-mobile-index>a>span:last-child{color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent))}
+ .pw-mobile-index>button{padding:20px 0;color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent));border-color:var(--stone-200)}
+ .pw-mobile-index>button:last-child{border:0}.pw-mobile-index small{font-size:12px;color:var(--ink-soft)}.pw-mobile-index h3{font-weight:500;margin:6px 0;font-size:22px}.pw-mobile-index p{color:var(--ink-soft);font-size:13px}.pw-mobile-index>button>span:last-child{color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent))}
  .portfolio-experience.gallery-mode .next-destination,.portfolio-experience.gallery-mode .next-destination small{color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent))}
  .projects-world :is(a,button):focus-visible{outline-color:color-mix(in srgb,var(--ink) 60%,var(--warm-accent))}
  .pw-picker{padding:24px}.pw-picker h2{font-size:20px}.pw-picker nav strong{font-size:18px}
